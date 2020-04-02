@@ -1,9 +1,9 @@
 *
 !.gitignore
 
-!css/*
-!icons/*
-!images/*
-!js/*
-!plugins/*
+!css/
+!icons/
+!images/
+!js/
+!plugins/
 
