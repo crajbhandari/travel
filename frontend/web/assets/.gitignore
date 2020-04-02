@@ -1,9 +1,9 @@
 *
-!/fonts
-!/css
-!/js
-!/images
-!/plugins
-!/slider
+!fonts
+!css
+!js
+!images
+!plugins
+!slider
 
 !.gitignore
