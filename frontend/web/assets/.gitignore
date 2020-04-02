@@ -1,2 +1,9 @@
 *
+!/fonts
+!/css
+!/js
+!/images
+!/plugins
+!/slider
+
 !.gitignore
