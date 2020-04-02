@@ -1,8 +1,7 @@
-
-!/css
-! /icons
-!/images
-!/js
-!/plugins
-!.gitignore
 *
+! /css
+! /icons
+! /images
+! /js
+! /plugins
+!.gitignore
