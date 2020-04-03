@@ -2,6 +2,7 @@ section {
     min-height: 100vh;
     display: table;
     width: 100%;
+    margin-top: 50px;
 }
 
 .site-login {
@@ -20,8 +21,8 @@ section {
 }
 
 .login-wrapper .form-wrapper {
-    background: #ffffff;
-    padding: 30px;
+    background: #85b0ddb8;
+    padding: 7px;
     border-radius: 6px;
     margin-bottom: 30px;
 

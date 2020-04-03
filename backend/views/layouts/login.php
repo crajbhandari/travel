@@ -26,6 +26,7 @@
 
     <!-- Custom CSS -->
     <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/style.css" rel = "stylesheet">
+    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/custom.css" rel = "stylesheet">
     <!-- You can change the theme colors from here -->
     <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/login.css" rel = "stylesheet">
 
