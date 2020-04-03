@@ -62,7 +62,7 @@
                                 </div>
                                 <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
                                     <div class = "image-actions text-right">
-                                        <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
+                                        <a href = "javascript:void();" class = "remove-image" data-tab = "testimonials" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
                                             <i class = "mdi mdi-close margin-right-5"></i>
                                             Remove Image
                                         </a>

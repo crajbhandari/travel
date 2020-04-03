@@ -6,7 +6,7 @@
 
 <div class = "container-fluid">
     <div class = "row page-titles">
-        <div class = "col-md-6 align-self-center">
+        <div class = "coreml-md-6 align-self-center">
             <h3 class = "text-themecolor m-b-0 m-t-0">Team</h3>
         </div>
         <div class = "col-md-6 align-self-center text-right">
@@ -118,7 +118,7 @@
                                 </div>
                                 <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
                                     <div class = "image-actions text-right">
-                                        <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
+                                        <a href = "javascript:void();" class = "remove-image" data-tab = "team" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
                                             <i class = "mdi mdi-close margin-right-5"></i>
                                             Remove Image
                                         </a>

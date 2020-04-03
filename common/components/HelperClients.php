@@ -25,6 +25,8 @@
                 $model = new Clients;
             }
             $model->attributes = $data;
+            $model->on_home = $data['on_home'];
+            $model->on_about = $data['on_about'];
 
             if (isset($image['name']) && $image['name'] != '') {
                 if ($model->image != '') {

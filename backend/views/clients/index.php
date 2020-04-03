@@ -79,7 +79,7 @@
                                 </div>
                                 <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
                                     <div class = "image-actions text-right">
-                                        <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
+                                        <a href = "javascript:void();" class = "remove-image" data-tab = "clients" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
                                             <i class = "mdi mdi-close margin-right-5"></i>
                                             Remove Image
                                         </a>
@@ -114,16 +114,20 @@
                             <table class = "table  table-striped" data-plugin = "datatable">
                                 <thead>
                                     <tr>
+                                        <th>Action</th>
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Link</th>
                                         <th>Date</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($clients as $client) : ?>
                                         <tr>
+                                            <td class = "text-right">
+                                                <a class = "btn btn-primary btn-sm" href = "<?php echo Yii::$app->request->baseUrl; ?>/clients/edit/<?php echo \common\components\Misc::encodeUrl($client['id']) ?>">Edit</a>
+                                                <a class = "btn btn-default btn-sm delete-item" href = "javascript:void();" data-tab = "Clients" data-id = "<?php echo \common\components\Misc::encodeUrl($client['id']); ?>">Delete</a>
+                                            </td>
                                             <td>
                                                 <div class = "image-wrapper">
                                                     <?php if (isset($client['image']) && $client['image'] != ''): ?>
@@ -138,10 +142,6 @@
                                                 <?php endif; ?>
                                             </td>
                                             <td><?php echo \common\components\Misc::dmY($client['created_on']); ?></td>
-                                            <td class = "text-right">
-                                                <a class = "btn btn-primary btn-sm" href = "<?php echo Yii::$app->request->baseUrl; ?>/clients/edit/<?php echo \common\components\Misc::encodeUrl($client['id']) ?>">Edit</a>
-                                                <a class = "btn btn-default btn-sm delete-item" href = "javascript:void();" data-tab = "Clients" data-id = "<?php echo \common\components\Misc::encodeUrl($client['id']); ?>">Delete</a>
-                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
 

@@ -126,7 +126,7 @@ $(function ($) {
                            success: function (data) {
                               console.log(data);
                               if (data == true) {
-                                 //    notify('success', type + ' Deleted.');
+                                    notify('success', table + ' Deleted.');
                                  location.reload();
                                  // row.remove();
                               } else {
@@ -279,13 +279,14 @@ $(function ($) {
                   'id': $this.data('id'),
                },
                'success': function (result) {
-                  if (result == 'true') {
+                  console.log(result);
+                  if (!result == 'true') {
+                     notify('danger', 'Sorry File Not Removed');
+                  } else {
                      notify('success', 'File Removed');
                      parent.find('.custom-file-input-image').attr('src', '');
                      imgAct.remove();
                      imageHolder.remove();
-                  } else {
-                     notify('danger', 'Sorry File Not Removed');
                   }
                },
                'error': function (error) {
