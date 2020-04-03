@@ -3,7 +3,7 @@
         'components' => [
             'db' => [
                 'class' => 'yii\db\Connection',
-                'dsn' => 'mysql:host=localhost;dbname=gatewaysc_db',
+                'dsn' => 'mysql:host=localhost;dbname=travel',
                 'username' => 'gatewaysc_db',
                 'password' => 'gatewaysc_db',
                 'charset' => 'utf8',

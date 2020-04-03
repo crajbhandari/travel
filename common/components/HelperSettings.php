@@ -19,13 +19,17 @@
     class HelperSettings extends Component {
 
         public static function set($setting) {
-            if ($setting['id'] < 0) {
+
+            if ($setting['id'] <= 0) {
+
                 $model = new Settings();
             }
             else {
+
                 $model = Settings::findOne($setting['id']);
             }
             if ($model) {
+
                 $model->type = (isset($setting['type'])) ? $setting['type'] : $model->type;
                 $model->slug = (isset($setting['slug'])) ? $setting['slug'] : $model->slug;;
                 $model->caption = (isset($setting['caption'])) ? $setting['caption'] : $model->caption;
@@ -34,9 +38,12 @@
                     $model->content = str_replace(' ', '', $setting['content']);
                 }
                 if ($model->save() == TRUE) {
+
                     return $model;
                 }
+
             }
+
             return FALSE;
         }
     }
