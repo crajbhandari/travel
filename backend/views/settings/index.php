@@ -1,4 +1,5 @@
 <?php
+
 $this->title = Yii::$app->params['system_name'] . ' | Website Settings';
 if (isset($editable['type']) && $editable['type'] == 'json') {
     $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/plugins/ace-editor/src/ace.js');
@@ -53,13 +54,13 @@ $new = ($editable == false) ? 1 : 0; ?>
                         <div class="form-group">
                             <?php $counter++; ?>
                            <label for="<?php echo $counter; ?>" class="control-label">Slug</label>
-                           <input disabled="disabled" id="<?php echo $counter; ?>" name="setting[slug]" value="<?php echo(isset($editable['slug']) ? $editable['slug'] : '') ?>" type="text" class="form-control">
+                           <input  id="<?php echo $counter; ?>" name="setting[slug]" value="<?php echo(isset($editable['slug']) ? $editable['slug'] : '') ?>" type="text" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <?php $counter++; ?>
                            <label for="<?php echo $counter; ?>" class="control-label">Data Type</label>
-                           <select disabled="disabled" id="<?php echo $counter; ?>" name="setting[type]" class="form-control required">
+                           <select  id="<?php echo $counter; ?>" name="setting[type]" class="form-control required">
                               <option <?php echo (isset($editable['type']) && $editable['type'] == 'text') ? 'selected = "selected"' : '' ?> value="text">Text</option>
                               <option <?php echo (isset($editable['type']) && $editable['type'] == 'textarea') ? 'selected = "selected"' : '' ?> value="textarea">Textarea</option>
                               <option <?php echo (isset($editable['type']) && $editable['type'] == 'boolean') ? 'selected = "selected"' : '' ?> value="boolean">Boolean</option>
@@ -69,17 +70,17 @@ $new = ($editable == false) ? 1 : 0; ?>
                         <div class="form-group setting-content">
                             <?php $counter++; ?>
                            <label for="<?php echo $counter; ?>" class="control-label">Content</label>
-                            <?php if ($editable['type'] === 'textarea'): ?>
+                            <?php if (isset($editable['type']) && $editable['type'] === 'textarea'): ?>
                                <textarea <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
-                            <?php elseif ($editable['type'] === 'json'): ?>
+                            <?php elseif (isset($editable['type']) && $editable['type'] == 'json'): ?>
                                <textarea <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
-                            <?php elseif ($editable['type'] === 'boolean'): ?>
+                            <?php elseif (isset($editable['type']) && $editable['type'] == 'boolean'): ?>
                                <select <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> id="<?php echo $counter; ?>" name="setting[content]" class="form-control required">
                                   <option <?php echo (isset($editable['content']) && $editable['content'] == '0') ? 'selected = "selected"' : '' ?> value="0">False</option>
                                   <option <?php echo (isset($editable['content']) && $editable['content'] == '1') ? 'selected = "selected"' : '' ?> value="1">True</option>
                                </select>
                             <?php else: ?>
-                               <input <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" value="<?php echo(isset($editable['content']) ? $editable['content'] : '') ?>" type="text" class="form-control required">
+                               <input <?= (isset($editable['is_editable']) && $editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" value="<?php echo(isset($editable['content']) ? $editable['content'] : '') ?>" type="text" class="form-control required">
                             <?php endif; ?>
                         </div>
                         <div class="form-group">
@@ -199,17 +200,17 @@ $new = ($editable == false) ? 1 : 0; ?>
                         <div class="form-group setting-content">
                             <?php $counter++; ?>
                            <label for="<?php echo $counter; ?>" class="control-label">Content</label>
-                            <?php if ($editable['type'] === 'textarea'): ?>
+                            <?php if (isset($editable['type']) && $editable['type'] == 'textarea'): ?>
+                               <textarea <?= (isset($editable['is_editable']) && $editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
+                            <?php elseif (isset($editable['type']) && $editable['type'] == 'json'): ?>
                                <textarea <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
-                            <?php elseif ($editable['type'] === 'json'): ?>
-                               <textarea <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
-                            <?php elseif ($editable['type'] === 'boolean'): ?>
+                            <?php elseif (isset($editable['type']) && $editable['type'] == 'boolean'): ?>
                                <select <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> id="<?php echo $counter; ?>" name="setting[content]" class="form-control required">
                                   <option <?php echo (isset($editable['content']) && $editable['content'] == '0') ? 'selected = "selected"' : '' ?> value="0">False</option>
                                   <option <?php echo (isset($editable['content']) && $editable['content'] == '1') ? 'selected = "selected"' : '' ?> value="1">True</option>
                                </select>
                             <?php else: ?>
-                               <input <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" value="<?php echo(isset($editable['content']) ? $editable['content'] : '') ?>" type="text" class="form-control required">
+                               <input <?= (isset($editable['is_editable']) && $editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" value="<?php echo(isset($editable['content']) ? $editable['content'] : '') ?>" type="text" class="form-control required">
                             <?php endif; ?>
                         </div>
                         <div class="form-group">
@@ -245,6 +246,7 @@ $new = ($editable == false) ? 1 : 0; ?>
                                </thead>
                                <tbody>
                                <?php foreach ($settings as $setting) : ?>
+
                                   <tr>
                                      <td><?php echo ucwords($setting['slug']); ?></td>
                                      <td>
@@ -260,7 +262,8 @@ $new = ($editable == false) ? 1 : 0; ?>
                                      </td>
                                      <td class="text-right">
                                         <a class="m-r-10" href="<?php echo Yii::$app->request->baseUrl; ?>/settings/edit/<?php echo \common\components\Misc::encodeUrl($setting['id']) ?>">Edit</a>
-                                        <a class="delete-item" data-table="setting" data-identity="<?php echo \common\components\Misc::encodeUrl($setting['id']); ?>" href="javascript:void();">Delete</a>
+                                        <a class="delete-item" data-tab="settings" data-id="<?php echo \common\components\Misc::encodeUrl($setting['id']); ?>" href="javascript:void();">Delete</a>
+
                                      </td>
                                   </tr>
                                <?php endforeach; ?>

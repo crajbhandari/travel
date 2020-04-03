@@ -120,11 +120,13 @@ class SiteController extends Controller {
     }
 
     public function actionDeleteItem() {
+
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if ($_POST['id'] != '' && Misc::decodeUrl($_POST['id']) > 0 && $_POST['table'] != '') {
             $model_name = 'common\models\\' . $_POST['table'];
             $id = Misc::decodeUrl($_POST['id']);
             $model = $model_name::findOne($id);
+
             if ($model) {
                 if (isset($model->image) && $model->image != '') {
                     Misc::delete_file($model->image, 'image');

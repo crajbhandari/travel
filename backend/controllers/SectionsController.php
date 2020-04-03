@@ -69,8 +69,10 @@
             $s = Sections::find();
             if ($page != '') {
                 $s->where(['like', 'page', $page]);
+
             }
             $sections = $s->all();
+
             return $this->render('index', [
                 'sections' => $sections,
                 'page'     => Yii::$app->params['pages'][$page],
@@ -89,6 +91,7 @@
         }
 
         public function actionUpdate() {
+
             $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
             if (isset($_POST['content'])) {
                 $updated = HelperSections::set($_POST['content'], $image);
@@ -100,8 +103,10 @@
         }
 
         public function actionUpdatePage() {
+
             $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
             if (isset($_POST['page'])) {
+
                 $updated = HelperSections::setPage($_POST['page'], $image);
                 if ($updated != FALSE) {
                     Misc::setFlash('success', 'Page Updated.');
@@ -112,16 +117,20 @@
         }
 
         public function actionUpdateContactInfo() {
+
             if (isset($_POST['setting'])) {
                 $setting = $_POST['setting'];
 
                 $model = Settings::findOne($setting['id']);
+
                 if ($model) {
                     $model->content = json_encode($setting['content']);
                     if ($model->save() == TRUE) {
+
                         Misc::setFlash('success', 'Contact details updated.');
                     }
                     else {
+
                         Misc::setFlash('error', 'Contact details not updated.');
                     }
                 }

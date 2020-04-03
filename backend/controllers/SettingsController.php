@@ -68,6 +68,7 @@
 
 
         public function actionUpdate() {
+
             if (isset($_POST['setting'])) {
                 $updated = HelperSettings::set($_POST['setting']);
                 if ($updated == FALSE) {

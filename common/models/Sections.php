@@ -8,9 +8,9 @@
          * @inheritdoc
          */
         public function rules() {
-            return [
-                [['title', 'sub_title', 'content'], 'filter', 'filter' => 'trim'],
-            ];
+            return array_merge(Parent::rules(), [
+                    [['title'], 'filter', 'filter' => 'trim'],
+            ]);
         }
 
         public function getPage() {
