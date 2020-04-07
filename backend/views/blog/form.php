@@ -37,7 +37,7 @@ $this->title = 'Blog';
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
                      <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[content]"><?php echo (isset($editable['content'])) ? $editable['content'] : '' ?></textarea>
-                     <label for = "textarea1 <?php echo $counter; ?>">Content</label>
+<!--                     <label for = "textarea1 --><?php //echo $counter; ?><!--">Content</label>-->
                   </div>
                </div>
                <div class = "row">
