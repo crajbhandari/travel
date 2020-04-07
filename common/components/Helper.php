@@ -13,27 +13,46 @@
 
     namespace common\components;
 
+    use common\models\Messages;
     use common\models\Pages;
     use common\models\Settings;
     use yii\base\Component;
 
     class Helper extends Component {
         public function init() {
+            self::getPages();
+            self::getSettings();
+            self::getMessageCount();
+            self::getMessages();
+            parent::init();
+        }
+        public static function getSettings() {
+            $s = Settings::find()->all();
+            $m = [];
+            foreach ($s as $k => $v) {
+                $m[$v['slug']] = $v;
+            }
+            \Yii::$app->params['site-settings'] = $m;
+        }
+        public static function getPages() {
             $p = Pages::find()->all();
             $q = [];
             foreach ($p as $a) {
                 $q[$a['name']] = $a;
             }
             \Yii::$app->params['pages'] = $q;
+        }
+        public static function getMessageCount() {
+            $count = HelperMessages::getCount();
+            \Yii::$app->params['count_messages'] = $count;
+        }
+        public static function getMessages() {
+            $s = Messages::find()
+                         ->where('is_new = 1')
+                         ->orderBy(['id' => SORT_DESC])
+                         ->asArray()
+                         ->all();
 
-
-            $s = Settings::find()->all();
-            $m = [];
-            foreach ($s as $k => $v) {
-                $m[$v['slug']] = $v;
-            }
-
-            \Yii::$app->params['site-settings'] = $m;
-            parent::init();
+            \Yii::$app->params['messages'] = $s;
         }
     }

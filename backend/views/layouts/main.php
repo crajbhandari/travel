@@ -1,253 +1,334 @@
 <?php
 
-    /* @var $this \yii\web\View */
-    /* @var $content string */
+/* @var $this \yii\web\View */
 
-    use backend\assets\AppAsset;
-    use yii\helpers\Html;
+/* @var $content string */
 
-    AppAsset::register($this);
+use backend\assets\AppAsset;
+use yii\helpers\Html;
+
+AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang = "<?= Yii::$app->language ?>">
+
 <head>
-    <meta charset = "<?= Yii::$app->charset ?>">
-    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+   <meta charset = "<?= Yii::$app->charset ?>">
+   <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+   <meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
-    <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
-    <link href = "https://fonts.googleapis.com/css?family=Poppins:400,600" rel = "stylesheet">
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/css/margins-paddings.css" rel = "stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel = "stylesheet">
-    <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity = "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin = "anonymous">
+   <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
+   <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
 
-    <!-- All Form Addon CSS -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/form-addon.css" rel = "stylesheet">
+   <meta name = "viewport" content = "width=device-width, initial-scale=1, maximum-scale=1">
+   <!--== FAV ICON ==-->
+   <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/fav.ico">
 
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/spinners.css" rel = "stylesheet">
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/animate.css" rel = "stylesheet">
+   <!-- GOOGLE FONTS -->
+   <link href = "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Quicksand:300,400,500" rel = "stylesheet">
+   <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
+   <!-- FONT-AWESOME ICON CSS -->
+   <!--   <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity = "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin = "anonymous">-->
+   <!--       <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/assets/css/font-awesome.min.css" rel = "stylesheet">-->
+   <link href = "http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">    <!--== ALL CSS FILES ==-->
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/sweetalert/sweetalert.css">
 
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/icons/material-design-iconic-font/css/materialdesignicons.min.css" rel = "stylesheet">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/style.css" rel = "stylesheet">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/custom.css" rel = "stylesheet">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/bootstrap.css" rel = "stylesheet">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/materialize.css" rel = "stylesheet">
+   <style>
+      .notify_container{
+         margin-top: 50px!important;
+      }
+   </style>
 
-    <!-- summernotes CSS -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/summernote/dist/summernote.css" rel = "stylesheet"/>
-
-    <!-- Custom CSS -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/style.css" rel = "stylesheet">
-
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/overrides.css" rel = "stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
-    <script src = "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/jquery/jquery.min.js"></script>
-    <script>
-        var baseUrl = "<?php echo Yii::$app->request->baseUrl; ?>";
-        var pop = "";
-    </script>
+   <!--    <script src = "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+   <!--    <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
+   <script>
+      var baseUrl = "<?php echo Yii::$app->request->baseUrl; ?>";
+      var pop = "";
+   </script>
     <?php if (Yii::$app->session->hasFlash('pop')) { ?>
-        <script>
-            pop = <?php echo Yii::$app->session->getFlash('pop'); ?>;
-        </script>
+       <script>
+          pop = <?php echo Yii::$app->session->getFlash('pop'); ?>;
+       </script>
     <?php } ?>
     <?php $this->head() ?>
 </head>
-<body class = "fix-header fix-sidebar card-no-border">
-    <?php $this->beginBody() ?>
-    <!--[if lt IE 8]>
-    <p class = "browserupgrade">You are using an <strong>outdated</strong> browser. Please
-        <a href = "http//browsehappy.com/">upgrade your browser</a>
-        to improve your experience.
-    </p><![endif]-->
 
-    <div class = "preloader">
-        <svg class = "circular" viewBox = "25 25 50 50">
-            <circle class = "path" cx = "50" cy = "50" r = "20" fill = "none" stroke-width = "2" stroke-miterlimit = "10"/>
-        </svg>
-    </div>
-    <div id = "main-wrapper">
+<body>
+<!--== MAIN CONTRAINER ==-->
+<div class = "container-fluid sb1">
+   <div class = "row">
+      <!--== LOGO ==-->
+      <div class = "col-md-2 col-sm-3 col-xs-6 sb1-1">
+         <a href = "#" class = "btn-close-menu"><i class = "fa fa-times" aria-hidden = "true"></i></a>
+         <a href = "#" class = "atab-menu"><i class = "fa fa-bars tab-menu" aria-hidden = "true"></i></a>
+         <a href = "<?php echo Yii::$app->request->baseUrl; ?>" class = "logo"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/logo.png" alt = "">
 
-        <header class = "topbar">
-            <nav class = "navbar top-navbar navbar-expand-md navbar-light">
-                <!-- ============================================================== -->
-                <!-- Logo -->
-                <!-- ============================================================== -->
-                <div class = "navbar-header">
-                    <a class = "navbar-brand" href = "<?php echo Yii::$app->request->baseUrl; ?>">
-                        <!-- Logo icon -->
-                        <b>
-                            <!-- Light Logo icon -->
-                            <img src = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/logo-only.png" alt = "homepage" class = "logo-emblem"/>
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span class = "d_inline_b">
-                            <!-- Light Logo text -->
-                            <img src = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/logo-text.png" class = "logo-text" alt = "homepage"/>
-                        </span></a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class = "navbar-collapse">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class = "navbar-nav mr-auto mt-md-0">
-                        <!-- This is  -->
-                        <li class = "nav-item">
-                            <a class = "nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href = "javascript:void(0)">
-                                <i class = "mdi mdi-menu"></i>
-                            </a>
+         </a>
+      </div>
+      <!--== SEARCH ==-->
+      <div class = "col-md-6 col-sm-6 mob-hide">
+         <!--            <form class="app-search">-->
+         <!--                <input type="text" placeholder="Search..." class="form-control">-->
+         <!--                <a href="#"><i class="fa fa-search"></i></a>-->
+         <!--            </form>-->
+      </div>
+      <!--== NOTIFICATION ==-->
+      <div class = "col-md-2 tab-hide">
+         <div class = "top-not-cen">
+            <a class = 'waves-effect btn-noti' href = '#'>
+               <i class = "fa fa-commenting-o" aria-hidden = "true"></i>
+               <span>
+                 <?php
+                 if (Yii::$app->params['count_messages']['count_unseen'] > 0) {
+                     echo Yii::$app->params['count_messages']['count_unseen'];
+                 }
+                 ?>
+                   </span>
+            </a>
+            <a class = 'waves-effect btn-noti' href = '#'>
+               <i class = "fa fa-envelope-o" aria-hidden = "true"></i>
+               <span>5</span>
+            </a>
+            <a class = 'waves-effect btn-noti' href = '#'>
+               <i class = "fa fa-tag" aria-hidden = "true"></i>
+               <span>5</span>
+            </a>
+         </div>
+      </div>
+      <!--== MY ACCCOUNT ==-->
+      <div class = "col-md-2 col-sm-3 col-xs-6">
+         <!-- Dropdown Trigger -->
+         <a class = 'waves-effect dropdown-button top-user-pro' href = '#' data-activates = 'top-menu'>
+            <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/1552110608s.jpg" alt = ""/>
+            My Account
+            <i class = "fa fa-angle-down" aria-hidden = "true"></i>
+         </a>
+
+         <!-- Dropdown Structure -->
+         <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
+            <li><a href = "#" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Admin Setting</a>
+            </li>
+            <li class = "divider"></li>
+            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/logout" class = "ho-dr-con-last waves-effect"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Logout</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</div>
+
+<!--== BODY CONTNAINER ==-->
+<div class = "container-fluid sb2">
+   <div class = "row">
+      <div class = "sb2-1">
+         <!--== USER INFO ==-->
+         <div class = "sb2-12">
+            <ul>
+               <li><img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/1552110608s.jpg" alt = "">
+               </li>
+               <li>
+                  <h5><?php echo ucwords(Yii::$app->user->identity->name) ?> <span><?php echo ucwords(Yii::$app->user->identity->role) ?></span></h5>
+               </li>
+               <li></li>
+            </ul>
+         </div>
+         <!--== LEFT MENU ==-->
+         <div class = "sb2-13">
+            <ul class = "collapsible" data-collapsible = "accordion">
+               <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/" class = "<?php echo (Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-bar-chart" aria-hidden = "true"></i> Dashboard</a>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'blog' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-picture-o" aria-hidden = "true"></i> Blog</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/post">Add New</a>
                         </li>
-                        <li class = "nav-item">
-                            <a class = "nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href = "javascript:void(0)">
-                                <i class = "mdi mdi-menu"></i>
-                            </a>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/">List</a>
                         </li>
-                    </ul>
-                    <ul class = "navbar-nav my-lg-0">
-                        <li class = "nav-item">
-                            <a class = "nav-link waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/site/logout">
-                                <i class = "mdi mdi-power"></i>
-                            </a>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "user-all.html">All Users</a>
                         </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-        <aside class = "left-sidebar">
-            <!-- Sidebar scroll-->
-            <div class = "scroll-sidebar">
-
-                <!-- Sidebar navigation-->
-                <nav class = "sidebar-nav">
-                    <ul id = "sidebarnav">
-                        <li class = "<?php echo (Yii::$app->controller->id == 'admin' && Yii::$app->controller->action->id == 'index') ? 'active' : '' ?>">
-                            <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/" aria-expanded = "false">
-                                <i class = "mdi mdi-airplay"></i>
-                                <span class = "hide-menu">Dashboard</span>
-                            </a>
+                        <li><a href = "user-add.html">Add New user</a>
                         </li>
-                        <li class = "<?php echo (Yii::$app->controller->id == 'messages' && Yii::$app->controller->action->id == 'index') ? 'active' : '' ?>">
-                            <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/messages" aria-expanded = "false">
-                                <i class = "mdi mdi-email-outline"></i>
-                                <span class = "hide-menu">Messages</span></a>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "package-all.html">All Packages</a>
                         </li>
-                        <li class = "nav-divider"></li>
-                        <li class = "nav-small-cap">Data Management</li>
-
-                        <li class = "<?php echo (Yii::$app->controller->id == 'team' && Yii::$app->controller->action->id == 'index') ? 'active' : '' ?>">
-                            <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/team/" aria-expanded = "false">
-                                <i class = "mdi mdi-account-multiple"></i>
-                                <span class = "hide-menu">Team</span>
-                            </a>
+                        <li><a href = "package-add.html">Add New Package</a>
                         </li>
-                        <li class = "<?php echo (Yii::$app->controller->id == 'clients' && Yii::$app->controller->action->id == 'index') ? 'active' : '' ?>">
-                            <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/clients/" aria-expanded = "false">
-                                <i class = "mdi mdi-human-greeting"></i>
-                                <span class = "hide-menu">Clients</span>
-                            </a>
+                        <li><a href = "package-cat-all.html">All Package Categories</a>
                         </li>
-                        <li class = "<?php echo (Yii::$app->controller->id == 'testimonials' && Yii::$app->controller->action->id == 'index') ? 'active' : '' ?>">
-                            <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/testimonials/" aria-expanded = "false">
-                                <i class = "mdi mdi-message-reply-text"></i>
-                                <span class = "hide-menu">Testimonials</span>
-                            </a>
+                        <li><a href = "package-cat-add.html">Add Package Categories</a>
                         </li>
-                        <li class = "<?php echo (Yii::$app->controller->id == 'content' && Yii::$app->controller->action->id == 'services') ? 'active' : '' ?>">
-                            <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/services/" aria-expanded = "false">
-                                <i class = "mdi mdi-puzzle"></i>
-                                <span class = "hide-menu">Services</span>
-                            </a>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-h-square" aria-hidden = "true"></i> Hotels</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "hotel-all.html">All Hotels</a>
                         </li>
-                        <li class = "<?php echo (Yii::$app->controller->id == 'blog' && Yii::$app->controller->action->id == 'index') ? 'active' : '' ?>">
-                            <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/" aria-expanded = "false">
-                                <i class = "mdi mdi-note-multiple-outline"></i>
-                                <span class = "hide-menu">Blog</span>
-                            </a>
+                        <li><a href = "hotel-add.html">Add New Hotel</a>
                         </li>
-                        <li class = "nav-divider"></li>
-                        <li class = "nav-small-cap">Page Management</li>
-
-                        <?php foreach (Yii::$app->params['pages'] as $key => $page): ?>
-                            <li class = "<?php echo (Yii::$app->controller->id == 'sections' && Yii::$app->controller->action->id == 'pages/' . $key) ? 'active' : '' ?>">
-                                <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/sections/pages/<?php echo $key; ?>" aria-expanded = "false">
-                                    <i class = "mdi <?= ($page['icon']!='')?$page['icon']:'mdi-chevron-right' ?>"></i>
-                                    <span class = "hide-menu"><?php echo ucwords($key); ?></span>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                        <li class = "nav-divider"></li>
-                        <li class = "nav-small-cap">Miscellaneous</li>
-                        <li class = "<?php echo (Yii::$app->controller->id == 'settings' && Yii::$app->controller->action->id == 'index') ? 'active' : '' ?>">
-                            <a class = "waves-effect waves-dark" href = "<?php echo Yii::$app->request->baseUrl; ?>/settings" aria-expanded = "false">
-                                <i class = "mdi mdi-settings "></i>
-                                <span class = "hide-menu">Website Settings</span>
-                            </a>
+                        <li><a href = "hotel-room-type-all.html">Room Type</a>
                         </li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
+                        <li><a href = "hotel-room-type-add.html">Add Room Type</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-picture-o" aria-hidden = "true"></i> Sight Seeings</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "sight-see-all.html">All Sight Seeings</a>
+                        </li>
+                        <li><a href = "sight-see-add.html">Add New Sight Seeing</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-calendar-o" aria-hidden = "true"></i> Events</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "event-all.html">All Events</a>
+                        </li>
+                        <li><a href = "event-add.html">Add New Event</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-braille" aria-hidden = "true"></i> Ui-Kits</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "ui-form.html">ui-form</a>
+                        </li>
+                        <li><a href = "ui-kit.html">ui-kit</a>
+                        </li>
+                        <li><a href = "ui-table.html">ui-table</a>
+                        </li>
+                        <li><a href = "ui-pre-load.html">ui-pre-load</a>
+                        </li>
+                        <li><a href = "ui-tab.html">ui-tab</a>
+                        </li>
+                        <li><a href = "ui-icons.html">ui-icons</a>
+                        </li>
+                        <li><a href = "ui-collapsible.html">ui-collapsible</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-usd" aria-hidden = "true"></i> Discounts</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "discount.html">All Discounts</a>
+                        </li>
+                        <li><a href = "discount-add.html">Add New Discounts</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-tags" aria-hidden = "true"></i> Offers</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "offers.html">All Offers</a>
+                        </li>
+                        <li><a href = "offers-add.html">Add New Offers</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-ticket" aria-hidden = "true"></i> Booking & Enquiry</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "hotel-booking-all.html">Hotel</a>
+                        </li>
+                        <li><a href = "package-booking-all.html">Package</a>
+                        </li>
+                        <li><a href = "sight-see-booking-all.html">Sight Seeings</a>
+                        </li>
+                        <li><a href = "event-booking-all.html">Events</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-rss" aria-hidden = "true"></i> Blog & Articals</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "blog-all.html">All Blogs</a>
+                        </li>
+                        <li><a href = "blog-add.html">Add Blog</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "social-media.html"><i class = "fa fa-plus-square-o" aria-hidden = "true"></i> Social Media</a>
+               </li>
+               <li><a href = "login.html" target = "_blank"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Login</a>
+               </li>
+            </ul>
+         </div>
+      </div>
 
-        </aside>
+      <!--== BODY INNER CONTAINER ==-->
+       <?= $content ?>
 
-        <div class = "page-wrapper">
-            <!-- Page -->
-            <?= $content ?>
-            <!-- End Page -->
+   </div>
+</div>
 
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class = "footer">
-                <?php echo Yii::$app->params['system_name'] ?> | Backend by
-                <a target = "_blank" href = "http://auctadigital.com">Aucta Digital</a>
-                .
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
+<!--== BOTTOM FLOAT ICON ==-->
+<section>
+   <div class = "fixed-action-btn vertical">
+      <a class = "btn-floating btn-large red pulse">
+         <i class = "large material-icons">mode_edit</i>
+      </a>
+      <ul>
+         <li><a class = "btn-floating red"><i class = "material-icons">insert_chart</i></a>
+         </li>
+         <li><a class = "btn-floating yellow darken-1"><i class = "material-icons">format_quote</i></a>
+         </li>
+         <li><a class = "btn-floating green"><i class = "material-icons">publish</i></a>
+         </li>
+         <li><a class = "btn-floating blue"><i class = "material-icons">attach_file</i></a>
+         </li>
+      </ul>
+   </div>
+</section>
 
-    </div>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/plugins.min.js"></script>
 
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/plugins.min.js"></script>
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
-
-    <?php $this->endBody() ?>
-
-    <!--Custom JavaScript -->
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/base-functions.js"></script>
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/form-validation-rules.js"></script>
-
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/main.js"></script>
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/custom.js"></script>
-    <?php if (Yii::$app->session->hasFlash('flash')): ?>
-        <script>
-            notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
-        </script>
-    <?php endif; ?>
-    <!-- CSRF TOKEN -->
-    <script>
-        $.ajaxSetup({
-            data: {
-                '_csrf-backend': $('meta[name=csrf-token]').prop('content')
-            }
-        });
-    </script>
-
+<?php $this->endBody() ?>
+<!--======== SCRIPT FILES =========-->
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/jquery/jquery.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/sweetalert/sweetalert.min.js" type = "text/javascript"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/bootstrap.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/materialize.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/custom.js"></script>
+<?php if (Yii::$app->session->hasFlash('flash')): ?>
+   <script>
+      notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
+   </script>
+<?php endif; ?>
+<!-- CSRF TOKEN -->
+<script>
+   $.ajaxSetup({
+      data: {
+         '_csrf-backend': $('meta[name=csrf-token]').prop('content')
+      }
+   });
+</script>
 </body>
+
 </html>
-<?php $this->endPage() ?>

@@ -27,10 +27,15 @@
     <!-- Custom CSS -->
     <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/style.css" rel = "stylesheet">
     <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/custom.css" rel = "stylesheet">
+    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/materialize.css" rel = "stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/login.css" rel = "stylesheet">
+<!--    <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/assets/css/login.css" rel = "stylesheet">-->
 
     <style>
+       .blog-login {
+          background: url(<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/bg.jpg) no-repeat;
+          background-size: cover;
+       }
         p.help-block-error {
             margin-top: 10px;
             margin-bottom: 0;

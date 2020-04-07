@@ -75,6 +75,54 @@ function notifyFlash(flash) {
 $(function ($) {
    "use strict";
    $(document).ready(function () {
+      //LEFT MOBILE MENU OPEN
+      $(".atab-menu").on('click', function() {
+         $(".sb2-1").css("left", "0");
+         $(".btn-close-menu").css("display", "inline-block");
+      });
+
+      //LEFT MOBILE MENU CLOSE
+      $(".btn-close-menu").on('click', function() {
+         $(".sb2-1").css("left", "-350px");
+         $(".btn-close-menu").css("display", "none");
+      });
+
+      //MATERIAL SELECT BOX
+      $('select').material_select();
+
+      //MATERIAL COLLAPSIBLE
+      $('.collapsible').collapsible();
+
+      //MATERIAL CHIP COMMON
+      $('.chips').material_chip();
+      $('.chips-initial').material_chip({
+         data: [{
+            tag: 'Apple',
+         }, {
+            tag: 'Microsoft',
+         }, {
+            tag: 'Google',
+         }],
+      });
+
+      //MATERIAL CHIP PLACEHOLDER
+      $('.chips-placeholder').material_chip({
+         placeholder: 'Enter a tag',
+         secondaryPlaceholder: '+Amini (press enter)',
+      });
+
+      //MATERIAL CHIP AUTO-COMPLETE
+      $('.chips-autocomplete').material_chip({
+         autocompleteOptions: {
+            data: {
+               'Apple': null,
+               'Microsoft': null,
+               'Google': null
+            },
+            limit: Infinity,
+            minLength: 1
+         }
+      });
       if ($('[data-plugin="datatable"]').length) {
          $('[data-plugin="datatable"]').dataTable({
             "aaSorting": [],
@@ -134,7 +182,7 @@ $(function ($) {
                               }
                            },
                            error: function () {
-                              notify('danger', 'Server Error.' + type + 'not Deleted. Please try again.');
+                              notify('danger', 'Server Error. ' + type + ' not Deleted. Please try again.');
                            }
                         });
                      }
@@ -278,8 +326,7 @@ $(function ($) {
                   'tab': $this.data('tab'),
                   'id': $this.data('id'),
                },
-               'success': function (result) {
-                  console.log(result);
+               success: function (result) {
                   if (!result == 'true') {
                      notify('danger', 'Sorry File Not Removed');
                   } else {
@@ -289,8 +336,8 @@ $(function ($) {
                      imageHolder.remove();
                   }
                },
-               'error': function (error) {
-                  notify('danger', 'Server Error. Sorry File Not Removed');
+               error: function (error) {
+                  notify('danger', 'Server Error. Sorry ! File Not Removed');
                }
 
 

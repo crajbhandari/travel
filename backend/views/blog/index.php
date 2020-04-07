@@ -1,71 +1,70 @@
 <?php
-
-    $this->title = Yii::$app->params['system_name'] . ' | Blog';
+$this->title = 'Blog';
 ?>
-<div class = "container-fluid">
-    <div class = "row page-titles">
-        <div class = "col-md-6 align-self-center">
-            <h3 class = "text-themecolor m-b-0 m-t-0">
-                <i class = "mdi mdi-blogger"></i>
-                Blog
-            </h3>
-        </div>
-        <div class = "col-md-6 align-self-center text-right">
-            <a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/post" class = "btn btn-primary">
-                <i class = "mdi mdi-plus m-r-5"></i>
-                Add New Post
-            </a>
-        </div>
+<div class="sb2-2">
+    <div class="sb2-2-2">
+        <ul>
+            <li><a href="<?php echo Yii::$app->request->baseUrl; ?>/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre"><a href="#"> Blog</a>
+            </li>
+        </ul>
     </div>
-    <div class = "card extended blog-post-wrapper">
-        <div class = "card-header">
-            <h5 class = "card-title">Posts</h5>
-        </div>
-        <div class = "card-body">
-            <?php if (!empty($blog) && count($blog) > 0): ?>
-                <div class = "table-responsive">
-                    <table class = "table  table-striped blog-post" data-plugin = "datatable">
-                        <thead>
-                            <tr>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Visibility</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp">
+                    <div class="inn-title">
+                        <h4>Blog List</h4>
+                    </div>
+                    <div class="tab-inn">
+                        <div class="table-responsive table-desi">
+                            <table class="table table-hover">
+                                <thead>
+                                <?php if (!empty($blog) && count($blog) > 0): ?>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Visibility</th>
+                                    <th>Author</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
                                 $count = 0;
                                 foreach ($blog as $post) :
-                                    $count++; ?>
-                                    <tr>
-                                        <td>
-                                            <?php if ($post['image'] != ''): ?>
-                                                <div class = "image-wrapper">
-                                                    <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/<?= $post['image'] ?>" alt = "">
-                                                </div>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td><?php echo (isset($post['title'])) ? trim($post['title']) : '' ?></td>
-                                        <td><?php echo (isset($post['category'])) ? ucwords(trim($post['category'])) : '' ?></td>
-                                        <td><?php echo (isset($post['visibility']) && $post['visibility']==1) ?'Visible' : 'Hidden' ?></td>
-                                        <td class = "text-right">
-                                            <a class = "btn btn-primary btn-sm" href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encodeUrl($post['id']); ?>">Edit</a>
-                                            <a class = "btn btn-default btn-sm delete-item" href = "javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Blog">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <?php
-
-                                endforeach; ?>
-
-                        </tbody>
-                    </table>
+                                $count++; ?>
+                                <tr>
+                                    <td>
+                                       <span class="list-img">
+                                          <?php if ($post['image'] != ''): ?>
+                                             <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/<?= $post['image'] ?>" alt = "<?php echo (isset($post['title'])) ? trim($post['title']) : '' ?>">
+                                          <?php endif; ?>
+                                       </span>
+                                    </td>
+                                    <td>
+                                        <?php echo (isset($post['title'])) ? trim($post['title']) : '' ?>
+                                    </td>
+                                    <td><?php echo (isset($post['category'])) ? ucwords(trim($post['category'])) : '' ?></td>
+                                    <td><?php echo (isset($post['visibility']) && $post['visibility']==1) ?'Visible' : 'Hidden' ?></td>
+                                    <td><?php echo (isset($post['author'])) ? ucwords(trim($post['author'])) : '' ?></td>
+                                    <td>
+                                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encodeUrl($post['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Blog"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+                              <?php  endforeach; ?>
+                                </tbody>
+                               <?php else: ?>
+                               <h3>Sorry, No Posts Found</h3>
+                               <?php endif; ?>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            <?php else: ?>
-                <h3>Sorry, No Posts Found</h3>
-            <?php endif; ?>
+            </div>
         </div>
     </div>
-
 </div>

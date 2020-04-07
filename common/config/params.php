@@ -2,7 +2,7 @@
 $real_path = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR;
 $relative_path = '../common/';
 return [
-        'system_name'                   => 'Gateway Scandinavia',
+        'system_name'                   => 'Travel Website',
         'adminEmail'                    => 'info@gateway-scandinavia.com',
         'supportEmail'                  => 'support@example.com',
         'user.passwordResetTokenExpire' => 3600,
@@ -114,6 +114,8 @@ return [
         ],
         'encryption_key'             => 'qt38Rr',
         'pages'                      => [],
+        'messages'                   => [],
+        'count_messages'             => [ 'model' => 'Messages'],
         'site-settings'              => [],
         'site-settings-caution-note' => 'Any changes in the website settings may render the website broken. Please be sure of what you want to change before proceeding.',
         'contact'                    => [

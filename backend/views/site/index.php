@@ -1,134 +1,284 @@
 <?php
-    $this->title = Yii::$app->params['system_name'] . " | Welcome " . ucwords(Yii::$app->user->identity->name);
+$this->title = Yii::$app->params['system_name'] . " | Welcome " . ucwords(Yii::$app->user->identity->name);
 ?>
-<div class = "container-fluid">
-    <div class = "page-titles row">
-        <div class = "col-md-6 align-self-center">
-            <h3 class = "text-themecolor">Dashboard</h3>
-        </div>
-        <div class = "col-md-6 align-self-center text-right">
-            <?php if ($messages > 0): ?>
-
-                <a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages/" class = "btn btn-warning">
-                    <i class = "mdi mdi-email"></i>
-                    You have new <?= $messages ?> messages
-                </a>
-            <?php endif; ?>
-        </div>
+<div class = "sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class = "sb2-2-2">
+        <ul>
+            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/"><i class = "fa fa-home" aria-hidden = "true"></i> Home</a>
+            </li>
+            <li class = "active-bre"><a href = "#"> Dashboard</a>
+            </li>
+<!--            <li class = "page-back"><a href = "index.html"><i class = "fa fa-backward" aria-hidden = "true"></i> Back</a>-->
+<!--            </li>-->
+        </ul>
     </div>
-    <div class = "page-body">
-        <div class = "panel panel-bordered">
-            <div class = "panel-header">
-                <h3 class = "panel-title">
-                    Data Management </h3>
-            </div>
-            <div class = "panel-body">
-                <div class = "row">
-                    <div class = "col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages">
-                            <div class = "card card-lg text-center">
-                                <div class = "card-body">
-                                    <div class = "card-icon">
-                                        <i class = "mdi mdi-email"></i>
-                                    </div>
-                                    <div class = "card-text"><?php echo (($messages) > 0) ? ($messages) . ' New ' : '' ?> Messages</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class = "col-lg-3 col-md-4 col-sm-6 col-xs-12"  >
-                        <a href = "<?php echo Yii::$app->request->baseUrl; ?>/team">
-                            <div class = "card card-lg text-center">
-                                <div class = "card-body">
-                                    <div class = "card-icon">
-                                        <i class = "mdi mdi-account-multiple"></i>
-                                    </div>
-                                    <div class = "card-text">Team</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class = "col-lg-3 col-md-4 col-sm-6 col-xs-12"  >
-                        <a href = "<?php echo Yii::$app->request->baseUrl; ?>/team">
-                            <div class = "card card-lg text-center">
-                                <div class = "card-body">
-                                    <div class = "card-icon">
-                                        <i class = "mdi mdi-human-greeting"></i>
-                                    </div>
-                                    <div class = "card-text">Clients</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class = "col-lg-3 col-md-4 col-sm-6 col-xs-12"  >
-                        <a href = "<?php echo Yii::$app->request->baseUrl; ?>/testimonials">
-                            <div class = "card card-lg text-center">
-                                <div class = "card-body">
-                                    <div class = "card-icon">
-                                        <i class = "mdi mdi-message-reply-text"></i>
-                                    </div>
-                                    <div class = "card-text">Testimonials</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class = "col-lg-3 col-md-4 col-sm-6 col-xs-12"  >
-                        <a href = "<?php echo Yii::$app->request->baseUrl; ?>/services">
-                            <div class = "card card-lg text-center">
-                                <div class = "card-body">
-                                    <div class = "card-icon">
-                                        <i class = "mdi mdi-puzzle"></i>
-                                    </div>
-                                    <div class = "card-text">Services</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class = "col-lg-3 col-md-4 col-sm-6 col-xs-12"  >
-                        <a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog">
-                            <div class = "card card-lg text-center">
-                                <div class = "card-body">
-                                    <div class = "card-icon">
-                                        <i class = "mdi mdi-note-multiple-outline"></i>
-                                    </div>
-                                    <div class = "card-text">Blog</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-        <div class = "panel panel-bordered">
-            <div class = "panel-header">
-                <h3 class = "panel-title pull-left">
-                    Page Management </h3>
-                <div class = "panel-actions pull-right "></div>
-                <div class = "clearfix"></div>
-            </div>
-            <div class = "panel-body">
-                <div class = "row">
-                    <?php foreach (Yii::$app->params['pages'] as $k => $page) : ?>
-                        <div class = "col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <a href = "<?php echo Yii::$app->request->baseUrl; ?>/sections/pages/<?= $page['name'] ?>">
-                                <div class = "card card-lg text-center">
-                                    <div class = "card-body">
-                                        <div class = "card-icon">
-                                            <i class = "mdi <?= $page['icon'] ?>"></i>
-                                        </div>
-                                        <div class = "card-text"><?= ucwords($page->label) ?></div>
-                                    </div>
-                                </div>
-                            </a>
+    <!--== DASHBOARD INFO ==-->
+    <div class = "ad-v2-hom-info">
+        <div class = "ad-v2-hom-info-inn">
+            <ul>
+                <li>
+                    <div class = "ad-hom-box ad-hom-box-1">
+                        <span class = "ad-hom-col-com ad-hom-col-1"><i class = "fa fa-envelope-o"></i></span>
+                        <div class = "ad-hom-view-com">
+                            <p>New Messages</p>
+                            <h3>  <?php
+                                if (Yii::$app->params['count_messages']['count_unseen'] > 0) {
+                                    echo Yii::$app->params['count_messages']['count_unseen'];
+                                }
+                                ?></h3>
                         </div>
-                    <?php endforeach; ?>
-
+                    </div>
+                </li>
+                <li>
+                    <div class = "ad-hom-box ad-hom-box-2">
+                        <span class = "ad-hom-col-com ad-hom-col-2"><i class = "fa fa-picture-o"></i></span>
+                        <div class = "ad-hom-view-com">
+                            <p>Total Blogs</p>
+                            <h3>22</h3>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class = "ad-hom-box ad-hom-box-3">
+                        <span class = "ad-hom-col-com ad-hom-col-3"><i class = "fa fa-address-card-o"></i></span>
+                        <div class = "ad-hom-view-com">
+                            <p>Clients</p>
+                            <h3>5</h3>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class = "ad-hom-box ad-hom-box-4">
+                        <span class = "ad-hom-col-com ad-hom-col-4"><i class = "fa fa-envelope-open-o"></i></span>
+                        <div class = "ad-hom-view-com">
+                            <p><i class = "fa  fa-arrow-up up"></i> Enquiry</p>
+                            <h3>22,520</h3>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class = "sb2-2-3">
+        <div class = "row">
+            <div class = "col-md-6">
+                <div class = "box-inn-sp">
+                    <div class = "inn-title">
+                        <h4>Country Campaigns</h4>
+                        <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                        <a class = 'dropdown-button drop-down-meta' href = '#' data-activates = 'dropdown1'><i class = "material-icons">more_vert</i></a>
+                        <!-- Dropdown Structure -->
+                        <ul id = 'dropdown1' class = 'dropdown-content'>
+                            <li><a href = "#!">Add New</a>
+                            </li>
+                            <li><a href = "#!">Edit</a>
+                            </li>
+                            <li><a href = "#!">Update</a>
+                            </li>
+                            <li class = "divider"></li>
+                            <li><a href = "#!"><i class = "material-icons">delete</i>Delete</a>
+                            </li>
+                            <li><a href = "#!"><i class = "material-icons">subject</i>View All</a>
+                            </li>
+                            <li><a href = "#!"><i class = "material-icons">play_for_work</i>Download</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class = "tab-inn">
+                        <div class = "table-responsive table-desi">
+                            <table class = "table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Client</th>
+                                    <th>Changes</th>
+                                    <th>Budget</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">Australia</span>
+                                    </td>
+                                    <td>Beavis</td>
+                                    <td><span class = "txt-success"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>2.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span class = "txt-dark weight-500">$1478</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-success">Active</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">Cuba</span>
+                                    </td>
+                                    <td>Felix</td>
+                                    <td><span class = "txt-success"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>1.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span class = "txt-dark weight-500">$951</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-danger">Closed</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">France</span>
+                                    </td>
+                                    <td>Cannibus</td>
+                                    <td><span class = "txt-danger"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>-8.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span class = "txt-dark weight-500">$632</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-default">Hold</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">Norway</span>
+                                    </td>
+                                    <td>Neosoft</td>
+                                    <td><span class = "txt-success"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>7.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span class = "txt-dark weight-500">$325</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-default">Hold</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">South Africa</span>
+                                    </td>
+                                    <td>Hencework</td>
+                                    <td><span class = "txt-success"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>9.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span>$258</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-success">Active</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!--== Country Campaigns ==-->
+            <div class = "col-md-6">
+                <div class = "box-inn-sp">
+                    <div class = "inn-title">
+                        <h4>Country Campaigns</h4>
+                        <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                        <a class = 'dropdown-button drop-down-meta' href = '#' data-activates = 'dropdown2'><i class = "material-icons">more_vert</i></a>
+                        <!-- Dropdown Structure -->
+                        <ul id = 'dropdown2' class = 'dropdown-content'>
+                            <li><a href = "#!">Add New</a>
+                            </li>
+                            <li><a href = "#!">Edit</a>
+                            </li>
+                            <li><a href = "#!">Update</a>
+                            </li>
+                            <li class = "divider"></li>
+                            <li><a href = "#!"><i class = "material-icons">delete</i>Delete</a>
+                            </li>
+                            <li><a href = "#!"><i class = "material-icons">subject</i>View All</a>
+                            </li>
+                            <li><a href = "#!"><i class = "material-icons">play_for_work</i>Download</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class = "tab-inn">
+                        <div class = "table-responsive table-desi">
+                            <table class = "table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Client</th>
+                                    <th>Changes</th>
+                                    <th>Budget</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">California</span>
+                                    </td>
+                                    <td>Beavis</td>
+                                    <td><span class = "txt-success"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>2.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span class = "txt-dark weight-500">$1478</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-success">Active</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">Florida</span>
+                                    </td>
+                                    <td>Felix</td>
+                                    <td><span class = "txt-success"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>1.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span class = "txt-dark weight-500">$951</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-danger">Closed</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">Hawaii</span>
+                                    </td>
+                                    <td>Cannibus</td>
+                                    <td><span class = "txt-danger"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>-8.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span class = "txt-dark weight-500">$632</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-default">Hold</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">Alaska</span>
+                                    </td>
+                                    <td>Neosoft</td>
+                                    <td><span class = "txt-success"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>7.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span class = "txt-dark weight-500">$325</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-default">Hold</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class = "txt-dark weight-500">New Jersey</span>
+                                    </td>
+                                    <td>Hencework</td>
+                                    <td><span class = "txt-success"><i class = "fa fa-angle-up" aria-hidden = "true"></i><span>9.43%</span></span>
+                                    </td>
+                                    <td>
+                                        <span>$258</span>
+                                    </td>
+                                    <td>
+                                        <span class = "label label-success">Active</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
+
 </div>

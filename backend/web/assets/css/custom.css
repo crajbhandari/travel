@@ -1,189 +1,102 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700';
-@import url(../plugins/bootstrap/css/bootstrap.min.css);
-html{
-    background-color: #5f5f5f;
-}
-.frm-single {
-    width: 100%;
-    max-width: 400px;
-    display: block;
-    margin: 60px auto 60px;
-    float: none;
-    position: relative
-}
+/*-----------------------------------------
+ [MASTER STYLE SHEET]
+ * Project: Lava Material Admin Panel Template
+ * Version: v1.1.1
+ * Copyright 2017-2020 rn53themes
+ * Last Changes: 03/09/2016
+ * Author: RN53 Themes
+ * Email:      rn53themes@gmail.com
+ * Website:    http://www.rn53themes.net
+ -----------------------------------------------*/
 
-.frm-single:after,
-.frm-single:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    background: #85b0ddb8;
-    transform: rotate(3deg);
-    -webkit-transform: rotate(3deg);
-    -moz-transform: rotate(3deg);
-    -o-transform: rotate(3deg);
-    -ms-transform: rotate(3deg);
-    box-shadow: 0 0 1px 0 #ccc;
-    -webkit-box-shadow: 0 0 1px 0 #ccc;
-    -moz-box-shadow: 0 0 1px 0 #ccc
-}
+/*-------------------------------------------------------*/
+/* When the browser is between 0px and 1180px wide,below css will be applied.
+/*-------------------------------------------------------*/
 
-.frm-single:after {
-    transform: rotate(1deg);
-    -webkit-transform: rotate(1deg);
-    -moz-transform: rotate(1deg);
-    -o-transform: rotate(1deg);
-    -ms-transform: rotate(1deg)
-}
+@media screen and (max-width: 1180px) {}
+/*-------------------------------------------------------*/
+/* When the browser is between 0px and 992px wide,below css will be applied.
+/*-------------------------------------------------------*/
 
-.frm-single .inside {
-    background: #ffffff;
-    position: relative;
-    padding: 20px;
-    z-index: 20;
-    box-shadow: 0 0 1px 0 #ccc;
-    -webkit-box-shadow: 0 0 1px 0 #ccc;
-    -moz-box-shadow: 0 0 1px 0 #ccc
-}
-
-.frm-single .title {
-    margin-bottom: 5px;
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    line-height: 34px;
-    white-space: nowrap;
-    color: #434343;
-    text-align: center
-}
-
-.frm-single .a-link {
-    color: #999
-}
-
-.frm-single .a-link:hover {
-    color: #435966
-}
-
-.frm-single .frm-title {
-    color: #999;
-    text-align: center;
-    font-size: 16px;
-    padding-bottom: 20px
-}
-
-.frm-single .frm-input {
-    display: block;
-    position: relative;
-    margin-bottom: 20px
-}
-
-.frm-single .frm-input .frm-inp {
-    width: 100%;
-    height: 40px;
-    padding: 0px;
-    padding-left: 30px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    line-height: 38px;
-    border-left: 3px solid #999
-}
-
-.frm-single .frm-input .frm-inp:focus {
-    border-color: #304ffe;
-    padding-left: 10px
-}
-
-.frm-single .frm-input .frm-inp:focus+.frm-ico {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    opacity: 0;
-    transform: scale(0.8, 0.8);
-    -webkit-transform: scale(0.8, 0.8);
-    -moz-transform: scale(0.8, 0.8);
-    -o-transform: scale(0.8, 0.8);
-    -ms-transform: scale(0.8, 0.8)
-}
-
-.frm-single .frm-input .frm-ico {
-    position: absolute;
-    top: 0px;
-    left: 3px;
-    width: 30px;
-    font-size: 18px;
-    line-height: 40px;
-    text-align: center;
-    color: #999;
-    transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    -webkit-transition: all 0.4s ease
-}
-
-.frm-single .checkbox {
-    margin: 0px
-}
-
-.frm-single .a-link i {
-    margin-right: 5px
-}
-
-.frm-single .frm-submit {
-    display: block;
-    width: 100%;
-    height: 36px;
-    border: none;
-    background: #304ffe;
-    color: #ffffff;
-    margin-bottom: 15px
-}
-
-@media (min-width:1025px) {
-    .frm-single .frm-submit:hover {
-        background: #1e3ded
+@media screen and (max-width: 992px) {
+    .tab-hide {
+        display: none;
+    }
+    .sb2-1 {
+        width: 240px;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        box-shadow: 10px 50px 100px rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        left: -350px;
+        overflow: scroll;
+    }
+    .sb1-1 {
+        padding: 15px;
+    }
+    .sb2-2 {
+        width: 100%;
+        padding: 40px 15px;
+        margin-left: 0%;
+    }
+    .tab-menu {
+        display: inline-block;
+        color: #fff;
+        background: #0e76a8;
+        padding: 5px 8px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 2px;
+    }
+    .sb1 {
+        position: fixed;
+        width: 100%;
+        top: 0px;
+    }
+    .logo img {
+        width: 60%;
+    }
+    .db-2 ul li {
+        width: 50%;
+    }
+    .sp-top-30 {
+        margin-top: 30px;
+    }
+    .blog-login-in {
+        width: 75%;
     }
 }
+/*-------------------------------------------------------*/
+/* When the browser is between 0px and 768px wide,below css will be applied.
+/*-------------------------------------------------------*/
 
-.frm-single .frm-submit i {
-    margin-left: 5px
+@media screen and (max-width: 767px) {
+    .mob-hide {
+        display: none;
+    }
+    .top-user-pro {
+        float: right;
+        padding: 18px 0px;
+    }
+    .db-2 ul li {
+        width: 100%;
+    }
+    .sb2-2 {
+        padding: 40px 15px;
+    }
+    .tab-list > li > a span {
+        display: none;
+    }
+    .tab-list > li > a i {
+        width: 18px;
+        color: #0e76a8;
+        margin-right: 0px;
+        text-align: center;
+    }
 }
+/*-------------------------------------------------------*/
+/* When the browser is between 0px and 481px wide,below css will be applied.
+/*-------------------------------------------------------*/
 
-.frm-single .frm-footer {
-    padding: 20px 0px 0px 0px;
-    margin-top: 15px;
-    border-top: 1px solid #ccc;
-    color: #999
-}
-
-.frm-single .avatar {
-    display: block;
-    margin: 0px auto 20px;
-    float: none;
-    position: relative;
-    width: 70px;
-    height: 70px;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    overflow: hidden
-}
-
-.frm-single .ico-email {
-    display: block;
-    margin: 0px auto 20px;
-    float: none;
-    width: 80px;
-    height: 80px
-}
-
-.frm-single .txt-login-with {
-    text-align: center;
-    margin-bottom: 15px;
-    color: #999
-}
+@media screen and (max-width: 481px) {}
