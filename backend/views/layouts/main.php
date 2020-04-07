@@ -18,6 +18,10 @@ AppAsset::register($this);
    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <?php $this->registerCsrfMetaTags() ?>
+
+   <meta name = "csrf-param" content = "<?php echo Yii::$app->request->csrfParam; ?>">
+   <meta name = "csrf-token" content = "<?php echo Yii::$app->request->csrfToken; ?>">
+
    <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
    <!--== FAV ICON ==-->
    <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
@@ -36,10 +40,10 @@ AppAsset::register($this);
    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/custom.css" rel = "stylesheet">
    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.css" rel = "stylesheet">
    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/materialize.css" rel = "stylesheet">
-<!--   <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/css/overrides.css" rel = "stylesheet">-->
+   <!--   <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/css/overrides.css" rel = "stylesheet">-->
    <style>
-      .notify_container{
-         margin-top: 50px!important;
+      .notify_container {
+         margin-top: 50px !important;
       }
    </style>
 
@@ -325,7 +329,7 @@ AppAsset::register($this);
 <script>
    $.ajaxSetup({
       data: {
-         '_csrf-backend': $('meta[name=csrf-token]').prop('content')
+         '<?php echo Yii::$app->request->csrfParam; ?>': '<?php echo Yii::$app->request->csrfToken; ?>'
       }
    });
 </script>

@@ -596,13 +596,10 @@ if (Yii::$app->session->hasFlash('flash')): ?>
    </script>
 <?php endif; ?>
 <!--Revolution Slider-->
-
 <script>
-   /* ==== CSRF TOKEN ==== */
-
    $.ajaxSetup({
       data: {
-         '_csrf-frontend': $('meta[name="csrf-token"]').prop('content')
+         '<?php echo Yii::$app->request->csrfParam; ?>': '<?php echo Yii::$app->request->csrfToken; ?>'
       }
    });
 </script>
