@@ -1,0 +1,73 @@
+.wed-logo a img {
+    padding: 7px 0px;
+    width: 136px;
+}
+
+.input-field label {
+    top: 12px;
+}
+
+.tourz-search {
+
+}
+
+.tourz-search:before {
+    background: rgba(0, 255, 89, 0.46);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.tourz-search {
+    background: url(../images/consul-bg-3.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.tourz-sear-btn {
+    background: #F7B10F;
+
+}
+
+.tourz-hom-ser ul li a {
+    border-color: transparent;
+}
+
+.btn:hover, .btn-large:hover {
+    background: #F7B10F;
+}
+
+.offer-l ul li a {
+    padding: 0;
+}
+
+.offer-l ul li a img {
+    height: 30px;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    top: 5px;
+    width: auto;
+}
+
+
+.tips:before {
+    background: rgba(40, 189, 30, 0.59);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.testimonials address {
+    font-size: 14px;
+    font-weight: 500;
+}

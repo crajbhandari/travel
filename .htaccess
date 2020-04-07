@@ -8,24 +8,20 @@ Options +FollowSymlinks
     # For Backend
     RewriteCond %{REQUEST_URI} ^/travel/(applet)
     RewriteRule ^applet/assets/(.*)$ backend/web/assets/$1 [L]
-    RewriteRule ^applet/css/(.*)$ backend/web/css/$1 [L]
-    RewriteRule ^applet/images/(.*)$ backend/web/images/$1 [L]
-    RewriteRule ^applet/js/(.*)$ backend/web/js/$1 [L]
+    RewriteRule ^applet/resources/(.*)$ backend/web/resources/$1 [L]
+
 
     RewriteCond %{REQUEST_URI} !^/travel/backend/web/(assets|css|images|js)/
     RewriteCond %{REQUEST_URI} ^/travel/(applet)
     RewriteRule ^.*$ backend/web/index.php [L]
 
     # For Frontend
-    RewriteCond %{REQUEST_URI} ^/travel/(assets|css|images|js)
+    RewriteCond %{REQUEST_URI} ^/travel/(assets|resources)
     RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+    RewriteRule ^resources/(.*)$ frontend/web/resources/$1 [L]
 
 
-    RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
-    RewriteRule ^images/(.*)$ frontend/web/images/$1 [L]
-    RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
-
-    RewriteCond %{REQUEST_URI} !^/travel/(frontend|backend)/web/(assets|css|images|js)/
+    RewriteCond %{REQUEST_URI} !^/travel/(frontend|backend)/web/(assets|resources)/
     RewriteCond %{REQUEST_URI} !^/travel/common/
 
     RewriteCond %{REQUEST_URI} !index.php
