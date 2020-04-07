@@ -33,6 +33,7 @@ AppAsset::register($this);
    <!--       <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/assets/css/font-awesome.min.css" rel = "stylesheet">-->
    <link href = "http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">    <!--== ALL CSS FILES ==-->
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/sweetalert/sweetalert.css">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/summernote/dist/summernote.css" rel = "stylesheet"/>
 
    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/style.css" rel = "stylesheet">
    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/custom.css" rel = "stylesheet">
@@ -313,6 +314,7 @@ AppAsset::register($this);
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/jquery/jquery.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/sweetalert/sweetalert.min.js" type = "text/javascript"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/plugins.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/bootstrap.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/materialize.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/custom.js"></script>
