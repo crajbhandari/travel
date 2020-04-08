@@ -1176,3 +1176,6 @@ label.custom-file-label {
 .delete-item i{
     background-color: red;
 }
+.note-editor{
+    margin-top: 40px;
+}
