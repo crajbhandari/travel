@@ -23,6 +23,7 @@ $this->title = 'Blog';
                                 <thead>
                                 <?php if (!empty($blog) && count($blog) > 0): ?>
                                 <tr>
+                                   <th>S.N</th>
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Category</th>
@@ -33,10 +34,12 @@ $this->title = 'Blog';
                                 </thead>
                                 <tbody>
                                 <?php
+                                $sn =1;
                                 $count = 0;
                                 foreach ($blog as $post) :
                                 $count++; ?>
                                 <tr>
+                                   <td><?php echo $sn; ?></td>
                                     <td>
                                        <span class="list-img">
                                           <?php if ($post['image'] != ''): ?>
@@ -55,6 +58,7 @@ $this->title = 'Blog';
                                         <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Blog"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
+                                <?php $sn++; ?>
                               <?php  endforeach; ?>
                                 </tbody>
                                <?php else: ?>

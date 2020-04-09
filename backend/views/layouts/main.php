@@ -18,12 +18,13 @@ AppAsset::register($this);
    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <?php $this->registerCsrfMetaTags() ?>
-   <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
-   <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
 
-   <meta name = "viewport" content = "width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name = "csrf-param" content = "<?php echo Yii::$app->request->csrfParam; ?>">
+   <meta name = "csrf-token" content = "<?php echo Yii::$app->request->csrfToken; ?>">
+
+   <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
    <!--== FAV ICON ==-->
-   <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/fav.ico">
+   <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
 
    <!-- GOOGLE FONTS -->
    <link href = "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Quicksand:300,400,500" rel = "stylesheet">
@@ -32,19 +33,22 @@ AppAsset::register($this);
    <!--   <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity = "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin = "anonymous">-->
    <!--       <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/assets/css/font-awesome.min.css" rel = "stylesheet">-->
    <link href = "http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">    <!--== ALL CSS FILES ==-->
-   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/sweetalert/sweetalert.css">
-   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/summernote/dist/summernote.css" rel = "stylesheet"/>
-   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/summernote/dist/summernote.css" rel = "stylesheet"/>
 
-   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/style.css" rel = "stylesheet">
-   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/custom.css" rel = "stylesheet">
-   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/bootstrap.css" rel = "stylesheet">
-   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/materialize.css" rel = "stylesheet">
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/sweetalert/sweetalert.css">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/summernote/dist/summernote.css" rel = "stylesheet"/>
+
+
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" rel = "stylesheet">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/custom.css" rel = "stylesheet">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.css" rel = "stylesheet">
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/materialize.css" rel = "stylesheet">
+   <!--   <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/css/overrides.css" rel = "stylesheet">-->
    <style>
-      .notify_container{
-         margin-top: 50px!important;
+      .notify_container {
+         margin-top: 50px !important;
       }
    </style>
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/overrides.css" rel = "stylesheet">
 
    <!--    <script src = "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
    <!--    <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
@@ -57,7 +61,7 @@ AppAsset::register($this);
           pop = <?php echo Yii::$app->session->getFlash('pop'); ?>;
        </script>
     <?php } ?>
-   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/jquery/jquery.min.js"></script>
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/jquery/jquery.min.js"></script>
     <?php $this->head() ?>
 </head>
 
@@ -153,6 +157,20 @@ AppAsset::register($this);
                         </li>
                      </ul>
                   </div>
+               </li>
+               <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'slider' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-sliders" aria-hidden = "true"></i> Slider</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/post">Add New</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/">List</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/testimonials/" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'testimonial' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-commenting-o" aria-hidden = "true"></i> Testimonial</a>
+               </li>
+               <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq/" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'faq' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-window-restore" aria-hidden = "true"></i> FAQ</a>
                </li>
                <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
                   <div class = "collapsible-body left-sub-menu">
@@ -310,16 +328,14 @@ AppAsset::register($this);
 </section>
 
 
-
 <?php $this->endBody() ?>
 <!--======== SCRIPT FILES =========-->
-
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/sweetalert/sweetalert.min.js" type = "text/javascript"></script>
-
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/bootstrap.min.js"></script>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/materialize.min.js"></script>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/custom.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/sweetalert/sweetalert.min.js" type = "text/javascript"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/bootstrap.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/materialize.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
+
 <?php if (Yii::$app->session->hasFlash('flash')): ?>
    <script>
       notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
@@ -329,7 +345,7 @@ AppAsset::register($this);
 <script>
    $.ajaxSetup({
       data: {
-         '_csrf-backend': $('meta[name=csrf-token]').prop('content')
+         '<?php echo Yii::$app->request->csrfParam; ?>': '<?php echo Yii::$app->request->csrfToken; ?>'
       }
    });
 </script>

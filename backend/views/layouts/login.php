@@ -22,12 +22,12 @@
     <link rel = "apple-touch-icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
     <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
     <!-- Bootstrap Core CSS -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel = "stylesheet">
+    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/bootstrap/css/bootstrap.min.css" rel = "stylesheet">
 
     <!-- Custom CSS -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/style.css" rel = "stylesheet">
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/custom.css" rel = "stylesheet">
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/assets/css/materialize.css" rel = "stylesheet">
+    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" rel = "stylesheet">
+    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/custom.css" rel = "stylesheet">
+    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/materialize.css" rel = "stylesheet">
     <!-- You can change the theme colors from here -->
 <!--    <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/assets/css/login.css" rel = "stylesheet">-->
 
@@ -50,7 +50,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/jquery/jquery.min.js"></script>
+    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/jquery/jquery.min.js"></script>
 
     <script>
         var baseUrl = "<?php echo Yii::$app->request->baseUrl; ?>";
@@ -86,18 +86,6 @@
         });
     </script>
 
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/popper/popper.min.js"></script>
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/jquery.slimscroll.js"></script>
-
-    <!--Wave Effects -->
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/waves.js"></script>
-
-    <!--Menu sidebar -->
-    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/sidebarmenu.js"></script>
     <?php $this->endBody(); ?>
     <script>
         $(function () {

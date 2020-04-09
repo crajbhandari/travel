@@ -25,7 +25,10 @@
             else {
                 $model = new Slider;
             }
-            $model->attributes = $data;
+            $model->link_text  = $data['link_text'];
+            $model->link  = $data['link'];
+            $model->content_align  = $data['content_align'];
+            $model->content  = $data['content'];
 
             if (isset($image['name']) && $image['name'] != '') {
                 if ($model->image != '') {

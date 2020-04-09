@@ -65,26 +65,26 @@ $this->title = 'Blog';
 
                   <div class = "row">
                      <div class = "input-field col s12">
-                               <?php $counter++; ?>
-                              <div class = "custom-file">
+                         <?php $counter++; ?>
+                        <div class = "custom-file">
 
-                                 <div class = "image-wrapper" <?= (isset($editable['image']) && $editable['image'] != '') ? '' : 'style="display:none;"' ?>>
-                                    <img src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $editable['image'] : '' ?>" class = "custom-file-input-image" id = "file-<?php echo $counter; ?>-image" alt = ""/>
-                                 </div>
-                                  <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
-                                     <div class = "image-actions text-right">
-                                        <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
-                                           <i class = "mdi mdi-close margin-right-5"></i>
-                                           Remove Image
-                                        </a>
-                                     </div>
-                                  <?php endif; ?>
-                                 <label class = "custom-file-label" id = "file-<?php echo $counter; ?>-label" for = "file-<?php echo $counter; ?>">
-                                    <i class = "fa fa-file"></i>
-                                    <span>Upload Image</span>
-                                 </label>
-                                 <input accept = "image/x-png,image/jpeg" type = "file" name = "image" class = "custom-file-input" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
-                              </div>
+                           <div class = "image-wrapper" <?= (isset($editable['image']) && $editable['image'] != '') ? '' : 'style="display:none;"' ?>>
+                              <img src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $editable['image'] : '' ?>" class = "custom-file-input-image" id = "file-<?php echo $counter; ?>-image" alt = ""/>
+                           </div>
+                            <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
+                               <div class = "image-actions text-right">
+                                  <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
+                                     <i class = "mdi mdi-close margin-right-5"></i>
+                                     Remove Image
+                                  </a>
+                               </div>
+                            <?php endif; ?>
+                           <label class = "custom-file-label" id = "file-<?php echo $counter; ?>-label" for = "file-<?php echo $counter; ?>">
+                              <i class = "fa fa-file"></i>
+                              <span>Upload Image</span>
+                           </label>
+                           <input accept = "image/x-png,image/jpeg" type = "file" name = "image" class = "custom-file-input" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
+                        </div>
                      </div>
                   </div>
                </div>
@@ -99,4 +99,4 @@ $this->title = 'Blog';
       </div>
    </div>
 </div>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/assets/js/plugins.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/plugins.min.js"></script>

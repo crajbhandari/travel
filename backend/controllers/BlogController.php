@@ -60,7 +60,7 @@
          */
         public function actionIndex() {
             $page = 'blog';
-            $blog = Blog::find()->all();
+            $blog = Blog::find()->orderBy(['id' => SORT_DESC])->all();
             return $this->render('index', [
                 'blog' => $blog,
                 'page' => Yii::$app->params['pages'][$page],

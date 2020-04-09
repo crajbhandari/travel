@@ -15,125 +15,34 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
 
 
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang = "<?= Yii::$app->language ?>">
 <head>
-   <meta charset="<?= Yii::$app->charset ?>">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=no">
+   <meta charset = "<?= Yii::$app->charset ?>">
+   <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+   <meta name = "viewport" content = "width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=no">
     <?php $this->registerCsrfMetaTags() ?>
    <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
-   <link rel="apple-touch-icon" href="<?=  Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/fav.png">
-   <link rel="shortcut icon" href="<?=  Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/fav.png">   <link href="<?= 'https://fonts.googleapis.com/css?family=' . $fonts['main']['name'] . ':' . $fonts['main']['weight'].',500'; ?>" rel="stylesheet">
+   <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/fav.png">
+   <link href = "<?= 'https://fonts.googleapis.com/css?family=' . $fonts['main']['name'] . ':' . $fonts['main']['weight'] . ',500'; ?>" rel = "stylesheet">
 
-   <link rel="stylesheet" href="<?=  Yii::$app->request->baseUrl; ?>/assets/css/site.css">
-   <link rel="stylesheet" href="<?=  Yii::$app->request->baseUrl; ?>/assets/plugins/revolution/css/r-all.css">
-   <link rel="stylesheet" href="<?=  Yii::$app->request->baseUrl; ?>/assets/plugins/jquery-ui-1.11.4/jquery-ui.css">
-   <link rel="stylesheet" href="<?=  Yii::$app->request->baseUrl; ?>/assets/plugins/bootstrap-sl-1.12.1/bootstrap-select.css">
-   <link rel="stylesheet" href="<?=  Yii::$app->request->baseUrl; ?>/assets/css/overrides.css">
+   <!-- FONT-AWESOME ICON CSS -->
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/font-awesome.min.css">
+   <!--== ALL CSS FILES ==-->
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css">
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/materialize.css">
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.css">
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/mob.css">
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/animate.css">
 
-   <?php $this->head() ?>
-    <?php if (Yii::$app->controller->id = 'site' && Yii::$app->controller->action->id = 'index'): ?>
-       <link rel="shortcut icon" href="<?php echo Yii::$app->request->baseUrl; ?>/assets/slider/css/settings.css"/>
-       <style type="text/css">
-          .tp-caption.maincaption, .maincaption {
-             font-size: 33px;
-             line-height: 43px;
-             font-weight: 500;
-             font-family: roboto;
-             color: rgb(33, 42, 64);
-             text-decoration: none;
-             background-color: transparent;
-             border-width: 0px;
-             border-color: rgb(0, 0, 0);
-             border-style: none;
-             text-shadow: none
-          }
 
-          .tp-caption.gsc_button, .gsc_button {
-             color: #ffcc00;
-             font-size: 16px;
-             line-height: 30px;
-             font-weight: 400;
-             font-style: normal;
-             font-family: Poppins;
-             text-decoration: none;
-             background-color: rgba(0, 0, 0, 0);
-             border-color: #fccd20;
-             border-style: solid;
-             border-width: 1px 1px 1px 1px;
-             border-radius: 6px 6px 6px 6px
-          }
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/overrides.css">
 
-          .tp-caption.gsc_button:hover, .gsc_button:hover {
-             color: #ffffff;
-             text-decoration: none;
-             background-color: #fccd20;
-             border-color: #fccd20;
-             border-style: solid;
-             border-width: 1px 1px 1px 1px;
-             border-radius: 3px 3px 3px 3px;
-             cursor: pointer
-          }
+    <?php $this->head() ?>
 
-          .tp-caption.gsc_title, .gsc_title {
-             color: #ffcc00;
-             font-size: 33px;
-             line-height: 43px;
-             font-weight: 500;
-             font-style: normal;
-             font-family: Poppins;
-             text-decoration: none;
-             background-color: transparent;
-             border-color: rgba(0, 0, 0, 1);
-             border-style: none;
-             border-width: 0px 0px 0px 0px;
-             border-radius: 0px 0px 0px 0px;
-             text-shadow: none
-          }
-
-          #rev_slider_38_1 .uranus .tp-bullet {
-             border-radius: 50%;
-             box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
-             -webkit-transition: box-shadow 0.3s ease;
-             transition: box-shadow 0.3s ease;
-             background: transparent;
-             width: 15px;
-             height: 15px
-          }
-
-          #rev_slider_38_1 .uranus .tp-bullet.selected, #rev_slider_38_1 .uranus .tp-bullet:hover {
-             box-shadow: 0 0 0 2px rgba(255, 255, 255, 1);
-             border: none;
-             border-radius: 50%;
-             background: transparent
-          }
-
-          #rev_slider_38_1 .uranus .tp-bullet-inner {
-             -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
-             transition: background-color 0.3s ease, transform 0.3s ease;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             outline: none;
-             border-radius: 50%;
-             background-color: rgb(255, 255, 255);
-             background-color: rgba(255, 255, 255, 0.3);
-             text-indent: -999em;
-             cursor: pointer;
-             position: absolute
-          }
-
-          #rev_slider_38_1 .uranus .tp-bullet.selected .tp-bullet-inner, #rev_slider_38_1 .uranus .tp-bullet:hover .tp-bullet-inner {
-             transform: scale(0.4);
-             -webkit-transform: scale(0.4);
-             background-color: rgb(255, 255, 255)
-          }</style>
-    <?php endif; ?>
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
-   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   <script src = "https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+   <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
    <script>
       var baseUrl = '<?php echo Yii::$app->request->baseUrl; ?>';
       var flash = '';
@@ -156,186 +65,543 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
 </head>
 <body>
 <?php $this->beginBody() ?>
-
-<div class="boxed_wrapper">
-   <!-- Start Preloader -->
-   <div class="loader-container">
-      <div class="progress-circle float loader-shadow">
-         <div class="progress-item">
-            <img src="<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/logo-only.png" alt="Loading Gateway Scandinavia">
-         </div>
-      </div>
-   </div>
-   <!-- End Preloader -->
-
-   <!--Start header area-->
-   <header class="mainmenu-area stick">
-      <div class="container">
-         <nav class="nav">
-            <div class="navbar-header">
-               <div class="logo">
-                  <a href="<?php echo Yii::$app->request->baseUrl; ?>/">
-                     <img id="site-logo" src="<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/logo.png" alt="Gateway Scandinavia">
-                  </a>
+<!-- Preloader -->
+<div id = "preloader">
+   <div id = "status">&nbsp;</div>
+</div>
+<div class = "body-content">
+   <div class = "page-head">
+      <!-- MOBILE MENU -->
+      <section>
+         <div class = "ed-mob-menu">
+            <div class = "ed-mob-menu-con">
+               <div class = "ed-mm-left">
+                  <div class = "wed-logo">
+                     <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
+                     </a>
+                  </div>
                </div>
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                  <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-               </button>
+               <div class = "ed-mm-right">
+                  <div class = "ed-mm-menu">
+                     <a href = "#!" class = "ed-micon"><i class = "fa fa-bars"></i></a>
+                     <div class = "ed-mm-inn">
+                        <a href = "#" class = "ed-mi-close"><i class = "fa fa-times"></i></a>
+                        <h4>Home pages</h4>
+                        <ul>
+                           <li><a href = "booking-all.html">Home page 1</a></li>
+                           <li><a href = "booking-all.html">Home page 2</a></li>
+                           <li><a href = "booking-tour-package.html">Home page 3</a></li>
+                           <li><a href = "booking-hotel.html">Home page 4</a></li>
+                           <li><a href = "booking-car-rentals.html">Home page 5</a></li>
+                           <li><a href = "booking-flight.html">Home page 6</a></li>
+                           <li><a href = "booking-slider.html">Home page 7</a></li>
+                        </ul>
+                        <h4>Tour Packages</h4>
+                        <ul>
+                           <li><a href = "all-package.html">All Package</a></li>
+                           <li><a href = "family-package.html">Family Package</a></li>
+                           <li><a href = "honeymoon-package.html">Honeymoon Package</a></li>
+                           <li><a href = "group-package.html">Group Package</a></li>
+                           <li><a href = "weekend-package.html">WeekEnd Package</a></li>
+                           <li><a href = "regular-package.html">Regular Package</a></li>
+                           <li><a href = "custom-package.html">Custom Package</a></li>
+                        </ul>
+                        <h4>Sighe Seeings Pages</h4>
+                        <ul>
+                           <li><a href = "places.html">Seight Seeing 1</a></li>
+                           <li><a href = "places-1.html">Seight Seeing 2</a></li>
+                           <li><a href = "places-2.html">Seight Seeing 3</a></li>
+                        </ul>
+                        <h4>User Dashboard</h4>
+                        <ul>
+                           <li><a href = "dashboard.html">My Bookings</a></li>
+                           <li><a href = "db-my-profile.html">My Profile</a></li>
+                           <li><a href = "db-my-profile-edit.html">My Profile edit</a></li>
+                           <li><a href = "db-travel-booking.html">Tour Packages</a></li>
+                           <li><a href = "db-hotel-booking.html">Hotel Bookings</a></li>
+                           <li><a href = "db-event-booking.html">Event bookings</a></li>
+                           <li><a href = "db-payment.html">Make Payment</a></li>
+                           <li><a href = "db-refund.html">Cancel Bookings</a></li>
+                           <li><a href = "db-all-payment.html">Prient E-Tickets</a></li>
+                           <li><a href = "db-event-details.html">Event booking details</a></li>
+                           <li><a href = "db-hotel-details.html">Hotel booking details</a></li>
+                           <li><a href = "db-travel-details.html">Travel booking details</a></li>
+                        </ul>
+                        <h4>Other pages:1</h4>
+                        <ul>
+                           <li><a href = "tour-details.html">Travel details</a></li>
+                           <li><a href = "hotel-details.html">Hotel details</a></li>
+                           <li><a href = "all-package.html">All package</a></li>
+                           <li><a href = "hotels-list.html">All hotels</a></li>
+                           <li><a href = "booking.html">Booking page</a></li>
+                        </ul>
+                        <h4 class = "ed-dr-men-mar-top">User login pages</h4>
+                        <ul>
+                           <li><a href = "register.html">Register</a></li>
+                           <li><a href = "login.html">Login and Sign in</a></li>
+                           <li><a href = "forgot-pass-2.html">Forgot pass</a></li>
+                        </ul>
+                        <h4>Other pages:2</h4>
+                        <ul>
+                           <li><a href = "about.html">About Us</a></li>
+                           <li><a href = "testimonials.html">Testimonials</a></li>
+                           <li><a href = "events.html">Events</a></li>
+                           <li><a href = "blog.html">Blog</a></li>
+                           <li><a href = "tips.html">Tips Before Travel</a></li>
+                           <li><a href = "price-list.html">Price List</a></li>
+                           <li><a href = "discount.html">Discount</a></li>
+                           <li><a href = "faq.html">FAQ</a></li>
+                           <li><a href = "sitemap.html">Site map</a></li>
+                           <li><a href = "404.html">404 Page</a></li>
+                           <li><a href = "contact.html">Contact Us</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <ul class="navigation nav navbar-nav navbar-right navbar-collapse collapse clearfix">
-               <li>
-                  <a href="<?php echo Yii::$app->request->baseUrl; ?>/">
-                     <i class="fa fa-home margin-right-5"></i>
-                     Home
-                     <i class="fa fa-chevron-right pull-right"></i>
-                  </a>
-               </li>
+         </div>
+      </section>
+      <!-- END MOBILE MENU -->
+      <!--START HEADER SECTION-->
+      <section>
+         <!-- TOP BAR -->
+         <div class = "ed-top">
+            <div class = "container">
+               <div class = "row">
+                  <div class = "col-md-12">
+                     <div class = "ed-com-t1-left">
+                        <ul>
+                           <li><a href = "#">Contact: Lake Road, Suite 180 Farmington Hills, U.S.A.</a>
+                           </li>
+                           <li><a href = "#">Phone: +101-1231-1231</a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class = "ed-com-t1-right">
+                        <ul>
+                           <li><a href = "login.html">Sign In</a>
+                           </li>
+                           <li><a href = "register.html">Sign Up</a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class = "ed-com-t1-social">
+                        <ul>
+                           <li><a href = "#"><i class = "fa fa-facebook" aria-hidden = "true"></i></a>
+                           </li>
+                           <li><a href = "#"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a>
+                           </li>
+                           <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
 
-               <li>
-                  <a href="<?php echo Yii::$app->request->baseUrl; ?>/site/about/">
-                     <i class="fa fa-info-circle margin-right-5"></i>
-                     About
-                     <i class="fa fa-chevron-right pull-right"></i>
+         <!-- LOGO AND MENU SECTION -->
+         <div class = "top-logo" data-spy = "affix" data-offset-top = "250">
+            <div class = "container">
+               <div class = "row">
+                  <div class = "col-md-12">
+                     <div class = "wed-logo">
+                        <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
+                        </a>
+                     </div>
+                     <div class = "main-menu">
+                        <ul>
+                           <li><a href = "index.html">Home</a>
+                           </li>
+                           <li class = "about-menu">
+                              <a href = "family-package.html" class = "mm-arr">Packages</a>
+                              <!-- MEGA MENU 1 -->
+                              <div class = "mm-pos">
+                                 <div class = "about-mm m-menu">
+                                    <div class = "m-menu-inn">
+                                       <div class = "mm1-com mm1-s1">
+                                          <div class = "ed-course-in">
+                                             <a class = "course-overlay menu-about" href = "all-package.html">
+                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/5.jpg" alt = "">
+                                                <span>Popular Package</span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                       <div class = "mm1-com mm1-s2">
+                                          <p>Want to change the world? At Berkeley we’re doing just that. When you join the Golden Bear community, you’re part of an institution that shifts the global conversation every single day.</p>
+                                          <a href = "all-package.html" class = "mm-r-m-btn">Read more</a>
+                                       </div>
+                                       <div class = "mm1-com mm1-s3">
+                                          <ul>
+                                             <li><a href = "booking-all.html">All Booking</a></li>
+                                             <li><a href = "booking-tour-package.html">Tour Package Booking</a></li>
+                                             <li><a href = "booking-hotel.html">Hotel Booking</a></li>
+                                             <li><a href = "booking-car-rentals.html">Car Rentals Booking</a></li>
+                                             <li><a href = "booking-flight.html">Flight Booking</a></li>
+                                             <li><a href = "booking-slider.html">Slider Booking</a></li>
+                                          </ul>
+                                       </div>
+                                       <div class = "mm1-com mm1-s4">
+                                          <ul>
+                                             <li><a href = "all-package.html">All Package</a></li>
+                                             <li><a href = "family-package.html">Family Package</a></li>
+                                             <li><a href = "honeymoon-package.html">Honeymoon Package</a></li>
+                                             <li><a href = "group-package.html">Group Package</a></li>
+                                             <li><a href = "weekend-package.html">WeekEnd Package</a></li>
+                                             <li><a href = "regular-package.html">Regular Package</a></li>
+                                             <li><a href = "custom-package.html">Custom Package</a></li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class = "admi-menu">
+                              <a href = "#" class = "mm-arr">Seight Seeing</a>
+                              <!-- MEGA MENU 1 -->
+                              <div class = "mm-pos">
+                                 <div class = "admi-mm m-menu">
+                                    <div class = "m-menu-inn">
+                                       <div class = "mm2-com mm1-com mm1-s1">
+                                          <div class = "ed-course-in">
+                                             <a class = "course-overlay" href = "places.html">
+                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/1.jpg" alt = "">
+                                                <span>Seight Seeing - 1</span>
+                                             </a>
+                                          </div>
+                                          <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
+                                          <a href = "places.html" class = "mm-r-m-btn">Read more</a>
+                                       </div>
+                                       <div class = "mm2-com mm1-com mm1-s1">
+                                          <div class = "ed-course-in">
+                                             <a class = "course-overlay" href = "places-1.html">
+                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/2.jpg" alt = "">
+                                                <span>Seight Seeing - 2</span>
+                                             </a>
+                                          </div>
+                                          <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
+                                          <a href = "places-1.html" class = "mm-r-m-btn">Read more</a>
+                                       </div>
+                                       <div class = "mm2-com mm1-com mm1-s1">
+                                          <div class = "ed-course-in">
+                                             <a class = "course-overlay" href = "places-2.html">
+                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/3.jpg" alt = "">
+                                                <span>Seight Seeing - 3</span>
+                                             </a>
+                                          </div>
+                                          <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
+                                          <a href = "places-2.html" class = "mm-r-m-btn">Read more</a>
+                                       </div>
+                                       <div class = "mm2-com mm1-com mm1-s4">
+                                          <div class = "ed-course-in">
+                                             <a class = "course-overlay" href = "places-3.html">
+                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/4.jpg" alt = "">
+                                                <span>Seight Seeing - 4</span>
+                                             </a>
+                                          </div>
+                                          <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
+                                          <a href = "places-3.html" class = "mm-r-m-btn">Read more</a>
+                                       </div>
 
-                  </a>
-               </li>
-               <li>
-                  <a href="<?php echo Yii::$app->request->baseUrl; ?>/site/services/">
-                     <i class="fa fa-cogs margin-right-5"></i>
-                     Services
-                     <i class="fa fa-chevron-right pull-right"></i>
-                  </a>
-               </li>
-
-               <li>
-                  <a href="<?php echo Yii::$app->request->baseUrl; ?>/site/team/">
-                     <i class="fa fa-users margin-right-5"></i>
-                     Team
-                     <i class="fa fa-chevron-right pull-right"></i>
-                  </a>
-               </li>
-                <?php if (Yii::$app->params['site-settings']['show_blog']['content'] == 1): ?>
-                   <li>
-                      <a href="<?php echo Yii::$app->request->baseUrl; ?>/blog/">
-                         <i class="fa fa-list margin-right-5"></i>
-                         Blog
-                         <i class="fa fa-chevron-right pull-right"></i>
-                      </a>
-                   </li>
-                <?php endif; ?>
-
-               <li>
-                  <a href="<?php echo Yii::$app->request->baseUrl; ?>/site/contact/">
-                     <i class="fa fa-phone margin-right-5"></i>
-                     Contact
-                     <i class="fa fa-chevron-right pull-right"></i>
-                  </a>
-               </li>
-            </ul>
-         </nav>
-      </div>
-   </header>
-   <!--End header area-->
-   <div class="page-content">
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li><a href = "hotels-list.html">Hotels</a></li>
+                           <!--<li><a class='dropdown-button ed-sub-menu' href='#' data-activates='dropdown1'>Courses</a></li>-->
+                           <li class = "cour-menu">
+                              <a href = "#!" class = "mm-arr">All Pages</a>
+                              <!-- MEGA MENU 1 -->
+                              <div class = "mm-pos">
+                                 <div class = "cour-mm m-menu">
+                                    <div class = "m-menu-inn">
+                                       <div class = "mm1-com mm1-cour-com mm1-s3">
+                                          <h4>Home pages</h4>
+                                          <ul>
+                                             <li><a href = "booking-all.html">Home page 1</a></li>
+                                             <li><a href = "booking-all.html">Home page 2</a></li>
+                                             <li><a href = "booking-tour-package.html">Home page 3</a></li>
+                                             <li><a href = "booking-hotel.html">Home page 4</a></li>
+                                             <li><a href = "booking-car-rentals.html">Home page 5</a></li>
+                                             <li><a href = "booking-flight.html">Home page 6</a></li>
+                                             <li><a href = "booking-slider.html">Home page 7</a></li>
+                                          </ul>
+                                       </div>
+                                       <div class = "mm1-com mm1-cour-com mm1-s3">
+                                          <h4>Tour Packages</h4>
+                                          <ul>
+                                             <li><a href = "all-package.html">All Package</a></li>
+                                             <li><a href = "family-package.html">Family Package</a></li>
+                                             <li><a href = "honeymoon-package.html">Honeymoon Package</a></li>
+                                             <li><a href = "group-package.html">Group Package</a></li>
+                                             <li><a href = "weekend-package.html">WeekEnd Package</a></li>
+                                             <li><a href = "regular-package.html">Regular Package</a></li>
+                                             <li><a href = "custom-package.html">Custom Package</a></li>
+                                          </ul>
+                                          <h4 class = "ed-dr-men-mar-top">Sighe Seeings Pages</h4>
+                                          <ul>
+                                             <li><a href = "places.html">Seight Seeing 1</a></li>
+                                             <li><a href = "places-1.html">Seight Seeing 2</a></li>
+                                             <li><a href = "places-2.html">Seight Seeing 3</a></li>
+                                          </ul>
+                                       </div>
+                                       <div class = "mm1-com mm1-cour-com mm1-s3">
+                                          <h4>User Dashboard</h4>
+                                          <ul>
+                                             <li><a href = "dashboard.html">My Bookings</a></li>
+                                             <li><a href = "db-my-profile.html">My Profile</a></li>
+                                             <li><a href = "db-my-profile-edit.html">My Profile edit</a></li>
+                                             <li><a href = "db-travel-booking.html">Tour Packages</a></li>
+                                             <li><a href = "db-hotel-booking.html">Hotel Bookings</a></li>
+                                             <li><a href = "db-event-booking.html">Event bookings</a></li>
+                                             <li><a href = "db-payment.html">Make Payment</a></li>
+                                             <li><a href = "db-refund.html">Cancel Bookings</a></li>
+                                             <li><a href = "db-all-payment.html">Prient E-Tickets</a></li>
+                                             <li><a href = "db-event-details.html">Event booking details</a></li>
+                                             <li><a href = "db-hotel-details.html">Hotel booking details</a></li>
+                                             <li><a href = "db-travel-details.html">Travel booking details</a></li>
+                                          </ul>
+                                       </div>
+                                       <div class = "mm1-com mm1-cour-com mm1-s3">
+                                          <h4>Other pages:1</h4>
+                                          <ul>
+                                             <li><a href = "tour-details.html">Travel details</a></li>
+                                             <li><a href = "hotel-details.html">Hotel details</a></li>
+                                             <li><a href = "all-package.html">All package</a></li>
+                                             <li><a href = "hotels-list.html">All hotels</a></li>
+                                             <li><a href = "booking.html">Booking page</a></li>
+                                          </ul>
+                                          <h4 class = "ed-dr-men-mar-top">User login pages</h4>
+                                          <ul>
+                                             <li><a href = "register.html">Register</a></li>
+                                             <li><a href = "login.html">Login and Sign in</a></li>
+                                             <li><a href = "forgot-pass-2.html">Forgot pass</a></li>
+                                          </ul>
+                                       </div>
+                                       <div class = "mm1-com mm1-cour-com mm1-s4">
+                                          <h4>Other pages:2</h4>
+                                          <ul>
+                                             <li><a href = "about.html">About Us</a></li>
+                                             <li><a href = "testimonials.html">Testimonials</a></li>
+                                             <li><a href = "events.html">Events</a></li>
+                                             <li><a href = "blog.html">Blog</a></li>
+                                             <li><a href = "tips.html">Tips Before Travel</a></li>
+                                             <li><a href = "price-list.html">Price List</a></li>
+                                             <li><a href = "discount.html">Discount</a></li>
+                                             <li><a href = "faq.html">FAQ</a></li>
+                                             <li><a href = "sitemap.html">Site map</a></li>
+                                             <li><a href = "404.html">404 Page</a></li>
+                                             <li><a href = "contact.html">Contact Us</a></li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li><a href = "events.html">Events</a>
+                           </li>
+                           <li><a href = "dashboard.html">Profile</a>
+                           </li>
+                           <li><a href = "contact.html">Contact us</a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--<div class="search-top">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-md-12">
+                         <div class="search-form">
+                             <form>
+                                 <div class="sf-type">
+                                     <div class="sf-input">
+                                         <input type="text" id="sf-box" placeholder="Search course and discount courses">
+                                     </div>
+                                     <div class="sf-list">
+                                         <ul>
+                                             <li><a href="course-details.html">Accounting/Finance</a></li>
+                                             <li><a href="course-details.html">civil engineering</a></li>
+                                             <li><a href="course-details.html">Art/Design</a></li>
+                                             <li><a href="course-details.html">Marine Engineering</a></li>
+                                             <li><a href="course-details.html">Business Management</a></li>
+                                             <li><a href="course-details.html">Journalism/Writing</a></li>
+                                             <li><a href="course-details.html">Physical Education</a></li>
+                                             <li><a href="course-details.html">Political Science</a></li>
+                                             <li><a href="course-details.html">Sciences</a></li>
+                                             <li><a href="course-details.html">Statistics</a></li>
+                                             <li><a href="course-details.html">Web Design/Development</a></li>
+                                             <li><a href="course-details.html">SEO</a></li>
+                                             <li><a href="course-details.html">Google Business</a></li>
+                                             <li><a href="course-details.html">Graphics Design</a></li>
+                                             <li><a href="course-details.html">Networking Courses</a></li>
+                                             <li><a href="course-details.html">Information technology</a></li>
+                                         </ul>
+                                     </div>
+                                 </div>
+                                 <div class="sf-submit">
+                                     <input type="submit" value="Search Course">
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>-->
+      </section>
+   </div>
+   <!--END HEADER SECTION-->
+   <div class = "page-body">
        <?= $content ?>
    </div>
-
-   <footer class="slim-footer">
-       <?php $social = (Yii::$app->params['site-settings']['social_media']['content'] != '') ? json_decode(Yii::$app->params['site-settings']['social_media']['content']) : [] ?>
-       <?php if (is_array($social) && count($social) > 0): ?>
-          <div class="footer-top">
-             <div class="container text-center">
-                <div class="footer-social-media">
-                    <?php foreach ($social as $s) : ?>
-                       <div class="media-item">
-                          <a href="<?= $s->link ?>">
-                             <i class="fa <?= Yii::$app->params['social-icons'][$s->media]['icon'] ?>"></i>
-                          </a>
-                       </div>
-                    <?php endforeach; ?>
-                </div>
-             </div>
-          </div>
-       <?php endif; ?>
-      <div class="footer-bottom">
-         <div class="container text-center">
-            <div class="footer-content">
-               <div class="fc-item">
-                            <span class="strong">
-                                <i class="fa fa-map-marker"></i>
-                                Address:</span> <span> Ravnsborg Tværgade 2, 1, DK-2200 Copenhagen N.</span>
-               </div>
-               <div class="fc-item">
-                            <span class="strong">
-                                <i class="fa fa-envelope-o"></i>
-                                Email: </span><span> info@gateway-scandinavia.com</span>
-               </div>
-               <div class="fc-item">
-                            <span class="strong">
-                                <i class="fa fa-phone"></i>
-                                Call :</span><span>+45 61 80 01 14</span>
+   <div class = "page-foot">
+      <!--====== FOOTER 1 ==========-->
+      <section>
+         <div class = "rows">
+            <div class = "footer1 home_title tb-space">
+               <div class = "pla1 container">
+                  <!-- FOOTER OFFER 1 -->
+                  <div class = "col-md-3 col-sm-6 col-xs-12">
+                     <div class = "disco">
+                        <h3>30%<span>OFF</span></h3>
+                        <h4>Eiffel Tower,Rome</h4>
+                        <p>valid only for 24th Dec</p>
+                        <a href = "booking.html">Book Now</a></div>
+                  </div>
+                  <!-- FOOTER OFFER 2 -->
+                  <div class = "col-md-3 col-sm-6 col-xs-12">
+                     <div class = "disco1 disco">
+                        <h3>42%<span>OFF</span></h3>
+                        <h4>Colosseum,Burj Al Arab</h4>
+                        <p>valid only for 18th Nov</p>
+                        <a href = "booking.html">Book Now</a></div>
+                  </div>
+                  <!-- FOOTER MOST POPULAR VACATIONS -->
+                  <div class = "col-md-6 col-sm-12 col-xs-12 foot-spec footer_places">
+                     <h4><span>Most Popular</span> Vacations</h4>
+                     <ul>
+                        <li><a href = "tour-details.html">Angkor Wat</a></li>
+                        <li><a href = "tour-details.html">Buckingham Palace</a></li>
+                        <li><a href = "tour-details.html">High Line</a></li>
+                        <li><a href = "tour-details.html">Sagrada Família</a></li>
+                        <li><a href = "tour-details.html">Statue of Liberty </a></li>
+                        <li><a href = "tour-details.html">Notre Dame de Paris</a></li>
+                        <li><a href = "tour-details.html">Taj Mahal</a></li>
+                        <li><a href = "tour-details.html">The Louvre</a></li>
+                        <li><a href = "tour-details.html">Tate Modern, London</a></li>
+                        <li><a href = "tour-details.html">Gothic Quarter</a></li>
+                        <li><a href = "tour-details.html">Table Mountain</a></li>
+                        <li><a href = "tour-details.html">Bayon</a></li>
+                        <li><a href = "tour-details.html">Great Wall of China</a></li>
+                        <li><a href = "tour-details.html">Hermitage Museum</a></li>
+                        <li><a href = "tour-details.html">Yellowstone</a></li>
+                        <li><a href = "tour-details.html">Musée d'Orsay</a></li>
+                     </ul>
+                  </div>
                </div>
             </div>
          </div>
+      </section>
+      <!--====== FOOTER 2 ==========-->
+      <section>
+         <div class = "rows">
+            <div class = "footer">
+               <div class = "container">
+                  <div class = "foot-sec2">
+                     <div>
+                        <div class = "row">
+                           <div class = "col-sm-3 foot-spec foot-com">
+                              <h4><span>Holiday</span> Tour & Travels</h4>
+                              <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide.</p>
+                           </div>
+                           <div class = "col-sm-3 foot-spec foot-com">
+                              <h4><span>Address</span> & Contact Info</h4>
+                              <p>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A. Landmark : Next To Airport</p>
+                              <p><span class = "strong">Phone: </span> <span class = "highlighted">+101-1231-1231</span></p>
+                           </div>
+                           <div class = "col-sm-3 col-md-3 foot-spec foot-com">
+                              <h4><span>SUPPORT</span> & HELP</h4>
+                              <ul class = "two-columns">
+                                 <li><a href = "#">About Us</a></li>
+                                 <li><a href = "#">FAQ</a></li>
+                                 <li><a href = "#">Feedbacks</a></li>
+                                 <li><a href = "#">Blog </a></li>
+                                 <li><a href = "#">Use Cases</a></li>
+                                 <li><a href = "#">Advertise us</a></li>
+                                 <li><a href = "#">Discount</a></li>
+                                 <li><a href = "#">Vacations</a></li>
+                                 <li><a href = "#">Branding Offers </a></li>
+                                 <li><a href = "#">Contact Us</a></li>
+                              </ul>
+                           </div>
+                           <div class = "col-sm-3 foot-social foot-spec foot-com">
+                              <h4><span>Follow</span> with us</h4>
+                              <p>Join the thousands of other There are many variations of passages of Lorem Ipsum available</p>
+                              <ul>
+                                 <li><a href = "#"><i class = "fa fa-facebook" aria-hidden = "true"></i></a></li>
+                                 <li><a href = "#"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a></li>
+                                 <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a></li>
+                                 <li><a href = "#"><i class = "fa fa-linkedin" aria-hidden = "true"></i></a></li>
+                                 <li><a href = "#"><i class = "fa fa-youtube" aria-hidden = "true"></i></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--====== FOOTER - COPYRIGHT ==========-->
+      <section>
+         <div class = "rows copy">
+            <div class = "container">
+               <p>Copyrights © 2018 Company Name. All Rights Reserved</p>
+            </div>
+         </div>
+      </section>
+   </div>
+   <section>
+      <div class = "icon-float">
+         <ul>
+            <li><a href = "#" class = "sh">1k <br> Share</a></li>
+            <li><a href = "#" class = "fb1"><i class = "fa fa-facebook" aria-hidden = "true"></i></a></li>
+            <li><a href = "#" class = "gp1"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a></li>
+            <li><a href = "#" class = "tw1"><i class = "fa fa-twitter" aria-hidden = "true"></i></a></li>
+            <li><a href = "#" class = "li1"><i class = "fa fa-linkedin" aria-hidden = "true"></i></a></li>
+            <li><a href = "#" class = "wa1"><i class = "fa fa-whatsapp" aria-hidden = "true"></i></a></li>
+            <li><a href = "#" class = "sh1"><i class = "fa fa-envelope-o" aria-hidden = "true"></i></a></li>
+         </ul>
       </div>
-   </footer>
-
-   <!--Scroll to top-->
-   <div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-striped-arrow-up"></span></div>
+   </section>
 </div>
 
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/jquery-latest.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/bootstrap.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/wow.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/materialize.min.js"></script>
+
 <?php $this->endBody() ?>
-<script type="text/javascript" src="<?php echo Yii::$app->request->baseUrl; ?>/assets/js/plugins.js"></script>
 
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/bootstrap-sl-1.12.1/bootstrap-select.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
 
-<!-- jQuery ui js -->
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/assets/plugins/jquery-ui-1.11.4/jquery-ui.js"></script>
 
-<?php // \common\components\Misc::setFlash('danger', 'sadfasdfas');
+<?php
+// \common\components\Misc::setFlash('danger', 'sadfasdfas');
 if (Yii::$app->session->hasFlash('flash')): ?>
    <script>
       var flash = <?php echo Yii::$app->session->getFlash('flash'); ?>;
    </script>
 <?php endif; ?>
 <!--Revolution Slider-->
-
-<?php if ((Yii::$app->params['site-settings']['show_slider']['content'] == 1) && Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'index'): ?>
-   <!--Revolution Slider-->
-   <script type="text/javascript" src="<?php echo Yii::$app->request->baseUrl; ?>/assets/slider/js/jquery.themepunch.tools.min.js"></script>
-   <script type="text/javascript" src="<?php echo Yii::$app->request->baseUrl; ?>/assets/slider/js/jquery.themepunch.revolution.min.js"></script>
-   <script type="text/javascript" src="<?php echo Yii::$app->request->baseUrl; ?>/assets/js/slider_init.js"></script>
-
-<?php endif; ?>
-
-<!-- custom script -->
-
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/assets/js/custom.js"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/assets/js/message.js"></script>
-
 <script>
-   /* ==== CSRF TOKEN ==== */
-
    $.ajaxSetup({
       data: {
-         '_csrf-frontend': $('meta[name="csrf-token"]').prop('content')
+         '<?php echo Yii::$app->request->csrfParam; ?>': '<?php echo Yii::$app->request->csrfToken; ?>'
       }
    });
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136941732-1"></script>
-
-<script>
-   window.dataLayer = window.dataLayer || [];
-
-   function gtag() {
-      dataLayer.push(arguments);
-   }
-
-   gtag('js', new Date());
-
-   gtag('config', 'UA-136941732-1');
 </script>
 
 </body>
