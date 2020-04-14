@@ -35,7 +35,7 @@ $this->title = Yii::$app->params['system_name'] . " | Welcome " . ucwords(Yii::$
                         <span class = "ad-hom-col-com ad-hom-col-2"><i class = "fa fa-picture-o"></i></span>
                         <div class = "ad-hom-view-com">
                             <p>Total Blogs</p>
-                            <h3>22</h3>
+                            <h3><?php  echo Yii::$app->params['count_blog']; ?></h3>
                         </div>
                     </div>
                 </li>

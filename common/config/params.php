@@ -116,6 +116,7 @@ return [
         'pages'                      => [],
         'messages'                   => [],
         'count_messages'             => [ 'model' => 'Messages'],
+        'count_blog'             => [ 'model' => 'Blog'],
         'site-settings'              => [],
         'site-settings-caution-note' => 'Any changes in the website settings may render the website broken. Please be sure of what you want to change before proceeding.',
         'contact'                    => [

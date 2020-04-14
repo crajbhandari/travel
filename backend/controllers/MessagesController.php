@@ -59,7 +59,7 @@
         public function actionIndex() {
 
             return $this->render('index', [
-                'messages' => Messages::find()->all(),
+                'messages' => Messages::find()->orderBy(['id' => SORT_DESC])->all(),
                 'count'    => Messages::find()->where(['=', 'is_new', '1'])->count(),
             ]);
         }

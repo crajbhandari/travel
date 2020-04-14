@@ -49,4 +49,8 @@
             Misc::setFlash('danger', 'Data not uploaded. Please Try again');
             return FALSE;
         }
+        public static function getCount(){
+            $count = Blog::find()->count();
+            return $count;
+        }
     }

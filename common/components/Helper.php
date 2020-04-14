@@ -22,6 +22,7 @@
         public function init() {
             self::getPages();
             self::getSettings();
+            self::getBlogCount();
             self::getMessageCount();
             self::getMessages();
             parent::init();
@@ -45,6 +46,10 @@
         public static function getMessageCount() {
             $count = HelperMessages::getCount();
             \Yii::$app->params['count_messages'] = $count;
+        }
+        public static function getBlogCount() {
+            $count = HelperBlog::getCount();
+            \Yii::$app->params['count_blog'] = $count;
         }
         public static function getMessages() {
             $s = Messages::find()

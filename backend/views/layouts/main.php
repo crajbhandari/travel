@@ -87,8 +87,8 @@ AppAsset::register($this);
       <!--== NOTIFICATION ==-->
       <div class = "col-md-2 tab-hide">
          <div class = "top-not-cen">
-            <a class = 'waves-effect btn-noti' href = '#'>
-               <i class = "fa fa-commenting-o" aria-hidden = "true"></i>
+            <a class = 'waves-effect btn-noti' href = '<?php echo Yii::$app->request->baseUrl; ?>/messages'>
+               <i class = "fa fa-envelope-o" aria-hidden = "true"></i>
                <span>
                  <?php
                  if (Yii::$app->params['count_messages']['count_unseen'] > 0) {
@@ -96,10 +96,6 @@ AppAsset::register($this);
                  }
                  ?>
                    </span>
-            </a>
-            <a class = 'waves-effect btn-noti' href = '#'>
-               <i class = "fa fa-envelope-o" aria-hidden = "true"></i>
-               <span>5</span>
             </a>
             <a class = 'waves-effect btn-noti' href = '#'>
                <i class = "fa fa-tag" aria-hidden = "true"></i>
@@ -172,6 +168,8 @@ AppAsset::register($this);
                </li>
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq/" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'faq' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-window-restore" aria-hidden = "true"></i> FAQ</a>
                </li>
+               <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages/" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'messages' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-envelope-o" aria-hidden = "true"></i> Messages</a>
+               </li>
                <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
@@ -185,9 +183,9 @@ AppAsset::register($this);
                <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
-                        <li><a href = "package-all.html">All Packages</a>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/">All Packages</a>
                         </li>
-                        <li><a href = "package-add.html">Add New Package</a>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Add New Package</a>
                         </li>
                         <li><a href = "package-cat-all.html">All Package Categories</a>
                         </li>
@@ -195,106 +193,6 @@ AppAsset::register($this);
                         </li>
                      </ul>
                   </div>
-               </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-h-square" aria-hidden = "true"></i> Hotels</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "hotel-all.html">All Hotels</a>
-                        </li>
-                        <li><a href = "hotel-add.html">Add New Hotel</a>
-                        </li>
-                        <li><a href = "hotel-room-type-all.html">Room Type</a>
-                        </li>
-                        <li><a href = "hotel-room-type-add.html">Add Room Type</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-picture-o" aria-hidden = "true"></i> Sight Seeings</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "sight-see-all.html">All Sight Seeings</a>
-                        </li>
-                        <li><a href = "sight-see-add.html">Add New Sight Seeing</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-calendar-o" aria-hidden = "true"></i> Events</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "event-all.html">All Events</a>
-                        </li>
-                        <li><a href = "event-add.html">Add New Event</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-braille" aria-hidden = "true"></i> Ui-Kits</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "ui-form.html">ui-form</a>
-                        </li>
-                        <li><a href = "ui-kit.html">ui-kit</a>
-                        </li>
-                        <li><a href = "ui-table.html">ui-table</a>
-                        </li>
-                        <li><a href = "ui-pre-load.html">ui-pre-load</a>
-                        </li>
-                        <li><a href = "ui-tab.html">ui-tab</a>
-                        </li>
-                        <li><a href = "ui-icons.html">ui-icons</a>
-                        </li>
-                        <li><a href = "ui-collapsible.html">ui-collapsible</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-usd" aria-hidden = "true"></i> Discounts</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "discount.html">All Discounts</a>
-                        </li>
-                        <li><a href = "discount-add.html">Add New Discounts</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-tags" aria-hidden = "true"></i> Offers</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "offers.html">All Offers</a>
-                        </li>
-                        <li><a href = "offers-add.html">Add New Offers</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-ticket" aria-hidden = "true"></i> Booking & Enquiry</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "hotel-booking-all.html">Hotel</a>
-                        </li>
-                        <li><a href = "package-booking-all.html">Package</a>
-                        </li>
-                        <li><a href = "sight-see-booking-all.html">Sight Seeings</a>
-                        </li>
-                        <li><a href = "event-booking-all.html">Events</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-rss" aria-hidden = "true"></i> Blog & Articals</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "blog-all.html">All Blogs</a>
-                        </li>
-                        <li><a href = "blog-add.html">Add Blog</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li><a href = "social-media.html"><i class = "fa fa-plus-square-o" aria-hidden = "true"></i> Social Media</a>
                </li>
                <li><a href = "login.html" target = "_blank"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Login</a>
                </li>
