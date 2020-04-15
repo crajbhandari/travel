@@ -40,8 +40,9 @@ AppAsset::register($this);
 
    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" rel = "stylesheet">
    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/custom.css" rel = "stylesheet">
-   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.css" rel = "stylesheet">
    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/materialize.css" rel = "stylesheet">
+
+   <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.css" rel = "stylesheet">
    <!--   <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/css/overrides.css" rel = "stylesheet">-->
    <style>
       .notify_container {
@@ -230,8 +231,8 @@ AppAsset::register($this);
 <!--======== SCRIPT FILES =========-->
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/sweetalert/sweetalert.min.js" type = "text/javascript"></script>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/bootstrap.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/materialize.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/bootstrap.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
 
 <?php if (Yii::$app->session->hasFlash('flash')): ?>

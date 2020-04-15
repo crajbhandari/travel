@@ -484,7 +484,6 @@ $(function ($) {
                $('.message-phone').html(msg.phone);
                $('.message-url').html(msg.url);
                $('.message-content').html(msg.message);
-
             });
 
 
