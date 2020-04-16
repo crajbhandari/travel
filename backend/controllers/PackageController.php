@@ -8,6 +8,7 @@
     use yii\filters\AccessControl;
     use yii\filters\VerbFilter;
     use yii\web\Controller;
+    use yii\base\Component;
 
 
     /**
@@ -79,20 +80,13 @@
 
         public function actionUpdate() {
             $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
-            $co = [];
-            foreach ($image as $k => $a) {
-                foreach ($a as $m => $l) {
-                    $co[$m][$k] = $l;
-                }
-
-            }
-            echo '<pre>';
-            print_r($co);
-            echo '</pre>';
-            die;
             if (isset($_POST['post'])) {
-                $updated = HelperPackage::set($_POST['post']);
+                $updated = HelperPackage::set($_POST['post'],$image);
                 if ($updated != FALSE) {
+                    if(isset($updated['image']) && $updated['image']!=1) {
+                        Misc::setFlash('danger', $updated['image'].'. Please Try again');
+                        return $this->redirect(Yii::$app->request->baseUrl . '/package/post/' . Misc::encodeUrl($updated['id']));
+                    }
                     return $this->redirect(Yii::$app->request->baseUrl . '/package/post/' . Misc::encodeUrl($updated['id']));
                 }
             }
