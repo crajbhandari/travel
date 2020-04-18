@@ -88,6 +88,7 @@ class HelperPackage extends Component {
                     $model->images = $final;
                 }
                 else {
+
                     if (!($model->save() == false)) {
                         Misc::setFlash('success', 'Package Updated.');
                         return $var = [
