@@ -1185,3 +1185,31 @@ label.custom-file-label {
 .note-editor{
     margin-top: 40px;
 }
+.pkg-img{
+    min-height: 133px!important;
+    max-height: 133px!important;
+}
+.package-image-actions{
+    transition: all 0.2s;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    padding: 20px 0 0 0;
+}
+.card img{
+    height: 180px;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+}
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+.card-body{
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}

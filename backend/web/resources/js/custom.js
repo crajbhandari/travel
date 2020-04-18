@@ -76,13 +76,13 @@ $(function ($) {
    "use strict";
    $(document).ready(function () {
       //LEFT MOBILE MENU OPEN
-      $(".atab-menu").on('click', function() {
+      $(".atab-menu").on('click', function () {
          $(".sb2-1").css("left", "0");
          $(".btn-close-menu").css("display", "inline-block");
       });
 
       //LEFT MOBILE MENU CLOSE
-      $(".btn-close-menu").on('click', function() {
+      $(".btn-close-menu").on('click', function () {
          $(".sb2-1").css("left", "-350px");
          $(".btn-close-menu").css("display", "none");
       });
@@ -174,7 +174,7 @@ $(function ($) {
                            success: function (data) {
                               console.log(data);
                               if (data == true) {
-                                    notify('success', table + ' Deleted.');
+                                 notify('success', table + ' Deleted.');
                                  location.reload();
                                  // row.remove();
                               } else {
@@ -270,7 +270,7 @@ $(function ($) {
             ],
             fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24', '28', '36', '42', '48', '64'],
             colors: [
-               ['#535353', '#fee073', '#fccd09', '#ffffff'],
+               ['#535353', '#FEE073', '#FCCD09', '#FFFFFF'],
                ['#000000', '#424242', '#636363', '#9C9C94', '#CEC6CE', '#EFEFEF', '#F7F7F7', '#FFFFFF'],
                ['#FF0000', '#FF9C00', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', '#9C00FF', '#FF00FF'],
                ['#F7C6CE', '#FFE7CE', '#FFEFC6', '#D6EFD6', '#CEDEE7', '#CEE7F7', '#D6D6E7', '#E7D6DE'],
@@ -300,7 +300,7 @@ $(function ($) {
 
             fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24', '28', '36', '42', '48', '64'],
             colors: [
-               ['#535353', '#fee073', '#fccd09', '#ffffff'],
+               ['#535353', '#FEE073', '#FCCD09', '#FFFFFF'],
                ['#000000', '#424242', '#636363', '#9C9C94', '#CEC6CE', '#EFEFEF', '#F7F7F7', '#FFFFFF'],
                ['#FF0000', '#FF9C00', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', '#9C00FF', '#FF00FF'],
                ['#F7C6CE', '#FFE7CE', '#FFEFC6', '#D6EFD6', '#CEDEE7', '#CEE7F7', '#D6D6E7', '#E7D6DE'],
@@ -336,8 +336,8 @@ $(function ($) {
                      imageHolder.remove();
                   }
                },
-               error: function (error,data) {
-                  notify('danger', 'Server Error. Sorry ! File Not Removed <br>'+data);
+               error: function (error, data) {
+                  notify('danger', 'Server Error. Sorry ! File Not Removed <br>' + data);
                }
 
 
@@ -441,6 +441,33 @@ $(function ($) {
             contactTable.append(tr);
          });
       }
+      $(function () {
+         $('.remove-image-package').on("click", function () {
+            var cindex = $(this).data("id");
+            var cid = $(this).data("for");
+            $.ajax({
+               url: baseUrl + "/package/remove-image",
+               type: 'post',
+               data: {
+                  index: cindex,
+                  id: cid,
+               },
+               success: function (data) {
+                  if (data === 'false') {
+                     console.log(data);
+                     typeAlert('Error', 'Sorry, Could not Delete', 'error');
+                  } else {
+                    location.reload();
+                  }
+               },
+               error: function () {
+                  console.log('error');
+                  typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
+               }
+            });
+
+         });
+      });
       $(function () {
          $('.show-message').on("click", function () {
             var cid = $(this).data("id");

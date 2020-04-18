@@ -24,6 +24,7 @@ $this->title = 'Messages';
                                 <?php if (!empty($messages) && count($messages) > 0): ?>
                                 <tr>
                                     <th>S.N</th>
+                                   <th>Status</th>
                                     <th>Date</th>
                                     <th>From</th>
                                     <th>Email</th>
@@ -38,6 +39,13 @@ $this->title = 'Messages';
                                     $count++; ?>
                                     <tr>
                                         <td><?php echo $sn; ?></td>
+                                       <td class = "status" data-id = "<?php echo 'id' . $post['id'] ?>">
+                                           <?php if ($post['is_new'] == 1) { ?>
+                                              <span data-for = "new" class = "label label-success">New</span>
+                                           <?php } else { ?>
+                                              <span data-for = "seen" class = "label label-danger">Seen</span>
+                                           <?php } ?>
+                                       </td>
                                         <td>
                                             <?= \common\components\Misc::datetime($post->created_on) ?>
                                         </td>
