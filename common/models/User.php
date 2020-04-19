@@ -33,6 +33,11 @@
         /**
          * {@inheritdoc}
          */
+        public static function getUserDetails($id) {
+            $model = User::find()->where('id='.$id)->asArray()->one();
+            return $model;
+        }
+        
         public static function findIdentity($id) {
             return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
         }

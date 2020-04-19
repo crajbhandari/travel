@@ -16,6 +16,7 @@
     use common\models\Messages;
     use common\models\Pages;
     use common\models\Settings;
+    use common\models\User;
     use yii\base\Component;
 
     class Helper extends Component {
@@ -59,5 +60,16 @@
                          ->all();
 
             \Yii::$app->params['messages'] = $s;
+        }
+
+        public static function setUser($post) {
+            $model = User::findOne($post['id']);
+            $model->name = $post['name'];
+            $model->username= $post['username'];
+            $model->email = $post['email'];
+            if (!($model->save() == FALSE)) {
+                return $model;
+            }
+            return FALSE;
         }
     }

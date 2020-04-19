@@ -2,9 +2,11 @@
 
 namespace backend\controllers;
 
+use common\components\Helper;
 use common\components\Misc;
 use common\models\LoginForm;
 use common\models\Messages;
+use common\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -101,6 +103,24 @@ class SiteController extends Controller {
         return $this->goHome();
     }
 
+    public function actionDashboard(){
+        $user_id = Yii::$app->user->identity->id;
+        $editable = User::getUserDetails($user_id);
+        return $this->render('dashboard', [
+                'editable' => $editable,
+        ]);
+    }
+    public  function actionUpdateDashboard() {
+        if (isset($_POST['post'])) {
+            $updated = Helper::setUser($_POST['post']);
+            if ($updated != FALSE) {
+                Misc::setFlash('success', 'Details Updated.');
+                return $this->redirect(Yii::$app->request->baseUrl . '/site/dashboard/');
+            }
+        }
+        Misc::setFlash('danger', 'Data not uploaded. Please Try again');
+        return $this->redirect(Yii::$app->request->baseUrl . '/site/dashboard');
+            }
     public function actionRemoveImage() {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
