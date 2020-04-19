@@ -1,6 +1,6 @@
 <?php
 $this->title = 'Package';
-//$this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
 ?>
 <div class = "sb2-2">
    <div class = "sb2-2-2">
@@ -69,23 +69,27 @@ $this->title = 'Package';
                      <div class = "input-field col s12">
                          <?php $counter++; ?>
                         <div class = "custom-file">
-
-                           <div class = "image-wrapper" <?= (isset($editable['image']) && $editable['image'] != '') ? '' : 'style="display:none;"' ?>>
-                              <img src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $editable['image'] : '' ?>" class = "custom-file-input-image" id = "file-<?php echo $counter; ?>-image" alt = ""/>
-                           </div>
-                            <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
-                               <div class = "image-actions text-right">
-                                  <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
-                                     <i class = "mdi mdi-close margin-right-5"></i>
-                                     Remove Image
-                                  </a>
-                               </div>
-                            <?php endif; ?>
                            <label class = "custom-file-label" id = "file-<?php echo $counter; ?>-label" for = "file-<?php echo $counter; ?>">
                               <i class = "fa fa-file"></i>
                               <span>Upload Image</span>
                            </label>
                            <input accept = "image/x-png,image/jpeg" multiple type = "file" name = "image[]" class = "custom-file-input" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
+                        </div>
+                        <div class="images">
+                         <?php
+                         $sn=0;
+                         if (isset($editable['images']) && !empty($editable['images'])) {
+                             $images = json_decode($editable['images']);
+                             foreach ($images as $i => $image) {
+                                 ?>
+                                <div class = "card col s4">
+                                   <img class = "card-img-top" src = "<?php echo (isset($image) && $image != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $image : '' ?>" alt = "Card image cap">
+                                   <div class = "card-body">
+                                      <a href = "javascript:void();" class = "btn btn-danger remove-image-package" data-tab = "Package" data-for="<?php echo $editable['id'] ?>" data-id = "<?php echo $sn; ?>">Delete</a>
+                                   </div>
+                                </div>
+                             <?php $sn++;}
+                         } ?>
                         </div>
                      </div>
                   </div>
