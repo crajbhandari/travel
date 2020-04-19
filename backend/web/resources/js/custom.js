@@ -478,16 +478,16 @@ $(function ($) {
             };
 
 
-            msgBox.on('show.bs.modal', function () {
+      /*      msgBox.on('show.bs.modal', function () {
                $('.message-name').html(msg.name);
                $('.message-email').html(msg.email);
                $('.message-phone').html(msg.phone);
                $('.message-url').html(msg.url);
                $('.message-content').html(msg.message);
-            });
+            });*/
 
 
-            msgBox.modal("show");
+            msgBox.modal();
          });
       }
    });
