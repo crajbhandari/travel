@@ -133,7 +133,8 @@ AppAsset::register($this);
          <!--== USER INFO ==-->
          <div class = "sb2-12">
             <ul>
-               <li><img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/1552110608s.jpg" alt = "">
+               <li>
+                  <a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/1552110608s.jpg" alt = ""></a>
                </li>
                <li>
                   <h5><?php echo ucwords(Yii::$app->user->identity->name) ?> <span><?php echo ucwords(Yii::$app->user->identity->role) ?></span></h5>

@@ -4959,7 +4959,7 @@ textarea.materialize-textarea {
     outline: none;
     height: 3rem;
     width: 100%;
-    font-size: 1rem;
+    font-size: 13px;
     margin: 0 0 20px 0;
     padding: 0;
     box-shadow: none;
@@ -5239,7 +5239,7 @@ textarea.materialize-textarea + label:after {
     text-align: initial;
 }
 .input-field label:not(.label-icon).active {
-    font-size: 0.8rem;
+    font-size:14px;
     -webkit-transform: translateY(-140%);
     transform: translateY(-140%);
 }
