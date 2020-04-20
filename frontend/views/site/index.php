@@ -38,7 +38,6 @@
          </div>
       </div>
    </div>
-
 </section>
 <section>
    <div class = "rows pad-bot-redu tb-space">
