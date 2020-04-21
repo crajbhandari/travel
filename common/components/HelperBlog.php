@@ -26,7 +26,7 @@
                 $model = new Blog();
             }
             $model->attributes = $data;
-            $model->visibility = $data['visibility'];
+            $model->status = $data['status'];
 
 
             if (isset($image['name']) && $image['name'] != '') {

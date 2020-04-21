@@ -35,7 +35,9 @@
                 $model->caption = (isset($setting['caption'])) ? $setting['caption'] : $model->caption;
                 $model->content = (isset($setting['content'])) ? $setting['content'] : $model->content;
                 if ($model->type == 'json') {
-                    $model->content = str_replace(' ', '', $setting['content']);
+                    if(isset($setting['content'])&& !empty($setting['content'])) {
+                        $model->content = str_replace(' ', '', $setting['content']);
+                    }
                 }
                 if ($model->save() == TRUE) {
 

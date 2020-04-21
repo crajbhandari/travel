@@ -1213,3 +1213,8 @@ label.custom-file-label {
     margin-top: 7px;
     margin-bottom: 7px;
 }
+.card-caution {
+    color: #F44336;
+    background: #f6f6f6;
+    padding: 20px 30px;
+}
