@@ -36,15 +36,15 @@
                 }
             }
             // Check if file already exists
-            if (file_exists($target_file)) {
-                $error = "Sorry, file already exists.";
-                $uploadOk = 0;
-            }
+//            if (file_exists($target_file)) {
+//                $error = "Sorry, file already exists.";
+//                $uploadOk = 0;
+//            }
             // Check file size
-            if ($upload["size"] > Yii::$app->params['image_size']) {
-                $error = "Sorry, your file is too large.";
-                $uploadOk = 0;
-            }
+//            if ($upload["size"] > Yii::$app->params['image_size']) {
+//                $error = "Sorry, your file is too large.";
+//                $uploadOk = 0;
+//            }
 
             // Check if $uploadOk is set to 0 by an error
 

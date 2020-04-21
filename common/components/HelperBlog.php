@@ -26,9 +26,9 @@
                 $model = new Blog();
             }
             $model->attributes = $data;
-            $model->visibility = $data['visibility'];
+            $model->status = $data['status'];
 
-          //  print_r($model);die;
+
             if (isset($image['name']) && $image['name'] != '') {
                 if ($model->image != '') {
                     Misc::delete_file($model->image, 'image');
@@ -48,5 +48,9 @@
             }
             Misc::setFlash('danger', 'Data not uploaded. Please Try again');
             return FALSE;
+        }
+        public static function getCount(){
+            $count = Blog::find()->count();
+            return $count;
         }
     }

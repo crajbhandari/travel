@@ -18,30 +18,30 @@
          * {@inheritdoc}
          */
         public function behaviors() {
-            return [
+        return [
                 'access' => [
-                    'class' => AccessControl::className(),
+                        'class' => AccessControl::className(),
 
-                    'rules' => [
-                        [
-                            'actions' => ['login', 'error'],
-                            'allow'   => TRUE,
+                        'rules' => [
+                                [
+                                        'actions' => ['login', 'error'],
+                                        'allow'   => TRUE,
+                                ],
+                                [
+                                    //                            'actions' => ['logout', 'index'], // Enable for access
+                                    'allow' => TRUE,
+                                    'roles' => ['@'],
+                                ],
                         ],
-                        [
-                            //                            'actions' => ['logout', 'index'], // Enable for access
-                            'allow' => TRUE,
-                            'roles' => ['@'],
-                        ],
-                    ],
                 ],
                 'verbs'  => [
-                    'class'   => VerbFilter::className(),
-                    'actions' => [
-                        //                    'logout' => ['post'],
-                    ],
+                        'class'   => VerbFilter::className(),
+                        'actions' => [
+                            //                    'logout' => ['post'],
+                        ],
                 ],
-            ];
-        }
+        ];
+    }
 
         /**
          * {@inheritdoc}
@@ -60,7 +60,7 @@
          */
         public function actionIndex() {
             $page = 'blog';
-            $blog = Blog::find()->all();
+            $blog = Blog::find()->orderBy(['id' => SORT_DESC])->all();
             return $this->render('index', [
                 'blog' => $blog,
                 'page' => Yii::$app->params['pages'][$page],

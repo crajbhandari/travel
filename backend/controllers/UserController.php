@@ -55,6 +55,7 @@
          * @return string
          */
         public function actionIndex() {
+
             if (in_array(Yii::$app->params['role_user'][Yii::$app->session[Yii::$app->params['user-session']]->role], $this->critical)) {
                 return $this->redirect(Yii::$app->request->baseUrl . '/admin/profile');
             }

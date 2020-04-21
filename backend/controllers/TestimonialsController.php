@@ -70,7 +70,7 @@
                 $updated = HelperTestimonails::set($_POST['testimonial'], $image);
                 if ($updated != FALSE) {
                     Misc::setFlash('success', 'Testimonial Updated.');
-                    //   return $this->redirect(Yii::$app->request->baseUrl . '/testimonials/edit/'. Misc::encodeUrl($updated['id']));
+                       return $this->redirect(Yii::$app->request->baseUrl . '/testimonials/edit/'. Misc::encodeUrl($updated['id']));
                 }
             }
 

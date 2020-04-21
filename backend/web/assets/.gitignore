@@ -1,9 +1,2 @@
-# *
-# !.gitignore
-
-# !css/*
-# !icons/*
-# !images/*
-# !js/*
-# !plugins/*
-
+*
+!.gitignore

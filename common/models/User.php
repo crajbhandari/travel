@@ -33,6 +33,11 @@
         /**
          * {@inheritdoc}
          */
+        public static function getUserDetails($id) {
+            $model = User::find()->where('id='.$id)->asArray()->one();
+            return $model;
+        }
+        
         public static function findIdentity($id) {
             return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
         }
@@ -121,7 +126,9 @@
         public function setPassword($password) {
             $this->password_hash = Yii::$app->security->generatePasswordHash($password);
         }
-
+        public function generateEmailCode() {
+            $this->email_verification = Yii::$app->security->generateRandomString();
+        }
         /**
          * Generates "remember me" authentication key
          */

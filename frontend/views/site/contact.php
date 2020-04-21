@@ -1,119 +1,75 @@
-<?php
-    /* @var $this yii\web\View */
-    $this->title = 'Contact Us';
-?>
-<?= $this->render('../snippets/page-title', [
-    'page' => $page,
-]) ?>
-<?php if (isset($content) && count($content) > 0): ?>
-    <?= $this->render('../snippets/content', [
-        'content' => $content,
-    ]) ?><?php endif; ?>
-<?php
-    $contact = (Yii::$app->params['site-settings']['address']['content'] != '') ? json_decode(Yii::$app->params['site-settings']['address']['content']) : [];
-    if (is_array($contact) && count($contact) > 0): ?>
-        <section class = "contact-page">
-            <div class = "container">
-                <?php foreach ($contact as $k => $c) : ?>
-                    <div class = "contact-section">
-                        <div class = "sec-title text-center">
-                            <h6><?= $c->subtitle; ?></h6>
-                            <h2><?= $c->title; ?></h2>
-                            <hr class = "short-underline lg-margin">
-                        </div>
-                        <div class = "row  row-centered ">
-                            <?php if ($c->address != ''): ?>
-                                <div class = "col-centered col-lg-4  col-md-4 col-sm-12 col-xs-12 text-center">
-                                    <div class = "contact-block">
-                                        <div class = "icon-area">
-                                            <i class = "flaticon-placeholder"></i>
-                                        </div>
-                                        <div class = "text-area">
-                                            <h5>office address</h5>
-                                            <p><?= $c->address ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            <?php if ($c->email != ''): ?>
-                                <div class = "col-centered col-lg-4  col-md-4 col-sm-12 col-xs-12 text-center">
-                                    <div class = "contact-block">
-                                        <div class = "icon-area">
-                                            <i class = "flaticon-email"></i>
-                                        </div>
-                                        <div class = "text-area">
-                                            <h5>email address</h5>
-                                            <p><?= $c->email ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            <?php if ($c->phone != ''): ?>
-                                <div class = "col-centered col-lg-4  col-md-4 col-sm-12 col-xs-12 text-center">
-                                    <div class = "contact-block">
-                                        <div class = "icon-area">
-                                            <i class = "flaticon-phone-call"></i>
-                                        </div>
-                                        <div class = "text-area">
-                                            <h5>phone number</h5>
-                                            <p><?= $c->phone ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
+<?php $this->title = 'Welcome'; ?>
+	<!-- TOP SEARCH BOX -->
+        <div class="search-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="search-form">
+						<form class="tourz-search-form">
+							<div class="input-field">
+								<input type="text" id="select-city" class="autocomplete">
+								<label for="select-city">Enter city</label>
+							</div>
+							<div class="input-field">
+								<input type="text" id="select-search" class="autocomplete">
+								<label for="select-search" class="search-hotel-type">Search over a million tour and travels, sight seeings, hotels and more</label>
+							</div>
+							<div class="input-field">
+								<input type="submit" value="search" class="waves-effect waves-light tourz-sear-btn"> </div>
+						</form>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                </div>
             </div>
-        </section>
-    <?php endif; ?>
-
-<div class = "contact-form-header" style = "background-image: url('<?php echo Yii::$app->request->baseUrl; ?>/assets/images/resources/banner_contacts.jpg')">
-    <div class = "container">
-        <h3 class = "text-center">Give us a shout !</h3>
-        <p class = "text-center">Use the form below to drop us an email or the old fashioned telephone calls works too at +45 61 80 01 14</p>
-    </div>
-</div></section>
-<section class = "service-form">
-    <div class = "container">
-        <div class = "sec-title text-left">
-            <h2>Send us Your Queries</h2>
         </div>
-        <form name = "contact_form" id = "contact-form" class = "default-form contact-form" method = "post">
-            <div class = "row">
-                <div class = "col-md-6 col-sm-12 col-xs-12">
-                    <div class = "form-group">
-                        <input required = "required" class = "form-control required" type = "text" name = "name" placeholder = "Your Name" required = "">
-                    </div>
-                </div>
-                <div class = "col-md-6 col-sm-12 col-xs-12">
-                    <div class = "form-group">
-                        <input required = "required" class = "form-control required" type = "email" name = "email" placeholder = "Email" required = "">
-                    </div>
-                </div>
-                <div class = "col-md-6 col-sm-12 col-xs-12">
-                    <div class = "form-group">
-                        <input class = "form-control" type = "tel" name = "phone" placeholder = "Phone" required = "">
-                    </div>
-                </div>
-                <div class = "col-md-6 col-sm-12 col-xs-12">
-                    <div class = "form-group">
-                        <input class = "form-control" type = "url" name = "url" placeholder = "Website" required = "">
-                    </div>
-                </div>
-                <div class = "col-md-12 col-sm-12 col-xs-12">
-                    <div class = "form-group">
-                        <textarea required = "required" name = "message" class = "form-control textarea required" placeholder = "Message"></textarea>
-                    </div>
-                    <div class = "form-group text-left message-button-wrapper">
-                        <a href = "javascript:void(0);" class = "thm-btn bg-clr4 send-message">
-                            <i class = "fa fa-paper-plane margin-right-10"></i>
-                            Send Message
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</section><!--End Service Form area-->
+		<!-- END TOP SEARCH BOX -->
+    </section>
+    <!--END HEADER SECTION-->
+	
+	<!--====== LOCATON ==========-->
+	<section>
+		<div class="rows contact-map map-container">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6290413.804893654!2d-93.99620524741552!3d39.66116578737809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880b2d386f6e2619%3A0x7f15825064115956!2sIllinois%2C+USA!5e0!3m2!1sen!2sin!4v1469954001005" allowfullscreen></iframe>
+		</div>
+	</section>
+	<!--====== QUICK ENQUIRY FORM ==========-->
+	<section>
+		<div class="form form-spac rows con-page">
+			<div class="container">
+				<!-- TITLE & DESCRIPTION -->
+				<div class="spe-title col-md-12">
+					<h2><span>Contact us</span></h2>
+					<div class="title-line">
+						<div class="tl-1"></div>
+						<div class="tl-2"></div>
+						<div class="tl-3"></div>
+					</div>
+					<p>World's leading tour and travels Booking website,Over 30,000 packages worldwide. Book travel packages and enjoy your holidays with distinctive experience</p>
+				</div>
 
+		<div class="pg-contact">
+                        <div class="col-md-3 col-sm-6 col-xs-12 new-con new-con1">
+                            <h2>The <span>Travel</span></h2>
+                            <p>We Provide Outsourced Software Development Services To Over 50 Clients From 21 Countries.</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 new-con new-con1"> <img src="img/contact/1.html" alt="">
+                            <h4>Address</h4>
+                            <p>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.
+                                <br>Landmark : Next To Airport</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 new-con new-con3"> <img src="img/contact/2.html" alt="">
+                            <h4>CONTACT INFO:</h4>
+                            <p> <a href="tel://0099999999" class="contact-icon">Phone: 01 234874 965478</a>
+                                <br> <a href="tel://0099999999" class="contact-icon">Mobile: 01 654874 965478</a>
+                                <br> <a href="mailto:mytestmail@gmail.com" class="contact-icon">Email: info@company.com</a> </p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 new-con new-con4"> <img src="img/contact/3.html" alt="">
+                            <h4>Website</h4>
+                            <p> <a href="#">Website: www.mycompany.com</a>
+                                <br> <a href="#">Facebook: www.facebook/my</a>
+                                <br> <a href="#">Blog: www.blog.mycompany.com</a> </p>
+                        </div>
+                    </div>				
+			</div>
+		</div>
+	</section>
