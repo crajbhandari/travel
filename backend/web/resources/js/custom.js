@@ -457,7 +457,7 @@ $(function ($) {
                      console.log(data);
                      typeAlert('Error', 'Sorry, Could not Delete', 'error');
                   } else {
-                    location.reload();
+                     location.reload();
                   }
                },
                error: function () {
@@ -503,54 +503,6 @@ $(function ($) {
 
          });
       });
-      // if ($('.show-message').length) {
-      //    var msgBox = $('#message-box');
-      //    $('.show-message').on('click', function () {
-      //       var $this = $(this);
-      //       var row = $(this).parents("tr");
-      //       var id = row.data('id');
-      //       console.log(row.data('id'));
-      //       if (row.data('status') == 1) {
-      //          $.ajax({
-      //             url: baseUrl + "/messages/read-message",
-      //             type: 'post',
-      //             data: {
-      //                id: id,
-      //             },
-      //             success: function (data) {
-      //                row.find('.message-status i').removeClass('mdi-email-outline')
-      //                      .removeClass('text-danger')
-      //                      .addClass('mdi-email-open-outline');
-      //             },
-      //             error: function () {
-      //                notify('danger', 'Server Error. Message not flagged');
-      //             }
-      //          });
-      //       }
-      //
-      //
-      //       var msg = {
-      //          'date': row.find(".message-date").html() || '-',
-      //          'name': row.find(".message-name").html() || '-',
-      //          'email': row.find(".message-email").html() || '-',
-      //          'phone': row.find(".message-phone").html() || '-',
-      //          'url': row.find(".message-url").html() || '-',
-      //          'message': row.find(".message-text").html() || '-',
-      //          'status': row.data('status'),
-      //       };
-      //
-      //
-      //       msgBox.on('show.bs.modal', function () {
-      //          $('.message-name').html(msg.name);
-      //          $('.message-email').html(msg.email);
-      //          $('.message-phone').html(msg.phone);
-      //          $('.message-url').html(msg.url);
-      //          $('.message-content').html(msg.message);
-      //       });
-      //
-      //
-      //       msgBox.modal("show");
-      //    });
-      // }
+
    });
 });
