@@ -38,7 +38,7 @@ class Sections extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['page', 'created_on'], 'required'],
+            [['page'], 'required'],
             [['section_order'], 'integer'],
             [['title', 'sub_title', 'content'], 'string'],
             [['created_on'], 'safe'],

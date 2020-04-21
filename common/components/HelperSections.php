@@ -48,7 +48,10 @@
 
                 return $model;
             }
-
+echo '<pre>';
+print_r($model->getErrors());
+echo '</pre>';
+die;
             Misc::setFlash('danger', 'Data not uploaded. Please Try again');
             return FALSE;
 
