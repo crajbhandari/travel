@@ -154,6 +154,8 @@ AppAsset::register($this);
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/">List</a>
                         </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/comment/">Review Comments</a>
+                        </li>
                      </ul>
                   </div>
                </li>

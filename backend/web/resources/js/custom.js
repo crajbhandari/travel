@@ -468,6 +468,22 @@ $(function ($) {
 
          });
       });
+
+      $(function () {
+         $('.pkg-imgs').change(function () {
+            var files = $(this)[0].files;
+            $('#img-count').html(files.length + ' files selected');
+            for (var i = 0; i <= files.length - 1; i++) {
+               var fname = files.item(i).name;
+               var fsize = files.item(i).size;
+               document.getElementById('hello').innerHTML =
+                     document.getElementById('hello').innerHTML + ', ' +
+                     fname + ' (<b>' + fsize + '</b> bytes)';
+               console.log(fname);
+               console.log(fsize);
+            }
+         })
+      });
       $(function () {
          $('.show-message').on("click", function () {
             var cid = $(this).data("id");

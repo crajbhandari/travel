@@ -68,12 +68,15 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
                   <div class = "row">
                      <div class = "input-field col s12">
                          <?php $counter++; ?>
+                        <div class = "input-field col s12">
+                        <span id="img-count">Choose Files</span>
+                        </div>
                         <div class = "custom-file">
-                           <label class = "custom-file-label" id = "file-<?php echo $counter; ?>-label" for = "file-<?php echo $counter; ?>">
+                           <label class = "custom-file-label" id = "" for = "file-<?php echo $counter; ?>">
                               <i class = "fa fa-file"></i>
-                              <span>Upload Image</span>
+                              <span id="hello"></span>
                            </label>
-                           <input accept = "image/x-png,image/jpeg" multiple type = "file" name = "image[]" class = "custom-file-input" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
+                           <input accept = "image/x-png,image/jpeg" multiple type = "file" name = "image[]" class = "custom-file-input pkg-imgs" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
                         </div>
                         <div class="images">
                          <?php
