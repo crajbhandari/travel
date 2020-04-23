@@ -1,80 +1,63 @@
 <?php $this->title = 'Welcome'; ?>
-  <section>
-        <div class="slider-position">
-            <!-- slider_area_start -->
-            <div class="slider_area">
-                <div class="slider_active owl-carousel">
-                    <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
-                     <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/banner/1.jpg" alt = ""/>
-                       <!--  <img src="images/banner/1.jpg" alt=""> -->
-                      
-                    </div>
-                    <div class="single_slider  d-flex align-items-center slider_bg_2 overlay">
-                      <!--   <img src="images/banner/2.jpg" alt=""> -->
-                         <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/banner/2.jpg" alt = ""/>
-                    </div>
-                    <div class="single_slider  d-flex align-items-center slider_bg_3 overlay">
-                      <!--   <img src="images/banner/3.jpg" alt=""> -->
-                           <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/banner/3.jpg" alt = ""/>
-                       
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="tourz-search-1">
-                            <h1>Plan Your Travel Now!</h1>
-                            <p>Experience the various exciting tour and travel packages and Make hotel reservations, find vacation packages, search cheap hotels and events</p>
-                            <form class="tourz-search-form">
-                                <div class="input-field">
-                                    <input type="text" id="select-city" class="autocomplete">
-                                    <label for="select-city">Enter city</label>
-                                </div>
-                                <div class="input-field">
-                                    <input type="text" id="select-search" class="autocomplete">
-                                    <label for="select-search" class="search-hotel-type">Search over a million tour and travels, sight seeings, hotels and more</label>
-                                </div>
-                                <div class="input-field">
-                                    <input type="submit" value="search" class="waves-effect waves-light tourz-sear-btn"> </div>
-                            </form>
-                            <div class="tourz-hom-ser">
-                                <ul>
-                                    <!--  <li>
-                                    <a href="booking-tour-package.html" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="0.5s"><img src="images/icon/2.png" alt=""> Tour</a>
-                                </li> -->
-                                    <!--    <li>
-                                    <a href="booking-flight.html" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="1s"><img src="images/icon/31.png" alt=""> Flight</a>
-                                </li>
-                                <li>
-                                    <a href="booking-car-rentals.html" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="1.5s"><img src="images/icon/30.png" alt=""> Car Rentals</a>
-                                </li>
-                                <li>
-                                    <a href="booking-hotel.html" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="2s"><img src="images/icon/1.png" alt=""> Hotel</a>
-                                </li> -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+ <!--HEADER SECTION-->
+<section>
+   <div class = "tourz-search">
+      <div class = "container">
+         <div class = "row">
+            <div class = "tourz-search-1">
+               <h1>Plan Your Travel Now!</h1>
+               <p>Experience the various exciting tour and travel packages and Make hotel reservations, find vacation packages, search cheap hotels and events</p>
+               <form class = "tourz-search-form">
+                  <div class = "input-field">
+                     <input type = "text" id = "select-city" class = "autocomplete">
+                     <label for = "select-city">Enter city</label>
+                  </div>
+                  <div class = "input-field">
+                     <input type = "text" id = "select-search" class = "autocomplete">
+                     <label for = "select-search" class = "search-hotel-type">Search over a million tour and travels, Sightseeings, hotels and more</label>
+                  </div>
+                  <div class = "input-field">
+                     <input type = "submit" value = "search" class = "waves-effect waves-light tourz-sear-btn"></div>
+               </form>
+              <!--  <div class = "tourz-hom-ser d-none">
+                  <ul>
+                     <li>
+                        <a href = "booking-tour-package.html" class = "waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration = "0.5s">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/2.png" alt = ""/> Tour</a>
+                     </li>
+                     <li>
+                        <a href = "booking-flight.html" class = "waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration = "1s"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/31.png" alt = ""/>  Flight</a>
+                     </li>
+                     <li>
+                        <a href = "booking-car-rentals.html" class = "waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration = "1.5s"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/30.png" alt = ""/>  Car Rentals</a>
+                     </li>
+                     <li>
+                        <a href = "booking-hotel.html" class = "waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration = "2s"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/1.png" alt = ""/> 
+                     </li>
+                  </ul>
+               </div> -->
             </div>
-        </div>
-        <!-- slider_area_end -->
-    </section>
-    <!--END HEADER SECTION-->
-    <section>
-        <div class="rows pad-bot-redu tb-space">
-            <div class="container">
-                <!-- TITLE & DESCRIPTION -->
-                <div class="spe-title">
-                    <h2>Top <span>Tour Packages</span></h2>
-                    <div class="title-line">
-                        <div class="tl-1"></div>
-                        <div class="tl-2"></div>
-                        <div class="tl-3"></div>
-                    </div>
-                    <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide.</p>
-                </div>
-                <div>
-                    <!-- TOUR PLACE 1 -->
+         </div>
+      </div>
+   </div>
+</section>
+<!--END HEADER SECTION-->
+
+
+<section>
+   <div class = "rows pad-bot-redu tb-space">
+      <div class = "container">
+         <!-- TITLE & DESCRIPTION -->
+         <div class = "spe-title">
+            <h2>Top <span>Tour Packages</span></h2>
+            <div class = "title-line">
+               <div class = "tl-1"></div>
+               <div class = "tl-2"></div>
+               <div class = "tl-3"></div>
+            </div>
+            <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide.</p>
+         </div>
+         <div>
+           <!-- TOUR PLACE 1 -->
                     <div class="col-md-4 col-sm-6 col-xs-12 b_packages wow slideInUp" data-wow-duration="0.5s">
                         <!-- OFFER BRAND -->
                         <div class="band"> 
@@ -122,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- TOUR PLACE 2 -->
+             <!-- TOUR PLACE 2 -->
                     <div class="col-md-4 col-sm-6 col-xs-12 b_packages wow fadeInUp" data-wow-duration="0.7s">
                         <!-- OFFER BRAND -->
                         <div class="band">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/band1.png" alt=""/> </div>
@@ -309,25 +292,29 @@
                             </div>
                         </div>
                     </div>
-                </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+
+<!--====== HOME HOTELS ==========-->
+<section>
+   <div class = "popular_destination_area tb-space pad-top-o pad-bot-redu">
+      <div class = "container">
+         <!-- TITLE & DESCRIPTION -->
+         <div class = "spe-title">
+            <h2>Popular <span>Cities</span></h2>
+            <div class = "title-line">
+               <div class = "tl-1"></div>
+               <div class = "tl-2"></div>
+               <div class = "tl-3"></div>
             </div>
-        </div>
-    </section>
-    <section>
-        <div class="popular_destination_area tb-space">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="spe-title">
-                        <h2>Popular <span>Destination</span></h2>
-                        <div class="title-line">
-                            <div class="tl-1"></div>
-                            <div class="tl-2"></div>
-                            <div class="tl-3"></div>
-                        </div>
-                        <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide.</p>
-                    </div>
-                </div>
-                <div class="row">
+            <p>World's leading Hotel Booking website,Over 30,000 Hotel rooms worldwide. Book Hotel rooms and enjoy your holidays with distinctive experience</p>
+         </div>
+         <!-- CITY -->
+        <div class="row">
                     <div class="col-sm-4 col-md-4 col-lg-4 ">
                         <div class="single_destination">
                             <div class="thumb">
@@ -390,9 +377,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+      </div>
+   </div>
+</section>
+<!--====== HOME HOTELS ==========-->
+
+
+
+  
+ 
    
     <!-- testimonial_area  -->
     <section>
@@ -458,7 +451,7 @@
     <section>
         <div class="container tb-space">
             <div class="spe-title">
-                <h2>Our <span>Blogs </span> </h2>
+                <h2>Our <span>Blog </span> </h2>
                 <div class="title-line">
                     <div class="tl-1"></div>
                     <div class="tl-2"></div>
@@ -535,12 +528,52 @@
         </div>
     </section>
     <!--====== HOME HOTELS ==========-->
+
+<!--====== SECTION: FREE CONSULTANT ==========-->
+<section>
+   <div class = "offer">
+      <div class = "container">
+         <div class = "row">
+            <div class = "col-md-6">
+               <div class = "offer-l"><span class = "ol-1"></span> <span class = "ol-2"><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i></span> <span class = "ol-4">Standardized Budget Tour</span> <span class = "ol-3"></span> <span class = "ol-5">$900/-</span>
+                  <ul>
+                     <li class = "wow fadeInUp" data-wow-duration = "0.5s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis1.png" alt = "">
+                        </a><span>Free Car Fair</span>
+                     </li>
+                     <li class = "wow fadeInUp" data-wow-duration = "0.7s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis2.png" alt = ""> </a><span>Breakfast</span>
+                     </li>
+                     <li class = "wow fadeInUp" data-wow-duration = "0.9s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis3.png" alt = ""> </a><span>Lunch</span>
+                     </li>
+                     <li class = "wow fadeInUp" data-wow-duration = "1.1s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis4.png" alt = ""> </a><span>Night Out</span>
+                     </li>
+                     <li class = "wow fadeInUp" data-wow-duration = "1.3s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis5.png" alt = ""> </a><span>Hotel</span>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class = "col-md-6">
+               <div class = "offer-r">
+                  <div class = "or-1"><span class = "or-11">go</span> <span class = "or-12">Stays</span></div>
+                  <div class = "or-2"><span class = "or-21">Get</span> <span class = "or-22">70%</span> <span class = "or-23">Off</span> <span class = "or-24">use code: RG5481WERQ</span> <span class = "or-25"></span></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
     <section>
-        <div class="rows tb-space pad-top-o pad-bot-redu">
+        <div class="rows tb-space  pad-bot-redu">
             <div class="container">
                 <!-- TITLE & DESCRIPTION -->
                 <div class="spe-title">
-                    <h2>Popular <span>Places </span> </h2>
+                    <h2>Luxury <span>Stay </span> </h2>
                     <div class="title-line">
                         <div class="tl-1"></div>
                         <div class="tl-2"></div>
@@ -555,7 +588,7 @@
                         <div class="to-ho-hotel-con">
                             <div class="to-ho-hotel-con-1">
                                 <div class="hot-page2-hli-3"> <img src="images/hci1.png" alt=""> </div>
-                                <div class="hom-hot-av-tic"> Available Tickets: 42 </div>  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/1.jpg" alt=""/> 
+                              <!--   <div class="hom-hot-av-tic"> Available Tickets: 42 </div> -->  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/1.jpg" alt=""/> 
                             </div>
                             <div class="to-ho-hotel-con-23">
                                 <div class="to-ho-hotel-con-2">
@@ -568,7 +601,7 @@
                                         <li>City: illunois,united states
                                             <div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                                         </li>
-                                        <!--  <li><span class="ho-hot-pri-dis">$720</span><span class="ho-hot-pri">$420</span> </li> -->
+                                         <li><!-- <span class="ho-hot-pri-dis">$720</span><span class="ho-hot-pri">$420</span> --> </li>
                                     </ul>
                                 </div>
                             </div>
@@ -579,7 +612,7 @@
                         <div class="to-ho-hotel-con">
                             <div class="to-ho-hotel-con-1">
                                 <div class="hot-page2-hli-3"> <img src="images/hci1.png" alt=""> </div>
-                                <div class="hom-hot-av-tic"> Available Tickets: 520 </div> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/2.jpg" alt=""/> 
+                               <!--  <div class="hom-hot-av-tic"> Available Tickets: 520 </div> --> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/2.jpg" alt=""/> 
                             </div>
                             <div class="to-ho-hotel-con-23">
                                 <div class="to-ho-hotel-con-2">
@@ -592,7 +625,7 @@
                                         <li>City: illunois,united states
                                             <div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                                         </li>
-                                        <!--   <li><span class="ho-hot-pri-dis">$840</span><span class="ho-hot-pri">$540</span> </li> -->
+                                          <li><!-- <span class="ho-hot-pri-dis">$840</span><span class="ho-hot-pri">$540</span>  --></li>
                                     </ul>
                                 </div>
                             </div>
@@ -603,7 +636,7 @@
                         <div class="to-ho-hotel-con">
                             <div class="to-ho-hotel-con-1">
                                 <div class="hot-page2-hli-3"> <img src="images/hci1.png" alt=""> </div>
-                                <div class="hom-hot-av-tic"> Available Tickets: 92 </div> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/3.jpg" alt=""/> 
+                                <!-- <div class="hom-hot-av-tic"> Available Tickets: 92 </div> --> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/3.jpg" alt=""/> 
                             </div>
                             <div class="to-ho-hotel-con-23">
                                 <div class="to-ho-hotel-con-2">
@@ -616,7 +649,7 @@
                                         <li>City: illunois,united states
                                             <div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                                         </li>
-                                        <!--  <li><span class="ho-hot-pri-dis">$680</span><span class="ho-hot-pri">$380</span> </li> -->
+                                         <li><!-- <span class="ho-hot-pri-dis">$680</span><span class="ho-hot-pri">$380</span> --> </li>
                                     </ul>
                                 </div>
                             </div>

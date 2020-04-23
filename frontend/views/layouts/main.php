@@ -55,8 +55,8 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
        <style>
           body, div, section, p {
            /*  font-family: <?= $fonts['main']['name'] ?>,<?= $fonts['main']['name'] ?>;*/
-             font-size: <?= $fonts['main']['size'] ?>px;
-             font-weight: <?= $fonts['main']['weight'] ?>;
+           /*  font-size: <?= $fonts['main']['size'] ?>px;
+             font-weight: <?= $fonts['main']['weight'] ?>;*/
           }
 
 
@@ -94,9 +94,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                                     <!-- MEGA MENU 1 -->
                                     <div class="mm-pos">
                                         <div class="about-mm ">
-                                            <div class="m-menu-inn">
-                                               
-                                              
+                                          <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
                                                         <li><a href="all-package.html">All Package</a></li>
@@ -104,10 +102,8 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                                                         <li><a href="honeymoon-package.html">Honeymoon Package</a></li>
                                                         <li><a href="groop-package.html">Group Package </a></li>
                                                         <li><a href="regular-package.html">Regular Package</a></li>
-                                                        
                                                     </ul>
                                                 </div>
-                                               
                                             </div>
                                         </div>
                                     </div>
