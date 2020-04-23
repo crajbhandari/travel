@@ -1,287 +1,149 @@
 <?php
-
-$this->title = Yii::$app->params['system_name'] . ' | Website Settings';
+$this->title = 'Settingss';
 if (isset($editable['type']) && $editable['type'] == 'json') {
     $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/plugins/ace-editor/src/ace.js');
     $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/plugins/ace-editor/src/mode-json.js');
 }
-$new = ($editable == false) ? 1 : 0; ?>
-<div class="container-fluid">
-   <!-- Nav tabs -->
-
-   <!-- Tab panes -->
-
-   <div class="row page-titles p-0">
-      <div class="col-md-6 align-self-center p-0">
-         <ul class="nav nav-tabs customtab page-tabs" role="tablist">
-            <li class="nav-item">
-               <a class="nav-link active" data-toggle="tab" href="#s-general" role="tab">
-                  <span class=""><i class="mdi mdi-settings"></i></span> <span class="hidden-xs-down">General</span>
-               </a>
+$new = ($editable == false) ? 1 : 0;
+?>
+<style>
+   textarea{
+      resize: vertical;
+   }
+</style>
+<div class="sb2-2">
+    <div class="sb2-2-2">
+        <ul>
+            <li><a href="<?php echo Yii::$app->request->baseUrl; ?>/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
             </li>
-            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#s-fonts" role="tab">
-                  <span class=""><i class="mdi mdi-pencil"></i></span> <span class="hidden-xs-down">Fonts</span>
-               </a></li>
-         </ul>
-         <!--         <h3 class="text-themecolor m-b-0 m-t-0">Settings</h3>-->
-      </div>
-   </div>
-   <div class="tab-content">
-      <div class="tab-pane active" id="s-general" role="tabpanel">
-         <div class="row">
-            <div class="col-md-4 col-sm-12">
-               <div class="card extended">
-                  <div class="card-header">
-                      <?php if ($new): ?>
-                         <h5 class="card-title">Add New Setting</h5>
-                      <?php else: ?>
-                         <h5 class="card-title">Edit Setting </h5>
-                      <?php endif; ?>
-
-                  </div>
-                   <?php if (!$new): ?>
-                      <div class="card-caution">
-                          <?= Yii::$app->params['site-settings-caution-note']; ?>
-                      </div>
-                   <?php endif; ?>
-                  <div class="card-body">
-                     <form method="post" action="<?php echo Yii::$app->request->baseUrl; ?>/settings/update/" enctype="multipart/form-data">
-                        <input type="hidden" name="<?php echo Yii::$app->request->csrfParam; ?>" value="<?php echo Yii::$app->request->csrfToken; ?>"/>
-                        <input type="hidden" name="setting[id]" value="<?php echo(isset($editable['id']) ? $editable['id'] : 0) ?>">
-
-                         <?php $counter = 0; ?>
-
-                        <div class="form-group">
-                            <?php $counter++; ?>
-                           <label for="<?php echo $counter; ?>" class="control-label">Slug</label>
-                           <input  id="<?php echo $counter; ?>" name="setting[slug]" value="<?php echo(isset($editable['slug']) ? $editable['slug'] : '') ?>" type="text" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <?php $counter++; ?>
-                           <label for="<?php echo $counter; ?>" class="control-label">Data Type</label>
-                           <select  id="<?php echo $counter; ?>" name="setting[type]" class="form-control required">
-                              <option <?php echo (isset($editable['type']) && $editable['type'] == 'text') ? 'selected = "selected"' : '' ?> value="text">Text</option>
-                              <option <?php echo (isset($editable['type']) && $editable['type'] == 'textarea') ? 'selected = "selected"' : '' ?> value="textarea">Textarea</option>
-                              <option <?php echo (isset($editable['type']) && $editable['type'] == 'boolean') ? 'selected = "selected"' : '' ?> value="boolean">Boolean</option>
-                              <option <?php echo (isset($editable['type']) && $editable['type'] == 'json') ? 'selected = "selected"' : '' ?> value="json">JSON</option>
-                           </select>
-                        </div>
-                        <div class="form-group setting-content">
-                            <?php $counter++; ?>
-                           <label for="<?php echo $counter; ?>" class="control-label">Content</label>
-                            <?php if (isset($editable['type']) && $editable['type'] === 'textarea'): ?>
-                               <textarea <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
-                            <?php elseif (isset($editable['type']) && $editable['type'] == 'json'): ?>
-                               <textarea <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
-                            <?php elseif (isset($editable['type']) && $editable['type'] == 'boolean'): ?>
-                               <select <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> id="<?php echo $counter; ?>" name="setting[content]" class="form-control required">
-                                  <option <?php echo (isset($editable['content']) && $editable['content'] == '0') ? 'selected = "selected"' : '' ?> value="0">False</option>
-                                  <option <?php echo (isset($editable['content']) && $editable['content'] == '1') ? 'selected = "selected"' : '' ?> value="1">True</option>
-                               </select>
-                            <?php else: ?>
-                               <input <?= (isset($editable['is_editable']) && $editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" value="<?php echo(isset($editable['content']) ? $editable['content'] : '') ?>" type="text" class="form-control required">
-                            <?php endif; ?>
-                        </div>
-                        <div class="form-group">
-                            <?php $counter++; ?>
-                           <label for="<?php echo $counter; ?>" class="control-label">Caption</label>
-                           <textarea id="<?php echo $counter; ?>" name="setting[caption]" class="form-control"><?php echo(isset($editable['caption']) ? $editable['caption'] : '') ?></textarea>
-                        </div>
-                        <div class="form-group m-t-40 m-b-0 text-right">
-                           <button class="btn btn-primary" type="submit">
-                              <i class="mdi mdi-check"></i>
-                              Save
-                           </button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-8 col-sm-12">
-               <div class="card extended">
-                  <div class="card-header">
-                     <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                           <h5 class="card-title">Settings</h5>
-                        </div>
-                        <div class="col-md-6 col-sm-12 text-right">
-                           <a class="btn btn-primary btn-sm" href="<?php echo Yii::$app->request->baseUrl; ?>/settings"><i class="mdi mdi-plus"></i>Add New Setting</a>
-                        </div>
+            <li class="active-bre"><a href="#"> Settings</a>
+            </li>
+        </ul>
+    </div>
+    <div class="sb2-2-3">
+        <div class="row">
+           <div class="col-md-4">
+              <div class="box-inn-sp">
+                 <div class="inn-title">
+                     <?php if ($new): ?>
+                        <h5 class = "card-title">Add New Settings</h5>
+                     <?php else: ?>
+                        <h5 class = "card-title">Edit Setting </h5>
+                     <?php endif; ?>
+                 </div>
+                  <?php if (!$new): ?>
+                     <div class="card-caution">
+                         <?= Yii::$app->params['site-settings-caution-note']; ?>
                      </div>
-
-                  </div>
-                  <div class="card-body ">
-                      <?php if (isset($settings) && count($settings) > 0): ?>
-                         <div class="table-responsive">
-                            <table class="table  table-striped " data-plugin="datatable">
-                               <thead>
-                               <tr>
-                                  <th>Slug</th>
-                                  <th>Content</th>
-                                  <th></th>
-                               </tr>
-                               </thead>
-                               <tbody>
-                               <?php foreach ($settings as $setting) :
-                                   if ($setting['is_editable'] === 1): ?>
-                                      <tr>
-                                         <td><?php echo ucwords($setting['slug']); ?></td>
-                                         <td>
-                                             <?php if ($setting['type'] == 'boolean'):
-                                                 if ($setting['content'] == '0'): ?>FALSE
-                                                 <?php elseif ($setting['content'] == '1'): ?>TRUE
-                                                 <?php endif;
-                                             elseif ($setting['type'] == 'json'):
-                                                 echo substr($setting['content'], 0, 20) . ' ...... ' . substr($setting['content'], -20, 20);
-                                             else:
-                                                 echo ucwords($setting['content']);
-                                             endif; ?>
-                                         </td>
-                                         <td class="text-right">
-                                            <a class="m-r-10" href="<?php echo Yii::$app->request->baseUrl; ?>/settings/edit/<?php echo \common\components\Misc::encodeUrl($setting['id']) ?>">Edit</a>
-                                            <a class="delete-item" data-table="setting" data-identity="<?php echo \common\components\Misc::encodeUrl($setting['id']); ?>" href="javascript:void();">Delete</a>
-                                         </td>
-                                      </tr>
-                                   <?php endif;
-                               endforeach; ?>
-
-                               </tbody>
+                  <?php endif; ?>
+                 <div class = "bor1">
+                    <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/settings/update/">
+                       <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
+                       <input type = "hidden" name = "setting[id]" value = "<?php echo(isset($editable['id']) ? $editable['id'] : 0) ?>">
+                        <?php $counter = 0; ?>
+                       <div class = "row">
+                          <div class = "input-field col s12">
+                              <?php $counter++; ?>
+                             <input id = "list-title <?php echo $counter; ?>" name = "setting[slug]" type = "text" class = "validate" required value = "<?php echo(isset($editable['slug']) ? $editable['slug'] : '') ?>">
+                             <label for = "list-title <?php echo $counter; ?>">Slug</label>
+                          </div>
+                       </div>
+                       <div class = "row">
+                          <div class = "input-field col s12">
+                              <?php $counter++; ?>
+                             <select id = "list-title <?php echo $counter; ?>" name = "setting[type]" required>
+                                <option <?php echo (isset($editable['type']) && $editable['type'] == 'text') ? 'selected = "selected"' : '' ?> value="text">Text</option>
+                                <option <?php echo (isset($editable['type']) && $editable['type'] == 'textarea') ? 'selected = "selected"' : '' ?> value="textarea">Textarea</option>
+                                <option <?php echo (isset($editable['type']) && $editable['type'] == 'boolean') ? 'selected = "selected"' : '' ?> value="boolean">Boolean</option>
+                                <option <?php echo (isset($editable['type']) && $editable['type'] == 'json') ? 'selected = "selected"' : '' ?> value="json">JSON</option>
+                             </select>
+                             <label for = "list-title <?php echo $counter; ?>">Data Type</label>
+                          </div>
+                       </div>
+                       <div class = "row">
+                          <div class = "input-field col s12">
+                              <?php $counter++; ?>
+                              <?php if (isset($editable['type']) && $editable['type'] === 'textarea'): ?>
+                                 <textarea style="height: 100px;" <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> class="materialize-textarea" required id="<?php echo $counter; ?>" name="setting[content]"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
+                              <?php elseif (isset($editable['type']) && $editable['type'] == 'json'): ?>
+                                 <textarea style="height: 100px;" <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> class="materialize-textarea" required id="<?php echo $counter; ?>" name="setting[content]" ><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
+                              <?php elseif (isset($editable['type']) && $editable['type'] == 'boolean'): ?>
+                                 <select <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> id="list-title <?php echo $counter; ?>" name="setting[content]">
+                                    <option <?php echo (isset($editable['content']) && $editable['content'] == '0') ? 'selected = "selected"' : '' ?> value="0">False</option>
+                                    <option <?php echo (isset($editable['content']) && $editable['content'] == '1') ? 'selected = "selected"' : '' ?> value="1">True</option>
+                                 </select>
+                              <?php else: ?>
+                                 <input <?= (isset($editable['is_editable']) && $editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" value="<?php echo(isset($editable['content']) ? $editable['content'] : '') ?>" type="text" class="required">
+                              <?php endif; ?>
+                             <label for = "textarea1 <?php echo $counter; ?>">Content</label>
+                          </div>
+                       </div>
+                       <div class = "row">
+                          <div class = "input-field col s12">
+                              <?php $counter++; ?>
+                             <input id = "list-title <?php echo $counter; ?>" name = "setting[caption]" type = "text" class = "validate" required value = "<?php echo(isset($editable['caption']) ? $editable['caption'] : '') ?>">
+                             <label for = "list-title <?php echo $counter; ?>">Caption</label>
+                          </div>
+                       </div>
+                       <div class = "row">
+                          <div class = "input-field col s12">
+                             <button type = "submit" class = "waves-effect waves-light btn-large">Save</button>
+                          </div>
+                       </div>
+                    </form>
+                 </div>
+              </div>
+           </div>
+            <div class="col-md-8">
+                <div class="box-inn-sp">
+                    <div class="inn-title" style="padding-bottom: 50px;">
+                       <div class="col-md-6">
+                          <h4>Settings List</h4></div>
+                       <div class="col-md-6">
+                          <div class="text-right">
+                             <a class="btn btn-primary btn-sm" href="<?php echo Yii::$app->request->baseUrl; ?>/settings"><i class="mdi mdi-plus"></i>Add New Setting</a>
+                          </div></div>
+                    </div>
+                    <div class="tab-inn">
+                        <div class="table-responsive table-desi">
+                            <table class="table table-hover">
+                                <thead>
+                                <?php if (!empty($settings) && count($settings) > 0): ?>
+                                <tr>
+                                   <th>S.N</th>
+                                   <th>Slug</th>
+                                   <th>Type</th>
+                                   <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $sn =1;
+                                $count = 0;
+                                foreach ($settings as $setting) :
+                                    $count++; ?>
+                                    <tr>
+                                        <td><?php echo $sn; ?></td>
+                                        <td><?php echo ucwords($setting['slug']); ?></td>
+                                        <td>
+                                            <?php echo ucwords($setting['type']); ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?php echo Yii::$app->request->baseUrl; ?>/settings/edit/<?php echo \common\components\Misc::encodeUrl($setting['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($setting['id']); ?>" data-tab = "Settings"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+                                    <?php $sn++; ?>
+                                <?php  endforeach; ?>
+                                </tbody>
+                                <?php else: ?>
+                                    <h3>Sorry, No Posts Found</h3>
+                                <?php endif; ?>
                             </table>
-                         </div>
-                      <?php else: ?>
-                         <h4>Settings is empty.</h4>
-                      <?php endif; ?>
-                  </div>
-
-               </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <div class="tab-pane " id="s-fonts" role="tabpanel">
-         <div class="row">
-            <div class="col-md-4 col-sm-12">
-               <div class="card extended">
-                  <div class="card-header">
-                      <?php if ($new): ?>
-                         <h5 class="card-title">Add New Setting</h5>
-                      <?php else: ?>
-                         <h5 class="card-title">Edit Setting </h5>
-                      <?php endif; ?>
-                  </div>
-                   <?php if (!$new): ?>
-                      <div class="card-caution">
-                          <?= Yii::$app->params['site-settings-caution-note']; ?>
-                      </div>
-                   <?php endif; ?>
-                  <div class="card-body">
-                     <form method="post" action="<?php echo Yii::$app->request->baseUrl; ?>/settings/update-fonts/" enctype="multipart/form-data">
-                        <input type="hidden" name="<?php echo Yii::$app->request->csrfParam; ?>" value="<?php echo Yii::$app->request->csrfToken; ?>"/>
-                        <input type="hidden" name="setting[id]" value="<?php echo(isset($editable['id']) ? $editable['id'] : 0) ?>">
-
-                         <?php $counter = 0; ?>
-
-                        <div class="form-group">
-                            <?php $counter++; ?>
-                           <label for="<?php echo $counter; ?>" class="control-label">Slug</label>
-                           <input disabled="disabled" id="<?php echo $counter; ?>" name="setting[slug]" value="<?php echo(isset($editable['slug']) ? $editable['slug'] : '') ?>" type="text" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <?php $counter++; ?>
-                           <label for="<?php echo $counter; ?>" class="control-label">Data Type</label>
-                           <select disabled="disabled" id="<?php echo $counter; ?>" name="setting[type]" class="form-control required">
-                              <option <?php echo (isset($editable['type']) && $editable['type'] == 'text') ? 'selected = "selected"' : '' ?> value="text">Text</option>
-                              <option <?php echo (isset($editable['type']) && $editable['type'] == 'textarea') ? 'selected = "selected"' : '' ?> value="textarea">Textarea</option>
-                              <option <?php echo (isset($editable['type']) && $editable['type'] == 'boolean') ? 'selected = "selected"' : '' ?> value="boolean">Boolean</option>
-                              <option <?php echo (isset($editable['type']) && $editable['type'] == 'json') ? 'selected = "selected"' : '' ?> value="json">JSON</option>
-                           </select>
-                        </div>
-                        <div class="form-group setting-content">
-                            <?php $counter++; ?>
-                           <label for="<?php echo $counter; ?>" class="control-label">Content</label>
-                            <?php if (isset($editable['type']) && $editable['type'] == 'textarea'): ?>
-                               <textarea <?= (isset($editable['is_editable']) && $editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
-                            <?php elseif (isset($editable['type']) && $editable['type'] == 'json'): ?>
-                               <textarea <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" class="form-control required"><?php echo(isset($editable['content']) ? $editable['content'] : '') ?></textarea>
-                            <?php elseif (isset($editable['type']) && $editable['type'] == 'boolean'): ?>
-                               <select <?= ($editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> id="<?php echo $counter; ?>" name="setting[content]" class="form-control required">
-                                  <option <?php echo (isset($editable['content']) && $editable['content'] == '0') ? 'selected = "selected"' : '' ?> value="0">False</option>
-                                  <option <?php echo (isset($editable['content']) && $editable['content'] == '1') ? 'selected = "selected"' : '' ?> value="1">True</option>
-                               </select>
-                            <?php else: ?>
-                               <input <?= (isset($editable['is_editable']) && $editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" value="<?php echo(isset($editable['content']) ? $editable['content'] : '') ?>" type="text" class="form-control required">
-                            <?php endif; ?>
-                        </div>
-                        <div class="form-group">
-                            <?php $counter++; ?>
-                           <label for="<?php echo $counter; ?>" class="control-label">Caption</label>
-                           <textarea id="<?php echo $counter; ?>" name="setting[caption]" class="form-control"><?php echo(isset($editable['caption']) ? $editable['caption'] : '') ?></textarea>
-                        </div>
-                        <div class="form-group m-t-40 m-b-0 text-right">
-                           <button class="btn btn-primary" type="submit">
-                              <i class="mdi mdi-check"></i>
-                              Save
-                           </button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-8 col-sm-12">
-               <div class="card extended">
-                  <div class="card-header">
-                     <h5 class="card-title">Settings</h5>
-                  </div>
-                  <div class="card-body ">
-                      <?php if (isset($settings) && count($settings) > 0): ?>
-                         <div class="table-responsive">
-                            <table class="table  table-striped " data-plugin="datatable">
-                               <thead>
-                               <tr>
-                                  <th>Slug</th>
-                                  <th>Content</th>
-                                  <th></th>
-                               </tr>
-                               </thead>
-                               <tbody>
-                               <?php foreach ($settings as $setting) : ?>
-
-                                  <tr>
-                                     <td><?php echo ucwords($setting['slug']); ?></td>
-                                     <td>
-                                         <?php if ($setting['type'] == 'boolean'):
-                                             if ($setting['content'] == '0'): ?>FALSE
-                                             <?php elseif ($setting['content'] == '1'): ?>TRUE
-                                             <?php endif;
-                                         elseif ($setting['type'] == 'json'):
-                                             echo substr($setting['content'], 0, 20) . ' ...... ' . substr($setting['content'], -20, 20);
-                                         else:
-                                             echo ucwords($setting['content']);
-                                         endif; ?>
-                                     </td>
-                                     <td class="text-right">
-                                        <a class="m-r-10" href="<?php echo Yii::$app->request->baseUrl; ?>/settings/edit/<?php echo \common\components\Misc::encodeUrl($setting['id']) ?>">Edit</a>
-                                        <a class="delete-item" data-tab="settings" data-id="<?php echo \common\components\Misc::encodeUrl($setting['id']); ?>" href="javascript:void();">Delete</a>
-
-                                     </td>
-                                  </tr>
-                               <?php endforeach; ?>
-
-                               </tbody>
-                            </table>
-                         </div>
-                      <?php else: ?>
-                         <h4>Settings is empty.</h4>
-                      <?php endif; ?>
-                  </div>
-
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-
-
+        </div>
+    </div>
 </div>
-

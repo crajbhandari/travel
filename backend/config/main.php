@@ -31,6 +31,8 @@
                     //custom url for backend
                     'settings/edit/<id:[a-zA-Z0-9-]+>/'     => 'settings/',
                     'clients/edit/<id:[a-zA-Z0-9-]+>/'      => 'clients/',
+                    'users/edit/<id:[a-zA-Z0-9-]+>/'      => 'users/edit/',
+                    'blog/view-comment/<id:[a-zA-Z0-9-]+>/'      => 'blog/view-comment/',
                     'testimonials/edit/<id:[a-zA-Z0-9-]+>/' => 'testimonials/',
                     'team/edit/<id:[a-zA-Z0-9-]+>/'         => 'team/',
                     'slider/post/<id:[a-zA-Z0-9-]+>/'       => 'slider/post',

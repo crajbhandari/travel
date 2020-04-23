@@ -468,8 +468,26 @@ $(function ($) {
 
          });
       });
+
+      $(function () {
+         $('.pkg-imgs').change(function () {
+            var files = $(this)[0].files;
+            $('#img-count').html(files.length + ' files selected');
+            for (var i = 0; i <= files.length - 1; i++) {
+               var fname = files.item(i).name;
+               var fsize = files.item(i).size;
+               document.getElementById('hello').innerHTML =
+                     document.getElementById('hello').innerHTML + ', ' +
+                     fname + ' (<b>' + fsize + '</b> bytes)';
+               console.log(fname);
+               console.log(fsize);
+            }
+         })
+      });
       $(function () {
          $('.show-message').on("click", function () {
+
+            $('.modal').modal();
             var cid = $(this).data("id");
             var modal = $('.modal-message');
             $.ajax({
@@ -487,13 +505,14 @@ $(function ($) {
                      //message seen or new
                      if ($('[data-for="new"]')) {
                         $('[data-id="id' + a['id'] + '"]').html('<span data-for="seen" class="label label-danger">Seen</span>');
+                        $('.message-noti').html($('.message-noti').text()-1);
                      } else {
                         $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="label label-danger">New</span>');
                      }
-
-                     modal.find('.modal-dialog').html(a['result']);
-                     modal.modal('show');
-                     $('.refresh').removeClass('hidden')
+                     $('.para-content').html(a['result'])
+                     // modal.find('.modal-dialog').html(a['result']);
+                     // modal.modal('show');
+                     // $('.refresh').removeClass('hidden')
                   }
                },
                error: function () {
@@ -503,6 +522,5 @@ $(function ($) {
 
          });
       });
-
    });
 });

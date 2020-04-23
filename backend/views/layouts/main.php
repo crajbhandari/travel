@@ -91,7 +91,7 @@ AppAsset::register($this);
          <div class = "top-not-cen">
             <a class = 'waves-effect btn-noti' href = '<?php echo Yii::$app->request->baseUrl; ?>/messages'>
                <i class = "fa fa-envelope-o" aria-hidden = "true"></i>
-               <span>
+               <span class="message-noti">
                  <?php
                  if (Yii::$app->params['count_messages']['count_unseen'] > 0) {
                      echo Yii::$app->params['count_messages']['count_unseen'];
@@ -116,7 +116,7 @@ AppAsset::register($this);
 
          <!-- Dropdown Structure -->
          <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
-            <li><a href = "#" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Admin Setting</a>
+            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Account Setting</a>
             </li>
             <li class = "divider"></li>
             <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/logout" class = "ho-dr-con-last waves-effect"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Logout</a>
@@ -154,6 +154,8 @@ AppAsset::register($this);
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/">List</a>
                         </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/comment/">Review Comments</a>
+                        </li>
                      </ul>
                   </div>
                </li>
@@ -173,31 +175,32 @@ AppAsset::register($this);
                </li>
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages/" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'messages' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-envelope-o" aria-hidden = "true"></i> Messages</a>
                </li>
+               <?php
+              if((\Yii::$app->user->identity->role=='admin')){
+               ?>
                <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
-                        <li><a href = "user-all.html">All Users</a>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users">All Users</a>
                         </li>
-                        <li><a href = "user-add.html">Add New user</a>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users/edit">Add New user</a>
                         </li>
                      </ul>
                   </div>
                </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
+               <?php } ?>
+
+               <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'package' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/">All Packages</a>
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Add New Package</a>
                         </li>
-                        <li><a href = "package-cat-all.html">All Package Categories</a>
-                        </li>
-                        <li><a href = "package-cat-add.html">Add Package Categories</a>
-                        </li>
                      </ul>
                   </div>
                </li>
-               <li><a href = "login.html" target = "_blank"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Login</a>
+               <li><a class="<?php echo (Yii::$app->controller->id == 'settings' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>" href = "<?php echo Yii::$app->request->baseUrl; ?>/settings" ><i class = "fa fa-gear" aria-hidden = "true"></i> Settings</a>
                </li>
             </ul>
          </div>
@@ -210,23 +213,23 @@ AppAsset::register($this);
 </div>
 
 <!--== BOTTOM FLOAT ICON ==-->
-<section>
-   <div class = "fixed-action-btn vertical">
-      <a class = "btn-floating btn-large red pulse">
-         <i class = "large material-icons">mode_edit</i>
-      </a>
-      <ul>
-         <li><a class = "btn-floating red"><i class = "material-icons">insert_chart</i></a>
-         </li>
-         <li><a class = "btn-floating yellow darken-1"><i class = "material-icons">format_quote</i></a>
-         </li>
-         <li><a class = "btn-floating green"><i class = "material-icons">publish</i></a>
-         </li>
-         <li><a class = "btn-floating blue"><i class = "material-icons">attach_file</i></a>
-         </li>
-      </ul>
-   </div>
-</section>
+<!--<section>-->
+<!--   <div class = "fixed-action-btn vertical">-->
+<!--      <a class = "btn-floating btn-large red pulse">-->
+<!--         <i class = "large material-icons">mode_edit</i>-->
+<!--      </a>-->
+<!--      <ul>-->
+<!--         <li><a class = "btn-floating red"><i class = "material-icons">insert_chart</i></a>-->
+<!--         </li>-->
+<!--         <li><a class = "btn-floating yellow darken-1"><i class = "material-icons">format_quote</i></a>-->
+<!--         </li>-->
+<!--         <li><a class = "btn-floating green"><i class = "material-icons">publish</i></a>-->
+<!--         </li>-->
+<!--         <li><a class = "btn-floating blue"><i class = "material-icons">attach_file</i></a>-->
+<!--         </li>-->
+<!--      </ul>-->
+<!--   </div>-->
+<!--</section>-->
 
 
 <?php $this->endBody() ?>
@@ -234,7 +237,7 @@ AppAsset::register($this);
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/sweetalert/sweetalert.min.js" type = "text/javascript"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/materialize.min.js"></script>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/bootstrap.min.js"></script>
+<!--<script src = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/js/bootstrap.min.js"></script>-->
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
 
 <?php if (Yii::$app->session->hasFlash('flash')): ?>

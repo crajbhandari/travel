@@ -14,10 +14,10 @@
 
     namespace common\components;
 
+    use common\components\Misc;
     use Yii;
     use yii\base\Component;
     use common\components\Query;
-    use common\components\Misc;
     use common\models\User as User;
 
     class HelperUser extends Component {
@@ -37,19 +37,65 @@
             return $model->save() ? $model : FALSE;
         }
 
-        public static function editUser($data, $id) {
+        public static function editUser($data, $image) {
+            if($data['id']!='') {
+                $model = User::findOne($data['id']);
 
-            $model = User::findOne($id);
+                $model->name = isset($data['name']) ? $data['name'] : '';
+                $model->username = isset($data['username']) ? $data['username'] : '';
+                $model->role = isset($data['role']) ? $data['role'] : 'customer';
+                //            if (!empty($data['password'])) {
+                //                $model->setPassword($data['password']);
+                //            }
+                $model->email = isset($data['email']) ? $data['email'] : '';
+                $model->status = isset($data['status']) ? $data['status'] : 0;
 
-            $model->name = isset($data['name']) ? $data['name'] : '';
-            $model->username = isset($data['username']) ? $data['username'] : '';
-            if (!empty($data['password'])) {
-                $model->setPassword($data['password']);
+                if (isset($image['name']) && $image['name'] != '') {
+                    if ($model->image != '') {
+                        Misc::delete_file($model->image, 'image');
+                    }
+
+                    $upload = HelperUpload::upload($image);
+                    if ($upload != FALSE) {
+                        $model->image = $upload;
+                    }
+                    else {
+                        Misc::setFlash('danger', 'Image not uploaded. Please Try again');
+                    }
+                }
+                return $model->save(false) ? $model : FALSE;
             }
-            $model->email = isset($data['email']) ? $data['email'] : '';
-            $model->phone = isset($data['phone']) ? $data['phone'] : 0;
-            $model->mobile = isset($data['mobile']) ? $data['mobile'] : 0;
-            return $model->save(false) ? $model : FALSE;
+            else{
+                $model = new User();
+
+                $model->name = isset($data['name']) ? $data['name'] : '';
+                $model->username = isset($data['username']) ? $data['username'] : '';
+                $model->role = isset($data['role']) ? $data['role'] : 'customer';
+                $model->setPassword($data['username']);
+                $model->incorrect_login = isset($data['incorrect_login']) ? $data['incorrect_login'] : 0;
+                $model->generateAuthKey();
+                $model->generateEmailcode();
+                //            if (!empty($data['password'])) {
+                //                $model->setPassword($data['password']);
+                //            }
+                $model->email = isset($data['email']) ? $data['email'] : '';
+                $model->status = isset($data['status']) ? $data['status'] : 0;
+
+                if (isset($image['name']) && $image['name'] != '') {
+                    if ($model->image != '') {
+                        Misc::delete_file($model->image, 'image');
+                    }
+
+                    $upload = HelperUpload::upload($image);
+                    if ($upload != FALSE) {
+                        $model->image = $upload;
+                    }
+                    else {
+                        Misc::setFlash('danger', 'Image not uploaded. Please Try again');
+                    }
+                }
+                return $model->save(false) ? $model : FALSE;
+            }
         }
 
         public static function editableUser($value, $id, $field) {

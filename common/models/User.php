@@ -126,7 +126,9 @@
         public function setPassword($password) {
             $this->password_hash = Yii::$app->security->generatePasswordHash($password);
         }
-
+        public function generateEmailCode() {
+            $this->email_verification = Yii::$app->security->generateRandomString();
+        }
         /**
          * Generates "remember me" authentication key
          */
