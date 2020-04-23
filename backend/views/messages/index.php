@@ -70,20 +70,10 @@ $this->title = 'Messages';
       </div>
    </div>
 </div>
-<!-- Modal Trigger -->
-<a class = "waves-effect waves-light btn modal-trigger" href = "#modal1">Modal</a>
-
-<!-- Modal Structure -->
 <div id = "modal1" class = "modal">
    <div class = "modal-content">
       <h4>Message From</h4>
    </div>
    <div class = "para-content">
-
-
    </div>
 </div>
-<!--<div class = "modal modal-message" tabindex = "-1" role = "dialog" id = "message-box">-->
-<!--    <div class = "modal-dialog" role = "document">-->
-<!--    </div>-->
-<!--</div>-->

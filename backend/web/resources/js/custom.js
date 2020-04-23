@@ -505,10 +505,11 @@ $(function ($) {
                      //message seen or new
                      if ($('[data-for="new"]')) {
                         $('[data-id="id' + a['id'] + '"]').html('<span data-for="seen" class="label label-danger">Seen</span>');
+                        $('.message-noti').html($('.message-noti').text()-1);
                      } else {
                         $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="label label-danger">New</span>');
                      }
-$('.para-content').html(a['result'])
+                     $('.para-content').html(a['result'])
                      // modal.find('.modal-dialog').html(a['result']);
                      // modal.modal('show');
                      // $('.refresh').removeClass('hidden')
