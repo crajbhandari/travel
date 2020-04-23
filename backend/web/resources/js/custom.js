@@ -486,6 +486,8 @@ $(function ($) {
       });
       $(function () {
          $('.show-message').on("click", function () {
+
+            $('.modal').modal();
             var cid = $(this).data("id");
             var modal = $('.modal-message');
             $.ajax({
@@ -506,10 +508,10 @@ $(function ($) {
                      } else {
                         $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="label label-danger">New</span>');
                      }
-
-                     modal.find('.modal-dialog').html(a['result']);
-                     modal.modal('show');
-                     $('.refresh').removeClass('hidden')
+$('.para-content').html(a['result'])
+                     // modal.find('.modal-dialog').html(a['result']);
+                     // modal.modal('show');
+                     // $('.refresh').removeClass('hidden')
                   }
                },
                error: function () {
@@ -519,6 +521,5 @@ $(function ($) {
 
          });
       });
-
    });
 });
