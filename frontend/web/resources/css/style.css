@@ -7479,14 +7479,14 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 /* = 21.MEGA MENU
 /*-------------------------------------------------*/
 .mm-pos {
-   /* left: 0px;
+    left: 0px;
     position: absolute;
     right: 0px;
-    width: 100%;*/
-    position: absolute;
+    width: 100%;
+   /* position: absolute;
     width: 23%;
     z-index: 99999;
-    background: #ffffff;
+    background: #ffffff;*/
 }
 
 .about-mm, .admi-mm, .cour-mm {
@@ -7508,15 +7508,11 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 }
 
 .mm1-com {
-   /* border-right: 1px solid #EAEAEA;
+   border-right: 1px solid #EAEAEA;
     box-sizing: border-box;
     float: left;
     padding: 20px;
-    width: 25%;*/
-    float: left;
-    box-sizing: border-box;
-    padding: 20px;
-    /* border-right: 1px solid #eaeaea; */
+    width: 25%;
 }
 
 .mm1-com h4 {
