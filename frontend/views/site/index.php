@@ -299,9 +299,11 @@
 
 
 
-<!--====== HOME HOTELS ==========-->
+
+
+
 <section>
-   <div class = "popular_destination_area tb-space pad-top-o pad-bot-redu">
+   <div class = "rows tb-space pad-top-o pad-bot-redu">
       <div class = "container">
          <!-- TITLE & DESCRIPTION -->
          <div class = "spe-title">
@@ -314,6 +316,83 @@
             <p>World's leading Hotel Booking website,Over 30,000 Hotel rooms worldwide. Book Hotel rooms and enjoy your holidays with distinctive experience</p>
          </div>
          <!-- CITY -->
+         <div class = "col-md-6">
+            <a href = "tour-details.html">
+               <div class = "tour-mig-like-com">
+                  <div class = "tour-mig-lc-img">
+                     <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home.jpg" alt=""/></div>
+                  <div class = "tour-mig-lc-con">
+                     <h5>Europe</h5>
+                     <p><span>12 Packages</span> Starting from $2400</p>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class = "col-md-3">
+            <a href = "tour-details.html">
+               <div class = "tour-mig-like-com">
+                  <div class = "tour-mig-lc-img"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home3.jpg" alt=""/></div>
+                  <div class = "tour-mig-lc-con tour-mig-lc-con2">
+                     <h5>Dubai</h5>
+                     <p>Starting from $2400</p>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class = "col-md-3">
+            <a href = "tour-details.html">
+               <div class = "tour-mig-like-com">
+                  <div class = "tour-mig-lc-img"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home2.jpg" alt=""/></div>
+                  <div class = "tour-mig-lc-con tour-mig-lc-con2">
+                     <h5>India</h5>
+                     <p>Starting from $2400</p>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class = "col-md-3">
+            <a href = "tour-details.html">
+               <div class = "tour-mig-like-com">
+                  <div class = "tour-mig-lc-img"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home1.jpg" alt=""/></div>
+                  <div class = "tour-mig-lc-con tour-mig-lc-con2">
+                     <h5>Usa</h5>
+                     <p>Starting from $2400</p>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class = "col-md-3">
+            <a href = "tour-details.html">
+               <div class = "tour-mig-like-com">
+                  <div class = "tour-mig-lc-img"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home4.jpg" alt=""/></div>
+                  <div class = "tour-mig-lc-con tour-mig-lc-con2">
+                     <h5>London</h5>
+                     <p>Starting from $2400</p>
+                  </div>
+               </div>
+            </a>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+
+<!--====== HOME HOTELS ==========-->
+<!-- <section>
+   <div class = "popular_destination_area tb-space pad-top-o pad-bot-redu">
+      <div class = "container">
+      
+         <div class = "spe-title">
+            <h2>Popular <span>Cities</span></h2>
+            <div class = "title-line">
+               <div class = "tl-1"></div>
+               <div class = "tl-2"></div>
+               <div class = "tl-3"></div>
+            </div>
+            <p>World's leading Hotel Booking website,Over 30,000 Hotel rooms worldwide. Book Hotel rooms and enjoy your holidays with distinctive experience</p>
+         </div>
+       
         <div class="row">
                     <div class="col-sm-4 col-md-4 col-lg-4 ">
                         <div class="single_destination">
@@ -379,197 +458,11 @@
                 </div>
       </div>
    </div>
-</section>
+</section> -->
 <!--====== HOME HOTELS ==========-->
 
-
-
-  
- 
-   
-    <!-- testimonial_area  -->
-    <section>
-        <div class="testimonial_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="testmonial_active owl-carousel">
-                            <div class="single_carousel">
-                                <div class="row justify-content-center">
-                                    <div class="">
-                                        <div class="single_testmonial text-center">
-                                            <div class="author_thumb">
-                                              <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt=""/>
-                                                
-                                            </div>
-                                            <p>"Working in conjunction with humanitarian aid agencies, we have<br> supported programmes to help alleviate human suffering.</p>
-                                            <div class="testmonial_author">
-                                                <h3>- Micky Mouse</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single_carousel">
-                                <div class="row justify-content-center">
-                                    <div class="">
-                                        <div class="single_testmonial text-center">
-                                            <div class="author_thumb">
-                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt=""/>
-                                            </div>
-                                            <p>"Working in conjunction with humanitarian aid agencies, we have <br> supported programmes to help alleviate human suffering.</p>
-                                            <div class="testmonial_author">
-                                                <h3>- Tom Mouse</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single_carousel">
-                                <div class="row justify-content-center">
-                                    <div class="">
-                                        <div class="single_testmonial text-center">
-                                            <div class="author_thumb">
-                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt=""/>
-                                            </div>
-                                            <p>"Working in conjunction with humanitarian aid agencies, we have
-                                                <br> supported programmes to help alleviate human suffering.</p>
-                                            <div class="testmonial_author">
-                                                <h3>- Jerry Mouse</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- /testimonial_area  -->
-    <section>
-        <div class="container tb-space">
-            <div class="spe-title">
-                <h2>Our <span>Blog </span> </h2>
-                <div class="title-line">
-                    <div class="tl-1"></div>
-                    <div class="tl-2"></div>
-                    <div class="tl-3"></div>
-                </div>
-                <p>World's leading Hotel Booking website,Over 30,000 Hotel rooms worldwide. Book Hotel rooms and enjoy your holidays with distinctive experience</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="blog_item">
-                        <div class="blog_item_img">
-                            <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt="Tour Booking" title="Tour Booking" class="img-fluid"/>
-                            
-                            <a href="#" class="blog_item_date">
-                                <h3>15</h3>
-                                <p>Jan</p>
-                            </a>
-                        </div>
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="blog1.html">
-                                <h3>Google inks pact for new 35-storey office</h3>
-                            </a>
-                            <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="blog_item">
-                        <div class="blog_item_img">
-                             <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt="Tour Booking" title="Tour Booking" class="img-fluid"/>
-                            <a href="#" class="blog_item_date">
-                                <h3>15</h3>
-                                <p>Jan</p>
-                            </a>
-                        </div>
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="blog1.html">
-                                <h3>Google inks pact for new 35-storey office</h3>
-                            </a>
-                            <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="blog_item">
-                        <div class="blog_item_img">
-                             <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt="Tour Booking" title="Tour Booking" class="img-fluid"/>
-                            <a href="#" class="blog_item_date">
-                                <h3>15</h3>
-                                <p>Jan</p>
-                            </a>
-                        </div>
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="blog1.html">
-                                <h3>Google inks pact for new 35-storey office</h3>
-                            </a>
-                            <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--====== HOME HOTELS ==========-->
-
-<!--====== SECTION: FREE CONSULTANT ==========-->
-<section>
-   <div class = "offer">
-      <div class = "container">
-         <div class = "row">
-            <div class = "col-md-6">
-               <div class = "offer-l"><span class = "ol-1"></span> <span class = "ol-2"><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i></span> <span class = "ol-4">Standardized Budget Tour</span> <span class = "ol-3"></span> <span class = "ol-5">$900/-</span>
-                  <ul>
-                     <li class = "wow fadeInUp" data-wow-duration = "0.5s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis1.png" alt = "">
-                        </a><span>Free Car Fair</span>
-                     </li>
-                     <li class = "wow fadeInUp" data-wow-duration = "0.7s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis2.png" alt = ""> </a><span>Breakfast</span>
-                     </li>
-                     <li class = "wow fadeInUp" data-wow-duration = "0.9s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis3.png" alt = ""> </a><span>Lunch</span>
-                     </li>
-                     <li class = "wow fadeInUp" data-wow-duration = "1.1s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis4.png" alt = ""> </a><span>Night Out</span>
-                     </li>
-                     <li class = "wow fadeInUp" data-wow-duration = "1.3s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis5.png" alt = ""> </a><span>Hotel</span>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-            <div class = "col-md-6">
-               <div class = "offer-r">
-                  <div class = "or-1"><span class = "or-11">go</span> <span class = "or-12">Stays</span></div>
-                  <div class = "or-2"><span class = "or-21">Get</span> <span class = "or-22">70%</span> <span class = "or-23">Off</span> <span class = "or-24">use code: RG5481WERQ</span> <span class = "or-25"></span></div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-
-
-    <section>
-        <div class="rows tb-space  pad-bot-redu">
+ <section>
+        <div class="rows tb-space pad-top-o  pad-bot-redu">
             <div class="container">
                 <!-- TITLE & DESCRIPTION -->
                 <div class="spe-title">
@@ -659,5 +552,488 @@
             </div>
         </div>
     </section>
+
+
+  
+ 
+   
+    <!-- testimonial_area  -->
+    <section>
+        <div class="testimonial_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="testmonial_active owl-carousel">
+                            <div class="single_carousel">
+                                <div class="row justify-content-center">
+                                    <div class="">
+                                        <div class="single_testmonial text-center">
+                                            <div class="author_thumb">
+                                              <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt=""/>
+                                                
+                                            </div>
+                                            <p>"Working in conjunction with humanitarian aid agencies, we have<br> supported programmes to help alleviate human suffering.</p>
+                                            <div class="testmonial_author">
+                                                <h3>- Micky Mouse</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single_carousel">
+                                <div class="row justify-content-center">
+                                    <div class="">
+                                        <div class="single_testmonial text-center">
+                                            <div class="author_thumb">
+                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt=""/>
+                                            </div>
+                                            <p>"Working in conjunction with humanitarian aid agencies, we have <br> supported programmes to help alleviate human suffering.</p>
+                                            <div class="testmonial_author">
+                                                <h3>- Tom Mouse</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single_carousel">
+                                <div class="row justify-content-center">
+                                    <div class="">
+                                        <div class="single_testmonial text-center">
+                                            <div class="author_thumb">
+                                                <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt=""/>
+                                            </div>
+                                            <p>"Working in conjunction with humanitarian aid agencies, we have
+                                                <br> supported programmes to help alleviate human suffering.</p>
+                                            <div class="testmonial_author">
+                                                <h3>- Jerry Mouse</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /testimonial_area  -->
+
+<!--====== POPULAR TOUR PLACES ==========-->
+<section>
+   <div class = "rows pad-bot-redu tb-space">
+      <div class = "pla1 p-home container">
+         <!-- TITLE & DESCRIPTION -->
+         <div class = "spe-title spe-title-1">
+            <h2>Top <span>Sightseeing</span> this month</h2>
+            <div class = "title-line">
+               <div class = "tl-1"></div>
+               <div class = "tl-2"></div>
+               <div class = "tl-3"></div>
+            </div>
+            <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide. Book travel packages and enjoy your holidays with distinctive experience</p>
+         </div>
+         <div class = "popu-places-home">
+            <!-- POPULAR PLACES 1 -->
+            <div class = "col-md-6 col-sm-6 col-xs-12 place">
+               <div class = "col-md-6 col-sm-12 col-xs-12"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/place2.jpg" alt=""/></div>
+               <div class = "col-md-6 col-sm-12 col-xs-12">
+                  <h3><span>Honeymoon Package</span> 7 Days / 6 Nights</h3>
+                  <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p>
+                  <a href = "tour-details.html" class = "link-btn">more info</a></div>
+            </div>
+            <!-- POPULAR PLACES 2 -->
+            <div class = "col-md-6 col-sm-6 col-xs-12 place">
+               <div class = "col-md-6 col-sm-12 col-xs-12"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/place1.jpg" alt=""/></div>
+               <div class = "col-md-6 col-sm-12 col-xs-12">
+                  <h3><span>Family package</span> 14 Days / 13 Nights</h3>
+                  <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p>
+                  <a href = "tour-details.html" class = "link-btn">more info</a></div>
+            </div>
+         </div>
+         <div class = "popu-places-home">
+            <!-- POPULAR PLACES 3 -->
+            <div class = "col-md-6 col-sm-6 col-xs-12 place">
+               <div class = "col-md-6 col-sm-12 col-xs-12"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/place3.jpg" alt=""/></div>
+               <div class = "col-md-6 col-sm-12 col-xs-12">
+                  <h3><span>Weekend Package </span> 3 Days / 2 Nights</h3>
+                  <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p>
+                  <a href = "tour-details.html" class = "link-btn">more info</a></div>
+            </div>
+            <!-- POPULAR PLACES 4 -->
+            <div class = "col-md-6 col-sm-6 col-xs-12 place">
+               <div class = "col-md-6 col-sm-12 col-xs-12"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/place4.jpg" alt=""/></div>
+               <div class = "col-md-6 col-sm-12 col-xs-12">
+                  <h3><span>Group Package</span> 10 Days / 9 Nights</h3>
+                  <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p>
+                  <a href = "tour-details.html" class = "link-btn">more info</a></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+<section>
+   <div class = "ho-popu  tb-space  pad-top-o pad-bot-redu">
+      <div class = "rows container">
+         <!-- TITLE & DESCRIPTION -->
+         <div class = "spe-title">
+            <h2><span>Events & Activities</span> for this month</h2>
+            <div class = "title-line">
+               <div class = "tl-1"></div>
+               <div class = "tl-2"></div>
+               <div class = "tl-3"></div>
+            </div>
+            <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide. Book travel packages and enjoy your holidays with distinctive experience</p>
+         </div>
+         <div class = "ho-popu-bod">
+            <div class = "col-md-4">
+               <div class = "hot-page2-hom-pre-head">
+                  <h4>Cultural<span> Tourism</span></h4>
+               </div>
+               <div class = "hot-page2-hom-pre">
+                  <ul>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/1.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Taaj Club House</h5> <span>City: illunois, United States</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>4.5</span></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/2.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Universal luxury Grand Hotel</h5> <span>City: Rio,Brazil</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>4.2</span></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/3.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Barcelona Grand Pales</h5> <span>City: Chennai,India</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>5.0</span></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/4.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Lake Palace view Hotel</h5> <span>City: Beijing,China</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>2.5</span></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/8.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>First Class Grandd Hotel</h5> <span>City: Berlin,Germany</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>4.0</span></div>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class = "col-md-4">
+               <div class = "hot-page2-hom-pre-head">
+                  <h4>Top Branding <span>Packages</span></h4>
+               </div>
+               <div class = "hot-page2-hom-pre">
+                  <ul>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/1.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Family Package Luxury</h5> <span>Duration: 7 Days and 6 Nights</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>4.1</span></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/2.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Honeymoon Package Luxury</h5> <span>Duration: 14 Days and 13 Nights</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>4.4</span></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/2.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Group Package Luxury</h5> <span>Duration: 28 Days and 29 Nights</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>3.0</span></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/4.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Regular Package Luxury</h5> <span>Duration: 12 Days and 11 Nights</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>3.5</span></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/1.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Custom Package Luxury</h5> <span>Duration: 10 Days and 10 Nights</span></div>
+                           <div class = "hot-page2-hom-pre-3"><span>5.0</span></div>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class = "col-md-4">
+               <div class = "hot-page2-hom-pre-head">
+                  <h4>Top Branding <span>Reviewers</span></h4>
+               </div>
+               <div class = "hot-page2-hom-pre">
+                  <ul>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/1.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Christopher</h5> <span>No of Reviews: 620, City: illunois</span></div>
+                           <div class = "hot-page2-hom-pre-3"><i class = "fa fa-hand-o-right" aria-hidden = "true"></i></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/2.png" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Matthew</h5> <span>No of Reviews: 48, City: Rio</span></div>
+                           <div class = "hot-page2-hom-pre-3"><i class = "fa fa-hand-o-right" aria-hidden = "true"></i></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/3.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Stephanie</h5> <span>No of Reviews: 560, City: Chennai</span></div>
+                           <div class = "hot-page2-hom-pre-3"><i class = "fa fa-hand-o-right" aria-hidden = "true"></i></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/4.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Robert</h5> <span>No of Reviews: 920, City: Beijing</span></div>
+                           <div class = "hot-page2-hom-pre-3"><i class = "fa fa-hand-o-right" aria-hidden = "true"></i></div>
+                        </a>
+                     </li>
+                     <!--LISTINGS-->
+                     <li>
+                        <a href = "hotels-list.html">
+                           <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/5.jpg" alt=""/></div>
+                           <div class = "hot-page2-hom-pre-2">
+                              <h5>Danielle</h5> <span>No of Reviews: 768, City: Berlin</span></div>
+                           <div class = "hot-page2-hom-pre-3"><i class = "fa fa-hand-o-right" aria-hidden = "true"></i></div>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+
+    <section>
+        <div class="ho-popu  tb-space  pad-top-o pad-bot-redu" >
+            
+       
+        <div class="container">
+            <div class="spe-title">
+                <h2>Our <span>Blog </span> </h2>
+                <div class="title-line">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                <p>World's leading Hotel Booking website,Over 30,000 Hotel rooms worldwide. Book Hotel rooms and enjoy your holidays with distinctive experience</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="blog_item">
+                        <div class="blog_item_img">
+                            <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt="Tour Booking" title="Tour Booking" class="img-fluid"/>
+                            
+                            <a href="#" class="blog_item_date">
+                                <h3>15</h3>
+                                <p>Jan</p>
+                            </a>
+                        </div>
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="blog1.html">
+                                <h3>Google inks pact for new 35-storey office</h3>
+                            </a>
+                            <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
+                            <ul class="blog-info-link">
+                                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="blog_item">
+                        <div class="blog_item_img">
+                             <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt="Tour Booking" title="Tour Booking" class="img-fluid"/>
+                            <a href="#" class="blog_item_date">
+                                <h3>15</h3>
+                                <p>Jan</p>
+                            </a>
+                        </div>
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="blog1.html">
+                                <h3>Google inks pact for new 35-storey office</h3>
+                            </a>
+                            <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
+                            <ul class="blog-info-link">
+                                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="blog_item">
+                        <div class="blog_item_img">
+                             <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt="Tour Booking" title="Tour Booking" class="img-fluid"/>
+                            <a href="#" class="blog_item_date">
+                                <h3>15</h3>
+                                <p>Jan</p>
+                            </a>
+                        </div>
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="blog1.html">
+                                <h3>Google inks pact for new 35-storey office</h3>
+                            </a>
+                            <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
+                            <ul class="blog-info-link">
+                                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         </div>
+    </section>
+
+<section>
+   <div class = "form tb-space  pad-top-o pad-bot-o">
+      <div class = "rows container">
+         <div class = "spe-title">
+            <h2>Lets Say <span>Hello</span> Now!</h2>
+            <div class = "title-line">
+               <div class = "tl-1"></div>
+               <div class = "tl-2"></div>
+               <div class = "tl-3"></div>
+            </div>
+            <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide. Book travel packages and enjoy your holidays with distinctive experience</p>
+         </div>
+         <div class = "col-md-6 col-sm-6 col-xs-12 form_1">
+            <div class = "succ_mess">Thank you for contacting us we will get back to you soon.</div>
+            <form id = "home_form" name = "home_form" action = "mail/send.php">
+               <ul>
+                  <li>
+                     <input type = "text" name = "ename" value = "" id = "ename" placeholder = "Name" required>
+                  </li>
+                  <li>
+                     <input type = "tel" name = "emobile" value = "" id = "emobile" placeholder = "Mobile" required>
+                  </li>
+                  <li>
+                     <input type = "email" name = "eemail" value = "" id = "eemail" placeholder = "Email id" required>
+                  </li>
+                  <li>
+                     <input type = "text" name = "esubject" value = "" id = "esubject" placeholder = "Subject" required>
+                  </li>
+                  <li>
+                     <input type = "text" name = "ecity" value = "" id = "ecity" placeholder = "City" required>
+                  </li>
+                  <li>
+                     <input type = "text" name = "ecount" value = "" id = "ecount" placeholder = "Country" required>
+                  </li>
+                  <li>
+                     <textarea name = "emess" cols = "40" rows = "3" id = "text-comment" placeholder = "Enter your message"></textarea>
+                  </li>
+                  <li>
+                     <input type = "submit" value = "Submit" id = "send_button">
+                  </li>
+               </ul>
+            </form>
+         </div>
+         <div class = "col-md-6 col-sm-6 col-xs-12 family">
+            <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/family.png" alt=""/>
+            
+         </div>
+      </div>
+   </div>
+</section>
+
+  
+<!--====== SECTION: FREE CONSULTANT ==========-->
+<!-- <section>
+   <div class = "offer">
+      <div class = "container">
+         <div class = "row">
+            <div class = "col-md-6">
+               <div class = "offer-l"><span class = "ol-1"></span> <span class = "ol-2"><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i></span> <span class = "ol-4">Standardized Budget Tour</span> <span class = "ol-3"></span> <span class = "ol-5">$900/-</span>
+                  <ul>
+                     <li class = "wow fadeInUp" data-wow-duration = "0.5s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis1.png" alt = "">
+                        </a><span>Free Car Fair</span>
+                     </li>
+                     <li class = "wow fadeInUp" data-wow-duration = "0.7s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis2.png" alt = ""> </a><span>Breakfast</span>
+                     </li>
+                     <li class = "wow fadeInUp" data-wow-duration = "0.9s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis3.png" alt = ""> </a><span>Lunch</span>
+                     </li>
+                     <li class = "wow fadeInUp" data-wow-duration = "1.1s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis4.png" alt = ""> </a><span>Night Out</span>
+                     </li>
+                     <li class = "wow fadeInUp" data-wow-duration = "1.3s">
+                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis5.png" alt = ""> </a><span>Hotel</span>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class = "col-md-6">
+               <div class = "offer-r">
+                  <div class = "or-1"><span class = "or-11">go</span> <span class = "or-12">Stays</span></div>
+                  <div class = "or-2"><span class = "or-21">Get</span> <span class = "or-22">70%</span> <span class = "or-23">Off</span> <span class = "or-24">use code: RG5481WERQ</span> <span class = "or-25"></span></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+ -->
+
+
+
+   
    
    
