@@ -23,7 +23,11 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
     <?php $this->registerCsrfMetaTags() ?>
    <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
    <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/fav.png">
-   <link href = "<?= 'https://fonts.googleapis.com/css?family=' . $fonts['main']['name'] . ':' . $fonts['main']['weight'] . ',500'; ?>" rel = "stylesheet">
+    <?php if (true == false && isset($fonts) && !empty($fonts)) : ?>
+       <link href = "<?= 'https://fonts.googleapis.com/css?family=' . $fonts['main']['name'] . ':' . $fonts['main']['weight']; ?>" rel = "stylesheet">
+    <?php endif; ?>
+   <link href = "https://fonts.googleapis.com/css?family='Open Sans:400,600' " rel = "stylesheet">
+
 
    <!-- FONT-AWESOME ICON CSS -->
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/font-awesome.min.css">
@@ -33,7 +37,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.css">
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/mob.css">
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/animate.css">
-<link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/owl.carousel.min.css">
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/owl.carousel.min.css">
 
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/overrides.css">
 
@@ -51,12 +55,12 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
     <?php
     //    print_r($fonts);
     ?>
-    <?php if (!empty($fonts)) : ?>
+    <?php if (true == false && !empty($fonts)) : ?>
        <style>
           body, div, section, p {
-           /*  font-family: <?= $fonts['main']['name'] ?>,<?= $fonts['main']['name'] ?>;*/
-           /*  font-size: <?= $fonts['main']['size'] ?>px;
-             font-weight: <?= $fonts['main']['weight'] ?>;*/
+             font-family: <?php echo $fonts['main']['name'] ?>;
+             font-size: <?php echo $fonts['main']['size'] ?>px;
+             font-weight: <?php echo $fonts['main']['weight'] ?>;
           }
 
 
@@ -69,18 +73,18 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
 <div id = "preloader">
    <div id = "status">&nbsp;</div>
 </div>
- <!-- <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
+<!-- <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
                      </a> -->
 
-  
-     <!-- MOBILE MENU -->
+
+<!-- MOBILE MENU -->
 <section>
    <div class = "ed-mob-menu">
       <div class = "ed-mob-menu-con">
          <div class = "ed-mm-left">
             <div class = "wed-logo">
-              <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
-                     </a>
+               <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
+               </a>
             </div>
          </div>
          <div class = "ed-mm-right">
@@ -196,20 +200,6 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                      </li>
                      <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
                      </li>
-                       <li style="float:left;" ><div class="ht-right">
-                   
-                        <div class="lan-selector">
-                            <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                                <option value='yt' data-image="resources/images/icon/flag-1.jpg" data-imagecss="flag yt"
-                                    data-title="English">English</option>
-                                <option value='yu' data-image="./resources/images/icon/flag-2.jpg" data-imagecss="flag yu"
-                                    data-title="Bangladesh">German </option>
-                            </select>
-                        </div>
-                   
-                </div>
-                     </li>
-                     
                   </ul>
                </div>
             </div>
@@ -224,24 +214,23 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
             <div class = "col-md-12">
                <div class = "wed-logo">
                   <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
-                     </a>
+                  </a>
                </div>
                <div class = "main-menu">
                   <ul>
-                     <li><a href = "index.html">Home</a>
+                     <li><a href = "<?=  Yii::$app->request->baseUrl; ?>">Home</a>
                      </li>
                      <li class = "about-menu">
-                        <a href = "family-package.html" class = "mm-arr">Packages</a>
+                        <a href = "<?=  Yii::$app->request->baseUrl; ?>/" class = "mm-arr">Packages</a>
                         <!-- MEGA MENU 1 -->
                         <div class = "mm-pos">
                            <div class = "about-mm m-menu">
                               <div class = "m-menu-inn">
                                  <div class = "mm1-com mm1-s1">
                                     <div class = "ed-course-in">
-                                       <a class = "course-overlay menu-about" href = "all-package.html">
-                                        <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/5.jpg" alt = ""/>
-                     </a>
-                                         
+                                       <a class = "course-overlay menu-about" href = "<?=  Yii::$app->request->baseUrl; ?>/package">
+                                          <a href = "<?=  Yii::$app->request->baseUrl; ?>/package"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/5.jpg" alt = ""/>
+                                          </a>
                                           <span>Popular Package</span>
                                        </a>
                                     </div>
@@ -283,8 +272,8 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                                  <div class = "mm2-com mm1-com mm1-s1">
                                     <div class = "ed-course-in">
                                        <a class = "course-overlay" href = "places.html">
-                                        <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/1.jpg" alt = ""/>
-                                         
+                                          <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/1.jpg" alt = ""/>
+
                                           <span>Sightseeing - 1</span>
                                        </a>
                                     </div>
@@ -294,7 +283,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                                  <div class = "mm2-com mm1-com mm1-s1">
                                     <div class = "ed-course-in">
                                        <a class = "course-overlay" href = "places-1.html">
-                                           <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/2.jpg" alt = ""/>
+                                          <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/2.jpg" alt = ""/>
                                           <span>Sightseeing - 2</span>
                                        </a>
                                     </div>
@@ -314,7 +303,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                                  <div class = "mm2-com mm1-com mm1-s4">
                                     <div class = "ed-course-in">
                                        <a class = "course-overlay" href = "places-3.html">
-                                           <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/4.jpg" alt = ""/>
+                                          <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/sight/4.jpg" alt = ""/>
                                           <span>Sightseeing - 4</span>
                                        </a>
                                     </div>
@@ -465,110 +454,110 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
 </section>
 <!--END HEADER SECTION-->
 
-   <!--END HEADER SECTION-->
-   <div class = "page-body">
-       <?= $content ?>
-   </div>
-  <section>
-        <div class="rows">
-            <div class="footer">
-                <div class="container">
-                    <div class="foot-sec2">
-                        <div style=" padding-bottom: 15px;">
-                            <div class="row">
-                                <div class="col-md-5 foot-spec foot-com footer_places">
+<!--END HEADER SECTION-->
+<div class = "page-body">
+    <?= $content ?>
+</div>
+<section>
+   <div class = "rows">
+      <div class = "footer">
+         <div class = "container">
+            <div class = "foot-sec2">
+               <div style = " padding-bottom: 15px;">
+                  <div class = "row">
+                     <div class = "col-md-5 foot-spec foot-com footer_places">
                         <h4><span>Most Popular</span> Vacations</h4>
                         <ul>
-                            <li><a href="#">Angkor Wat</a> </li>
-                            <li><a href="#">Buckingham Palace</a> </li>
-                            <li><a href="#">High Line</a> </li>
-                            <li><a href="#">Sagrada Família</a> </li>
-                            <li><a href="#">Statue of Liberty </a> </li>
-                            <li><a href="#">Notre Dame de Paris</a> </li>
-                            <li><a href="#">Taj Mahal</a> </li>
-                            <li><a href="#">The Louvre</a> </li>
-                            <li><a href="#">Tate Modern, London</a> </li>
-                            <li><a href="#">Gothic Quarter</a> </li>
-                            <li><a href="#">Table Mountain</a> </li>
-                            <li><a href="#">Bayon</a> </li>
-                            <li><a href="#">Great Wall of China</a> </li>
-                            <li><a href="#">Hermitage Museum</a> </li>
-                            <li><a href="#">Yellowstone</a> </li>
-                            <li><a href="#">Musée d'Orsay</a> </li>
+                           <li><a href = "#">Angkor Wat</a></li>
+                           <li><a href = "#">Buckingham Palace</a></li>
+                           <li><a href = "#">High Line</a></li>
+                           <li><a href = "#">Sagrada Família</a></li>
+                           <li><a href = "#">Statue of Liberty </a></li>
+                           <li><a href = "#">Notre Dame de Paris</a></li>
+                           <li><a href = "#">Taj Mahal</a></li>
+                           <li><a href = "#">The Louvre</a></li>
+                           <li><a href = "#">Tate Modern, London</a></li>
+                           <li><a href = "#">Gothic Quarter</a></li>
+                           <li><a href = "#">Table Mountain</a></li>
+                           <li><a href = "#">Bayon</a></li>
+                           <li><a href = "#">Great Wall of China</a></li>
+                           <li><a href = "#">Hermitage Museum</a></li>
+                           <li><a href = "#">Yellowstone</a></li>
+                           <li><a href = "#">Musée d'Orsay</a></li>
                         </ul>
-                    </div>
-                               <!--  <div class="col-sm-3 foot-spec foot-com">
-                                    <h4><span>Holiday</span> Tour & Travels</h4>
-                                    <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide.</p>
-                                </div> -->
-                                <div class="col-md-4 foot-spec foot-com">
-                                    <h4><span>Address</span> & Contact Info</h4>
-                                    <p>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A. Landmark : Next To Airport</p>
-                                    <p> <span class="strong">Phone: </span> <span class="highlighted">+101-1231-1231</span> </p>
-                                </div>
+                     </div>
+                     <!--  <div class="col-sm-3 foot-spec foot-com">
+                          <h4><span>Holiday</span> Tour & Travels</h4>
+                          <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide.</p>
+                      </div> -->
+                     <div class = "col-md-4 foot-spec foot-com">
+                        <h4><span>Address</span> & Contact Info</h4>
+                        <p>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A. Landmark : Next To Airport</p>
+                        <p><span class = "strong">Phone: </span> <span class = "highlighted">+101-1231-1231</span></p>
+                     </div>
 
-                             <!--    <div class="col-sm-3 col-md-3 foot-spec foot-com">
-                                    <h4><span>SUPPORT</span> & HELP</h4>
-                                    <ul class="two-columns">
-                                        <li> <a href="#">About Us</a> </li>
-                                        <li> <a href="#">FAQ</a> </li>
-                                        <li> <a href="#">Feedbacks</a> </li>
-                                        <li> <a href="#">Blog </a> </li>
-                                        <li> <a href="#">Use Cases</a> </li>
-                                        <li> <a href="#">Advertise us</a> </li>
-                                        <li> <a href="#">Discount</a> </li>
-                                        <li> <a href="#">Vacations</a> </li>
-                                        <li> <a href="#">Branding Offers </a> </li>
-                                        <li> <a href="#">Contact Us</a> </li>
-                                    </ul>
-                                </div> -->
-                                <div class="col-md-3 foot-social foot-spec foot-com">
-                                    <h4><span>Follow</span> with us</h4>
-                                    <p>Join the thousands of other There are many variations of passages of Lorem Ipsum available</p>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
-                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a> </li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
-                                        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a> </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="foote_bottom_ul_amrc">
-<li><a href="">Home</a></li>
-<li><a href="">About</a></li>
-<li><a href="">Services</a></li>
-<li><a href="">Pricing</a></li>
-<li><a href="">Blog</a></li>
-<li><a href="">Contact</a></li>
-</ul>
-                </div>
+                     <!--    <div class="col-sm-3 col-md-3 foot-spec foot-com">
+                            <h4><span>SUPPORT</span> & HELP</h4>
+                            <ul class="two-columns">
+                                <li> <a href="#">About Us</a> </li>
+                                <li> <a href="#">FAQ</a> </li>
+                                <li> <a href="#">Feedbacks</a> </li>
+                                <li> <a href="#">Blog </a> </li>
+                                <li> <a href="#">Use Cases</a> </li>
+                                <li> <a href="#">Advertise us</a> </li>
+                                <li> <a href="#">Discount</a> </li>
+                                <li> <a href="#">Vacations</a> </li>
+                                <li> <a href="#">Branding Offers </a> </li>
+                                <li> <a href="#">Contact Us</a> </li>
+                            </ul>
+                        </div> -->
+                     <div class = "col-md-3 foot-social foot-spec foot-com">
+                        <h4><span>Follow</span> with us</h4>
+                        <p>Join the thousands of other There are many variations of passages of Lorem Ipsum available</p>
+                        <ul>
+                           <li><a href = "#"><i class = "fa fa-facebook" aria-hidden = "true"></i></a></li>
+                           <li><a href = "#"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a></li>
+                           <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a></li>
+                           <li><a href = "#"><i class = "fa fa-linkedin" aria-hidden = "true"></i></a></li>
+                           <li><a href = "#"><i class = "fa fa-youtube" aria-hidden = "true"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </section>
-    <!--====== FOOTER - COPYRIGHT ==========-->
-    <section>
-        <div class="rows copy">
-            <div class="container">
-                <p>Copyrights © 2018 Company Name. All Rights Reserved</p>
-            </div>
-        </div>
-    </section>
-  <!--  <section>
-      <div class = "icon-float">
-         <ul>
-            <li><a href = "#" class = "sh">1k <br> Share</a></li>
-            <li><a href = "#" class = "fb1"><i class = "fa fa-facebook" aria-hidden = "true"></i></a></li>
-            <li><a href = "#" class = "gp1"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a></li>
-            <li><a href = "#" class = "tw1"><i class = "fa fa-twitter" aria-hidden = "true"></i></a></li>
-            <li><a href = "#" class = "li1"><i class = "fa fa-linkedin" aria-hidden = "true"></i></a></li>
-            <li><a href = "#" class = "wa1"><i class = "fa fa-whatsapp" aria-hidden = "true"></i></a></li>
-            <li><a href = "#" class = "sh1"><i class = "fa fa-envelope-o" aria-hidden = "true"></i></a></li>
-         </ul>
+            <ul class = "foote_bottom_ul_amrc">
+               <li><a href = "">Home</a></li>
+               <li><a href = "">About</a></li>
+               <li><a href = "">Services</a></li>
+               <li><a href = "">Pricing</a></li>
+               <li><a href = "">Blog</a></li>
+               <li><a href = "">Contact</a></li>
+            </ul>
+         </div>
       </div>
-   </section> -->
+   </div>
+</section>
+<!--====== FOOTER - COPYRIGHT ==========-->
+<section>
+   <div class = "rows copy">
+      <div class = "container">
+         <p>Copyrights © 2018 Company Name. All Rights Reserved</p>
+      </div>
+   </div>
+</section>
+<!--  <section>
+    <div class = "icon-float">
+       <ul>
+          <li><a href = "#" class = "sh">1k <br> Share</a></li>
+          <li><a href = "#" class = "fb1"><i class = "fa fa-facebook" aria-hidden = "true"></i></a></li>
+          <li><a href = "#" class = "gp1"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a></li>
+          <li><a href = "#" class = "tw1"><i class = "fa fa-twitter" aria-hidden = "true"></i></a></li>
+          <li><a href = "#" class = "li1"><i class = "fa fa-linkedin" aria-hidden = "true"></i></a></li>
+          <li><a href = "#" class = "wa1"><i class = "fa fa-whatsapp" aria-hidden = "true"></i></a></li>
+          <li><a href = "#" class = "sh1"><i class = "fa fa-envelope-o" aria-hidden = "true"></i></a></li>
+       </ul>
+    </div>
+ </section> -->
 
 
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/jquery-latest.min.js"></script>
@@ -625,70 +614,70 @@ if (Yii::$app->session->hasFlash('flash')): ?>
     });
 </script> -->
 
- <script type="text/javascript">
-    $('.slider_active').owlCarousel({
-        loop: true,
-        margin: 0,
-        items: 1,
-        autoplay: true,
-        navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
-        nav: true,
-        dots: false,
-        autoplayHoverPause: true,
-        autoplaySpeed: 800,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        responsive: {
-            0: {
-                items: 1,
-                nav: false,
-            },
-            767: {
-                items: 1
-            },
-            992: {
-                items: 1
-            },
-            1200: {
-                items: 1
-            },
-            1600: {
-                items: 1
-            }
-        }
-    });
-    </script>
-    <script type="text/javascript">
-    // review-active
-    $('.testmonial_active').owlCarousel({
-        loop: true,
-        margin: 0,
-        items: 1,
-        autoplay: true,
-        navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
-        nav: false,
-        dots: true,
-        autoplayHoverPause: true,
-        autoplaySpeed: 800,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            767: {
-                items: 1,
-            },
-            992: {
-                items: 1,
-            },
-            1200: {
-                items: 1,
-            },
-            1500: {
-                items: 1
-            }
-        }
-    });
-    </script>
+<script type = "text/javascript">
+   $('.slider_active').owlCarousel({
+      loop: true,
+      margin: 0,
+      items: 1,
+      autoplay: true,
+      navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
+      nav: true,
+      dots: false,
+      autoplayHoverPause: true,
+      autoplaySpeed: 800,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      responsive: {
+         0: {
+            items: 1,
+            nav: false,
+         },
+         767: {
+            items: 1
+         },
+         992: {
+            items: 1
+         },
+         1200: {
+            items: 1
+         },
+         1600: {
+            items: 1
+         }
+      }
+   });
+</script>
+<script type = "text/javascript">
+   // review-active
+   $('.testmonial_active').owlCarousel({
+      loop: true,
+      margin: 0,
+      items: 1,
+      autoplay: true,
+      navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
+      nav: false,
+      dots: true,
+      autoplayHoverPause: true,
+      autoplaySpeed: 800,
+      responsive: {
+         0: {
+            items: 1,
+         },
+         767: {
+            items: 1,
+         },
+         992: {
+            items: 1,
+         },
+         1200: {
+            items: 1,
+         },
+         1500: {
+            items: 1
+         }
+      }
+   });
+</script>
 
 </body>
 </html>
