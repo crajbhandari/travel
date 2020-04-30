@@ -200,6 +200,22 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                      </li>
                      <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
                      </li>
+
+                      <!--  <li style="float:left;" ><div class="ht-right">
+                   
+                        <div class="lan-selector">
+                            <select class="language_drop" name="countries" id="countries" style="width:300px;">
+                                <option value='yt' data-image="resources/images/icon/flag-1.jpg" data-imagecss="flag yt"
+                                    data-title="English"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/flag-1.jpg" alt = ""/> English</option>
+                                <option value='yu' data-image="./resources/images/icon/flag-2.jpg" data-imagecss="flag yu"
+                                    data-title="Bangladesh"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/flag-1.jpg" alt = ""/>German </option>
+                            </select>
+                        </div>
+                   
+                </div>
+                     </li> -->
+                     
+
                   </ul>
                </div>
             </div>

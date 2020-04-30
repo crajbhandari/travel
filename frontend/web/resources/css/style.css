@@ -1967,7 +1967,9 @@ footer ul li a {
 }
 
 .footer_places h4 {
-    margin-top: 0px;
+    color:#2c9651;
+   /* margin-top: 0px;*/
+
     padding-bottom: 15px;
     text-transform: uppercase;
     color: #2C9651;
