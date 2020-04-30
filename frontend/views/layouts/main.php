@@ -201,9 +201,9 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                         <div class="lan-selector">
                             <select class="language_drop" name="countries" id="countries" style="width:300px;">
                                 <option value='yt' data-image="resources/images/icon/flag-1.jpg" data-imagecss="flag yt"
-                                    data-title="English">English</option>
+                                    data-title="English"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/flag-1.jpg" alt = ""/> English</option>
                                 <option value='yu' data-image="./resources/images/icon/flag-2.jpg" data-imagecss="flag yu"
-                                    data-title="Bangladesh">German </option>
+                                    data-title="Bangladesh"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/flag-1.jpg" alt = ""/>German </option>
                             </select>
                         </div>
                    
