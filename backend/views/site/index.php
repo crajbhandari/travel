@@ -22,11 +22,12 @@ $this->title = Yii::$app->params['system_name'] . " | Welcome " . ucwords(Yii::$
                         <span class = "ad-hom-col-com ad-hom-col-1"><i class = "fa fa-envelope-o"></i></span>
                         <div class = "ad-hom-view-com">
                             <p>New Messages</p>
-                            <h3>  <?php
-                                if (Yii::$app->params['count_messages']['count_unseen'] > 0) {
-                                    echo Yii::$app->params['count_messages']['count_unseen'];
-                                }
-                                ?></h3>
+                             <?php
+                                if (Yii::$app->params['count_messages']['count_unseen'] > 0) {?>
+                           <h3>
+                              <?php echo Yii::$app->params['count_messages']['count_unseen']; ?>
+                           </h3>
+                                <?php } else{echo '<p style="color:black;"><b>Empty</b></p>';}?>
                         </div>
                     </div>
                 </li>

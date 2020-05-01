@@ -2,6 +2,14 @@
 $this->title = 'Package';
 $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
 ?>
+<style>
+   .modal{
+      width: 70%;
+   }
+   .modal img{
+      width:100%;
+   }
+</style>
 <div class = "sb2-2">
    <div class = "sb2-2-2">
       <ul>
@@ -36,22 +44,38 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
                <div class = "row">
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
-                     <label for = "textarea1 <?php echo $counter; ?>">Itinerary</label>
-                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[itinerary]"><?php echo (isset($editable['itinerary'])) ? $editable['itinerary'] : '' ?></textarea>
+                     <input id = "list-title <?php echo $counter; ?>" name = "post[location]" type = "text" class = "validate" required value = "<?php echo (isset($editable['location'])) ? $editable['location'] : '' ?>">
+                     <label for = "list-title <?php echo $counter; ?>">Location</label>
                   </div>
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
-                     <label for = "textarea1 <?php echo $counter; ?>">Info</label>
-                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[info]"><?php echo (isset($editable['info'])) ? $editable['info'] : '' ?></textarea>
+                     <input id = "list-title <?php echo $counter; ?>" name = "post[duration]" type = "text" class = "validate" required value = "<?php echo (isset($editable['duration'])) ? $editable['duration'] : '' ?>">
+                     <label for = "list-title <?php echo $counter; ?>">Duration</label>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <input id = "list-title <?php echo $counter; ?>" name = "post[discount]" type = "text" class = "validate" required value = "<?php echo (isset($editable['discount'])) ? $editable['discount'] : '' ?>">
+                     <label for = "list-title <?php echo $counter; ?>">Discount</label>
                   </div>
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
                      <input id = "list-title <?php echo $counter; ?>" name = "post[budget]" type = "text" class = "validate" required value = "<?php echo (isset($editable['budget'])) ? $editable['budget'] : '' ?>">
-                     <label for = "list-title <?php echo $counter; ?>">Budget Per Person</label>
+                     <label for = "list-title <?php echo $counter; ?>">Budget</label>
                   </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s10">
+                     <textarea name = "post[iframe]" class="materialize-textarea" id = "textarea1"><?php echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?></textarea>
+<!--                     <input id = "list-title --><?php //echo $counter; ?><!--" name = "post[iframe]" type = "text" class = "validate" required value = "--><?php //echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?><!--">-->
+                     <label for = "list-title <?php echo $counter; ?>">Map Location (Copy Paste iframe from google maps)</label>
+                  </div>
+                  <div class="input-field col s2">
+                     <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Help</a>                  </div>
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
@@ -61,6 +85,20 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
                         <option value = "0" <?= (isset($editable['visibility']) && $editable['visibility'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
                      </select>
                      <label for = "<?php echo $counter; ?>">Select Visibility</label>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <label for = "textarea1 <?php echo $counter; ?>">About The Tour</label>
+                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[itinerary]"><?php echo (isset($editable['itinerary'])) ? $editable['itinerary'] : '' ?></textarea>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <label for = "textarea1 <?php echo $counter; ?>">Description</label>
+                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[info]"><?php echo (isset($editable['info'])) ? $editable['info'] : '' ?></textarea>
                   </div>
                </div>
 
@@ -106,6 +144,20 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
             </form>
          </div>
       </div>
+   </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+   <div class="modal-content">
+      <h4>How to Embed a Google Map In Your Web Page</h4>
+   </div>
+   <div class = "para-content">
+      <p>You can embed a simple map, a set of driving directions, a local search, or maps created by other users. Here's how:</p>
+      <p>1. Once you have your Google Map created, ensure that the map you'd like to embed appears in the current map display.</p>
+      <p>2. Click "Share" at the right of the page. </p>
+      <p>3. In the box that pops up, click "Embed"</p>
+      <p>4. Copy the entire HTML 'iframe' code string and paste it into the HTML code of your web page.</p>
+      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/embed-google-map.jpg" alt = ""/>
    </div>
 </div>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/plugins.min.js"></script>

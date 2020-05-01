@@ -91,13 +91,13 @@ AppAsset::register($this);
          <div class = "top-not-cen">
             <a class = 'waves-effect btn-noti' href = '<?php echo Yii::$app->request->baseUrl; ?>/messages'>
                <i class = "fa fa-envelope-o" aria-hidden = "true"></i>
-               <span class="message-noti">
                  <?php
-                 if (Yii::$app->params['count_messages']['count_unseen'] > 0) {
-                     echo Yii::$app->params['count_messages']['count_unseen'];
-                 }
-                 ?>
+                 if (Yii::$app->params['count_messages']['count_unseen'] > 0) {?>
+               <span class="message-noti">
+                  <?php  echo Yii::$app->params['count_messages']['count_unseen']; ?>
                    </span>
+                 <?php }
+                 ?>
             </a>
             <a class = 'waves-effect btn-noti' href = '#'>
                <i class = "fa fa-tag" aria-hidden = "true"></i>
@@ -247,6 +247,9 @@ AppAsset::register($this);
 <?php endif; ?>
 <!-- CSRF TOKEN -->
 <script>
+   $(document).ready(function(){
+      $('.modal').modal();
+   });
    $.ajaxSetup({
       data: {
          '<?php echo Yii::$app->request->csrfParam; ?>': '<?php echo Yii::$app->request->csrfToken; ?>'

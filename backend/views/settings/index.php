@@ -130,7 +130,7 @@ $new = ($editable == false) ? 1 : 0;
                                         </td>
                                         <td>
                                             <a href="<?php echo Yii::$app->request->baseUrl; ?>/settings/edit/<?php echo \common\components\Misc::encodeUrl($setting['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                            <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($setting['id']); ?>" data-tab = "Settings"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+<!--                                            <a class="delete-item" href="javascript:void(0);" data-id = "--><?php //echo \common\components\Misc::encodeUrl($setting['id']); ?><!--" data-tab = "Settings"><i class="fa fa-trash-o" aria-hidden="true"></i></a>-->
                                         </td>
                                     </tr>
                                     <?php $sn++; ?>

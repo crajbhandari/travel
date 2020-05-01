@@ -12,8 +12,14 @@ use Yii;
  * @property string $itinerary
  * @property string $info
  * @property string $budget
+ * @property string $images
+ * @property int $visibility
  * @property int $created_by
  * @property string $created_on
+ * @property string $location
+ * @property string $duration
+ * @property int $discount
+ * @property string $iframe
  *
  * @property User $createdBy
  */
@@ -33,11 +39,11 @@ class Package extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['itinerary', 'info'], 'string'],
-            [['created_by'], 'required'],
-            [['created_by'], 'integer'],
+            [['itinerary', 'info', 'images', 'iframe'], 'string'],
+            [['visibility', 'created_by', 'discount'], 'integer'],
+            [['created_by', 'location', 'duration'], 'required'],
             [['created_on'], 'safe'],
-            [['title', 'budget'], 'string', 'max' => 200],
+            [['title', 'budget', 'location', 'duration'], 'string', 'max' => 200],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
     }
@@ -53,8 +59,14 @@ class Package extends \yii\db\ActiveRecord
             'itinerary' => 'Itinerary',
             'info' => 'Info',
             'budget' => 'Budget',
+            'images' => 'Images',
+            'visibility' => 'Visibility',
             'created_by' => 'Created By',
             'created_on' => 'Created On',
+            'location' => 'Location',
+            'duration' => 'Duration',
+            'discount' => 'Discount',
+            'iframe' => 'Iframe',
         ];
     }
 
