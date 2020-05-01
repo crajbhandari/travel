@@ -29,7 +29,7 @@
                 $model = Settings::findOne($setting['id']);
             }
             if ($model) {
-
+                $model->is_editable = 1;
                 $model->type = (isset($setting['type'])) ? $setting['type'] : $model->type;
                 $model->slug = (isset($setting['slug'])) ? $setting['slug'] : $model->slug;;
                 $model->caption = (isset($setting['caption'])) ? $setting['caption'] : $model->caption;

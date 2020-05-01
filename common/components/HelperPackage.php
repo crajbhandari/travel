@@ -58,8 +58,12 @@ class HelperPackage extends Component {
         $model->itinerary = $data['itinerary'];
         $model->info = $data['info'];
         $model->budget = $data['budget'];
+        $model->location = $data['location'];
+        $model->discount = $data['discount'];
+        $model->duration = $data['duration'];
+        $model->iframe = $data['iframe'];
 
-        if (isset($image) && !empty($image)) {
+        if (isset($image) && !empty($image['name'][0])) {
             if ($model->images == '') {
                 $upload = self::uploadFilesArray($image);
                 if ($upload != false) {
