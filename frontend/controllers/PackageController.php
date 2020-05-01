@@ -79,7 +79,7 @@ class PackageController extends Controller {
      public function actionActivity() {
         return $this->render('activity');
     }
-           public function actionAll() {
+       public function actionIndex() {
         return $this->render('all');
     }
 }
