@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 08:31 AM
+-- Generation Time: May 05, 2020 at 01:41 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -81,6 +81,26 @@ CREATE TABLE `blog_comments` (
 INSERT INTO `blog_comments` (`id`, `blog_id`, `customer_id`, `is_active`, `is_verified`, `edited_status`, `verification_comment`, `verified_by`, `verified_on`, `name`, `email`, `phone`, `comment`, `created_on`) VALUES
 (57, 4, 2, 0, 1, 1, 'asd', 1, '2020-04-22 15:34:57', 'Beck Hansen', 'tyjih@mailinator.com', '91', 'Sit unde non numqua', '2020-03-23 14:48:28'),
 (58, 4, 0, 0, 1, 1, '1', 1, '2020-04-22 15:28:54', 'Beck Hansen', 'tyjih@mailinator.com', '91', 'Sit unde non numqua', '2020-03-23 14:48:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE `city` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `created_on` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`id`, `name`, `created_on`) VALUES
+(1, 'Europe', '0000-00-00'),
+(2, 'Dubai', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -226,6 +246,66 @@ INSERT INTO `package` (`id`, `title`, `itinerary`, `info`, `budget`, `images`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `package_category`
+--
+
+CREATE TABLE `package_category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `parent` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `package_category`
+--
+
+INSERT INTO `package_category` (`id`, `name`, `parent`) VALUES
+(1, 'test', 0),
+(2, 'test1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `package_request`
+--
+
+CREATE TABLE `package_request` (
+  `id` int(11) NOT NULL,
+  `package_id` int(11) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `city` varchar(200) DEFAULT NULL,
+  `message` longtext DEFAULT NULL,
+  `posted_on` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `package_review`
+--
+
+CREATE TABLE `package_review` (
+  `id` int(11) NOT NULL,
+  `package_id` int(11) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `city` varchar(200) DEFAULT NULL,
+  `message` longtext DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `posted_on` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `package_review`
+--
+
+INSERT INTO `package_review` (`id`, `package_id`, `name`, `email`, `city`, `message`, `rating`, `posted_on`) VALUES
+(1, 2, 'Random', 'example@example.com', 'Europe', 'lorem ipsum', 4, '2020-05-05');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pages`
 --
 
@@ -327,8 +407,8 @@ CREATE TABLE `session` (
 --
 
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-('ej5dd6h9dqcs9gequg1c2oc6k7', 1588318183, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a33373a222f74726176656c2f6170706c65742f7061636b6167652f706f73742f786653793554526853223b5f5f69647c693a313b),
-('t1ecnidg50hctgdn9j5gcl6n0i', 1588318182, 0x5f5f666c6173687c613a303a7b7d),
+('5qnm0vpn66pd6oqukltg70sgcv', 1588674310, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32333a222f74726176656c2f6170706c65742f7061636b6167652f223b5f5f69647c693a313b),
+('t1ecnidg50hctgdn9j5gcl6n0i', 1588673021, 0x5f5f666c6173687c613a303a7b7d),
 ('49o6g3vormn6t1a2mh5dvmog68', 1587466454, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a33393a222f74726176656c312f6170706c65742f73657474696e67732f656469742f7372546d39756f5346223b),
 ('6k5q3k42491tk95hvs7tl6rs9k', 1587528318, 0x5f5f666c6173687c613a303a7b7d);
 
@@ -352,7 +432,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `slug`, `type`, `caption`, `is_editable`, `content`) VALUES
-(18, 'address', 'json', 'Address', 1, '[{\r\n\"contact\":\"+101-1231-1231\",\r\n\"address\":\"LakeRoad,Suite180FarmingtonHills,U.S.A.\",\r\n\"email\":\"sth@sa.com\"\r\n}]'),
+(18, 'address', 'text', 'Address', 1, 'Lake Road,Suite 180 FarmingtonHills,U.S.A.'),
 (19, 'contact', 'text', 'Contact', 1, '+101-1231-1231'),
 (20, 'email', 'text', 'Email', 1, 'something@gmail.com'),
 (25, 'show_blog', 'boolean', 'Show / Hide the blog', 1, '1'),
@@ -491,6 +571,12 @@ ALTER TABLE `blog_comments`
   ADD KEY `customer_id` (`customer_id`);
 
 --
+-- Indexes for table `city`
+--
+ALTER TABLE `city`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `clients`
 --
 ALTER TABLE `clients`
@@ -516,6 +602,24 @@ ALTER TABLE `messages`
 ALTER TABLE `package`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Created_by` (`created_by`);
+
+--
+-- Indexes for table `package_category`
+--
+ALTER TABLE `package_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `package_request`
+--
+ALTER TABLE `package_request`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `package_review`
+--
+ALTER TABLE `package_review`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pages`
@@ -593,6 +697,12 @@ ALTER TABLE `blog_comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
+-- AUTO_INCREMENT for table `city`
+--
+ALTER TABLE `city`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
@@ -615,6 +725,24 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `package`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `package_category`
+--
+ALTER TABLE `package_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `package_request`
+--
+ALTER TABLE `package_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `package_review`
+--
+ALTER TABLE `package_review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pages`

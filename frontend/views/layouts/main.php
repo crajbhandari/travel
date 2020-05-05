@@ -176,9 +176,9 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
             <div class = "col-md-12">
                <div class = "ed-com-t1-left">
                   <ul>
-                     <li><a href = "#">Contact: Lake Road, Suite 180 Farmington Hills, U.S.A.</a>
+                     <li><a href = "#">Contact: <?php if(isset(Yii::$app->params['site-settings']['address'])){ echo Yii::$app->params['site-settings']['address']['content'];}else{echo '';} ?></a>
                      </li>
-                     <li><a href = "#">Phone: +101-1231-1231</a>
+                     <li><a href = "#">Phone: +<?php if(isset(Yii::$app->params['site-settings']['contact'])){ echo Yii::$app->params['site-settings']['contact']['content'];}else{echo '';} ?></a>
                      </li>
                   </ul>
                </div>
@@ -508,8 +508,8 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                       </div> -->
                      <div class = "col-md-4 foot-spec foot-com">
                         <h4><span>Address</span> & Contact Info</h4>
-                        <p>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A. Landmark : Next To Airport</p>
-                        <p><span class = "strong">Phone: </span> <span class = "highlighted">+101-1231-1231</span></p>
+                        <p><?php if(isset(Yii::$app->params['site-settings']['address'])){ echo Yii::$app->params['site-settings']['address']['content'];}else{echo '';} ?></p>
+                        <p><span class = "strong">Phone: </span> <span class = "highlighted"><?php if(isset(Yii::$app->params['site-settings']['contact'])){ echo Yii::$app->params['site-settings']['contact']['content'];}else{echo '';} ?></span></p>
                      </div>
 
                      <!--    <div class="col-sm-3 col-md-3 foot-spec foot-com">

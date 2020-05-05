@@ -29,7 +29,7 @@
             parent::init();
         }
         public static function getSettings() {
-            $s = Settings::find()->all();
+            $s = Settings::find()->asArray()->all();
             $m = [];
             foreach ($s as $k => $v) {
                 $m[$v['slug']] = $v;
