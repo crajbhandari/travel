@@ -2,8 +2,10 @@
 
 namespace backend\controllers;
 
+use common\components\Helper;
 use common\components\HelperPackage;
 use common\components\Misc;
+use common\models\City;
 use common\models\Package;
 use Yii;
 use yii\filters\AccessControl;
@@ -75,6 +77,7 @@ class PackageController extends Controller {
             $post = Package::findOne($id);
         }
         return $this->render('form', [
+                'city' => HelperPackage::makeJsonList(HelperPackage::getCities(), 'name'),
                 'editable' => $post,
         ]);
     }
@@ -118,5 +121,27 @@ class PackageController extends Controller {
             echo 'no';
         }
         return false;
+    }
+
+    public function actionCities($id = '') {
+        $id = Misc::decodeUrl($id);
+        $page = 'cities';
+        $cities = City::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
+        return $this->render('cities/index.php', [
+                'cities'   => $cities,
+                'editable' => ($id > 0) ? City::findOne($id) : false,
+        ]);
+    }
+
+    public function actionUpdateCity() {
+        if (isset($_POST['post'])) {
+            $updated = HelperPackage::setCity($_POST['post']);
+            if ($updated != false) {
+                Misc::setFlash('success', 'City Updated');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
+            }
+        }
+        Misc::setFlash('danger', 'City Updated Error');
+        return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
     }
 }

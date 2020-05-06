@@ -197,6 +197,14 @@ AppAsset::register($this);
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Add New Package</a>
                         </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Package Review</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Package Category</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Package Request</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities">Cities</a>
+                        </li>
                      </ul>
                   </div>
                </li>
@@ -239,6 +247,7 @@ AppAsset::register($this);
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/materialize.min.js"></script>
 <!--<script src = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/js/bootstrap.min.js"></script>-->
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/autocomplete.js"></script>
 
 <?php if (Yii::$app->session->hasFlash('flash')): ?>
    <script>
