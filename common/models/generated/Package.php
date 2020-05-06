@@ -20,6 +20,7 @@ use Yii;
  * @property string $duration
  * @property int $discount
  * @property string $iframe
+ * @property string $city
  *
  * @property User $createdBy
  */
@@ -43,7 +44,7 @@ class Package extends \yii\db\ActiveRecord
             [['visibility', 'created_by', 'discount'], 'integer'],
             [['created_by', 'location', 'duration'], 'required'],
             [['created_on'], 'safe'],
-            [['title', 'budget', 'location', 'duration'], 'string', 'max' => 200],
+            [['title', 'budget', 'location', 'duration', 'city'], 'string', 'max' => 200],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
     }
@@ -67,6 +68,7 @@ class Package extends \yii\db\ActiveRecord
             'duration' => 'Duration',
             'discount' => 'Discount',
             'iframe' => 'Iframe',
+            'city' => 'City',
         ];
     }
 

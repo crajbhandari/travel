@@ -14,11 +14,23 @@
 namespace common\components;
 
 use common\components\HelperUpload as Upload;
+use common\models\City;
 use common\models\Package;
 use common\models\Sections;
 use yii\base\Component;
 
 class HelperPackage extends Component {
+    public static function getCities() {
+        $data = Query::queryAll("SELECT DISTINCT `name` FROM `city` ORDER BY `name` ASC ");
+        return Misc::exists($data, false);
+    }
+    public static function makeJsonList($a, $column) {
+        $list = [];
+        foreach ($a as $b) {
+            array_push($list, ucwords($b[$column]));
+        }
+        return json_encode($list);
+    }
     public static function rearrangeFilesArray($x) {
         $co = [];
         foreach ($x as $k => $a) {
@@ -44,7 +56,18 @@ class HelperPackage extends Component {
         }
         return $r;
     }
-
+    public static function setCity($data) {
+        if (isset($data['id']) && $data['id'] > 0) {
+        $model = City::findOne($data['id']);
+        }else{
+            $model = new City();
+        }
+        $model ->name = $data['name'];
+        if(!$model->save()) {
+            return false;
+        }
+        return $model;
+    }
     public static function set($data, $image) {
         if (isset($data['id']) && $data['id'] > 0) {
             $model = Package::findOne($data['id']);

@@ -1,8 +1,6 @@
 <?php
 $this->title = 'Package';
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css');
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
 ?>
 <style>
    .modal{
@@ -12,10 +10,6 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
       width:100%;
    }
 </style>
-<script>
-   var city =<?php echo $city; ?>;
-   console.log(city);
-</script>
 <div class = "sb2-2">
    <div class = "sb2-2-2">
       <ul>
@@ -72,12 +66,6 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
                   <div class = "input-field col s12">
                      <input id = "list-title <?php echo $counter; ?>" name = "post[budget]" type = "text" class = "validate" required value = "<?php echo (isset($editable['budget'])) ? $editable['budget'] : '' ?>">
                      <label for = "list-title <?php echo $counter; ?>">Budget</label>
-                  </div>
-               </div>
-               <div class = "row">
-                  <div class = "input-field col s12">
-                     <input id = "city-autocomplete list-title <?php echo $counter; ?>" name = "post[city]" type = "text" class = "validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
-                     <label for = "city-autocomplete list-title <?php echo $counter; ?>">City</label>
                   </div>
                </div>
                <div class = "row">

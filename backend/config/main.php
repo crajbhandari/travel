@@ -37,6 +37,7 @@
                     'team/edit/<id:[a-zA-Z0-9-]+>/'         => 'team/',
                     'slider/post/<id:[a-zA-Z0-9-]+>/'       => 'slider/post',
                     'faq/edit/<id:[a-zA-Z0-9-]+>/'       => 'faq/',
+                    'package/edit-city/<id:[a-zA-Z0-9-]+>/'       => 'package/cities',
                     'package/post/<id:[a-zA-Z0-9-]+>/'       => 'package/post',
                     'services/edit/<id:[a-zA-Z0-9-]+>/'     => 'services/',
                     [
