@@ -1,6 +1,12 @@
 <?php
 $this->title = 'Package';
+echo 'i am here';
 $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.js');
+
+    $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css');
+    $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css');
+    $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js');;
 ?>
 <style>
    .modal{
