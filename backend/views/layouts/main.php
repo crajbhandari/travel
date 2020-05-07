@@ -197,11 +197,11 @@ AppAsset::register($this);
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Add New Package</a>
                         </li>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Package Review</a>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a>
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Package Category</a>
                         </li>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Package Request</a>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a>
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities">Cities</a>
                         </li>
