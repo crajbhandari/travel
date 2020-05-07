@@ -1,8 +1,6 @@
 <?php
 $this->title = 'Package';
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css');
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
 ?>
 <style>
    .modal{
