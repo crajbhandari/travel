@@ -15,6 +15,8 @@ namespace common\components;
 
 use common\components\HelperUpload as Upload;
 use common\models\City;
+use common\models\generated\PackageRequest;
+use common\models\generated\PackageReview;
 use common\models\Package;
 use common\models\Sections;
 use yii\base\Component;
@@ -24,6 +26,15 @@ class HelperPackage extends Component {
         $data = Query::queryAll("SELECT DISTINCT `name` FROM `city` ORDER BY `name` ASC ");
         return Misc::exists($data, false);
     }
+    public static function getReviews() {
+        $data = PackageReview::find()->all();
+        return Misc::exists($data, false);
+    }
+    public static function getRequest() {
+        $data = PackageRequest::find()->all();
+        return Misc::exists($data, false);
+    }
+
     public static function makeJsonList($a, $column) {
         $list = [];
         foreach ($a as $b) {
