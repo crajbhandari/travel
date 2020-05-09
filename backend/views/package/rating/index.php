@@ -1,12 +1,12 @@
 <?php
-$this->title = 'Messages';
+$this->title = 'Rating';
 ?>
 <div class = "sb2-2">
    <div class = "sb2-2-2">
       <ul>
          <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/"><i class = "fa fa-home" aria-hidden = "true"></i> Home</a>
          </li>
-         <li class = "active-bre"><a href = "#"> Package Review</a>
+         <li class = "active-bre"><a href = "#"> Package Rating</a>
          </li>
       </ul>
    </div>
@@ -15,7 +15,7 @@ $this->title = 'Messages';
          <div class = "col-md-12">
             <div class = "box-inn-sp">
                <div class = "inn-title">
-                  <h4> Package Review List</h4>
+                  <h4> Package Rating List</h4>
                </div>
                <div class = "tab-inn">
                   <div class = "table-responsive table-desi">
@@ -25,11 +25,10 @@ $this->title = 'Messages';
                         <tr>
                            <th>S.N</th>
 
-                           <th>Date</th>
-                           <th>From</th>
-                           <th>Email</th>
-                           <th>Rating</th>
-                           <th>Actions</th>
+                           <th>Package Name</th>
+                           <th>Total Reviews</th>
+                           <th>Total Rating</th>
+                           <th>Average Rating</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -40,16 +39,18 @@ $this->title = 'Messages';
                             $count++; ?>
                            <tr>
                               <td><?php echo $sn; ?></td>
-
-                              <td>
-                                  <?= \common\components\Misc::datetime($post->posted_on) ?>
-                              </td>
                               <td><?php echo (isset($post['name'])) ? ucwords(trim($post['name'])) : '' ?></td>
-                              <td><?php echo (isset($post['email'])) ? $post['email'] : '' ?></td>
+                              <td><?php echo (isset($post['count'])) ? $post['count'] : '' ?></td>
                               <td><?php echo (isset($post['rating'])) ? $post['rating'] : '' ?></td>
                               <td>
-                                 <a class = "show-review" href = "#modal1" data-id = "<?php echo $post['id'] ?>"><i class = "fa fa-eye" aria-hidden = "true"></i></a>
-                                 <a class = "delete-item" href = "javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Messages"><i class = "fa fa-trash-o" aria-hidden = "true"></i></a>
+                                <?php
+                                $rating = round($post['rating']/5);
+                                for($i=1;$i<=$rating;$i++){
+                                   echo ' <i style="margin-right: 0" class="fa fa-star"></i>';
+                                }
+                                ?>
+
+
                               </td>
                            </tr>
                             <?php $sn++; ?>
@@ -68,7 +69,7 @@ $this->title = 'Messages';
 </div>
 <div id = "modal1" class = "modal">
    <div class = "modal-content">
-      <h4>Review From</h4>
+      <h4>Message From</h4>
    </div>
    <div class = "paras-content">
    </div>

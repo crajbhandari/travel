@@ -172,7 +172,7 @@ $(function ($) {
                               table: table,
                            },
                            success: function (data) {
-                              console.log(data);
+
                               if (data == true) {
                                  notify('success', table + ' Deleted.');
                                  location.reload();
@@ -346,6 +346,7 @@ $(function ($) {
          });
       }
 
+
       if ($('.add-social-media-item').length) {
          var socialTable = $('.social-media-input-table');
          var scount = socialTable.find('tbody tr').length;
@@ -497,7 +498,7 @@ $(function ($) {
                   id: cid
                },
                success: function (data) {
-                  console.log(data);
+
                   if (data === '') {
                      typeAlert('Error', 'Sorry, Could not open Message', 'error');
                   } else {
@@ -505,7 +506,7 @@ $(function ($) {
                      //message seen or new
                      if ($('[data-for="new"]')) {
                         $('[data-id="id' + a['id'] + '"]').html('<span data-for="seen" class="label label-danger">Seen</span>');
-                        $('.message-noti').html($('.message-noti').text()-1);
+                        $('.message-noti').html($('.message-noti').text() - 1);
                      } else {
                         $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="label label-danger">New</span>');
                      }
@@ -522,5 +523,92 @@ $(function ($) {
 
          });
       });
+
+      $(function () {
+         $('.show-review').on("click", function () {
+
+            $('.modal').modal();
+            var cid = $(this).data("id");
+            var modal = $('.modal-message');
+
+            $.ajax({
+               url: baseUrl + "/package/read-package",
+               type: 'post',
+               data: {
+                  id: cid
+               },
+               success: function (data) {
+                  console.log(data);
+                  if (data === '') {
+                     typeAlert('Error', 'Sorry, Could not open Message', 'error');
+                  } else {
+                     var a = JSON.parse(data);
+                     //message seen or new
+
+                     $('.paras-content').html(a['result'])
+                     // modal.find('.modal-dialog').html(a['result']);
+                     // modal.modal('show');
+                     // $('.refresh').removeClass('hidden')
+                  }
+               },
+               error: function () {
+                  typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
+               }
+            });
+   });
+});
+      $(function () {
+         $('.show-review').on("click", function () {
+
+            $('.modal').modal();
+            var cid = $(this).data("id");
+            var modal = $('.modal-message');
+
+            $.ajax({
+               url: baseUrl + "/package/request-package",
+               type: 'post',
+               data: {
+                  id: cid
+               },
+               success: function (data) {
+
+                  if (data === '') {
+                     typeAlert('Error', 'Sorry, Could not open Message', 'error');
+                  } else {
+                     var a = JSON.parse(data);
+                     //message seen or new
+
+                     $('.parasa-content').html(a['result'])
+                     // modal.find('.modal-dialog').html(a['result']);
+                     // modal.modal('show');
+                     // $('.refresh').removeClass('hidden')
+                  }
+               },
+               error: function () {
+                  typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
+               }
+            });
+         });
+      });
+
+
+      $(function() {
+
+         $('#added').click(function () {
+            $('#dynamic_field').append('<div class="row">' +
+                  '<div class = "input-field col s12">\n' +
+                  '                      \n' +
+                  '                     <input id = "list-title " name = "post[title]" type = "text" class = "validate" required value = "">\n' +
+                  '                     <label for = "list-title ">Title</label>\n' +
+                  '                  </div>'+
+                  '</div>'
+            );
+           });
+
+
+      });
+
+
+//
    });
 });

@@ -15,6 +15,8 @@ namespace common\components;
 
 use common\components\HelperUpload as Upload;
 use common\models\City;
+use common\models\generated\PackageRequest;
+use common\models\generated\PackageReview;
 use common\models\Package;
 use common\models\Sections;
 use yii\base\Component;
@@ -24,6 +26,36 @@ class HelperPackage extends Component {
         $data = Query::queryAll("SELECT DISTINCT `name` FROM `city` ORDER BY `name` ASC ");
         return Misc::exists($data, false);
     }
+    public static function getReviews() {
+        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
+        return Misc::exists($data, false);
+    }
+    public static function getRatings() {
+        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
+        $rating = array();
+        $i = 0;
+        foreach ($data as $d){
+            $package_id = $d['package_id'];
+            $package_name = Package::findOne($package_id);
+            if(array_key_exists($package_id,$rating)) {
+                $rating[$package_id]['count']++;
+                $rating[$package_id]['rating'] += $d['rating'];
+            }else{
+                $rating[$package_id] = array(
+                        'name' => $package_name['title'],
+                        'count' => 1,
+                        'rating' => $d['rating']
+                );
+            }
+
+        }
+        return Misc::exists($rating, false);
+    }
+    public static function getRequest() {
+        $data = PackageRequest::find()->all();
+        return Misc::exists($data, false);
+    }
+
     public static function makeJsonList($a, $column) {
         $list = [];
         foreach ($a as $b) {

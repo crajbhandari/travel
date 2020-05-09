@@ -1,9 +1,11 @@
 <?php
 $this->title = 'Package';
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css');
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js');
+
 ?>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css">
+<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css">
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/autocomplete.js"></script>
 <style>
    .modal{
       width: 70%;
@@ -36,7 +38,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
             </h4>
          </div>
          <div class = "bor">
-            <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
+            <form class="package-form" enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
                <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
                <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
                 <?php $counter = 0; ?>
@@ -172,4 +174,10 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
       <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/embed-google-map.jpg" alt = ""/>
    </div>
 </div>
+<script>
+
+   $('#city-autocomplete').autocomplete({
+      source: city
+   });
+</script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/plugins.min.js"></script>
