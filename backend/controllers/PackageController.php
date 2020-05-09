@@ -178,7 +178,6 @@ class PackageController extends Controller {
       <p><b>Email : </b><br>$email</p>
      <p><b>City : </b><br>$city</p>
      <p><b>Rating : </b><br>$rating</p>
-     
       <p><b>Sent On : </b><br>$date</p>
       <p><b>Message : </b><br>$message</p>
                        
