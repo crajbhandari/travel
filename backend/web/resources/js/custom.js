@@ -172,7 +172,7 @@ $(function ($) {
                               table: table,
                            },
                            success: function (data) {
-                              console.log(data);
+
                               if (data == true) {
                                  notify('success', table + ' Deleted.');
                                  location.reload();
@@ -345,6 +345,7 @@ $(function ($) {
 
          });
       }
+
 
       if ($('.add-social-media-item').length) {
          var socialTable = $('.social-media-input-table');
@@ -589,6 +590,26 @@ $(function ($) {
             });
          });
       });
+
+
+      $(function() {
+
+         $('#added').click(function () {
+            $('#dynamic_field').append('<div class="row">' +
+                  '<div class = "input-field col s12">\n' +
+                  '                      \n' +
+                  '                     <input id = "list-title " name = "post[title]" type = "text" class = "validate" required value = "">\n' +
+                  '                     <label for = "list-title ">Title</label>\n' +
+                  '                  </div> +' +
+                  '<button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button>' +
+                  '</div>'
+            );
+           });
+
+
+      });
+
+
 //
    });
 });

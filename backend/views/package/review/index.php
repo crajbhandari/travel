@@ -68,7 +68,7 @@ $this->title = 'Messages';
 </div>
 <div id = "modal1" class = "modal">
    <div class = "modal-content">
-      <h4>Message From</h4>
+      <h4>Review From</h4>
    </div>
    <div class = "paras-content">
    </div>
