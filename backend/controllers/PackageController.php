@@ -168,6 +168,7 @@ class PackageController extends Controller {
                     $email = $model->email;
                     $city = $model->city;
                     $message = $model->message;
+                    $rating = $model->rating;
                     $date = $model->posted_on;
 
                     if ($model->save() == true) {
@@ -175,6 +176,8 @@ class PackageController extends Controller {
                         $result = "
           <p><b>Name : </b><br>$name</p>
       <p><b>Email : </b><br>$email</p>
+     <p><b>City : </b><br>$city</p>
+     <p><b>Rating : </b><br>$rating</p>
      
       <p><b>Sent On : </b><br>$date</p>
       <p><b>Message : </b><br>$message</p>
@@ -204,14 +207,16 @@ class PackageController extends Controller {
                     $email = $model->email;
                     $city = $model->city;
                     $message = $model->message;
+
                     $date = $model->posted_on;
+
 
                     if ($model->save() == true) {
 
                         $result = "
           <p><b>Name : </b><br>$name</p>
       <p><b>Email : </b><br>$email</p>
-     
+     <p><b>City : </b><br>$city</p>
       <p><b>Sent On : </b><br>$date</p>
       <p><b>Message : </b><br>$message</p>
                        
