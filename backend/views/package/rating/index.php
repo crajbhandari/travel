@@ -6,7 +6,7 @@ $this->title = 'Messages';
       <ul>
          <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/"><i class = "fa fa-home" aria-hidden = "true"></i> Home</a>
          </li>
-         <li class = "active-bre"><a href = "#"> Package Review</a>
+         <li class = "active-bre"><a href = "#"> Package Rating</a>
          </li>
       </ul>
    </div>
@@ -15,7 +15,7 @@ $this->title = 'Messages';
          <div class = "col-md-12">
             <div class = "box-inn-sp">
                <div class = "inn-title">
-                  <h4> Package Review List</h4>
+                  <h4> Package Rating List</h4>
                </div>
                <div class = "tab-inn">
                   <div class = "table-responsive table-desi">

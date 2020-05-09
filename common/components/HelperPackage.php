@@ -27,7 +27,29 @@ class HelperPackage extends Component {
         return Misc::exists($data, false);
     }
     public static function getReviews() {
-        $data = PackageReview::find()->all();
+        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
+        return Misc::exists($data, false);
+    }
+    public static function getRatings() {
+        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
+        $rating = array();
+
+        foreach ($data as $d){
+            $package_id = $d['package_id'];
+            if(!isset($rating['$package_id'])) {
+                $rating[$package_id] = array('count' => 1, 'sum' => $data['rating']);
+            }else{
+                $rating[$package_id]['count']++;
+                $rating[$package_id]['sum'] += $data['rating'];
+            }
+
+        }
+
+
+        echo '<pre>';
+        print_r($rating);
+        echo '</pre>';
+        die;
         return Misc::exists($data, false);
     }
     public static function getRequest() {

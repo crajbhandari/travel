@@ -199,6 +199,8 @@ AppAsset::register($this);
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a>
                         </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/rating">Package Rating</a>
+                        </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Package Category</a>
                         </li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a>
