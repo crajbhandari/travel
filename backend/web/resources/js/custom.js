@@ -600,8 +600,7 @@ $(function ($) {
                   '                      \n' +
                   '                     <input id = "list-title " name = "post[title]" type = "text" class = "validate" required value = "">\n' +
                   '                     <label for = "list-title ">Title</label>\n' +
-                  '                  </div> +' +
-                  '<button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button>' +
+                  '                  </div>'+
                   '</div>'
             );
            });

@@ -22,7 +22,7 @@ $this->title = 'Blog';
             </h4>
          </div>
          <div class = "bor"   id="add_name" >
-            <form enctype = "multipart/form-data"  method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/blog/update/">
+            <form enctype = "multipart/form-data"   method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/blog/update/">
                <button type="button" name="add" id="added" class="btn btn-success">Add More</button>
                <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
                <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
