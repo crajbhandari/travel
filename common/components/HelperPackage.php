@@ -31,26 +31,25 @@ class HelperPackage extends Component {
         return Misc::exists($data, false);
     }
     public static function getRatings() {
-        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
+        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
         $rating = array();
-
+        $i = 0;
         foreach ($data as $d){
             $package_id = $d['package_id'];
-            if(!isset($rating['$package_id'])) {
-                $rating[$package_id] = array('count' => 1, 'sum' => $data['rating']);
-            }else{
+            $package_name = Package::findOne($package_id);
+            if(array_key_exists($package_id,$rating)) {
                 $rating[$package_id]['count']++;
-                $rating[$package_id]['sum'] += $data['rating'];
+                $rating[$package_id]['rating'] += $d['rating'];
+            }else{
+                $rating[$package_id] = array(
+                        'name' => $package_name['title'],
+                        'count' => 1,
+                        'rating' => $d['rating']
+                );
             }
 
         }
-
-
-        echo '<pre>';
-        print_r($rating);
-        echo '</pre>';
-        die;
-        return Misc::exists($data, false);
+        return Misc::exists($rating, false);
     }
     public static function getRequest() {
         $data = PackageRequest::find()->all();
