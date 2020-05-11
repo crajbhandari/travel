@@ -101,6 +101,7 @@ class HelperPackage extends Component {
         return $model;
     }
     public static function set($data, $image) {
+
         if (isset($data['id']) && $data['id'] > 0) {
             $model = Package::findOne($data['id']);
         }
@@ -111,6 +112,7 @@ class HelperPackage extends Component {
         $model->visibility = $data['visibility'];
         $model->title = $data['title'];
         $model->itinerary = $data['itinerary'];
+        $model->about_tour = $data['about'];
         $model->info = $data['info'];
         $model->budget = $data['budget'];
         $model->location = $data['location'];

@@ -21,6 +21,7 @@ use Yii;
  * @property int $discount
  * @property string $iframe
  * @property string $city
+ * @property string $about_tour
  *
  * @property User $createdBy
  */
@@ -40,7 +41,7 @@ class Package extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['itinerary', 'info', 'images', 'iframe'], 'string'],
+            [['itinerary', 'info', 'images', 'iframe', 'about_tour'], 'string'],
             [['visibility', 'created_by', 'discount'], 'integer'],
             [['created_by', 'location', 'duration'], 'required'],
             [['created_on'], 'safe'],
@@ -69,6 +70,7 @@ class Package extends \yii\db\ActiveRecord
             'discount' => 'Discount',
             'iframe' => 'Iframe',
             'city' => 'City',
+            'about_tour' => 'About Tour',
         ];
     }
 

@@ -1,5 +1,5 @@
 <?php
-$this->title = 'Blog';
+$this->title = 'Package';
 ?>
 <div class="sb2-2">
     <div class="sb2-2-2">

@@ -1,7 +1,11 @@
 <?php
 $this->title = 'Package';
 $data = array();
-
+//
+//echo '<pre>';
+//print_r($editable);
+//echo '</pre>';
+//die;
 //for($i = 0; $i<=count($city); $i++) {
 //    $data[$i] = $city;
 //}
@@ -91,7 +95,7 @@ $data = array();
                      <label for = "autocomplete-input list-title <?php echo $counter; ?>">City</label>
                   </div>
                </div>
-               <div class = "row">
+               <div class = "row" style="margin-top: 40px;">
                   <div class = "input-field col s10">
                      <textarea name = "post[iframe]" class="materialize-textarea" id = "textarea1"><?php echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?></textarea>
 <!--                     <input id = "list-title --><?php //echo $counter; ?><!--" name = "post[iframe]" type = "text" class = "validate" required value = "--><?php //echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?><!--">-->
@@ -114,6 +118,13 @@ $data = array();
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
                      <label for = "textarea1 <?php echo $counter; ?>">About The Tour</label>
+                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[about]"><?php echo (isset($editable['about_tour'])) ? $editable['about_tour'] : '' ?></textarea>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <label for = "textarea1 <?php echo $counter; ?>">Itinerary</label>
                      <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[itinerary]"><?php echo (isset($editable['itinerary'])) ? $editable['itinerary'] : '' ?></textarea>
                   </div>
                </div>

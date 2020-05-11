@@ -18,7 +18,7 @@ $this->title = 'Rating';
                   <h4> Package Rating List</h4>
                </div>
                <div class = "tab-inn">
-                  <div class = "table-responsive table-desi">
+                  <div class = "table-responsive ">
                      <table class = "table table-hover">
                         <thead>
                         <?php if (!empty($packages) && count($packages) > 0): ?>

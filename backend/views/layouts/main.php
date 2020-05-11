@@ -147,7 +147,7 @@ AppAsset::register($this);
             <ul class = "collapsible" data-collapsible = "accordion">
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/" class = "<?php echo (Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-bar-chart" aria-hidden = "true"></i> Dashboard</a>
                </li>
-               <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'blog' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-picture-o" aria-hidden = "true"></i> Blog</a>
+               <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo ($this->title== 'Blog') ? 'menu-active' : '' ?>"><i class = "fa fa-picture-o" aria-hidden = "true"></i> Blog</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/post">Add New</a>
@@ -178,7 +178,7 @@ AppAsset::register($this);
                <?php
               if((\Yii::$app->user->identity->role=='admin')){
                ?>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
+               <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo ($this->title== 'User') ? 'menu-active' : '' ?>"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users">All Users</a>
@@ -190,7 +190,7 @@ AppAsset::register($this);
                </li>
                <?php } ?>
 
-               <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'package' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
+               <li><a href = "javascript:void(0) <?php if($this->title=='Package'){echo 'active';}?>" class = "collapsible-header <?php echo ($this->title== 'Package') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/">All Packages</a>
