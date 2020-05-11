@@ -591,22 +591,22 @@ $(function ($) {
          });
       });
       $(function() {
-         var backStars = document.querySelector(".star-rating .back-stars");
-
-         backStars.addEventListener("click", function(e){
-            let fillPercent = getFillPercent(e, this);
-            fillPercent = (fillPercent > 100) ? 100 : (fillPercent < 0) ? 0 : fillPercent;
-
-            fillPercent = fillPercent + "%" ;
-            const frontStars = document.querySelector(".front-stars");
-
-            if(!frontStars.className.includes("fill"))
-               frontStars.className+= " fill";
-
-            frontStars.style.width = fillPercent;
-
-            document.querySelector("#rate-number").innerHTML = fillPercent;
-         });
+         // var backStars = document.querySelector(".star-rating .back-stars");
+         //
+         // backStars.addEventListener("click", function(e){
+         //    let fillPercent = getFillPercent(e, this);
+         //    fillPercent = (fillPercent > 100) ? 100 : (fillPercent < 0) ? 0 : fillPercent;
+         //
+         //    fillPercent = fillPercent + "%" ;
+         //    const frontStars = document.querySelector(".front-stars");
+         //
+         //    if(!frontStars.className.includes("fill"))
+         //       frontStars.className+= " fill";
+         //
+         //    frontStars.style.width = fillPercent;
+         //
+         //    document.querySelector("#rate-number").innerHTML = fillPercent;
+         // });
 
          backStars.addEventListener("mousemove", function(e){
             const fillPercent = getFillPercent(e, this) + "%";

@@ -116,10 +116,15 @@
     overflow: hidden;
     position: absolute;
     top: 0;
+    color: green;
+
 }
-.front-stars:hover {
-     color: green;
- }
+/*.front-stars:hover {*/
+/*     color: green;*/
+/* }*/
+.text-align-center{
+    text-align: center;
+}
 .front-stars.over {
      color: green;
 }

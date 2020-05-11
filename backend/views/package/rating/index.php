@@ -28,7 +28,8 @@ $this->title = 'Rating';
                            <th>Package Name</th>
                            <th>Rated By</th>
                            <th>Total Rating</th>
-                           <th>Average Rating</th>
+                           <th>Overall Rating</th>
+                           <th class="text-align-center">Rating</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -40,20 +41,21 @@ $this->title = 'Rating';
                            <tr>
                               <td><?php echo $sn; ?></td>
                               <td><?php echo (isset($post['name'])) ? ucwords(trim($post['name'])) : '' ?></td>
-                              <td><?php echo (isset($post['count'])) ? $post['count'] : '' ?></td>
-                              <td><?php echo (isset($post['rating'])) ? $post['rating'] : '' ?></td>
-                              <td>
+                              <td class="text-align-center"><?php echo (isset($post['count'])) ? $post['count'] : '' ?></td>
+                              <td class="text-align-center"><?php echo (isset($post['rating'])) ? $post['rating'] : '' ?></td>
+                              <td class="text-align-center">
                                 <?php
-//                                $rating = round($post['rating']/5);
-//                                for($i=1;$i<=$rating;$i++){
-//                                   echo ' <i style="margin-right: 0" class="fa fa-star"></i>';
-//                                }
-//                                $total_rating_given = (isset($post['rating'])) ? $post['rating'] : '' ;
-//                                $total_rating_full = (isset($post['count']) ? $post['count'] : '') *5;
-//                                $average = ($total_rating_given/$total_rating_full)*5;
-//                                echo number_format($average,1);
-
+                                $total_rating_given = (isset($post['rating'])) ? $post['rating'] : '' ;
+                                $total_rating_full = (isset($post['count']) ? $post['count'] : '') *5;
+                                $average_in_percent = ($total_rating_given/$total_rating_full)*100;
+                                $average_in_rating = ($total_rating_given/$total_rating_full)*5;
                                 ?>
+
+                                 <?php
+                                 echo number_format($average_in_rating,1);
+                                 ?>
+                              </td>
+                              <td>
                                  <div class="star-rating">
                                     <div class="back-stars">
                                        <i class="fa fa-star" aria-hidden="true"></i>
@@ -62,7 +64,7 @@ $this->title = 'Rating';
                                        <i class="fa fa-star" aria-hidden="true"></i>
                                        <i class="fa fa-star" aria-hidden="true"></i>
 
-                                       <div class="front-stars">
+                                       <div class="front-stars" style="width: <?php echo $average_in_percent; ?>%">
                                           <i class="fa fa-star" aria-hidden="true"></i>
                                           <i class="fa fa-star" aria-hidden="true"></i>
                                           <i class="fa fa-star" aria-hidden="true"></i>
@@ -71,7 +73,7 @@ $this->title = 'Rating';
                                        </div>
                                     </div>
                                  </div>
-                                 <label id="rate-number">48%</label>
+                                 <label id="rate-number" class="hidden"><?php echo $average_in_percent ?>%</label>
                               </td>
                            </tr>
                             <?php $sn++; ?>
