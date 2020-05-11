@@ -29,7 +29,7 @@ $this->title = 'Rating';
                            <th>Rated By</th>
                            <th>Total Rating</th>
                            <th>Overall Rating</th>
-                           <th class="text-align-center">Rating</th>
+                           <th class = "text-align-center">Rating</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -41,39 +41,41 @@ $this->title = 'Rating';
                            <tr>
                               <td><?php echo $sn; ?></td>
                               <td><?php echo (isset($post['name'])) ? ucwords(trim($post['name'])) : '' ?></td>
-                              <td class="text-align-center"><?php echo (isset($post['count'])) ? $post['count'] : '' ?></td>
-                              <td class="text-align-center"><?php echo (isset($post['rating'])) ? $post['rating'] : '' ?></td>
-                              <td class="text-align-center">
-                                <?php
-                                $total_rating_given = (isset($post['rating'])) ? $post['rating'] : '' ;
-                                $total_rating_full = (isset($post['count']) ? $post['count'] : '') *5;
-                                $average_in_percent = ($total_rating_given/$total_rating_full)*100;
-                                $average_in_rating = ($total_rating_given/$total_rating_full)*5;
-                                ?>
-
-                                 <?php
-                                 echo number_format($average_in_rating,1);
-                                 ?>
+                              <td class = "text-align-center"><?php echo (isset($post['count'])) ? $post['count'] : '' ?></td>
+                              <td class = "text-align-center">
+                                  <?php echo (isset($post['rating'])) ? $post['rating'] : '' ?></td>
+                              <td class = "text-align-center">
+                                  <?php
+                                  $total_rating_given = (isset($post['rating'])) ? $post['rating'] : '';
+                                  $total_rating_full = (isset($post['count']) ? $post['count'] : '') * 5;
+                                  $average_in_percent = ($total_rating_given / $total_rating_full) * 100;
+                                  $average_in_rating = ($total_rating_given / $total_rating_full) * 5;
+                                  ?>
+                                 <span class="rating_count">
+                                     <?php
+                                     echo number_format($average_in_rating, 1);
+                                     ?>
+                                 </span>
                               </td>
                               <td>
-                                 <div class="star-rating">
-                                    <div class="back-stars">
-                                       <i class="fa fa-star" aria-hidden="true"></i>
-                                       <i class="fa fa-star" aria-hidden="true"></i>
-                                       <i class="fa fa-star" aria-hidden="true"></i>
-                                       <i class="fa fa-star" aria-hidden="true"></i>
-                                       <i class="fa fa-star" aria-hidden="true"></i>
+                                 <div class = "star-rating">
+                                    <div class = "back-stars">
+                                       <i class = "fa fa-star" aria-hidden = "true"></i>
+                                       <i class = "fa fa-star" aria-hidden = "true"></i>
+                                       <i class = "fa fa-star" aria-hidden = "true"></i>
+                                       <i class = "fa fa-star" aria-hidden = "true"></i>
+                                       <i class = "fa fa-star" aria-hidden = "true"></i>
 
-                                       <div class="front-stars" style="width: <?php echo $average_in_percent; ?>%">
-                                          <i class="fa fa-star" aria-hidden="true"></i>
-                                          <i class="fa fa-star" aria-hidden="true"></i>
-                                          <i class="fa fa-star" aria-hidden="true"></i>
-                                          <i class="fa fa-star" aria-hidden="true"></i>
-                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                       <div class = "front-stars" style = "width: <?php echo $average_in_percent; ?>%">
+                                          <i class = "fa fa-star" aria-hidden = "true"></i>
+                                          <i class = "fa fa-star" aria-hidden = "true"></i>
+                                          <i class = "fa fa-star" aria-hidden = "true"></i>
+                                          <i class = "fa fa-star" aria-hidden = "true"></i>
+                                          <i class = "fa fa-star" aria-hidden = "true"></i>
                                        </div>
                                     </div>
                                  </div>
-                                 <label id="rate-number" class="hidden"><?php echo $average_in_percent ?>%</label>
+                                 <label id = "rate-number" class = "hidden"><?php echo $average_in_percent ?>%</label>
                               </td>
                            </tr>
                             <?php $sn++; ?>
