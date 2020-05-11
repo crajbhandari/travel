@@ -1,11 +1,12 @@
 <?php
 $this->title = 'Package';
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.js');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css');
 
 ?>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css">
-<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css">
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/autocomplete.js"></script>
+
 <style>
    .modal{
       width: 70%;
@@ -16,7 +17,7 @@ $this->title = 'Package';
 </style>
 <script>
    var city =<?php echo $city; ?>;
-   console.log(city);
+   // console.log(city);
 </script>
 <div class = "sb2-2">
    <div class = "sb2-2-2">
@@ -174,10 +175,5 @@ $this->title = 'Package';
       <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/embed-google-map.jpg" alt = ""/>
    </div>
 </div>
-<script>
 
-   $('#city-autocomplete').autocomplete({
-      source: city
-   });
-</script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/plugins.min.js"></script>

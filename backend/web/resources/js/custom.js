@@ -555,8 +555,8 @@ $(function ($) {
                   typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
                }
             });
-   });
-});
+         });
+      });
       $(function () {
          $('.show-review').on("click", function () {
 
@@ -592,7 +592,7 @@ $(function ($) {
       });
 
 
-      $(function() {
+      $(function () {
 
          $('#added').click(function () {
             $('#dynamic_field').append('<div class="row">' +
@@ -600,10 +600,10 @@ $(function ($) {
                   '                      \n' +
                   '                     <input id = "list-title " name = "post[title]" type = "text" class = "validate" required value = "">\n' +
                   '                     <label for = "list-title ">Title</label>\n' +
-                  '                  </div>'+
+                  '                  </div>' +
                   '</div>'
             );
-           });
+         });
 
 
       });

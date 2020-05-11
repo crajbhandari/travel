@@ -6,7 +6,6 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
-
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -68,6 +67,7 @@ AppAsset::register($this);
 </head>
 
 <body>
+<?php $this->beginBody() ?>
 <!--== MAIN CONTRAINER ==-->
 <div class = "container-fluid sb1">
    <div class = "row">
@@ -91,13 +91,13 @@ AppAsset::register($this);
          <div class = "top-not-cen">
             <a class = 'waves-effect btn-noti' href = '<?php echo Yii::$app->request->baseUrl; ?>/messages'>
                <i class = "fa fa-envelope-o" aria-hidden = "true"></i>
-                 <?php
-                 if (Yii::$app->params['count_messages']['count_unseen'] > 0) {?>
-               <span class="message-noti">
+                <?php
+                if (Yii::$app->params['count_messages']['count_unseen'] > 0) {?>
+                   <span class="message-noti">
                   <?php  echo Yii::$app->params['count_messages']['count_unseen']; ?>
                    </span>
-                 <?php }
-                 ?>
+                <?php }
+                ?>
             </a>
             <a class = 'waves-effect btn-noti' href = '#'>
                <i class = "fa fa-tag" aria-hidden = "true"></i>
@@ -175,20 +175,20 @@ AppAsset::register($this);
                </li>
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages/" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'messages' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-envelope-o" aria-hidden = "true"></i> Messages</a>
                </li>
-               <?php
-              if((\Yii::$app->user->identity->role=='admin')){
-               ?>
-               <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
-                  <div class = "collapsible-body left-sub-menu">
-                     <ul>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users">All Users</a>
-                        </li>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users/edit">Add New user</a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <?php } ?>
+                <?php
+                if((\Yii::$app->user->identity->role=='admin')){
+                    ?>
+                   <li><a href = "javascript:void(0)" class = "collapsible-header"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
+                      <div class = "collapsible-body left-sub-menu">
+                         <ul>
+                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users">All Users</a>
+                            </li>
+                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users/edit">Add New user</a>
+                            </li>
+                         </ul>
+                      </div>
+                   </li>
+                <?php } ?>
 
                <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'package' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
                   <div class = "collapsible-body left-sub-menu">
@@ -215,10 +215,8 @@ AppAsset::register($this);
             </ul>
          </div>
       </div>
-
       <!--== BODY INNER CONTAINER ==-->
        <?= $content ?>
-
    </div>
 </div>
 
@@ -242,14 +240,16 @@ AppAsset::register($this);
 <!--</section>-->
 
 
-<?php $this->endBody() ?>
+
+
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/materialize.min.js"></script>
+
 <!--======== SCRIPT FILES =========-->
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/sweetalert/sweetalert.min.js" type = "text/javascript"></script>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/materialize.min.js"></script>
 <!--<script src = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/js/bootstrap.min.js"></script>-->
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
-
+<?php $this->endBody() ?>
 <?php if (Yii::$app->session->hasFlash('flash')): ?>
    <script>
       notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
