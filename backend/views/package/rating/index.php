@@ -44,13 +44,34 @@ $this->title = 'Rating';
                               <td><?php echo (isset($post['rating'])) ? $post['rating'] : '' ?></td>
                               <td>
                                 <?php
-                                $rating = round($post['rating']/5);
-                                for($i=1;$i<=$rating;$i++){
-                                   echo ' <i style="margin-right: 0" class="fa fa-star"></i>';
-                                }
+//                                $rating = round($post['rating']/5);
+//                                for($i=1;$i<=$rating;$i++){
+//                                   echo ' <i style="margin-right: 0" class="fa fa-star"></i>';
+//                                }
+//                                $total_rating_given = (isset($post['rating'])) ? $post['rating'] : '' ;
+//                                $total_rating_full = (isset($post['count']) ? $post['count'] : '') *5;
+//                                $average = ($total_rating_given/$total_rating_full)*5;
+//                                echo number_format($average,1);
+
                                 ?>
+                                 <div class="star-rating">
+                                    <div class="back-stars">
+                                       <i class="fa fa-star" aria-hidden="true"></i>
+                                       <i class="fa fa-star" aria-hidden="true"></i>
+                                       <i class="fa fa-star" aria-hidden="true"></i>
+                                       <i class="fa fa-star" aria-hidden="true"></i>
+                                       <i class="fa fa-star" aria-hidden="true"></i>
 
-
+                                       <div class="front-stars">
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <label id="rate-number">48%</label>
                               </td>
                            </tr>
                             <?php $sn++; ?>

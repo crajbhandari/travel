@@ -95,6 +95,38 @@
         text-align: center;
     }
 }
+/*  star rating  */
+.star-rating {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.back-stars {
+    padding: 0 5px;
+    display: flex;
+    color: #989494;
+    position: relative;
+}
+
+.front-stars {
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+.front-stars:hover {
+     color: green;
+ }
+.front-stars.over {
+     color: green;
+}
+.front-stars.fill {
+     color: yellow;
+ }
+
 /*-------------------------------------------------------*/
 /* When the browser is between 0px and 481px wide,below css will be applied.
 /*-------------------------------------------------------*/
