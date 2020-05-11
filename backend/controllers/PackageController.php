@@ -73,13 +73,19 @@ class PackageController extends Controller {
     }
 
     public function actionPost($id = '') {
+        $a = HelperPackage::getCities();
+        foreach ($a as $c => $b) {
+            $d[] = json_encode($b['name']) . ":null";
+        }
+        $e = implode(',', $d);
         $post = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
             $post = Package::findOne($id);
         }
+//        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
-                'city'     => HelperPackage::makeJsonList(HelperPackage::getCities(), 'name'),
+                'city'     => $e,
                 'editable' => $post,
         ]);
     }
@@ -151,10 +157,12 @@ class PackageController extends Controller {
 
         return $this->render('review/index', ['packages' => HelperPackage::getReviews()]);
     }
+
     public function actionRating() {
 
         return $this->render('rating/index', ['packages' => HelperPackage::getRatings()]);
     }
+
     public function actionRequest() {
 
         return $this->render('request/index', ['packages' => HelperPackage::getRequest()]);
