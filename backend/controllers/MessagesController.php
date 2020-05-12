@@ -82,40 +82,12 @@
                         if ($model->save() == true) {
 
                             $result = "
-
-                        <div class = \"modal-content\">
-                            <div class = \"modal-header\">
-                                <h5 class = \"modal-title\"><span id = \"message-title\">Message from <span id = \"message-name\"></span></span>$name</h5>
-                                <button type = \"button\" class = \"close\" data-dismiss = \"modal\" aria-label = \"Close\">
-                                    <span aria-hidden = \"true\">&times;</span>
-                                </button>
-                            </div>
-                            <div class = \"modal-body\">
-                                <div class = \"message-header\">
-                                    <div class = \"row\">
-                                        <div class = \"col-md-6 col-sm-12\">
-                                            <div class = \"message-header-group\">
-                                                <div class = \"header-title\"><span class = \"strong\">From:</span></div>
-                                                <br><div class = \"header-value\"><span class = \"strong\">Name:<br> </span><span class = \"message-name\"></span>$name</div>
-                                                <br><div class = \"header-value\"><span class = \"strong\">Email:<br> </span><span class = \"message-email\"></span>$email</div>
-                                                                                            <br>    <div class = \"header-value\"><span class = \"strong\">Phone Number:<br></span> <span class = \"message-phone\"></span>$phone</div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                               <br> <div class = \"message-body\">
-                                    <h4>Message : </h4>
-                                    <div class = \"message-content\">
-                                    $message
-</div>
-                                </div>
-                            </div>
-                            <div class = \"modal-footer\">
-                                <button type = \"button\" class = \"btn btn-secondary\" data-dismiss = \"modal\">Close</button>
-                            </div>
-                        </div>
+          <p><b>Name : </b><br>$name</p>
+      <p><b>Email : </b><br>$email</p>
+      <p><b>Phone Number : </b><br>$phone</p>
+      <p><b>Sent On : </b><br>$date</p>
+      <p><b>Message : </b><br>$message</p>
+                       
                         ";
                             return json_encode($data = [
                                     'result' => $result,

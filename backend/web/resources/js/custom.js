@@ -172,7 +172,7 @@ $(function ($) {
                               table: table,
                            },
                            success: function (data) {
-                              console.log(data);
+
                               if (data == true) {
                                  notify('success', table + ' Deleted.');
                                  location.reload();
@@ -346,6 +346,7 @@ $(function ($) {
          });
       }
 
+
       if ($('.add-social-media-item').length) {
          var socialTable = $('.social-media-input-table');
          var scount = socialTable.find('tbody tr').length;
@@ -468,12 +469,70 @@ $(function ($) {
 
          });
       });
+
+      $(function () {
+         $('.pkg-imgs').change(function () {
+            var files = $(this)[0].files;
+            $('#img-count').html(files.length + ' files selected');
+            for (var i = 0; i <= files.length - 1; i++) {
+               var fname = files.item(i).name;
+               var fsize = files.item(i).size;
+               document.getElementById('hello').innerHTML =
+                     document.getElementById('hello').innerHTML + ', ' +
+                     fname + ' (<b>' + fsize + '</b> bytes)';
+               console.log(fname);
+               console.log(fsize);
+            }
+         })
+      });
       $(function () {
          $('.show-message').on("click", function () {
+
+            $('.modal').modal();
             var cid = $(this).data("id");
             var modal = $('.modal-message');
             $.ajax({
                url: baseUrl + "/messages/read-message",
+               type: 'post',
+               data: {
+                  id: cid
+               },
+               success: function (data) {
+
+                  if (data === '') {
+                     typeAlert('Error', 'Sorry, Could not open Message', 'error');
+                  } else {
+                     var a = JSON.parse(data);
+                     //message seen or new
+                     if ($('[data-for="new"]')) {
+                        $('[data-id="id' + a['id'] + '"]').html('<span data-for="seen" class="label label-danger">Seen</span>');
+                        $('.message-noti').html($('.message-noti').text() - 1);
+                     } else {
+                        $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="label label-danger">New</span>');
+                     }
+                     $('.para-content').html(a['result'])
+                     // modal.find('.modal-dialog').html(a['result']);
+                     // modal.modal('show');
+                     // $('.refresh').removeClass('hidden')
+                  }
+               },
+               error: function () {
+                  typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
+               }
+            });
+
+         });
+      });
+
+      $(function () {
+         $('.show-review').on("click", function () {
+
+            $('.modal').modal();
+            var cid = $(this).data("id");
+            var modal = $('.modal-message');
+
+            $.ajax({
+               url: baseUrl + "/package/read-package",
                type: 'post',
                data: {
                   id: cid
@@ -485,24 +544,121 @@ $(function ($) {
                   } else {
                      var a = JSON.parse(data);
                      //message seen or new
-                     if ($('[data-for="new"]')) {
-                        $('[data-id="id' + a['id'] + '"]').html('<span data-for="seen" class="label label-danger">Seen</span>');
-                     } else {
-                        $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="label label-danger">New</span>');
-                     }
 
-                     modal.find('.modal-dialog').html(a['result']);
-                     modal.modal('show');
-                     $('.refresh').removeClass('hidden')
+                     $('.paras-content').html(a['result'])
+                     // modal.find('.modal-dialog').html(a['result']);
+                     // modal.modal('show');
+                     // $('.refresh').removeClass('hidden')
                   }
                },
                error: function () {
                   typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
                }
             });
+   });
+});
+      $(function () {
+         $('.show-review').on("click", function () {
 
+            $('.modal').modal();
+            var cid = $(this).data("id");
+            var modal = $('.modal-message');
+
+            $.ajax({
+               url: baseUrl + "/package/request-package",
+               type: 'post',
+               data: {
+                  id: cid
+               },
+               success: function (data) {
+
+                  if (data === '') {
+                     typeAlert('Error', 'Sorry, Could not open Message', 'error');
+                  } else {
+                     var a = JSON.parse(data);
+                     //message seen or new
+
+                     $('.parasa-content').html(a['result'])
+                     // modal.find('.modal-dialog').html(a['result']);
+                     // modal.modal('show');
+                     // $('.refresh').removeClass('hidden')
+                  }
+               },
+               error: function () {
+                  typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
+               }
+            });
          });
       });
+      $(function() {
+         // var backStars = document.querySelector(".star-rating .back-stars");
+         //
+         // backStars.addEventListener("click", function(e){
+         //    let fillPercent = getFillPercent(e, this);
+         //    fillPercent = (fillPercent > 100) ? 100 : (fillPercent < 0) ? 0 : fillPercent;
+         //
+         //    fillPercent = fillPercent + "%" ;
+         //    const frontStars = document.querySelector(".front-stars");
+         //
+         //    if(!frontStars.className.includes("fill"))
+         //       frontStars.className+= " fill";
+         //
+         //    frontStars.style.width = fillPercent;
+         //
+         //    document.querySelector("#rate-number").innerHTML = fillPercent;
+         // });
 
+         backStars.addEventListener("mousemove", function(e){
+            const fillPercent = getFillPercent(e, this) + "%";
+            const frontStars = document.querySelector(".front-stars");
+
+            if(!frontStars.className.includes("over"))
+               frontStars.className += " over";
+
+            frontStars.style.width = fillPercent;
+         });
+
+         backStars.addEventListener("mouseenter", function(e){
+            var frontStars = document.querySelector(".front-stars");
+            if(frontStars.className.includes("over"))
+               frontStars.className.replace("over","");
+
+         });
+
+         backStars.addEventListener("mouseleave", function(){
+            const frontStars = document.querySelector(".front-stars");
+            const number =  document.querySelector("#rate-number").innerHTML;
+            frontStars.style.width = number || 0;
+
+            if(frontStars.className.indexOf("over") > -1)
+               frontStars.className.concat(" over");
+         });
+
+         function getFillPercent(page, element){
+            const clickedOffset = page.pageX - element.offsetLeft;
+            const starsContainerWidth = parseInt(window.getComputedStyle(element).width.replace("px",""));
+            const fillPercent = Math.floor((clickedOffset * 100) / starsContainerWidth);
+            return fillPercent;
+         }
+      });
+
+      $(function() {
+
+         $('#added').click(function () {
+            $('#dynamic_field').append('<div class="row">' +
+                  '<div class = "input-field col s12">\n' +
+                  '                      \n' +
+                  '                     <input id = "list-title " name = "post[title]" type = "text" class = "validate" required value = "">\n' +
+                  '                     <label for = "list-title ">Title</label>\n' +
+                  '                  </div>'+
+                  '</div>'
+            );
+           });
+
+
+      });
+
+
+//
    });
 });

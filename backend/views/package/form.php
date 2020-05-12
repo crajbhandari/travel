@@ -1,7 +1,36 @@
 <?php
 $this->title = 'Package';
-$this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
+$data = array();
+//
+//echo '<pre>';
+//print_r($editable);
+//echo '</pre>';
+//die;
+//for($i = 0; $i<=count($city); $i++) {
+//    $data[$i] = $city;
+//}
+//
+//foreach ($city as $c){
+//   array_push($data,"$c");
+//}
 ?>
+
+<script>
+   var city =<?php echo json_encode($city); ?>;
+   // console.log(city);
+</script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css">
+<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css">
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/autocomplete.js"></script>
+<style>
+   .modal{
+      width: 70%;
+   }
+   .modal img{
+      width:100%;
+   }
+</style>
 <div class = "sb2-2">
    <div class = "sb2-2-2">
       <ul>
@@ -22,7 +51,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
             </h4>
          </div>
          <div class = "bor">
-            <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
+            <form class="package-form" enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
                <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
                <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
                 <?php $counter = 0; ?>
@@ -36,22 +65,44 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
                <div class = "row">
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
-                     <label for = "textarea1 <?php echo $counter; ?>">Itinerary</label>
-                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[itinerary]"><?php echo (isset($editable['itinerary'])) ? $editable['itinerary'] : '' ?></textarea>
+                     <input id = "list-title <?php echo $counter; ?>" name = "post[location]" type = "text" class = "validate" required value = "<?php echo (isset($editable['location'])) ? $editable['location'] : '' ?>">
+                     <label for = "list-title <?php echo $counter; ?>">Location</label>
                   </div>
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
-                     <label for = "textarea1 <?php echo $counter; ?>">Info</label>
-                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[info]"><?php echo (isset($editable['info'])) ? $editable['info'] : '' ?></textarea>
+                     <input id = "list-title <?php echo $counter; ?>" name = "post[duration]" type = "text" class = "validate" required value = "<?php echo (isset($editable['duration'])) ? $editable['duration'] : '' ?>">
+                     <label for = "list-title <?php echo $counter; ?>">Duration</label>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <input id = "list-title <?php echo $counter; ?>" name = "post[discount]" type = "text" class = "validate" required value = "<?php echo (isset($editable['discount'])) ? $editable['discount'] : '' ?>">
+                     <label for = "list-title <?php echo $counter; ?>">Discount</label>
                   </div>
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
                      <input id = "list-title <?php echo $counter; ?>" name = "post[budget]" type = "text" class = "validate" required value = "<?php echo (isset($editable['budget'])) ? $editable['budget'] : '' ?>">
-                     <label for = "list-title <?php echo $counter; ?>">Budget Per Person</label>
+                     <label for = "list-title <?php echo $counter; ?>">Budget</label>
                   </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                     <input id = "autocomplete-input list-title <?php echo $counter; ?>" name = "post[city]" type = "text" class = "autocomplete validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
+                     <label for = "autocomplete-input list-title <?php echo $counter; ?>">City</label>
+                  </div>
+               </div>
+               <div class = "row" style="margin-top: 40px;">
+                  <div class = "input-field col s10">
+                     <textarea name = "post[iframe]" class="materialize-textarea" id = "textarea1"><?php echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?></textarea>
+<!--                     <input id = "list-title --><?php //echo $counter; ?><!--" name = "post[iframe]" type = "text" class = "validate" required value = "--><?php //echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?><!--">-->
+                     <label for = "list-title <?php echo $counter; ?>">Map Location (Copy Paste iframe from google maps)</label>
+                  </div>
+                  <div class="input-field col s2">
+                     <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Help</a>                  </div>
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
@@ -63,17 +114,41 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
                      <label for = "<?php echo $counter; ?>">Select Visibility</label>
                   </div>
                </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <label for = "textarea1 <?php echo $counter; ?>">About The Tour</label>
+                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[about]"><?php echo (isset($editable['about_tour'])) ? $editable['about_tour'] : '' ?></textarea>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <label for = "textarea1 <?php echo $counter; ?>">Itinerary</label>
+                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[itinerary]"><?php echo (isset($editable['itinerary'])) ? $editable['itinerary'] : '' ?></textarea>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <label for = "textarea1 <?php echo $counter; ?>">Description</label>
+                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[info]"><?php echo (isset($editable['info'])) ? $editable['info'] : '' ?></textarea>
+                  </div>
+               </div>
 
                <div class = "row">
                   <div class = "row">
                      <div class = "input-field col s12">
                          <?php $counter++; ?>
+                        <div class = "input-field col s12">
+                        <span id="img-count">Choose Files</span>
+                        </div>
                         <div class = "custom-file">
-                           <label class = "custom-file-label" id = "file-<?php echo $counter; ?>-label" for = "file-<?php echo $counter; ?>">
+                           <label class = "custom-file-label" id = "" for = "file-<?php echo $counter; ?>">
                               <i class = "fa fa-file"></i>
-                              <span>Upload Image</span>
+                              <span id="hello"></span>
                            </label>
-                           <input accept = "image/x-png,image/jpeg" multiple type = "file" name = "image[]" class = "custom-file-input" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
+                           <input accept = "image/x-png,image/jpeg" multiple type = "file" name = "image[]" class = "custom-file-input pkg-imgs" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
                         </div>
                         <div class="images">
                          <?php
@@ -105,4 +180,24 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
       </div>
    </div>
 </div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+   <div class="modal-content">
+      <h4>How to Embed a Google Map In Your Web Page</h4>
+   </div>
+   <div class = "para-content">
+      <p>You can embed a simple map, a set of driving directions, a local search, or maps created by other users. Here's how:</p>
+      <p>1. Once you have your Google Map created, ensure that the map you'd like to embed appears in the current map display.</p>
+      <p>2. Click "Share" at the right of the page. </p>
+      <p>3. In the box that pops up, click "Embed"</p>
+      <p>4. Copy the entire HTML 'iframe' code string and paste it into the HTML code of your web page.</p>
+      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/embed-google-map.jpg" alt = ""/>
+   </div>
+</div>
+<!--<script>-->
+<!---->
+<!--   $('#city-autocomplete').autocomplete({-->
+<!--      source: city-->
+<!--   });-->
+<!--</script>-->
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/plugins.min.js"></script>

@@ -14,6 +14,7 @@
     namespace common\components;
 
     use common\models\Blog;
+    use common\models\BlogComments;
     use common\models\Sections;
     use yii\base\Component;
 
@@ -26,7 +27,7 @@
                 $model = new Blog();
             }
             $model->attributes = $data;
-            $model->status = $data['status'];
+            $model->visibility = $data['visibility'];
 
 
             if (isset($image['name']) && $image['name'] != '') {
@@ -52,5 +53,47 @@
         public static function getCount(){
             $count = Blog::find()->count();
             return $count;
+        }
+        public static function getComments() {
+           $comments =  BlogComments::find()
+                                    ->orderBy(['id' => SORT_DESC])
+                                    ->asArray()
+                                    ->with('user')
+                                    ->with('blog')
+                                    ->all();
+            return $comments;
+        }
+        public static function getSingleComment($id) {
+            $actions = BlogComments::find()
+                                   ->where(['id' => $id])
+                                   ->with('blog')
+                                   ->with('user')
+                                   ->with('verifieduser')
+                                   ->asArray()
+                                   ->one();
+            return $actions;
+        }
+        public static function verifyComment($verify) {
+            $id = $verify['id'];
+            $model = BlogComments::findOne($id);
+            //verification comment
+            $model->verification_comment = $verify['verification_comment'];
+            //edited status
+            $model->edited_status = 1;
+            //verification status
+            $model->is_verified = $verify['is_active'];
+            //Verified on
+            $model->verified_on = date('Y-m-d H:i:s');
+            //Verified by
+            $model->verified_by = \Yii::$app->user->identity->id;
+
+            if ($model->save()) {
+                return $model->id;
+            }
+            else {
+                return false;
+            }
+
+
         }
     }

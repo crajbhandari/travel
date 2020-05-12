@@ -2,8 +2,12 @@
 
 namespace backend\controllers;
 
+use common\components\Helper;
 use common\components\HelperPackage;
 use common\components\Misc;
+use common\models\City;
+use common\models\generated\PackageRequest;
+use common\models\generated\PackageReview;
 use common\models\Package;
 use Yii;
 use yii\filters\AccessControl;
@@ -69,12 +73,19 @@ class PackageController extends Controller {
     }
 
     public function actionPost($id = '') {
+        $a = HelperPackage::getCities();
+        foreach ($a as $c => $b) {
+            $d[] = json_encode($b['name']) . ":null";
+        }
+        $e = implode(',', $d);
         $post = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
             $post = Package::findOne($id);
         }
+//        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
+                'city'     => $e,
                 'editable' => $post,
         ]);
     }
@@ -116,6 +127,128 @@ class PackageController extends Controller {
         }
         else {
             echo 'no';
+        }
+        return false;
+    }
+
+    public function actionCities($id = '') {
+        $id = Misc::decodeUrl($id);
+        $page = 'cities';
+        $cities = City::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
+        return $this->render('cities/index.php', [
+                'cities'   => $cities,
+                'editable' => ($id > 0) ? City::findOne($id) : false,
+        ]);
+    }
+
+    public function actionUpdateCity() {
+        if (isset($_POST['post'])) {
+            $updated = HelperPackage::setCity($_POST['post']);
+            if ($updated != false) {
+                Misc::setFlash('success', 'City Updated');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
+            }
+        }
+        Misc::setFlash('danger', 'City Updated Error');
+        return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
+    }
+
+    public function actionReview() {
+
+        return $this->render('review/index', ['packages' => HelperPackage::getReviews()]);
+    }
+
+    public function actionRating() {
+
+        return $this->render('rating/index', ['packages' => HelperPackage::getRatings()]);
+    }
+
+    public function actionRequest() {
+
+        return $this->render('request/index', ['packages' => HelperPackage::getRequest()]);
+    }
+
+    public function actionReadPackage() {
+        //        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        if (\Yii::$app->request->isAjax && $_POST['id']) {
+            $id = $_POST['id'];
+            if ($id > 0) {
+                $model = PackageReview::findOne($id);
+
+                if ($model) {
+                    $package = Package::findOne($model->package_id);
+                    $package_name = $package['title'];
+                    $name = $model->name;
+                    $email = $model->email;
+                    $city = $model->city;
+                    $message = $model->message;
+                    $rating = $model->rating;
+                    $date = $model->posted_on;
+
+                    if ($model->save() == true) {
+
+                        $result = "
+<div class='col s6'>
+      <p><b>Sent On : </b><br>$date</p>
+          <p><b>Name : </b><br>$name</p>
+      <p><b>Email : </b><br>$email</p>
+      <p><b>Message : </b><br>$message</p>
+      </div>
+     <div class='col s6'> 
+      <p><b>City : </b><br>$city</p>
+      <p><b>Rating : </b><br>$rating</p>
+      <p><b>Package : </b><br>$package_name</p>
+     
+      </div>
+                       
+                        ";
+                        return json_encode($data = [
+                                'result' => $result,
+                                'id'     => $model->id
+                        ]);
+                    }
+                }
+            }
+
+        }
+        return false;
+    }
+
+    public function actionRequestPackage() {
+        //        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        if (\Yii::$app->request->isAjax && $_POST['id']) {
+            $id = $_POST['id'];
+            if ($id > 0) {
+                $model = PackageRequest::findOne($id);
+
+                if ($model) {
+
+                    $name = $model->name;
+                    $email = $model->email;
+                    $city = $model->city;
+                    $message = $model->message;
+
+                    $date = $model->posted_on;
+
+
+                    if ($model->save() == true) {
+
+                        $result = "
+          <p><b>Name : </b><br>$name</p>
+      <p><b>Email : </b><br>$email</p>
+     <p><b>City : </b><br>$city</p>
+      <p><b>Sent On : </b><br>$date</p>
+      <p><b>Message : </b><br>$message</p>
+                       
+                        ";
+                        return json_encode($data = [
+                                'result' => $result,
+                                'id'     => $model->id
+                        ]);
+                    }
+                }
+            }
+
         }
         return false;
     }
