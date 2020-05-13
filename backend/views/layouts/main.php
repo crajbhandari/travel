@@ -114,7 +114,7 @@ AppAsset::register($this);
                <i class = "fa fa-angle-down" aria-hidden = "true"></i>
             </a>
 
-<<<<<<< HEAD
+
                <li><a href = "javascript:void(0) <?php if($this->title=='Package'){echo 'active';}?>" class = "collapsible-header <?php echo ($this->title== 'Package') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
@@ -134,11 +134,11 @@ AppAsset::register($this);
                         </li>
                      </ul>
                   </div>
-=======
+
             <!-- Dropdown Structure -->
             <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Account Setting</a>
->>>>>>> 2acfbe37bfa4c9403f9ac3b8cd672205615775d8
+
                </li>
                <li class = "divider"></li>
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/logout" class = "ho-dr-con-last waves-effect"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Logout</a>
@@ -225,7 +225,7 @@ AppAsset::register($this);
                            </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/rating">Package Rating</a>
                            </li>
-                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Package Category</a>
+                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/category">Package Category</a>
                            </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a>
                            </li>

@@ -10,6 +10,7 @@ use common\models\generated\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
 use common\models\Package;
+use phpDocumentor\Reflection\Types\Null_;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -114,17 +115,20 @@ class PackageController extends Controller {
 
     public function actionCategory($id = '')
     {
-//        $categories = HelperPackage::getCategory();
+       
         $id = Misc::decodeUrl($id);
-        $page = 'cities';
-        $value = Yii::$app->request->post();
-//        echo '<pre>';
-//        print_r($value);
-//        echo '</pre>';
-       if(isset($value))
-       {
-           $data = HelperPackage::setCategory($value);
-       }
+        if($id >! 0) {
+            $data = HelperPackage::setCategory(Yii::$app->request->post());
+        }
+//        $page = 'cities';
+//        $value = Yii::$app->request->post();
+////        echo '<pre>';
+////        print_r($value);
+////        echo '</pre>';
+//       if(isset($value))
+//       {
+//           $data = HelperPackage::setCategory($value);
+//       }
         return $this->render('category/index.php', [
                 'categories'=>HelperPackage::getCategory(),
                 'editable' => ($id > 0) ? PackageCategory::findOne($id) : false,

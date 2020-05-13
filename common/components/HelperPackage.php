@@ -62,14 +62,13 @@ class HelperPackage extends Component {
     }
     public static function setCategory($data)
     {
-
         $model = new PackageCategory();
         $model->name = $data['category']['name'];
         $model->parent = $data['category']['parent'];
          if(!$model->save()) {
         return false;
     }
-        return $model;
+        return true;
     }
 
 
