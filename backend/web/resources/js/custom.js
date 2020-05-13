@@ -592,13 +592,13 @@ $(function ($) {
       });
 
 
-      $(function() {
+      $(document).ready(function() {
 
          $('#added').click(function () {
             $('#dynamic_field').append('<div class="row">' +
-                  '<div class = "input-field col s12">\n' +
+                  '<div class = "input-field col s12" >\n' +
                   '                      \n' +
-                  '                     <input id = "list-title " name = "post[title]" type = "text" class = "validate" required value = "">\n' +
+                  '                     <input id = "list-title " name = "title[]" type = "text" class = "validate" required value = "">\n' +
                   '                     <label for = "list-title ">Title</label>\n' +
                   '                  </div>'+
                   '</div>'
