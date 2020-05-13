@@ -6,6 +6,7 @@ use common\components\Helper;
 use common\components\HelperPackage;
 use common\components\Misc;
 use common\models\City;
+use common\models\generated\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
 use common\models\Package;
@@ -66,6 +67,7 @@ class PackageController extends Controller {
      */
     public function actionIndex() {
         $page = 'package';
+
         $package = Package::find()->orderBy(['id' => SORT_DESC])->all();
         return $this->render('index', [
                 'package' => $package,
@@ -107,6 +109,25 @@ class PackageController extends Controller {
         return $this->redirect(Yii::$app->request->baseUrl . '/package/');
     }
 
+    public function actionCategory($id = '')
+    {
+//        $categories = HelperPackage::getCategory();
+        $id = Misc::decodeUrl($id);
+        $page = 'cities';
+        $value = Yii::$app->request->post();
+//        echo '<pre>';
+//        print_r($value);
+//        echo '</pre>';
+       if(isset($value))
+       {
+           $data = HelperPackage::setCategory($value);
+       }
+        return $this->render('category/index.php', [
+                'categories'=>HelperPackage::getCategory(),
+                'editable' => ($id > 0) ? PackageCategory::findOne($id) : false,
+        ]);
+//       return $this->render('index.php',['categories'=>HelperPackage::getCategory()]);
+    }
     public function actionRemoveImage() {
         if (\Yii::$app->request->isAjax) {
             $id = $_POST['id'];
