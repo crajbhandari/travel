@@ -26,7 +26,7 @@ $this->title = 'Rating';
                            <th>S.N</th>
 
                            <th>Package Name</th>
-                           <th>Total Reviews</th>
+                           <th>Rated By</th>
                            <th>Total Rating</th>
                            <th>Average Rating</th>
                         </tr>

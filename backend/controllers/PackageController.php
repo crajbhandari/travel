@@ -12,6 +12,7 @@ use common\models\Package;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\base\Component;
 
@@ -73,13 +74,21 @@ class PackageController extends Controller {
     }
 
     public function actionPost($id = '') {
+        $a = HelperPackage::getCities();
+        $cities = [];
+        foreach ($a as $city) {
+            $cities[$city['name']] =  null;
+        }
+        // $cities = ArrayHelper::getColumn($a, 'name');
+
         $post = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
             $post = Package::findOne($id);
         }
+        //        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
-                'city'     => HelperPackage::makeJsonList(HelperPackage::getCities(), 'name'),
+                'city'     => json_encode($cities),
                 'editable' => $post,
         ]);
     }
@@ -151,10 +160,12 @@ class PackageController extends Controller {
 
         return $this->render('review/index', ['packages' => HelperPackage::getReviews()]);
     }
+
     public function actionRating() {
 
         return $this->render('rating/index', ['packages' => HelperPackage::getRatings()]);
     }
+
     public function actionRequest() {
 
         return $this->render('request/index', ['packages' => HelperPackage::getRequest()]);

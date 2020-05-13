@@ -1,11 +1,14 @@
 <?php
 $this->title = 'Package';
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/plugins.min.js');
 $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.js');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css');
 
 ?>
+
+<script>
+   var city = <?php echo ($city); ?>;
+</script>
+
 
 <style>
    .modal{
@@ -15,10 +18,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-
       width:100%;
    }
 </style>
-<script>
-   var city =<?php echo $city; ?>;
-   // console.log(city);
-</script>
+
 <div class = "sb2-2">
    <div class = "sb2-2-2">
       <ul>
@@ -79,8 +79,8 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
-                     <input id = "city-autocomplete list-title <?php echo $counter; ?>" name = "post[city]" type = "text" class = "validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
-                     <label for = "city-autocomplete list-title <?php echo $counter; ?>">City</label>
+                     <input id = "city-autocomplete" name = "post[city]" type = "text" class = "autocomplete validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
+                     <label for = "city-autocomplete">City</label>
                   </div>
                </div>
                <div class = "row">
@@ -176,4 +176,3 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-
    </div>
 </div>
 
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/plugins.min.js"></script>

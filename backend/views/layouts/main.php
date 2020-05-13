@@ -248,8 +248,11 @@ AppAsset::register($this);
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/sweetalert/sweetalert.min.js" type = "text/javascript"></script>
 <!--<script src = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/js/bootstrap.min.js"></script>-->
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
+
 <?php $this->endBody() ?>
+
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
+
 <?php if (Yii::$app->session->hasFlash('flash')): ?>
    <script>
       notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
@@ -269,3 +272,5 @@ AppAsset::register($this);
 </body>
 
 </html>
+
+<?php $this->endPage() ?>
