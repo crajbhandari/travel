@@ -1,15 +1,10 @@
 $(function ($) {
    "use strict";
    $(document).ready(function () {
+      console.log(city);
       $(function () {
-
-         console.log(city);
-         $('input.autocomplete').autocomplete({
-            // source: city
-            data: {
-               // "Dubai":null,
-             city
-            },
+         $('#city-autocomplete').autocomplete({
+            data: city,
          });
       });
       // var $body = $('body');

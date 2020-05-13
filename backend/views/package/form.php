@@ -1,28 +1,15 @@
 <?php
 $this->title = 'Package';
-$data = array();
-//
-//echo '<pre>';
-//print_r($editable);
-//echo '</pre>';
-//die;
-//for($i = 0; $i<=count($city); $i++) {
-//    $data[$i] = $city;
-//}
-//
-//foreach ($city as $c){
-//   array_push($data,"$c");
-//}
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/plugins.min.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.js');
+
 ?>
 
 <script>
-   var city =<?php echo json_encode($city); ?>;
-   // console.log(city);
+   var city = <?php echo ($city); ?>;
 </script>
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css">
-<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css">
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/autocomplete.js"></script>
+
+
 <style>
    .modal{
       width: 70%;
@@ -31,6 +18,7 @@ $data = array();
       width:100%;
    }
 </style>
+
 <div class = "sb2-2">
    <div class = "sb2-2-2">
       <ul>
@@ -94,8 +82,8 @@ $data = array();
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
-                     <input id = "autocomplete-input list-title <?php echo $counter; ?>" name = "post[city]" type = "text" class = "autocomplete validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
-                     <label for = "autocomplete-input list-title <?php echo $counter; ?>">City</label>
+                     <input id = "city-autocomplete" name = "post[city]" type = "text" class = "autocomplete validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
+                     <label for = "city-autocomplete">City</label>
                   </div>
                </div>
                <div class = "row" style="margin-top: 40px;">
@@ -197,10 +185,4 @@ $data = array();
       <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/embed-google-map.jpg" alt = ""/>
    </div>
 </div>
-<!--<script>-->
-<!---->
-<!--   $('#city-autocomplete').autocomplete({-->
-<!--      source: city-->
-<!--   });-->
-<!--</script>-->
-<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/plugins.min.js"></script>
+

@@ -13,6 +13,7 @@ use common\models\Package;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\base\Component;
 
@@ -76,18 +77,20 @@ class PackageController extends Controller {
 
     public function actionPost($id = '') {
         $a = HelperPackage::getCities();
-        foreach ($a as $c => $b) {
-            $d[] = json_encode($b['name']) . ":null";
+        $cities = [];
+        foreach ($a as $city) {
+            $cities[$city['name']] =  null;
         }
-        $e = implode(',', $d);
+        // $cities = ArrayHelper::getColumn($a, 'name');
+
         $post = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
             $post = Package::findOne($id);
         }
-//        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
+        //        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
-                'city'     => $e,
+                'city'     => json_encode($cities),
                 'editable' => $post,
         ]);
     }
