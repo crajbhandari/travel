@@ -35,6 +35,7 @@
                     'blog/view-comment/<id:[a-zA-Z0-9-]+>/'      => 'blog/view-comment/',
                     'testimonials/edit/<id:[a-zA-Z0-9-]+>/' => 'testimonials/',
                     'team/edit/<id:[a-zA-Z0-9-]+>/'         => 'team/',
+                    'package/category/<id:[a-zA-Z0-9-]+>/'         => 'package/category/',
                     'slider/post/<id:[a-zA-Z0-9-]+>/'       => 'slider/post',
                     'faq/edit/<id:[a-zA-Z0-9-]+>/'       => 'faq/',
                     'package/edit-city/<id:[a-zA-Z0-9-]+>/'       => 'package/cities',

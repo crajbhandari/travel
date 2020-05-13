@@ -15,6 +15,7 @@ namespace common\components;
 
 use common\components\HelperUpload as Upload;
 use common\models\City;
+use common\models\generated\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
 use common\models\Package;
@@ -55,6 +56,22 @@ class HelperPackage extends Component {
         $data = PackageRequest::find()->all();
         return Misc::exists($data, false);
     }
+    public static function getCategory(){
+        $data = PackageCategory::find()->all();
+        return Misc::exists($data, false);
+    }
+    public static function setCategory($data)
+    {
+
+        $model = new PackageCategory();
+        $model->name = $data['category']['name'];
+        $model->parent = $data['category']['parent'];
+         if(!$model->save()) {
+        return false;
+    }
+        return $model;
+    }
+
 
     public static function makeJsonList($a, $column) {
         $list = [];
