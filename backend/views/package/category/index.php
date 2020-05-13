@@ -109,7 +109,7 @@ $new = ($editable == FALSE) ? 1 : 0;
 
                               <td>
                                  <a href="<?php echo Yii::$app->request->baseUrl; ?>/package/category-edit/<?php echo \common\components\Misc::encodeUrl($post['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                 <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Testimonials"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+<!--                                 <a class="delete-item" href="javascript:void(0);" data-id = "--><?php //echo \common\components\Misc::encodeUrl($post['id']); ?><!--" data-tab = "Testimonials"><i class="fa fa-trash-o" aria-hidden="true"></i></a>-->
                               </td>
                            </tr>
                             <?php $sn++; ?>
