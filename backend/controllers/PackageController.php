@@ -95,8 +95,10 @@ class PackageController extends Controller {
 
     public function actionUpdate() {
         $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
+        $value = Yii::$app->request->post();
+
         if (isset($_POST['post'])) {
-            $updated = HelperPackage::set($_POST['post'], $image);
+            $updated = HelperPackage::set($_POST['post'], $image,$value);
             if ($updated != false) {
                 if (isset($updated['image']) && $updated['image'] != 1) {
                     Misc::setFlash('danger', $updated['image'] . '. Please Try again');

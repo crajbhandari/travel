@@ -38,15 +38,18 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.
                 <?php echo (isset($editable['title'])) ? ' <i class="mdi mdi-pencil"></i> Edit - ' . $editable['title'] . '' : ' <i class="mdi mdi-add"></i> Add New Package' ?>
             </h4>
          </div>
-         <div class = "bor">
-            <form class="package-form" enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
+
+         <div class = "bor" " >
+            <form enctype = "multipart/form-data"  method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
+               <button type="button" name="add" id="added" class="btn btn-success">Add Title</button>
+
                <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
                <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
                 <?php $counter = 0; ?>
-               <div class = "row">
+               <div class = "row" id="dynamic_field">
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
-                     <input id = "list-title <?php echo $counter; ?>" name = "post[title]" type = "text" class = "validate" required value = "<?php echo (isset($editable['title'])) ? $editable['title'] : '' ?>">
+                     <input id = "list-title <?php echo $counter; ?>" name = "title[]" type = "text" class = "validate" required value = "<?php echo (isset($editable['title'])) ? $editable['title'] : '' ?>">
                      <label for = "list-title <?php echo $counter; ?>">Title</label>
                   </div>
                </div>
@@ -83,7 +86,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.
                      <label for = "city-autocomplete">City</label>
                   </div>
                </div>
-               <div class = "row">
+               <div class = "row" style="margin-top: 40px;">
                   <div class = "input-field col s10">
                      <textarea name = "post[iframe]" class="materialize-textarea" id = "textarea1"><?php echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?></textarea>
 <!--                     <input id = "list-title --><?php //echo $counter; ?><!--" name = "post[iframe]" type = "text" class = "validate" required value = "--><?php //echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?><!--">-->
@@ -106,6 +109,13 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
                      <label for = "textarea1 <?php echo $counter; ?>">About The Tour</label>
+                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[about]"><?php echo (isset($editable['about_tour'])) ? $editable['about_tour'] : '' ?></textarea>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <label for = "textarea1 <?php echo $counter; ?>">Itinerary</label>
                      <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[itinerary]"><?php echo (isset($editable['itinerary'])) ? $editable['itinerary'] : '' ?></textarea>
                   </div>
                </div>

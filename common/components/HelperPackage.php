@@ -100,7 +100,10 @@ class HelperPackage extends Component {
         }
         return $model;
     }
-    public static function set($data, $image) {
+
+    public static function set($data, $image,$value) {
+
+
         if (isset($data['id']) && $data['id'] > 0) {
             $model = Package::findOne($data['id']);
         }
@@ -108,9 +111,12 @@ class HelperPackage extends Component {
             $model = new Package();
             $model->created_by = \Yii::$app->user->identity->id;
         }
+
         $model->visibility = $data['visibility'];
-        $model->title = $data['title'];
+
+        $model->title = implode( ", ", $value['title']);
         $model->itinerary = $data['itinerary'];
+        $model->about_tour = $data['about'];
         $model->info = $data['info'];
         $model->budget = $data['budget'];
         $model->location = $data['location'];

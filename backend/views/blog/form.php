@@ -21,13 +21,13 @@ $this->title = 'Blog';
                 <?php echo (isset($editable['title'])) ? ' <i class="mdi mdi-pencil"></i> Edit - ' . $editable['title'] . '' : ' <i class="mdi mdi-add"></i> Add New Post' ?>
             </h4>
          </div>
-         <div class = "bor"   id="add_name" >
+         <div class = "bor"   >
             <form enctype = "multipart/form-data"   method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/blog/update/">
-               <button type="button" name="add" id="added" class="btn btn-success">Add More</button>
+
                <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
                <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
                 <?php $counter = 0; ?>
-               <div class = "row"  id="dynamic_field">
+               <div class = "row"  >
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
                      <input id = "list-title <?php echo $counter; ?>" name = "post[title]" type = "text" class = "validate" required value = "<?php echo (isset($editable['title'])) ? $editable['title'] : '' ?>">
