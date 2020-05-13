@@ -79,7 +79,7 @@ class PackageController extends Controller {
         $a = HelperPackage::getCities();
         $cities = [];
         foreach ($a as $city) {
-            $cities[$city['name']] =  null;
+            $cities[$city['name']] = null;
         }
         // $cities = ArrayHelper::getColumn($a, 'name');
 
@@ -100,7 +100,7 @@ class PackageController extends Controller {
         $value = Yii::$app->request->post();
 
         if (isset($_POST['post'])) {
-            $updated = HelperPackage::set($_POST['post'], $image,$value);
+            $updated = HelperPackage::set($_POST['post'], $image, $value);
             if ($updated != false) {
                 if (isset($updated['image']) && $updated['image'] != 1) {
                     Misc::setFlash('danger', $updated['image'] . '. Please Try again');
@@ -112,25 +112,30 @@ class PackageController extends Controller {
         return $this->redirect(Yii::$app->request->baseUrl . '/package/');
     }
 
-    public function actionCategory($id = '')
-    {
-//        $categories = HelperPackage::getCategory();
+    public function actionCategory($id = '') {
         $id = Misc::decodeUrl($id);
-        $page = 'cities';
-        $value = Yii::$app->request->post();
-//        echo '<pre>';
-//        print_r($value);
-//        echo '</pre>';
-       if(isset($value))
-       {
-           $data = HelperPackage::setCategory($value);
-       }
         return $this->render('category/index.php', [
-                'categories'=>HelperPackage::getCategory(),
-                'editable' => ($id > 0) ? PackageCategory::findOne($id) : false,
+                'categories' => HelperPackage::getCategory(),
+                'editable'   => ($id > 0) ? PackageCategory::findOne($id) : false,
         ]);
-//       return $this->render('index.php',['categories'=>HelperPackage::getCategory()]);
     }
+    public function actionCategoryUpdate() {
+        if (isset($_POST['category'])) {
+            $updated = HelperPackage::setCategory($_POST['category']);
+            if ($updated != FALSE) {
+                Misc::setFlash('success', 'Category Updated.');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/category-edit/'. Misc::encodeUrl($updated['id']));
+            }
+            else{
+                Misc::setFlash('danger', 'Category Not Updated.');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/category-edit/'. Misc::encodeUrl($updated['id']));
+            }
+        }
+
+        return $this->redirect(Yii::$app->request->baseUrl . '/package/category');
+    }
+
+    
     public function actionRemoveImage() {
         if (\Yii::$app->request->isAjax) {
             $id = $_POST['id'];

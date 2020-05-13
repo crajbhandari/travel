@@ -1,5 +1,5 @@
 <?php
-$this->title = 'Blog';
+$this->title = 'Package';
 $new = ($editable == FALSE) ? 1 : 0;
 ?>
 
@@ -24,9 +24,9 @@ $new = ($editable == FALSE) ? 1 : 0;
                    <?php endif; ?>
                </div>
                <div class = "bor1">
-                  <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/category/">
+                  <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/category-update/">
                      <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
-                     <input type = "hidden" name = "testimonial[id]" value = "<?php echo(isset($editable['id']) ? $editable['id'] : 0) ?>">
+                     <input type = "hidden" name = "category[id]" value = "<?php echo(isset($editable['id']) ? $editable['id'] : 0) ?>">
                       <?php $counter = 0; ?>
                      <div class = "row">
                         <div class = "input-field col s12">
@@ -40,11 +40,17 @@ $new = ($editable == FALSE) ? 1 : 0;
                      <div class = "row">
                         <div class = "input-field col s12">
                             <?php $counter++; ?>
-                           <select id = "<?php echo $counter; ?>" name = "category[parent]" required>
-                             <?php foreach ($categories as $post) :
-                             ?>
-                              <option value = "<?php echo $post['id'] ?>"   ><?php echo   $post['name'] ?></option>
-                              <?php endforeach; ?>
+                           <select id = "<?php echo $counter; ?>" name = "category[parent]">
+
+                             <?php if(isset($editable) && !empty($editable)) { ?>
+                                <option value = "0" <?php if(empty($editable['parent']==0)){echo 'selected';} ?>>No parent</option>
+                             <?php foreach ($categories as $post) { ?>
+                              <option value = "<?php echo $post['id'] ?>" <?php if($editable['parent']==$post['id']){echo 'selected';} ?><?php if($editable['id']==$post['id']){echo 'disabled';} ?>><?php echo   $post['name'] ?></option>
+                              <?php } }else{ ?>
+                                <option value = "0"> Select Parent</option>
+                                 <?php foreach ($categories as $post) {  ?>
+                                   <option value = "<?php echo $post['id'] ?>"><?php echo   $post['name'] ?></option>
+                                 <?php } }?>
                            </select>
                            <label for = "<?php echo $counter; ?>">Select Parent</label>
                         </div>
@@ -92,11 +98,17 @@ $new = ($editable == FALSE) ? 1 : 0;
                                   <?php echo (isset($post['name'])) ? trim($post['name']) : '' ?>
                               </td>
                               <td>
-                                  <?php echo (isset($post['parent'])) ? $post['parent'] : '' ?>
+                                  <?php 
+                                  if(isset($post['parent']) && !empty($post['parent'])) {
+                                     echo $post['parent']['name'];
+                                  }else{
+                                     echo '';
+                                  }
+                                  ?>
                               </td>
 
                               <td>
-                                 <a href="<?php echo Yii::$app->request->baseUrl; ?>/package/category/<?php echo \common\components\Misc::encodeUrl($post['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                 <a href="<?php echo Yii::$app->request->baseUrl; ?>/package/category-edit/<?php echo \common\components\Misc::encodeUrl($post['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                  <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Testimonials"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                               </td>
                            </tr>

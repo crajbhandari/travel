@@ -15,7 +15,7 @@ namespace common\components;
 
 use common\components\HelperUpload as Upload;
 use common\models\City;
-use common\models\generated\PackageCategory;
+use common\models\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
 use common\models\Package;
@@ -27,48 +27,57 @@ class HelperPackage extends Component {
         $data = Query::queryAll("SELECT DISTINCT `name` FROM `city` ORDER BY `name` ASC ");
         return Misc::exists($data, false);
     }
+
     public static function getReviews() {
         $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
         return Misc::exists($data, false);
     }
+
     public static function getRatings() {
         $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
-        $rating = array();
+        $rating = [];
         $i = 0;
-        foreach ($data as $d){
+        foreach ($data as $d) {
             $package_id = $d['package_id'];
             $package_name = Package::findOne($package_id);
-            if(array_key_exists($package_id,$rating)) {
+            if (array_key_exists($package_id, $rating)) {
                 $rating[$package_id]['count']++;
                 $rating[$package_id]['rating'] += $d['rating'];
-            }else{
-                $rating[$package_id] = array(
-                        'name' => $package_name['title'],
-                        'count' => 1,
+            }
+            else {
+                $rating[$package_id] = [
+                        'name'   => $package_name['title'],
+                        'count'  => 1,
                         'rating' => $d['rating']
-                );
+                ];
             }
 
         }
         return Misc::exists($rating, false);
     }
+
     public static function getRequest() {
         $data = PackageRequest::find()->all();
         return Misc::exists($data, false);
     }
-    public static function getCategory(){
-        $data = PackageCategory::find()->all();
+
+    public static function getCategory() {
+        $data = PackageCategory::find()->orderBy(['id' => SORT_DESC])->asArray()->with('parent')->all();
         return Misc::exists($data, false);
     }
-    public static function setCategory($data)
-    {
 
-        $model = new PackageCategory();
-        $model->name = $data['category']['name'];
-        $model->parent = $data['category']['parent'];
-         if(!$model->save()) {
-        return false;
-    }
+    public static function setCategory($data) {
+        if ($data['id'] < 1) {
+            $model = new PackageCategory();
+        }
+        else {
+            $model = PackageCategory::findOne($data['id']);
+        }
+        $model->name = $data['name'];
+        $model->parent = $data['parent'];
+        if (!$model->save()) {
+            return false;
+        }
         return $model;
     }
 
@@ -80,6 +89,7 @@ class HelperPackage extends Component {
         }
         return json_encode($list);
     }
+
     public static function rearrangeFilesArray($x) {
         $co = [];
         foreach ($x as $k => $a) {
@@ -105,20 +115,22 @@ class HelperPackage extends Component {
         }
         return $r;
     }
+
     public static function setCity($data) {
         if (isset($data['id']) && $data['id'] > 0) {
-        $model = City::findOne($data['id']);
-        }else{
+            $model = City::findOne($data['id']);
+        }
+        else {
             $model = new City();
         }
-        $model ->name = $data['name'];
-        if(!$model->save()) {
+        $model->name = $data['name'];
+        if (!$model->save()) {
             return false;
         }
         return $model;
     }
 
-    public static function set($data, $image,$value) {
+    public static function set($data, $image, $value) {
 
 
         if (isset($data['id']) && $data['id'] > 0) {
@@ -131,7 +143,7 @@ class HelperPackage extends Component {
 
         $model->visibility = $data['visibility'];
 
-        $model->title = implode( ", ", $value['title']);
+        $model->title = implode(", ", $value['title']);
         $model->itinerary = $data['itinerary'];
         $model->about_tour = $data['about'];
         $model->info = $data['info'];
@@ -148,7 +160,7 @@ class HelperPackage extends Component {
                     $final = json_encode($upload);
                     $model->images = $final;
                 }
-                else{
+                else {
                     if (!($model->save() == false)) {
                         return $var = [
                                 'id'    => $model->id,
