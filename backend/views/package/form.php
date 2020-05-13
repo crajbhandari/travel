@@ -1,9 +1,28 @@
 <?php
 $this->title = 'Package';
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css');
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js');
+$data = array();
+//
+//echo '<pre>';
+//print_r($editable);
+//echo '</pre>';
+//die;
+//for($i = 0; $i<=count($city); $i++) {
+//    $data[$i] = $city;
+//}
+//
+//foreach ($city as $c){
+//   array_push($data,"$c");
+//}
 ?>
+
+<script>
+   var city =<?php echo json_encode($city); ?>;
+   // console.log(city);
+</script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css">
+<link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/resources/plugins/jquery-ui-1.12.1/jquery-ui.min.css">
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/autocomplete.js"></script>
 <style>
    .modal{
       width: 70%;
@@ -12,10 +31,6 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
       width:100%;
    }
 </style>
-<script>
-   var city =<?php echo $city; ?>;
-   console.log(city);
-</script>
 <div class = "sb2-2">
    <div class = "sb2-2-2">
       <ul>
@@ -35,9 +50,11 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
                 <?php echo (isset($editable['title'])) ? ' <i class="mdi mdi-pencil"></i> Edit - ' . $editable['title'] . '' : ' <i class="mdi mdi-add"></i> Add New Package' ?>
             </h4>
          </div>
+
          <div class = "bor" " >
             <form enctype = "multipart/form-data"  method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
                <button type="button" name="add" id="added" class="btn btn-success">Add Title</button>
+
                <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
                <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
                 <?php $counter = 0; ?>
@@ -77,11 +94,11 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
                </div>
                <div class = "row">
                   <div class = "input-field col s12">
-                     <input id = "city-autocomplete list-title <?php echo $counter; ?>" name = "post[city]" type = "text" class = "validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
-                     <label for = "city-autocomplete list-title <?php echo $counter; ?>">City</label>
+                     <input id = "autocomplete-input list-title <?php echo $counter; ?>" name = "post[city]" type = "text" class = "autocomplete validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
+                     <label for = "autocomplete-input list-title <?php echo $counter; ?>">City</label>
                   </div>
                </div>
-               <div class = "row">
+               <div class = "row" style="margin-top: 40px;">
                   <div class = "input-field col s10">
                      <textarea name = "post[iframe]" class="materialize-textarea" id = "textarea1"><?php echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?></textarea>
 <!--                     <input id = "list-title --><?php //echo $counter; ?><!--" name = "post[iframe]" type = "text" class = "validate" required value = "--><?php //echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?><!--">-->
@@ -104,6 +121,13 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
                      <label for = "textarea1 <?php echo $counter; ?>">About The Tour</label>
+                     <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[about]"><?php echo (isset($editable['about_tour'])) ? $editable['about_tour'] : '' ?></textarea>
+                  </div>
+               </div>
+               <div class = "row">
+                  <div class = "input-field col s12">
+                      <?php $counter++; ?>
+                     <label for = "textarea1 <?php echo $counter; ?>">Itinerary</label>
                      <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[itinerary]"><?php echo (isset($editable['itinerary'])) ? $editable['itinerary'] : '' ?></textarea>
                   </div>
                </div>
@@ -173,4 +197,10 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/plugins/jquery-u
       <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/embed-google-map.jpg" alt = ""/>
    </div>
 </div>
+<!--<script>-->
+<!---->
+<!--   $('#city-autocomplete').autocomplete({-->
+<!--      source: city-->
+<!--   });-->
+<!--</script>-->
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/plugins.min.js"></script>

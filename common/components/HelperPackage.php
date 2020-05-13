@@ -27,8 +27,29 @@ class HelperPackage extends Component {
         return Misc::exists($data, false);
     }
     public static function getReviews() {
-        $data = PackageReview::find()->all();
+        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
         return Misc::exists($data, false);
+    }
+    public static function getRatings() {
+        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
+        $rating = array();
+        $i = 0;
+        foreach ($data as $d){
+            $package_id = $d['package_id'];
+            $package_name = Package::findOne($package_id);
+            if(array_key_exists($package_id,$rating)) {
+                $rating[$package_id]['count']++;
+                $rating[$package_id]['rating'] += $d['rating'];
+            }else{
+                $rating[$package_id] = array(
+                        'name' => $package_name['title'],
+                        'count' => 1,
+                        'rating' => $d['rating']
+                );
+            }
+
+        }
+        return Misc::exists($rating, false);
     }
     public static function getRequest() {
         $data = PackageRequest::find()->all();
@@ -79,7 +100,10 @@ class HelperPackage extends Component {
         }
         return $model;
     }
+
     public static function set($data, $image,$value) {
+
+
         if (isset($data['id']) && $data['id'] > 0) {
             $model = Package::findOne($data['id']);
         }
@@ -92,6 +116,7 @@ class HelperPackage extends Component {
 
         $model->title = implode( ", ", $value['title']);
         $model->itinerary = $data['itinerary'];
+        $model->about_tour = $data['about'];
         $model->info = $data['info'];
         $model->budget = $data['budget'];
         $model->location = $data['location'];

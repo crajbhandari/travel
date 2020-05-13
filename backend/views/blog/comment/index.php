@@ -1,5 +1,5 @@
 <?php
-$this->title = 'Blog Comments';
+$this->title = 'Blog';
 ?>
 <div class="sb2-2">
     <div class="sb2-2-2">

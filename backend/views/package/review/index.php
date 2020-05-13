@@ -28,6 +28,7 @@ $this->title = 'Messages';
                            <th>Date</th>
                            <th>From</th>
                            <th>Email</th>
+                           <th>Rating</th>
                            <th>Actions</th>
                         </tr>
                         </thead>
@@ -45,6 +46,7 @@ $this->title = 'Messages';
                               </td>
                               <td><?php echo (isset($post['name'])) ? ucwords(trim($post['name'])) : '' ?></td>
                               <td><?php echo (isset($post['email'])) ? $post['email'] : '' ?></td>
+                              <td><?php echo (isset($post['rating'])) ? $post['rating'] : '' ?></td>
                               <td>
                                  <a class = "show-review" href = "#modal1" data-id = "<?php echo $post['id'] ?>"><i class = "fa fa-eye" aria-hidden = "true"></i></a>
                                  <a class = "delete-item" href = "javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Messages"><i class = "fa fa-trash-o" aria-hidden = "true"></i></a>
