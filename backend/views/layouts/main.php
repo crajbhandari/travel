@@ -111,9 +111,38 @@ AppAsset::register($this);
                My Account
                <i class = "fa fa-angle-down" aria-hidden = "true"></i>
             </a>
+
+
+
+               <li><a href = "javascript:void(0) <?php if($this->title=='Package'){echo 'active';}?>" class = "collapsible-header <?php echo ($this->title== 'Package') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
+                  <div class = "collapsible-body left-sub-menu">
+                     <ul>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/">All Packages</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Add New Package</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/rating">Package Rating</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/category">Package Category</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a>
+                        </li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities">Cities</a>
+                        </li>
+                     </ul>
+                  </div>
+
             <!-- Dropdown Structure -->
             <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Account Setting</a>
+
+
+            <!-- Dropdown Structure -->
+            <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
+               <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Account Setting</a>
+
                </li>
                <li class = "divider"></li>
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/logout" class = "ho-dr-con-last waves-effect"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Logout</a>
@@ -260,7 +289,7 @@ AppAsset::register($this);
    <!-- CSRF TOKEN -->
    <script>
       $(document).ready(function () {
-         $('.modal').modal();
+         // $('.modal').modal();
       });
       $.ajaxSetup({
          data: {

@@ -20,6 +20,7 @@ use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
 use common\models\Package;
 use common\models\Sections;
+use phpDocumentor\Reflection\Types\Null_;
 use yii\base\Component;
 
 class HelperPackage extends Component {
@@ -66,6 +67,7 @@ class HelperPackage extends Component {
         return Misc::exists($data, false);
     }
 
+
     public static function setCategory($data) {
         if ($data['id'] < 1) {
             $model = new PackageCategory();
@@ -79,6 +81,7 @@ class HelperPackage extends Component {
             return false;
         }
         return $model;
+
     }
 
 
@@ -140,10 +143,20 @@ class HelperPackage extends Component {
             $model = new Package();
             $model->created_by = \Yii::$app->user->identity->id;
         }
+        $city = City::find()->select('name')->where(['name' => $data['city']])->all();
 
-        $model->visibility = $data['visibility'];
+        if($city ==Null)
+        {
+            $c = new City();
+            $c->name =  $data['city'];
+            $c->save();
+        }
+
 
         $model->title = $data['title'];
+        $model->city = $data['city'];
+        $model->visibility = $data['visibility'];
+        
         $model->itinerary = $data['itinerary'];
         $model->about_tour = $data['about'];
         $model->info = $data['info'];
