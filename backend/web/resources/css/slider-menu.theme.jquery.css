@@ -72,7 +72,7 @@
     display: block;
     text-decoration: none;
     color: #252525;
-    padding: 10px 15px;
+   /* padding: 10px 15px;*/
     transition: all .2s;
 }
 
@@ -175,14 +175,14 @@
 }
 
 .slider-menu__link.slider-menu__back {
-    padding: 10px 15px 10px 25px;
+    padding: 0px 15px 0px 25px;
   
 }
 
 .slider-menu__link.slider-menu__back:before, .slider-menu__link.has-child:before {
     content: "";
     position: absolute;
-    top: 16px;
+    top: 25px;
     height: 8px;
     width: 8px;
     background: transparent;

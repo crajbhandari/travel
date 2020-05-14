@@ -25,6 +25,10 @@ AppAsset::register($this);
       <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
       <!--== FAV ICON ==-->
       <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
+      
+       <!-- CATEGORY -->
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/slider-menu.jquery.css" rel = "stylesheet">
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/slider-menu.theme.jquery.css" rel = "stylesheet">
 
       <!-- GOOGLE FONTS -->
       <link href = "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Quicksand:300,400,500" rel = "stylesheet">
