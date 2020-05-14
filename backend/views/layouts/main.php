@@ -115,6 +115,7 @@ AppAsset::register($this);
             </a>
 
 
+
                <li><a href = "javascript:void(0) <?php if($this->title=='Package'){echo 'active';}?>" class = "collapsible-header <?php echo ($this->title== 'Package') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
                   <div class = "collapsible-body left-sub-menu">
                      <ul>
@@ -134,6 +135,11 @@ AppAsset::register($this);
                         </li>
                      </ul>
                   </div>
+
+            <!-- Dropdown Structure -->
+            <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
+               <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Account Setting</a>
+
 
             <!-- Dropdown Structure -->
             <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
@@ -283,7 +289,7 @@ AppAsset::register($this);
    <!-- CSRF TOKEN -->
    <script>
       $(document).ready(function () {
-         $('.modal').modal();
+         // $('.modal').modal();
       });
       $.ajaxSetup({
          data: {
