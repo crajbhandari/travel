@@ -143,7 +143,7 @@ class HelperPackage extends Component {
 
         $model->visibility = $data['visibility'];
 
-        $model->title = implode(", ", $value['title']);
+        $model->title = $data['title'];
         $model->itinerary = $data['itinerary'];
         $model->about_tour = $data['about'];
         $model->info = $data['info'];
@@ -211,5 +211,40 @@ class HelperPackage extends Component {
     public static function getCount() {
         $count = Package::find()->count();
         return $count;
+    }
+
+    public static function buildCategoryList($parent, $category) {
+        $html = "";
+        if (isset($category['parent_cats'][$parent])) {
+            $html .= "<ul>";
+            foreach ($category['parent_cats'][$parent] as $cat_id) {
+                if (!isset($category['parent_cats'][$cat_id])) {
+                    $html .= "<li>  <a data-id='" . $category['categories'][$cat_id]['id'] . "' href='javascript:void(0);'" .
+
+                            ">" . $category['categories'][$cat_id]['name'] . "</a></li>";
+                }
+                if (isset($category['parent_cats'][$cat_id])) {
+                    $html .= "<li>  <a class='has-child' data-id='" . $category['categories'][$cat_id]['id'] . "' href='javascript:void(0);'>" . $category['categories'][$cat_id]['name'] . "</a>";
+                    $html .= self::buildCategoryList($cat_id, $category);
+                    $html .= "</li>";
+                }
+            }
+            $html .= "</ul>";
+        }
+        return $html;
+    }
+
+    public static function getCategories() {
+//        $query = Query::queryAll("SELECT dc.* FROM `package_category` AS dc ORDER BY `parent` , `name`");
+        $query = PackageCategory::find()->asArray()->all();
+        $category = array(
+                'categories'  => array(),
+                'parent_cats' => array(),
+        );
+        foreach ($query as $row) {
+            $category['categories'][$row['id']] = $row;
+            $category['parent_cats'][$row['parent']][] = $row['id'];
+        }
+        return Misc::exists($category,FALSE);
     }
 }

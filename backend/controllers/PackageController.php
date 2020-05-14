@@ -76,6 +76,7 @@ class PackageController extends Controller {
     }
 
     public function actionPost($id = '') {
+        $c = HelperPackage::getCategories();
         $a = HelperPackage::getCities();
         $cities = [];
         foreach ($a as $city) {
@@ -90,6 +91,7 @@ class PackageController extends Controller {
         }
         //        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
+                'category'=> $c,
                 'city'     => json_encode($cities),
                 'editable' => $post,
         ]);
@@ -219,18 +221,18 @@ class PackageController extends Controller {
                     if ($model->save() == true) {
 
                         $result = "
-<div class='col s6'>
-      <p><b>Sent On : </b><br>$date</p>
-          <p><b>Name : </b><br>$name</p>
-      <p><b>Email : </b><br>$email</p>
-      <p><b>Message : </b><br>$message</p>
-      </div>
-     <div class='col s6'> 
-      <p><b>City : </b><br>$city</p>
-      <p><b>Rating : </b><br>$rating</p>
-      <p><b>Package : </b><br>$package_name</p>
-     
-      </div>
+                            <div class='col s6'>
+                                  <p><b>Sent On : </b><br>$date</p>
+                                      <p><b>Name : </b><br>$name</p>
+                                  <p><b>Email : </b><br>$email</p>
+                                  <p><b>Message : </b><br>$message</p>
+                                  </div>
+                                 <div class='col s6'> 
+                                  <p><b>City : </b><br>$city</p>
+                                  <p><b>Rating : </b><br>$rating</p>
+                                  <p><b>Package : </b><br>$package_name</p>
+                                 
+                                  </div>
                        
                         ";
                         return json_encode($data = [

@@ -2,6 +2,8 @@
 $this->title = 'Package';
 $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/plugins.min.js');
 $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.js');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu.jquery.css');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu.theme.jquery.css');
 
 ?>
 
@@ -41,7 +43,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.
 
          <div class = "bor" " >
             <form enctype = "multipart/form-data"  method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
-               <button type="button" name="add" id="added" class="btn btn-success">Add Title</button>
+<!--               <button type="button" name="add" id="added" class="btn btn-success">Add Title</button>-->
 
                <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
                <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
@@ -49,7 +51,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.
                <div class = "row" id="dynamic_field">
                   <div class = "input-field col s12">
                       <?php $counter++; ?>
-                     <input id = "list-title <?php echo $counter; ?>" name = "title[]" type = "text" class = "validate" required value = "<?php echo (isset($editable['title'])) ? $editable['title'] : '' ?>">
+                     <input id = "list-title <?php echo $counter; ?>" name = "post[title]" type = "text" class = "validate" required value = "<?php echo (isset($editable['title'])) ? $editable['title'] : '' ?>">
                      <label for = "list-title <?php echo $counter; ?>">Title</label>
                   </div>
                </div>
@@ -126,7 +128,25 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.
                      <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[info]"><?php echo (isset($editable['info'])) ? $editable['info'] : '' ?></textarea>
                   </div>
                </div>
-
+               <div class = "row">
+                  <div class = "input-field col s12">
+<!--                     <input id = "list-title --><?php //echo $counter; ?><!--" name = "post[budget]" type = "text" class = "validate" required value = "--><?php //echo (isset($editable['budget'])) ? $editable['budget'] : '' ?><!--">-->
+<!--                     <label for = "list-title --><?php //echo $counter; ?><!--">Category</label>-->
+                     <div class = "row category-wrapper">
+                        <div class = "category-select category-01 col-sm-4">
+                           <div class = "category-select-scroll ">
+                              <input type = "hidden" name = "business[category_id][]" value = "" class = "selected_cat">
+                              <ul id="cat-03" >
+                                 <li>
+                                    <a  class = "has-child text-white" href = "javascript:void(0);">Select a Category</a>
+                                     <?php echo \common\components\HelperPackage::buildCategoryList(0, $category) ?>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
                <div class = "row">
                   <div class = "row">
                      <div class = "input-field col s12">

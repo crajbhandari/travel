@@ -30,14 +30,12 @@ AppAsset::register($this);
       <link href = "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Quicksand:300,400,500" rel = "stylesheet">
       <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
       <!-- FONT-AWESOME ICON CSS -->
-      <!--   <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity = "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin = "anonymous">-->
-      <!--       <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/assets/css/font-awesome.min.css" rel = "stylesheet">-->
-      <link href = "http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">    <!--== ALL CSS FILES ==-->
+      <link href = "http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.css" rel = "stylesheet">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/materialize.css" rel = "stylesheet">
       <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/sweetalert/sweetalert.css">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/summernote/dist/summernote.css" rel = "stylesheet"/>
-
+      <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/select2/dist/css/select2.min.css">
 
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" rel = "stylesheet">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/custom.css" rel = "stylesheet">
@@ -240,6 +238,7 @@ AppAsset::register($this);
    <!--   </div>-->
    <!--</section>-->
 
+   <script src = "https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
 
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/materialize.min.js"></script>
 
@@ -251,7 +250,8 @@ AppAsset::register($this);
    <?php $this->endBody() ?>
 
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
-
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/select2/dist/js/select2.full.min.js"></script>
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/slider-menu.jquery.js"></script>
    <?php if (Yii::$app->session->hasFlash('flash')): ?>
       <script>
          notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
