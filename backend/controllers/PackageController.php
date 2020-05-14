@@ -6,12 +6,15 @@ use common\components\Helper;
 use common\components\HelperPackage;
 use common\components\Misc;
 use common\models\City;
+use common\models\generated\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
 use common\models\Package;
+use phpDocumentor\Reflection\Types\Null_;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\base\Component;
 
@@ -66,6 +69,7 @@ class PackageController extends Controller {
      */
     public function actionIndex() {
         $page = 'package';
+
         $package = Package::find()->orderBy(['id' => SORT_DESC])->all();
         return $this->render('index', [
                 'package' => $package,
@@ -73,27 +77,33 @@ class PackageController extends Controller {
     }
 
     public function actionPost($id = '') {
+        $c = HelperPackage::getCategories();
         $a = HelperPackage::getCities();
-        foreach ($a as $c => $b) {
-            $d[] = json_encode($b['name']) . ":null";
+        $cities = [];
+        foreach ($a as $city) {
+            $cities[$city['name']] = null;
         }
-        $e = implode(',', $d);
+        // $cities = ArrayHelper::getColumn($a, 'name');
+
         $post = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
             $post = Package::findOne($id);
         }
-//        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
+        //        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
-                'city'     => $e,
+                'category'=> $c,
+                'city'     => json_encode($cities),
                 'editable' => $post,
         ]);
     }
 
     public function actionUpdate() {
         $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
+        $value = Yii::$app->request->post();
+
         if (isset($_POST['post'])) {
-            $updated = HelperPackage::set($_POST['post'], $image);
+            $updated = HelperPackage::set($_POST['post'], $image, $value);
             if ($updated != false) {
                 if (isset($updated['image']) && $updated['image'] != 1) {
                     Misc::setFlash('danger', $updated['image'] . '. Please Try again');
@@ -105,6 +115,31 @@ class PackageController extends Controller {
         return $this->redirect(Yii::$app->request->baseUrl . '/package/');
     }
 
+    public function actionCategory($id = '') {
+        $id = Misc::decodeUrl($id);
+
+        return $this->render('category/index.php', [
+                'categories' => HelperPackage::getCategory(),
+                'editable'   => ($id > 0) ? PackageCategory::findOne($id) : false,
+        ]);
+    }
+    public function actionCategoryUpdate() {
+        if (isset($_POST['category'])) {
+            $updated = HelperPackage::setCategory($_POST['category']);
+            if ($updated != FALSE) {
+                Misc::setFlash('success', 'Category Updated.');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/category-edit/'. Misc::encodeUrl($updated['id']));
+            }
+            else{
+                Misc::setFlash('danger', 'Category Not Updated.');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/category-edit/'. Misc::encodeUrl($updated['id']));
+            }
+        }
+
+        return $this->redirect(Yii::$app->request->baseUrl . '/package/category');
+    }
+
+    
     public function actionRemoveImage() {
         if (\Yii::$app->request->isAjax) {
             $id = $_POST['id'];
@@ -188,18 +223,18 @@ class PackageController extends Controller {
                     if ($model->save() == true) {
 
                         $result = "
-<div class='col s6'>
-      <p><b>Sent On : </b><br>$date</p>
-          <p><b>Name : </b><br>$name</p>
-      <p><b>Email : </b><br>$email</p>
-      <p><b>Message : </b><br>$message</p>
-      </div>
-     <div class='col s6'> 
-      <p><b>City : </b><br>$city</p>
-      <p><b>Rating : </b><br>$rating</p>
-      <p><b>Package : </b><br>$package_name</p>
-     
-      </div>
+                            <div class='col s6'>
+                                  <p><b>Sent On : </b><br>$date</p>
+                                      <p><b>Name : </b><br>$name</p>
+                                  <p><b>Email : </b><br>$email</p>
+                                  <p><b>Message : </b><br>$message</p>
+                                  </div>
+                                 <div class='col s6'> 
+                                  <p><b>City : </b><br>$city</p>
+                                  <p><b>Rating : </b><br>$rating</p>
+                                  <p><b>Package : </b><br>$package_name</p>
+                                 
+                                  </div>
                        
                         ";
                         return json_encode($data = [

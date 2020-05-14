@@ -555,8 +555,8 @@ $(function ($) {
                   typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
                }
             });
-   });
-});
+         });
+      });
       $(function () {
          $('.show-review').on("click", function () {
 
@@ -590,70 +590,19 @@ $(function ($) {
             });
          });
       });
-      $(function() {
-         // var backStars = document.querySelector(".star-rating .back-stars");
-         //
-         // backStars.addEventListener("click", function(e){
-         //    let fillPercent = getFillPercent(e, this);
-         //    fillPercent = (fillPercent > 100) ? 100 : (fillPercent < 0) ? 0 : fillPercent;
-         //
-         //    fillPercent = fillPercent + "%" ;
-         //    const frontStars = document.querySelector(".front-stars");
-         //
-         //    if(!frontStars.className.includes("fill"))
-         //       frontStars.className+= " fill";
-         //
-         //    frontStars.style.width = fillPercent;
-         //
-         //    document.querySelector("#rate-number").innerHTML = fillPercent;
-         // });
+      $(document).ready(function() {
 
-         backStars.addEventListener("mousemove", function(e){
-            const fillPercent = getFillPercent(e, this) + "%";
-            const frontStars = document.querySelector(".front-stars");
-
-            if(!frontStars.className.includes("over"))
-               frontStars.className += " over";
-
-            frontStars.style.width = fillPercent;
-         });
-
-         backStars.addEventListener("mouseenter", function(e){
-            var frontStars = document.querySelector(".front-stars");
-            if(frontStars.className.includes("over"))
-               frontStars.className.replace("over","");
-
-         });
-
-         backStars.addEventListener("mouseleave", function(){
-            const frontStars = document.querySelector(".front-stars");
-            const number =  document.querySelector("#rate-number").innerHTML;
-            frontStars.style.width = number || 0;
-
-            if(frontStars.className.indexOf("over") > -1)
-               frontStars.className.concat(" over");
-         });
-
-         function getFillPercent(page, element){
-            const clickedOffset = page.pageX - element.offsetLeft;
-            const starsContainerWidth = parseInt(window.getComputedStyle(element).width.replace("px",""));
-            const fillPercent = Math.floor((clickedOffset * 100) / starsContainerWidth);
-            return fillPercent;
-         }
-      });
-
-      $(function() {
 
          $('#added').click(function () {
             $('#dynamic_field').append('<div class="row">' +
-                  '<div class = "input-field col s12">\n' +
+                  '<div class = "input-field col s12" >\n' +
                   '                      \n' +
-                  '                     <input id = "list-title " name = "post[title]" type = "text" class = "validate" required value = "">\n' +
+                  '                     <input id = "list-title " name = "title[]" type = "text" class = "validate" required value = "">\n' +
                   '                     <label for = "list-title ">Title</label>\n' +
-                  '                  </div>'+
+                  '                  </div>' +
                   '</div>'
             );
-           });
+         });
 
 
       });

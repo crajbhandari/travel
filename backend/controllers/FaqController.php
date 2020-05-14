@@ -73,6 +73,6 @@
                 }
             }
 
-            return $this->redirect(Yii::$app->request->baseUrl . '/testimonials/');
+            return $this->redirect(Yii::$app->request->baseUrl . '/faq/');
         }
     }

@@ -6,6 +6,7 @@ use common\components\Helper;
 use common\components\Misc;
 use common\models\LoginForm;
 use common\models\Messages;
+use common\models\Package;
 use common\models\User;
 use Yii;
 use yii\filters\AccessControl;
@@ -67,6 +68,8 @@ class SiteController extends Controller {
         return $this->render('index', [
                 'messages' => Messages::find()
                                       ->where(['=', 'is_new', '1'])
+                                      ->count(),
+                'package' => Package::find()
                                       ->count(),
         ]);
     }
