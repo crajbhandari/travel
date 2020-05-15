@@ -44,7 +44,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
          </div>
 
          <div class = "bor"
-         " >
+          >
          <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
             <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
             <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
