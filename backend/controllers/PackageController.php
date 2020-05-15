@@ -92,12 +92,18 @@ class PackageController extends Controller {
                            ->asArray()
                            ->with('category')
                            ->one();
-            if($post['category']['parent']>0) {
+
                 $parent_id = $post['category']['parent'];
+            if($post['category']['parent']>0) {
                 $parent = PackageCategory::find()->where(['id'=>$parent_id])->asArray()->one();
                 $category = [
                         'child' => $post['category']['name'],
                         'parent' =>$parent['name']
+                ];
+            }else{
+                $category = [
+                        'child' => $post['category']['name'],
+                        'parent' =>''
                 ];
             }
         }
