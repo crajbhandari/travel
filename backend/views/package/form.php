@@ -135,7 +135,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
                      <div class = "row category-wrapper">
                         <div class = "category-select category-01 col-sm-4">
                            <div class = "category-select-scroll ">
-                              <input type = "hidden" name = "business[category_id][]" value = "" class = "selected_cat">
+                              <input type = "hidden" name = "business[category_id]" value = "" class = "selected_cat">
                               <ul id="cat-03" >
                                  <li>
                                     <a  class = "has-child text-white" href = "javascript:void(0);">Select a Category</a>
