@@ -128,11 +128,11 @@ class PackageController extends Controller {
             $updated = HelperPackage::setCategory($_POST['category']);
             if ($updated != FALSE) {
                 Misc::setFlash('success', 'Category Updated.');
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/category-edit/'. Misc::encodeUrl($updated['id']));
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/category/');
             }
             else{
                 Misc::setFlash('danger', 'Category Not Updated.');
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/category-edit/'. Misc::encodeUrl($updated['id']));
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/category/');
             }
         }
 
