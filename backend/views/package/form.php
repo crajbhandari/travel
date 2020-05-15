@@ -129,7 +129,9 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
             </div>
             <div class = "row">
                <div class = "input-field col s12">
-                  <p>Selected Category is <?php echo $editable['category']['name'] ?></p>
+                  <?php if(isset($category) && !empty($category)) :?>
+                     <p>Selected Category is :: <?php if($category['parent']!='') { echo $category['parent'].'  >  ';} echo $category['child'] ?></p>
+                  <?php endif; ?>
                   <div class = "row category-wrapper">
                      <div class = "category-select col-sm-12">
                         <input type = "hidden" name = "post[category_id]" value = "" class = "selected_cat">
@@ -138,7 +140,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
                            <ul id = "cat-03">
                               <li style = "float: none;">
                                  <a class = "has-child" href = "javascript:void(0);">Select a Category</a>
-                                  <?php echo \common\components\HelperPackage::buildCategoryList(0, $category) ?>
+                                  <?php echo \common\components\HelperPackage::buildCategoryList(0, $category_list) ?>
                               </li>
                            </ul>
                         </div>

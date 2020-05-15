@@ -83,20 +83,29 @@ class PackageController extends Controller {
         foreach ($a as $city) {
             $cities[$city['name']] = null;
         }
-        // $cities = ArrayHelper::getColumn($a, 'name');
-
         $post = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
+            $category = array();
             $post = Package::find()
                            ->where(['id' => $id])
                            ->asArray()
                            ->with('category')
                            ->one();
+            if($post['category']['parent']>0) {
+                $parent_id = $post['category']['parent'];
+                $parent = PackageCategory::find()->where(['id'=>$parent_id])->asArray()->one();
+                $category = [
+                        'child' => $post['category']['name'],
+                        'parent' =>$parent['name']
+                ];
+            }
         }
+
         //        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
-                'category' => $c,
+                'category' => $category,
+                'category_list' => $c,
                 'city'     => json_encode($cities),
                 'editable' => $post,
         ]);
