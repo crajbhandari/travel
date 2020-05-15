@@ -49,7 +49,6 @@ $this->title = 'Messages';
                               <td><?php echo (isset($post['rating'])) ? $post['rating'] : '' ?></td>
                               <td>
                                  <a class = "show-review" href = "#modal1" data-id = "<?php echo $post['id'] ?>"><i class = "fa fa-eye" aria-hidden = "true"></i></a>
-                                 <a class = "delete-item" href = "javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Messages"><i class = "fa fa-trash-o" aria-hidden = "true"></i></a>
                               </td>
                            </tr>
                             <?php $sn++; ?>
