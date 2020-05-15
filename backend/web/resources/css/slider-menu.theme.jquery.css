@@ -59,6 +59,7 @@
 
 .slider-menu__item {
     border-bottom: 1px solid #EEEEEE;
+    float: none ! important;
 }
 .slider-menu__item:first-child{
     background-color: #0276ed
