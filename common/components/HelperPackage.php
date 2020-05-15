@@ -164,7 +164,11 @@ class HelperPackage extends Component {
         $model->discount = $data['discount'];
         $model->duration = $data['duration'];
         $model->iframe = $data['iframe'];
-
+        if($data['category_id']!='') {
+            $model->category = $data['category_id'];
+        }else{
+            $model->category = $data['pre_category_id'];
+        }
         if (isset($image) && !empty($image['name'][0])) {
             if ($model->images == '') {
                 $upload = self::uploadFilesArray($image);

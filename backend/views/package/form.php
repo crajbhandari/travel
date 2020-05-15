@@ -5,6 +5,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.
 $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu.jquery.css');
 $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu.theme.jquery.css');
 
+
 ?>
 
 <script>
@@ -134,6 +135,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
                   <?php endif; ?>
                   <div class = "row category-wrapper">
                      <div class = "category-select col-sm-12">
+                        <input type = "hidden" name = "post[pre_category_id]" value = "<?php echo (isset($editable['category'])) ? $editable['category']['id'] : '' ?>" class = "hidden">
                         <input type = "hidden" name = "post[category_id]" value = "" class = "selected_cat">
 
                         <div class = "category-select-scroll">
