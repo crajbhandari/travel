@@ -133,7 +133,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
 <!--                     <input id = "list-title --><?php //echo $counter; ?><!--" name = "post[budget]" type = "text" class = "validate" required value = "--><?php //echo (isset($editable['budget'])) ? $editable['budget'] : '' ?><!--">-->
 <!--                     <label for = "list-title --><?php //echo $counter; ?><!--">Category</label>-->
                      <div class = "row category-wrapper">
-                        <div class = "category-select category-01 col-sm-4">
+                        <!-- <div class = "category-select category-01 col-sm-4">
                            <div class = "category-select-scroll ">
                               <input type = "hidden" name = "business[category_id]" value = "" class = "selected_cat">
                               <ul id="cat-03" >
@@ -143,7 +143,19 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
                                  </li>
                               </ul>
                            </div>
-                        </div>
+                        </div> -->
+                          <div  class = "category-select col-sm-12">
+                                                   <input type = "hidden" name = "business[category_id][]" value = "" class = "selected_cat">
+
+                                                 <div class = "category-select-scroll col-sm-4">
+                                                    <ul id="cat-03">
+                                                       <li style="float: none;" >
+                                                          <a class = "has-child" href = "javascript:void(0);">Select a Category</a>
+                                                           <?php echo \common\components\HelperPackage::buildCategoryList(0, $category) ?>
+                                                       </li>
+                                                    </ul>
+                                                 </div>
+                                              </div>
                      </div>
                   </div>
                </div>
