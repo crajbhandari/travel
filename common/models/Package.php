@@ -12,4 +12,7 @@
 
             ];
         }
+        public function getCategory() {
+            return $this->hasOne(PackageCategory::className(), ['id' => 'category']);
+        }
     }

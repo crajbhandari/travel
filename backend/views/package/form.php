@@ -129,11 +129,12 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
             </div>
             <div class = "row">
                <div class = "input-field col s12">
+                  <p>Selected Category is <?php echo $editable['category']['name'] ?></p>
                   <div class = "row category-wrapper">
                      <div class = "category-select col-sm-12">
-                        <input type = "hidden" name = "business[category_id][]" value = "" class = "selected_cat">
+                        <input type = "hidden" name = "post[category_id]" value = "" class = "selected_cat">
 
-                        <div class = "category-select-scroll col-sm-4">
+                        <div class = "category-select-scroll">
                            <ul id = "cat-03">
                               <li style = "float: none;">
                                  <a class = "has-child" href = "javascript:void(0);">Select a Category</a>

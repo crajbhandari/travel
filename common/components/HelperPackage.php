@@ -135,7 +135,6 @@ class HelperPackage extends Component {
 
     public static function set($data, $image, $value) {
 
-
         if (isset($data['id']) && $data['id'] > 0) {
             $model = Package::findOne($data['id']);
         }

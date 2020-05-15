@@ -88,11 +88,15 @@ class PackageController extends Controller {
         $post = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
-            $post = Package::findOne($id);
+            $post = Package::find()
+                           ->where(['id' => $id])
+                           ->asArray()
+                           ->with('category')
+                           ->one();
         }
         //        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
-                'category'=> $c,
+                'category' => $c,
                 'city'     => json_encode($cities),
                 'editable' => $post,
         ]);
@@ -123,14 +127,15 @@ class PackageController extends Controller {
                 'editable'   => ($id > 0) ? PackageCategory::findOne($id) : false,
         ]);
     }
+
     public function actionCategoryUpdate() {
         if (isset($_POST['category'])) {
             $updated = HelperPackage::setCategory($_POST['category']);
-            if ($updated != FALSE) {
+            if ($updated != false) {
                 Misc::setFlash('success', 'Category Updated.');
                 return $this->redirect(Yii::$app->request->baseUrl . '/package/category/');
             }
-            else{
+            else {
                 Misc::setFlash('danger', 'Category Not Updated.');
                 return $this->redirect(Yii::$app->request->baseUrl . '/package/category/');
             }
@@ -139,7 +144,7 @@ class PackageController extends Controller {
         return $this->redirect(Yii::$app->request->baseUrl . '/package/category');
     }
 
-    
+
     public function actionRemoveImage() {
         if (\Yii::$app->request->isAjax) {
             $id = $_POST['id'];

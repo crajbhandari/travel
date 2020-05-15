@@ -733,7 +733,7 @@ a:hover {
                                                  color: #929292;
                                                  padding: 15px 8px 12px 8px !important;
                                              }
-/*.table-desi i {
+.table-desi i {
     background: #54bb49;
     color: #ffffff;
     padding: 5px 6px;
@@ -741,7 +741,7 @@ a:hover {
     font-size: 13px;
     text-align: center;
     margin-right: 10px;
-}*/
+}
 .tab-inn input[type="submit"] {} .table-desi tbody tr td a {
                                      color: #929292;
                                  }
