@@ -84,27 +84,30 @@ class PackageController extends Controller {
             $cities[$city['name']] = null;
         }
         $post = [];
+        $category = array();
         if ($id != '') {
             $id = Misc::decodeUrl($id);
-            $category = array();
             $post = Package::find()
                            ->where(['id' => $id])
                            ->asArray()
                            ->with('category')
                            ->one();
-
+            
+            if($post['category']!='') {
                 $parent_id = $post['category']['parent'];
-            if($post['category']['parent']>0) {
-                $parent = PackageCategory::find()->where(['id'=>$parent_id])->asArray()->one();
-                $category = [
-                        'child' => $post['category']['name'],
-                        'parent' =>$parent['name']
-                ];
-            }else{
-                $category = [
-                        'child' => $post['category']['name'],
-                        'parent' =>''
-                ];
+                if($post['category']['parent']>0) {
+                    $parent = PackageCategory::find()->where(['id'=>$parent_id])->asArray()->one();
+                    $category = [
+                            'child' => $post['category']['name'],
+                            'parent' =>$parent['name']
+                    ];
+                }
+                else{
+                    $category = [
+                            'child' => $post['category']['name'],
+                            'parent' =>''
+                    ];
+                }
             }
         }
 
