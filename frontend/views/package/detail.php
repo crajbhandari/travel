@@ -96,6 +96,17 @@
 								</li>
 								<li data-target="#myCarousel1" data-slide-to="8"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/gallery/s9.jpg" alt="Chania"/>
 								</li>
+								<li data-target="#myCarousel1" data-slide-to="9">  <div class="embed-responsive embed-responsive-4by3" >
+									<video controls>
+   <source  src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/video/test.mp4"    type="video/mp4">
+  
+</video>
+    <!-- Copy & Pasted from YouTube -->
+   <!--  <iframe    src="https://player.vimeo.com/video/99482883"  ></iframe> -->
+        </div>
+								</li>
+								
+
 							</ol>
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner carousel-inner1" role="listbox">
@@ -108,6 +119,16 @@
 								<div class="item">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/gallery/t7.jpg" alt="Chania"  width="460" height="345" />  </div>
 								<div class="item">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/gallery/t8.jpg" alt="Chania"  width="460" height="345" />  </div>
 								<div class="item">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/gallery/t9.jpg" alt="Chania"  width="460" height="345" />  </div>
+								<div class="item"> 
+										  <div class="embed-responsive embed-responsive-4by3" >
+    <!-- Copy & Pasted from YouTube -->
+   	<video width="460" height="345" controls>
+   <source  src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/video/test.mp4"    type="video/mp4">
+  
+</video>
+        </div>
+								  </div>
+
 							</div>
 							<!-- Left and right controls -->
 							<a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev"> <span><i class="fa fa-angle-left hotel-gal-arr" aria-hidden="true"></i></span> </a>
@@ -229,13 +250,14 @@
 							          <!--COMMENT RATING-->
                             <div class="dir-rat-inn dir-rat-review">
                                 <div class="row">
-                                    <div class="col-md-3 dir-rat-left"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/4.jpg" alt=""/> 
+                                   <!--  <div class="col-md-3 dir-rat-left"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/4.jpg" alt=""/> 
                                         <p>Orange Fab &amp; Weld <span>19th January, 2017</span> </p>
-                                    </div>
-                                    <div class="col-md-9 dir-rat-right">
+                                    </div> -->
+                                    <div class="col-md-12 dir-rat-right">
+                                    	<p>Orange Fab &amp; Weld <span>19th January, 2017</span> </p>
                                         <div class="dir-rat-star"> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                                         <p>Michael &amp; his team have been helping us with our eqiupment finance for the past 5 years - I think that says a quite a lot.. Michael is always ready to go the extra mile, always available, always helpfull that goes the same for his team that work with him - definatley our first phone call.</p>
-                                        <ul>
+                                       <!--  <ul>
                                             <li><a href="#"><span>Like</span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><span>Dis-Like</span><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><span>Report</span> <i class="fa fa-flag-o" aria-hidden="true"></i></a> </li>
@@ -245,20 +267,21 @@
                                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a> </li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                 </div>
                             </div>
                             <!--COMMENT RATING-->
                             <div class="dir-rat-inn dir-rat-review">
                                 <div class="row">
-                                    <div class="col-md-3 dir-rat-left"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/3.jpg" alt=""/> 
+                                    <!-- <div class="col-md-3 dir-rat-left"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/3.jpg" alt=""/> 
                                         <p>Orange Fab &amp; Weld <span>19th January, 2017</span> </p>
-                                    </div>
-                                    <div class="col-md-9 dir-rat-right">
+                                    </div> -->
+                                    <div class="col-md-12 dir-rat-right">
+                                    	<p>Orange Fab &amp; Weld <span>19th January, 2017</span> </p>
                                         <div class="dir-rat-star"> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                                         <p>Michael &amp; his team have been helping us with our eqiupment finance for the past 5 years - I think that says a quite a lot.. Michael is always ready to go the extra mile, always available, always helpfull that goes the same for his team that work with him - definatley our first phone call.</p>
-                                        <ul>
+                                        <!-- <ul>
                                             <li><a href="#"><span>Like</span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><span>Dis-Like</span><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><span>Report</span> <i class="fa fa-flag-o" aria-hidden="true"></i></a> </li>
@@ -268,20 +291,21 @@
                                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a> </li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                 </div>
                             </div>
                             <!--COMMENT RATING-->
                             <div class="dir-rat-inn dir-rat-review">
                                 <div class="row">
-                                    <div class="col-md-3 dir-rat-left"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/1.jpg" alt=""/> 
+                                   <!--  <div class="col-md-3 dir-rat-left"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/1.jpg" alt=""/> 
                                         <p>Orange Fab &amp; Weld <span>19th January, 2017</span> </p>
-                                    </div>
-                                    <div class="col-md-9 dir-rat-right">
+                                    </div> -->
+                                    <div class="col-md-12 dir-rat-right">
+                                    	<p>Orange Fab &amp; Weld <span>19th January, 2017</span> </p>
                                         <div class="dir-rat-star"> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                                         <p>Michael &amp; his team have been helping us with our eqiupment finance for the past 5 years - I think that says a quite a lot.. Michael is always ready to go the extra mile, always available, always helpfull that goes the same for his team that work with him - definatley our first phone call.</p>
-                                        <ul>
+                                        <!-- <ul>
                                             <li><a href="#"><span>Like</span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><span>Dis-Like</span><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><span>Report</span> <i class="fa fa-flag-o" aria-hidden="true"></i></a> </li>
@@ -291,7 +315,7 @@
                                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
                                             <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a> </li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                 </div>
                             </div>

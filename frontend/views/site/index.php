@@ -299,12 +299,12 @@
 </section>
 
 
-<section>
+<section >
    <div class = "rows tb-space pad-top-o pad-bot-redu">
       <div class = "container">
          <!-- TITLE & DESCRIPTION -->
          <div class = "spe-title">
-            <h2>Popular <span>Cities</span></h2>
+            <h2>Popular <span>Destination</span></h2>
             <div class = "title-line">
                <div class = "tl-1"></div>
                <div class = "tl-2"></div>
@@ -457,7 +457,7 @@
 </section> -->
 <!--====== HOME HOTELS ==========-->
 
-<section>
+<section class="stay-luxury" >
    <div class = "rows tb-space pad-top-o  pad-bot-redu">
       <div class = "container">
          <!-- TITLE & DESCRIPTION -->
@@ -571,6 +571,10 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have<br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Micky Mouse</h3>
+                                  <a href="">View All</a>
+                              </div>
+                              <div class = "">
+                                
                               </div>
                            </div>
                         </div>
@@ -586,6 +590,7 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have <br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Tom Mouse</h3>
+                                 <a href="">View All</a>
                               </div>
                            </div>
                         </div>
@@ -603,6 +608,7 @@
                               </p>
                               <div class = "testmonial_author">
                                  <h3>- Jerry Mouse</h3>
+                                 <a href="">View All</a>
                               </div>
                            </div>
                         </div>

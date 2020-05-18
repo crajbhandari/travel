@@ -1472,8 +1472,10 @@ section.c3 {
 
     border: 0;
 
-    background: #1AA5D8;
-    background: linear-gradient(to bottom, #1AA5D8, #1386B1);
+   /* background: #1AA5D8;
+    background: linear-gradient(to bottom, #1AA5D8, #1386B1);*/
+     background: #2c9551;
+    background: linear-gradient(to bottom, #2c9651, #2c9651);
 }
 
 .form_1 ul li input[type="submit"]:hover {
@@ -1995,7 +1997,8 @@ footer ul li a {
     /* border-right: 1px solid #9d9d9d;
      */
     color: #FFFFFF;
-    background: #2D2D2D;
+   /* background: #2D2D2D;*/
+   background: #2c9651;
 }
 
 .footer_places ul li a:hover {
@@ -9465,7 +9468,7 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 
 .blog_details h3 {
     font-size: 18px;
-
+    color: #253D52;
 }
 
 .blog_details p {
@@ -9784,7 +9787,25 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
     color: #FFFFFF;
     background: #FF4A52;
 }
+/*language*/
+.language-select-01{
+    padding-left: 20px;
+    padding-top: 7px;
+}
+.language-select-01 a{
+  font-size: 15px;
+    font-weight: 600;
+    color: #f7b10f;
+   
+}
 
+/*language-end*/
+.stay-luxury{
+    display: none;
+}
+.testmonial_author a{
+    color: white;
+}
 
 /*new-add-end*/
 
