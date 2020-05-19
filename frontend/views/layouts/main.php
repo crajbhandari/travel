@@ -13,7 +13,6 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
 ?>
 <?php $this->beginPage() ?>
 
-
 <!DOCTYPE html>
 <html lang = "<?= Yii::$app->language ?>">
 <head>
@@ -83,7 +82,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
       <div class = "ed-mob-menu-con">
          <div class = "ed-mm-left">
             <div class = "wed-logo">
-               <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
+               <a href = "<?php echo Yii::$app->request->baseUrl .'/site/index/'?>"><img src = "<?php echo Yii::$app->request->baseUrl;?>/resources/images/logo.png" alt = ""/>
                </a>
             </div>
          </div>
@@ -191,12 +190,16 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                   </ul>
                </div>
                <div class = "ed-com-t1-social">
+                   <?php
+                   $socials= json_decode(Yii::$app->params['site-settings']['social']['content']);
+
+                   ?>
                   <ul>
-                     <li><a href = "#"><i class = "fa fa-facebook" aria-hidden = "true"></i></a>
+                     <li><a href = "<?php if(isset($socials[0]->{'facebook'})){ echo $socials[0]->{'facebook'} ;}else{echo '#';} ?>"><i class = "fa fa-facebook" aria-hidden = "true"></i></a>
                      </li>
-                     <li><a href = "#"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a>
+                     <li><a href = "<?php if(isset($socials[0]->{'google'})){ echo $socials[0]->{'google'} ;}else{echo '#';} ?>"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a>
                      </li>
-                     <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
+                     <li><a href = "<?php if(isset($socials[0]->{'twitter'})){ echo $socials[0]->{'twitter'} ;}else{echo '#';} ?>"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
                      </li>
                      <!-- <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
                      </li> -->
@@ -235,15 +238,15 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
          <div class = "row">
             <div class = "col-md-12">
                <div class = "wed-logo">
-                  <a href = "index.html"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
+                  <a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/index"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png" alt = ""/>
                   </a>
                </div>
                <div class = "main-menu">
                   <ul>
-                     <li><a href = "<?=  Yii::$app->request->baseUrl; ?>">Home</a>
+                     <li><a href = "<?=  Yii::$app->request->baseUrl; ?>/site/index">Home</a>
                      </li>
                      <li class = "about-menu">
-                        <a href = "<?=  Yii::$app->request->baseUrl; ?>/" class = "mm-arr">Packages</a>
+                        <a href = "<?=  Yii::$app->request->baseUrl; ?>/package/" class = "mm-arr">Packages</a>
                         <!-- MEGA MENU 1 -->
                         <div class = "mm-pos">
                            <div class = "about-mm m-menu">
@@ -337,7 +340,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                            </div>
                         </div>
                      </li>
-                     <li><a href = "#">Blog</a></li>
+                     <li><a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/">Blog</a></li>
                      <li class = "cour-menu">
                         <a href = "#!" class = "mm-arr">Events</a>
                         <!-- MEGA MENU 1 -->
@@ -427,7 +430,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                            </div>
                         </div>
                      </li>
-                     <li><a href = "contact.html">Contact us</a></li>
+                     <li><a href = "<?=  Yii::$app->request->baseUrl; ?>/site/contact">Contact us</a></li>
 
                   </ul>
                </div>
@@ -539,11 +542,15 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                         <h4><span>Follow</span> with us</h4>
                         <p>Join the thousands of other There are many variations of passages of Lorem Ipsum available</p>
                         <ul>
-                           <li><a href = "#"><i class = "fa fa-facebook" aria-hidden = "true"></i></a></li>
-                           <li><a href = "#"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a></li>
-                           <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a></li>
-                           <li><a href = "#"><i class = "fa fa-linkedin" aria-hidden = "true"></i></a></li>
-                           <li><a href = "#"><i class = "fa fa-youtube" aria-hidden = "true"></i></a></li>
+                           <?php
+                          $socials= json_decode(Yii::$app->params['site-settings']['social']['content']);
+
+                           ?>
+                           <li><a href = "<?php if(isset($socials[0]->{'facebook'})){ echo $socials[0]->{'facebook'} ;}else{echo '#';} ?>"><i class = "fa fa-facebook" aria-hidden = "true"></i></a></li>
+                           <li><a href = "<?php if(isset($socials[0]->{'google'})){ echo $socials[0]->{'google'} ;}else{echo '#';} ?>"><i class = "fa fa-google-plus" aria-hidden = "true"></i></a></li>
+                           <li><a href = "<?php if(isset($socials[0]->{'twitter'})){ echo $socials[0]->{'twitter'} ;}else{echo '#';} ?>"><i class = "fa fa-twitter" aria-hidden = "true"></i></a></li>
+                           <li><a href = "<?php if(isset($socials[0]->{'linkedin'})){ echo $socials[0]->{'linkedin'} ;}else{echo '#';} ?>"><i class = "fa fa-linkedin" aria-hidden = "true"></i></a></li>
+                           <li><a href = "<?php if(isset($socials[0]->{'youtube'})){ echo $socials[0]->{'youtube'} ;}else{echo '#';} ?>"><i class = "fa fa-youtube" aria-hidden = "true"></i></a></li>
                         </ul>
                      </div>
                   </div>

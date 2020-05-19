@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\components\HelperBlog;
 use common\components\Misc;
 use common\models\Blog;
+use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -71,7 +72,12 @@ class BlogController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
-        return $this->render('index');
+        $page = 'blog';
+        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->all();
+        return $this->render('index', [
+                'blogs' => $blog,
+                'page' => Yii::$app->params['pages'][$page],
+        ]);
     }
 
     public function actionPost($id = '') {

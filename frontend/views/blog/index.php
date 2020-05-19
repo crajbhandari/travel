@@ -29,38 +29,16 @@
 				</div>
 				<!--===== POSTS ======-->
 				<div class="rows">
+                <?php foreach ($blogs as $blog): ?>
 					<div class="posts">
-						<div class="col-md-6 col-sm-6 col-xs-12">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/iplace-6.jpg" alt=""/>  </div>
+						<div class="col-md-6 col-sm-6 col-xs-12">  <img src ="<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt=""/>  </div>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<h3>Thai island hopper east</h3>
-							<h5><span class="post_author">Author: Johnson</span><span class="post_date">Date: 12th May,2016</span><span class="post_city">City: Illunois</span></h5>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-							<p>Randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p> <a href="blog-inner1.html" class="link-btn">Read more</a> </div>
+                     <h3><?= strtoupper($blog['title']);?></h3>
+							<h5><span class="post_author">Author: <?= strtoupper($blog['author']);?></span><span class="post_date">Date: <?= \common\components\Misc::DdmY($blog['date']); ?></span><span class="post_city">Category: <?= $blog['category'] ?></span></h5>
+                     <p><?= $blog['content']; ?></p>
+                     <a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encrypt($blog['id']); ?>" class="link-btn">Read more</a> </div>
 					</div>
-					<div class="posts">
-						<div class="col-md-6 col-sm-6 col-xs-12">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/iplace-2.jpg" alt=""/>  </div>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<h3>We are Offering the hottest offers</h3>
-							<h5><span class="post_author">Author: Johnson</span><span class="post_date">Date: 12th May,2016</span><span class="post_city">City: Illunois</span></h5>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-							<p>Randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p> <a href="blog-inner1.html" class="link-btn">Read more</a> </div>
-					</div>
-					<div class="posts">
-						<div class="col-md-6 col-sm-6 col-xs-12">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/iplace-3.jpg" alt=""/>  </div>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<h3>Lorem ipsum dummy content</h3>
-							<h5><span class="post_author">Author: Johnson</span><span class="post_date">Date: 12th May,2016</span><span class="post_city">City: Illunois</span></h5>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-							<p>Randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p> <a href="blog-inner1.html" class="link-btn">Read more</a> </div>
-					</div>
-					<div class="posts">
-						<div class="col-md-6 col-sm-6 col-xs-12">   <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/iplace-4.jpg" alt=""/>  </div>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<h3>Lorem ipsum dummy content</h3>
-							<h5><span class="post_author">Author: Johnson</span><span class="post_date">Date: 12th May,2016</span><span class="post_city">City: Illunois</span></h5>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-							<p>Randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p> <a href="blog-inner.html" class="link-btn">Read more</a> </div>
-					</div>
+					<?php endforeach; ?>
 				</div>
 				<!--===== POST END ======-->
 			</div>

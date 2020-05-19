@@ -36,16 +36,17 @@
 						<div class="">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt=""/>  </div>
 						<div class="">
 							<h3><?= strtoupper($blog['title']);?></h3>
-							<h5><span class="post_author">Author: <?= strtoupper($blog['author']);?></span><span class="post_date">Date: <?= \common\components\Misc::DdmY($blog['date']); ?></span><span class="post_city">City: Illunois</span></h5>
+							<h5><span class="post_author">Author: <?= strtoupper($blog['author']);?></span><span class="post_date">Date: <?= \common\components\Misc::DdmY($blog['date']); ?></span><span class="post_city">Category: <?= $blog['category'] ?></span></h5>
 							<div class="post-btn">
                         <?php
                         $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
                         ?>
 								<ul>
-									<li><a href="http://www.facebook.com/sharer.php?u=<?= $actual_link ?>"
-                                  target="_blank"
-                                  title="Click to share"><i class="fa fa-facebook fb1"></i> Share On Facebook</a>
-									</li>
+									<li>
+                              <a href="http://www.facebook.com/sharer.php?u=<?= $actual_link ?>"
+                                       target="_blank"
+                                       title="Click to share"><i class="fa fa-facebook fb1"></i> Share On Facebook</a>
+                           </li>
 									<li><a
                                     href="http://twitter.com/share?text=An%20intersting%20blog&url=<?= $actual_link ?>"
                                     target="_blank"
