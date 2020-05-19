@@ -572,7 +572,7 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have<br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Micky Mouse</h3>
-                                  <a href="">View All</a>
+                                 <!--  <a href="">View All</a> -->
                               </div>
                               <div class = "">
                                 
@@ -591,7 +591,7 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have <br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Tom Mouse</h3>
-                                 <a href="">View All</a>
+                               <!--   <a href="">View All</a> -->
                               </div>
                            </div>
                         </div>
@@ -609,13 +609,17 @@
                               </p>
                               <div class = "testmonial_author">
                                  <h3>- Jerry Mouse</h3>
-                                 <a href="">View All</a>
+                                <!--  <a href="">View All</a> -->
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
+               <div class="testimonial-all" >
+                   <a href="">View All</a>
+               </div>
+               
             </div>
          </div>
       </div>
@@ -882,12 +886,14 @@
                      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt = "Tour Booking" title = "Tour Booking" class = "img-fluid"/>
 
                      <a href = "#" class = "blog_item_date">
+
                         <?php 
                       $timestamp=\common\components\Misc::dm($blog['date']);
                         ?>
                         <h3><?= $timestamp[0];?></h3>
                         <p><?= $timestamp[1]; ?></p>
-                     </a>
+
+            </a>
                   </div>
                   <div class = "blog_details">
                      <a class = "d-inline-block" href = "<?php Yii::$app->request->baseUrl; ?>./blog/post/<?php echo \common\components\Misc::encrypt($blog['id']); ?> ">
@@ -898,7 +904,7 @@
                       ?><p>
                      <ul class = "blog-info-link">
                         <li><i class = "fa fa-user"></i> <?= $blog['category'] ?></li>
-                     </ul>
+                </ul>
                   </div>
                </div>
             </div>

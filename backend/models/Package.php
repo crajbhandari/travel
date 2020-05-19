@@ -22,8 +22,11 @@ use Yii;
  * @property int $discount
  * @property string $iframe
  * @property string $city
+ * @property int $category
+ * @property int $site_seen
  *
  * @property User $createdBy
+ * @property PackageCategory $category0
  */
 class Package extends \yii\db\ActiveRecord
 {
@@ -41,13 +44,13 @@ class Package extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['itinerary', 'info', 'images', 'iframe'], 'string'],
-            [['about_tour', 'created_by', 'location', 'duration'], 'required'],
-            [['visibility', 'created_by', 'discount'], 'integer'],
+            [['itinerary', 'about_tour', 'info', 'images', 'iframe'], 'string'],
+            [['visibility', 'created_by', 'discount', 'category', 'site_seen'], 'integer'],
+            [['created_by', 'location', 'duration'], 'required'],
             [['created_on'], 'safe'],
             [['title', 'budget', 'location', 'duration', 'city'], 'string', 'max' => 200],
-            [['about_tour'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
+            [['category'], 'exist', 'skipOnError' => true, 'targetClass' => PackageCategory::className(), 'targetAttribute' => ['category' => 'id']],
         ];
     }
 
@@ -72,6 +75,8 @@ class Package extends \yii\db\ActiveRecord
             'discount' => 'Discount',
             'iframe' => 'Iframe',
             'city' => 'City',
+            'category' => 'Category',
+            'site_seen' => 'Site Seen',
         ];
     }
 
@@ -81,5 +86,13 @@ class Package extends \yii\db\ActiveRecord
     public function getCreatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory0()
+    {
+        return $this->hasOne(PackageCategory::className(), ['id' => 'category']);
     }
 }

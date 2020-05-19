@@ -110,6 +110,16 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
             <div class = "row">
                <div class = "input-field col s12">
                    <?php $counter++; ?>
+                  <select id = "<?php echo $counter; ?>" name = "post[site_seen]" required>
+                     <option value = "1" <?= (isset($editable['site_seen']) && $editable['site_seen'] == 1) ? 'selected="selected"' : '' ?>>True</option>
+                     <option value = "0" <?= (isset($editable['site_seen']) && $editable['site_seen'] == 0) ? 'selected="selected"' : '' ?>>False</option>
+                  </select>
+                  <label for = "<?php echo $counter; ?>">Select Site Seen</label>
+               </div>
+            </div>
+            <div class = "row">
+               <div class = "input-field col s12">
+                   <?php $counter++; ?>
                   <label for = "textarea1 <?php echo $counter; ?>">About The Tour</label>
                   <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[about]"><?php echo (isset($editable['about_tour'])) ? $editable['about_tour'] : '' ?></textarea>
                </div>
