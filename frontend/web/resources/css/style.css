@@ -593,16 +593,26 @@ section.c3 {
 }
 
 .v_place_img {
-    position: relative;
+   position: relative;
     overflow: hidden;
+    width: 100%;
+    height: auto;
+    /* padding-top: 100%; */
+    /* padding: 94px; */
+    padding-top: 56%;
 }
 
 .v_place_img img {
     width: 100% !important;
-    height: 20rem;
+   /* height: 20rem;*/
     -webkit-transition: 0.4s ease ! important;
     transition: 0.4s ease ! important;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -4828,6 +4838,11 @@ fieldset, label {
 }
 
 .tour-mig-lc-img {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    padding-top: 63%;
+   /*  position: relative;*/
 }
 
 .tour-mig-like-com:hover img {
@@ -4839,8 +4854,14 @@ fieldset, label {
 }
 
 .tour-mig-lc-img img {
-    width: 100%;
+   width: 100%;
     border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    /* background: azure; */
 }
 
 .tour-mig-like-com:before {
@@ -4852,6 +4873,7 @@ fieldset, label {
     content: '';
     border-radius: 5px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 10%, rgba(84, 84, 84, 0.35) 80%);
+    z-index: 9;
 }
 
 .tour-mig-lc-con {
@@ -4861,6 +4883,7 @@ fieldset, label {
     margin-top: -125px;
     padding: 20px 20px 0px 20px;
     text-align: right;
+    z-index: 99;
 }
 
 .tour-mig-lc-con2 {
@@ -9434,12 +9457,24 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 }
 
 .blog_item_img {
-    position: relative;
+   position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    padding-top: 56%;
+}
+.blog_item_img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
 }
 
 .blog_item_img .blog_item_date {
     position: absolute;
-    bottom: -10px;
+   /* bottom: -10px;*/
+   bottom: 0px;
     left: 10px;
     display: block;
     padding: 8px 15px;
