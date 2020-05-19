@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\components\HelperBlog;
 use common\components\Misc;
 use common\models\Blog;
 use yii\filters\AccessControl;
@@ -73,7 +74,12 @@ class BlogController extends Controller {
         return $this->render('index');
     }
 
-    public function actionPost() {
-        return $this->render('post');
+    public function actionPost($id = '') {
+        if($id != '') {
+          $blog = HelperBlog::getSingleBlog(Misc::decrypt($id));
+        }
+        return $this->render('post',[
+                'blog' => $blog,
+        ]);
     }
 }

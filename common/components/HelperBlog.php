@@ -96,4 +96,9 @@
 
 
         }
+public static function getSingleBlog($id) {
+   return  $model = Blog::find()->where('id ='.$id)->asArray()->one();
+        }
+
+
     }

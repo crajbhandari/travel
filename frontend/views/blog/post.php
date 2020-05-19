@@ -1,5 +1,4 @@
 <?php $this->title = 'Welcome'; ?>
-
 	<!-- TOP SEARCH BOX -->
         <div class="search-top">
             <div class="container">
@@ -24,7 +23,7 @@
             </div>
         </div>
 		<!-- END TOP SEARCH BOX -->
-    </section>
+
     <!--END HEADER SECTION-->
 	
 	<!--====== ALL POST ==========-->
@@ -34,28 +33,30 @@
 				<!--===== POSTS ======-->
 				<div class="">
 					<div class="posts">
-						<div class="">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/iplace-2.jpg" alt=""/>  </div>
+						<div class="">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt=""/>  </div>
 						<div class="">
-							<h3>Thai island hopper east</h3>
-							<h5><span class="post_author">Author: Johnson</span><span class="post_date">Date: 12th May,2016</span><span class="post_city">City: Illunois</span></h5>
+							<h3><?= strtoupper($blog['title']);?></h3>
+							<h5><span class="post_author">Author: <?= strtoupper($blog['author']);?></span><span class="post_date">Date: <?= \common\components\Misc::DdmY($blog['date']); ?></span><span class="post_city">City: Illunois</span></h5>
 							<div class="post-btn">
+                        <?php
+                        $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                        ?>
 								<ul>
-									<li><a href="#"><i class="fa fa-facebook fb1"></i> Share On Facebook</a>
+									<li><a href="http://www.facebook.com/sharer.php?u=<?= $actual_link ?>"
+                                  target="_blank"
+                                  title="Click to share"><i class="fa fa-facebook fb1"></i> Share On Facebook</a>
 									</li>
-									<li><a href="#"><i class="fa fa-twitter tw1"></i> Share On Twitter</a>
+									<li><a
+                                    href="http://twitter.com/share?text=An%20intersting%20blog&url=<?= $actual_link ?>"
+                                    target="_blank"
+                                    title="Click to post to Twitter">
+                             <i class="fa fa-twitter tw1"></i> Share On Twitter</a>
 									</li>
-									<li><a href="#"><i class="fa fa-google-plus gp1"></i> Share On Google Plus</a>
-									</li>
+
 								</ul>
 							</div>							
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-							<p>Randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-							<p>Randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-							<p>Randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-							<p>Randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p></div>
+						<p><?= $blog['content']; ?></p>
+                  </div>
 					</div>
 				</div>
 				<!--===== POST END ======-->

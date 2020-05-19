@@ -127,6 +127,25 @@
         public static function clean_text($text) {
             return trim(preg_replace('/\s+/', ' ', $text));
         }
+        public static function encrypt($str) {
+            return self::encodeUrl($str);
+            //        return ($str != '') ? (bin2hex($str)) : false;
+            return ($str != '') ? (bin2hex($str)) : false;
+        }
+
+        public static function decrypt($str = '') {
+            return self::decodeUrl($str);
+            if ($str != '') {
+                //  $str = self::decodeUrl($str);
+                if ($str != '') {
+                    $m = pack('H*', $str);
+                    if (is_numeric($m)) {
+                        return $m;
+                    }
+                }
+            }
+            return false;
+        }
 
         public static function encrypt_text($value) {
             if (!$value) {
@@ -158,6 +177,12 @@
 
         public static function DdmY($date = '') {
             return date('D, d M, Y', self::timestamp($date));
+        }
+        public static function dm($date='') {
+           $d= explode(' ',date('d M', self::timestamp($date)));
+           $dat=$d[0];
+           $day=$d[1];
+           return [$dat,$day];
         }
 
         public static function datetime($date = '') {
