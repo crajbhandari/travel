@@ -73,7 +73,7 @@
                <div class = "b_pack rows">
                   <!-- TOUR TITLE -->
                   <div class = "col-md-8 col-sm-8">
-                     <h4><a href = "tour-details1.html">Rio de Janeiro<span class = "v_pl_name">(Brazil)</span></a></h4>
+                  <h4><a href = "<?= Yii::$app->request->baseUrl ?>/package">Rio de Janeiro<span class = "v_pl_name">(Brazil)</span></a></h4>
                   </div>
                   <!-- TOUR ICONS -->
                   <div class = "col-md-4 col-sm-4 pack_icon">
@@ -116,7 +116,7 @@
                <div class = "b_pack rows">
                   <!-- TOUR TITLE -->
                   <div class = "col-md-8 col-sm-8">
-                     <h4><a href = "tour-details1.html">Paris<span class = "v_pl_name">(England)</span></a></h4>
+                     <h4><a href = "<?= Yii::$app->request->baseUrl ?>/package">Paris<span class = "v_pl_name">(England)</span></a></h4>
                   </div>
                   <!-- TOUR ICONS -->
                   <div class = "col-md-4 col-sm-4 pack_icon">
@@ -153,7 +153,7 @@
                <div class = "v_place_img"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t2.png" alt = "Tour Booking" title = "Tour Booking"/></div>
                <div class = "b_pack rows">
                   <div class = "col-md-8 col-sm-8">
-                     <h4><a href = "tour-details1.html">South India<span class = "v_pl_name">(India)</span></a></h4>
+                     <h4><a href = "<?= Yii::$app->request->baseUrl ?>/package">South India<span class = "v_pl_name">(India)</span></a></h4>
                   </div>
                   <div class = "col-md-4 col-sm-4 pack_icon">
                      <ul>
@@ -190,7 +190,7 @@
                   <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t3.png" alt = "Tour Booking" title = "Tour Booking"/></div>
                <div class = "b_pack rows">
                   <div class = "col-md-8 col-sm-8">
-                     <h4><a href = "tour-details1.html">The Great Wall<span class = "v_pl_name">(China)</span></a></h4>
+                     <h4><a href = "<?= Yii::$app->request->baseUrl ?>/package">The Great Wall<span class = "v_pl_name">(China)</span></a></h4>
                   </div>
                   <div class = "col-md-4 col-sm-4 pack_icon">
                      <ul>
@@ -226,7 +226,7 @@
                <div class = "v_place_img"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t4.png" alt = "Tour Booking" title = "Tour Booking"/></div>
                <div class = "b_pack rows">
                   <div class = "col-md-8 col-sm-8">
-                     <h4><a href = "tour-details1.html">Nail Island<span class = "v_pl_name">(Andaman)</span></a></h4>
+                     <h4><a href = "<?= Yii::$app->request->baseUrl ?>/package">Nail Island<span class = "v_pl_name">(Andaman)</span></a></h4>
                   </div>
                   <div class = "col-md-4 col-sm-4 pack_icon">
                      <ul>
@@ -262,7 +262,7 @@
                <div class = "v_place_img"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t6.png" alt = "Tour Booking" title = "Tour Booking"/></div>
                <div class = "b_pack rows">
                   <div class = "col-md-8 col-sm-8">
-                     <h4><a href = "tour-details1.html">Mauritius<span class = "v_pl_name">(Indiana)</span></a></h4>
+                     <h4><a href = "<?= Yii::$app->request->baseUrl ?>/package">Mauritius<span class = "v_pl_name">(Indiana)</span></a></h4>
                   </div>
                   <div class = "col-md-4 col-sm-4 pack_icon">
                      <ul>
@@ -299,12 +299,12 @@
 </section>
 
 
-<section>
+<section >
    <div class = "rows tb-space pad-top-o pad-bot-redu">
       <div class = "container">
          <!-- TITLE & DESCRIPTION -->
          <div class = "spe-title">
-            <h2>Popular <span>Cities</span></h2>
+            <h2>Popular <span>Destination</span></h2>
             <div class = "title-line">
                <div class = "tl-1"></div>
                <div class = "tl-2"></div>
@@ -314,7 +314,7 @@
          </div>
          <!-- CITY -->
          <div class = "col-md-6">
-            <a href = "tour-details.html">
+            <a href = "#">
                <div class = "tour-mig-like-com">
                   <div class = "tour-mig-lc-img">
                      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home.jpg" alt = ""/></div>
@@ -326,7 +326,7 @@
             </a>
          </div>
          <div class = "col-md-3">
-            <a href = "tour-details.html">
+            <a href = "#">
                <div class = "tour-mig-like-com">
                   <div class = "tour-mig-lc-img"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home3.jpg" alt = ""/></div>
                   <div class = "tour-mig-lc-con tour-mig-lc-con2">
@@ -337,7 +337,7 @@
             </a>
          </div>
          <div class = "col-md-3">
-            <a href = "tour-details.html">
+            <a href = "#">
                <div class = "tour-mig-like-com">
                   <div class = "tour-mig-lc-img"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home2.jpg" alt = ""/></div>
                   <div class = "tour-mig-lc-con tour-mig-lc-con2">
@@ -348,7 +348,7 @@
             </a>
          </div>
          <div class = "col-md-3">
-            <a href = "tour-details.html">
+            <a href = "#">
                <div class = "tour-mig-like-com">
                   <div class = "tour-mig-lc-img"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home1.jpg" alt = ""/></div>
                   <div class = "tour-mig-lc-con tour-mig-lc-con2">
@@ -359,7 +359,7 @@
             </a>
          </div>
          <div class = "col-md-3">
-            <a href = "tour-details.html">
+            <a href = "#">
                <div class = "tour-mig-like-com">
                   <div class = "tour-mig-lc-img"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home4.jpg" alt = ""/></div>
                   <div class = "tour-mig-lc-con tour-mig-lc-con2">
@@ -397,7 +397,7 @@
                                 
                             </div>
                             <div class="content">
-                                <p class="d-flex align-items-center">Italy <a href="tour-details1.html"> 07 Places</a> </p>
+                                <p class="d-flex align-items-center">Italy <a href="<?= Yii::$app->request->baseUrl ?>/package"> 07 Places</a> </p>
                             </div>
                         </div>
                     </div>
@@ -417,7 +417,7 @@
                                 <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home1.jpg" alt=""/>
                             </div>
                             <div class="content">
-                                <p class="d-flex align-items-center">America <a href="tour-details1.html"> 10 Places</a> </p>
+                                <p class="d-flex align-items-center">America <a href="<?= Yii::$app->request->baseUrl ?>/package"> 10 Places</a> </p>
                             </div>
                         </div>
                     </div>
@@ -427,7 +427,7 @@
                                 <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home4.jpg" alt=""/>
                             </div>
                             <div class="content">
-                                <p class="d-flex align-items-center">Nepal <a href="tour-details1.html"> 02 Places</a> </p>
+                                <p class="d-flex align-items-center">Nepal <a href="<?= Yii::$app->request->baseUrl ?>/package"> 02 Places</a> </p>
                             </div>
                         </div>
                     </div>
@@ -437,7 +437,7 @@
                                 <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home2.jpg" alt=""/>
                             </div>
                             <div class="content">
-                                <p class="d-flex align-items-center">Maldives <a href="tour-details1.html"> 02 Places</a> </p>
+                                <p class="d-flex align-items-center">Maldives <a href="<?= Yii::$app->request->baseUrl ?>/package"> 02 Places</a> </p>
                             </div>
                         </div>
                     </div>
@@ -447,7 +447,7 @@
                                 <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/listing/home4.jpg" alt=""/>
                             </div>
                             <div class="content">
-                                <p class="d-flex align-items-center">Indonesia <a href="tour-details1.html"> 05 Places</a> </p>
+                                <p class="d-flex align-items-center">Indonesia <a href="<?= Yii::$app->request->baseUrl ?>/package"> 05 Places</a> </p>
                             </div>
                         </div>
                     </div>
@@ -457,7 +457,7 @@
 </section> -->
 <!--====== HOME HOTELS ==========-->
 
-<section>
+<section class="stay-luxury" >
    <div class = "rows tb-space pad-top-o  pad-bot-redu">
       <div class = "container">
          <!-- TITLE & DESCRIPTION -->
@@ -481,7 +481,7 @@
                   </div>
                   <div class = "to-ho-hotel-con-23">
                      <div class = "to-ho-hotel-con-2">
-                        <a href = "tour-details1.html">
+                        <a href = "<?= Yii::$app->request->baseUrl ?>/package">
                            <h4>GTC Grand Chola</h4>
                         </a>
                      </div>
@@ -506,7 +506,7 @@
                   </div>
                   <div class = "to-ho-hotel-con-23">
                      <div class = "to-ho-hotel-con-2">
-                        <a href = "tour-details1.html">
+                        <a href = "<?= Yii::$app->request->baseUrl ?>/package">
                            <h4>Taaj Grand Resorts</h4>
                         </a>
                      </div>
@@ -531,7 +531,7 @@
                   </div>
                   <div class = "to-ho-hotel-con-23">
                      <div class = "to-ho-hotel-con-2">
-                        <a href = "tour-details1.html">
+                        <a href = "<?= Yii::$app->request->baseUrl ?>/package">
                            <h4>Keep Grand Hotels</h4>
                         </a>
                      </div>
@@ -571,6 +571,10 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have<br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Micky Mouse</h3>
+                                  <a href="">View All</a>
+                              </div>
+                              <div class = "">
+                                
                               </div>
                            </div>
                         </div>
@@ -586,6 +590,7 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have <br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Tom Mouse</h3>
+                                 <a href="">View All</a>
                               </div>
                            </div>
                         </div>
@@ -603,6 +608,7 @@
                               </p>
                               <div class = "testmonial_author">
                                  <h3>- Jerry Mouse</h3>
+                                 <a href="">View All</a>
                               </div>
                            </div>
                         </div>
@@ -637,7 +643,7 @@
                <div class = "col-md-6 col-sm-12 col-xs-12">
                   <h3>Honeymoon Package<span>7 Days / 6 Nights</span></h3>
                   <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p>
-                  <a href = "tour-details.html" class = "link-btn">more info</a></div>
+                  <a href = "#" class = "link-btn">more info</a></div>
             </div>
             <!-- POPULAR PLACES 2 -->
             <div class = "col-md-6 col-sm-6 col-xs-12 place">
@@ -645,7 +651,7 @@
                <div class = "col-md-6 col-sm-12 col-xs-12">
                   <h3>Family package <span>14 Days / 13 Nights</span></h3>
                   <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p>
-                  <a href = "tour-details.html" class = "link-btn">more info</a></div>
+                  <a href = "#" class = "link-btn">more info</a></div>
             </div>
          </div>
          <div class = "popu-places-home">
@@ -655,7 +661,7 @@
                <div class = "col-md-6 col-sm-12 col-xs-12">
                   <h3>Weekend Package 3 <span>Days / 2 Nights</span></h3>
                   <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p>
-                  <a href = "tour-details.html" class = "link-btn">more info</a></div>
+                  <a href = "#" class = "link-btn">more info</a></div>
             </div>
             <!-- POPULAR PLACES 4 -->
             <div class = "col-md-6 col-sm-6 col-xs-12 place">
@@ -663,7 +669,7 @@
                <div class = "col-md-6 col-sm-12 col-xs-12">
                   <h3>Group Package <span>10 Days / 9 Nights</span></h3>
                   <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p>
-                  <a href = "tour-details.html" class = "link-btn">more info</a></div>
+                  <a href = "#" class = "link-btn">more info</a></div>
             </div>
          </div>
       </div>
@@ -693,7 +699,7 @@
                   <ul>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/1.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Taaj Club House</h5> <span>City: illunois, United States</span></div>
@@ -702,7 +708,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/2.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Universal luxury Grand Hotel</h5> <span>City: Rio,Brazil</span></div>
@@ -711,7 +717,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/3.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Barcelona Grand Pales</h5> <span>City: Chennai,India</span></div>
@@ -720,7 +726,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/4.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Lake Palace view Hotel</h5> <span>City: Beijing,China</span></div>
@@ -729,7 +735,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/hotels/8.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>First Class Grandd Hotel</h5> <span>City: Berlin,Germany</span></div>
@@ -747,7 +753,7 @@
                   <ul>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/1.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Family Package Luxury</h5> <span>Duration: 7 Days and 6 Nights</span></div>
@@ -756,7 +762,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/2.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Honeymoon Package Luxury</h5> <span>Duration: 14 Days and 13 Nights</span></div>
@@ -765,7 +771,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/2.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Group Package Luxury</h5> <span>Duration: 28 Days and 29 Nights</span></div>
@@ -774,7 +780,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/4.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Regular Package Luxury</h5> <span>Duration: 12 Days and 11 Nights</span></div>
@@ -783,7 +789,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/trends/1.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Custom Package Luxury</h5> <span>Duration: 10 Days and 10 Nights</span></div>
@@ -801,7 +807,7 @@
                   <ul>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/1.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Christopher</h5> <span>No of Reviews: 620, City: illunois</span></div>
@@ -810,7 +816,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/2.png" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Matthew</h5> <span>No of Reviews: 48, City: Rio</span></div>
@@ -819,7 +825,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/3.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Stephanie</h5> <span>No of Reviews: 560, City: Chennai</span></div>
@@ -828,7 +834,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/4.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Robert</h5> <span>No of Reviews: 920, City: Beijing</span></div>
@@ -837,7 +843,7 @@
                      </li>
                      <!--LISTINGS-->
                      <li>
-                        <a href = "hotels-list.html">
+                        <a href = "#">
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/5.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Danielle</h5> <span>No of Reviews: 768, City: Berlin</span></div>
@@ -879,7 +885,7 @@
                      </a>
                   </div>
                   <div class = "blog_details">
-                     <a class = "d-inline-block" href = "blog1.html">
+                     <a class = "d-inline-block" href = "#">
                         <h3>Google inks pact for new 35-storey office</h3>
                      </a>
                      <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
@@ -900,7 +906,7 @@
                      </a>
                   </div>
                   <div class = "blog_details">
-                     <a class = "d-inline-block" href = "blog1.html">
+                     <a class = "d-inline-block" href = "#">
                         <h3>Google inks pact for new 35-storey office</h3>
                      </a>
                      <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
@@ -921,7 +927,7 @@
                      </a>
                   </div>
                   <div class = "blog_details">
-                     <a class = "d-inline-block" href = "blog1.html">
+                     <a class = "d-inline-block" href = "#">
                         <h3>Google inks pact for new 35-storey office</h3>
                      </a>
                      <p>That dominion stars lights dominion divide years for fourth have don't ...</p>

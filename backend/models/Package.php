@@ -1,11 +1,11 @@
 <?php
 
-namespace common\models\generated;
+namespace app\models;
 
 use Yii;
 
 /**
- * This is the model class for table "{{%package}}".
+ * This is the model class for table "package".
  *
  * @property int $id
  * @property string $title
@@ -22,10 +22,8 @@ use Yii;
  * @property int $discount
  * @property string $iframe
  * @property string $city
- * @property int $category
  *
  * @property User $createdBy
- * @property PackageCategory $category0
  */
 class Package extends \yii\db\ActiveRecord
 {
@@ -34,7 +32,7 @@ class Package extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%package}}';
+        return 'package';
     }
 
     /**
@@ -43,13 +41,13 @@ class Package extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['itinerary', 'about_tour', 'info', 'images', 'iframe'], 'string'],
-            [['visibility', 'created_by', 'discount', 'category'], 'integer'],
-            [['created_by', 'location', 'duration'], 'required'],
+            [['itinerary', 'info', 'images', 'iframe'], 'string'],
+            [['about_tour', 'created_by', 'location', 'duration'], 'required'],
+            [['visibility', 'created_by', 'discount'], 'integer'],
             [['created_on'], 'safe'],
             [['title', 'budget', 'location', 'duration', 'city'], 'string', 'max' => 200],
+            [['about_tour'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['category'], 'exist', 'skipOnError' => true, 'targetClass' => PackageCategory::className(), 'targetAttribute' => ['category' => 'id']],
         ];
     }
 
@@ -74,7 +72,6 @@ class Package extends \yii\db\ActiveRecord
             'discount' => 'Discount',
             'iframe' => 'Iframe',
             'city' => 'City',
-            'category' => 'Category',
         ];
     }
 
@@ -84,13 +81,5 @@ class Package extends \yii\db\ActiveRecord
     public function getCreatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCategory0()
-    {
-        return $this->hasOne(PackageCategory::className(), ['id' => 'category']);
     }
 }

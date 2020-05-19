@@ -82,7 +82,7 @@ $this->title = 'Rating';
                         <?php endforeach; ?>
                         </tbody>
                          <?php else: ?>
-                            <h3>Sorry, No Package Review Found</h3>
+                            <h3>Sorry, No Rating Found</h3>
                          <?php endif; ?>
                      </table>
                   </div>
@@ -92,10 +92,4 @@ $this->title = 'Rating';
       </div>
    </div>
 </div>
-<div id = "modal1" class = "modal">
-   <div class = "modal-content">
-      <h4>Message From</h4>
-   </div>
-   <div class = "paras-content">
-   </div>
-</div>
+

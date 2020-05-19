@@ -198,7 +198,13 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                      </li>
                      <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
                      </li>
-                     <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
+                     <!-- <li><a href = "#"><i class = "fa fa-twitter" aria-hidden = "true"></i></a>
+                     </li> -->
+                     <li>
+                        <div class="language-select-01" >
+                           <a href="">EN</a> / <a href="">FR</a>
+                           
+                        </div>
                      </li>
 
                       <!--  <li style="float:left;" ><div class="ht-right">
@@ -331,6 +337,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                            </div>
                         </div>
                      </li>
+                     <li><a href = "#">Blog</a></li>
                      <li class = "cour-menu">
                         <a href = "#!" class = "mm-arr">Events</a>
                         <!-- MEGA MENU 1 -->
@@ -421,6 +428,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                         </div>
                      </li>
                      <li><a href = "contact.html">Contact us</a></li>
+
                   </ul>
                </div>
             </div>

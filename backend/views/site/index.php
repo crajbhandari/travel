@@ -53,8 +53,8 @@ $this->title = Yii::$app->params['system_name'] . " | Welcome " . ucwords(Yii::$
                     <div class = "ad-hom-box ad-hom-box-4">
                         <span class = "ad-hom-col-com ad-hom-col-4"><i class = "fa fa-envelope-open-o"></i></span>
                         <div class = "ad-hom-view-com">
-                            <p><i class = "fa  fa-arrow-up up"></i> Enquiry</p>
-                            <h3>22,520</h3>
+                            <p><i class = "fa  fa-arrow-up up"></i> Package</p>
+                            <h3><?php echo $package ?></h3>
                         </div>
                     </div>
                 </li>
