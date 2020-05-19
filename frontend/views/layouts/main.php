@@ -591,6 +591,9 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
     </div>
  </section> -->
 
+ 
+
+
 
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/jquery-latest.min.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/bootstrap.js"></script>
@@ -601,6 +604,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
 
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
 <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/owl.carousel.min.js"></script>
+<script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/jquery.matchHeight.js"></script>
 
 
 <?php
@@ -710,6 +714,12 @@ if (Yii::$app->session->hasFlash('flash')): ?>
       }
    });
 </script>
+<script type="text/javascript">
+  $(function() {
+  $('.blog_item').matchHeight();
+});
+</script>
+
 
 </body>
 </html>

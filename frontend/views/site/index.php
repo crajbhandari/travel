@@ -1,5 +1,6 @@
 <?php $this->title = 'Welcome'; ?>
 
+
 <!--HEADER SECTION-->
 <section>
    <div class = "tourz-search">
@@ -880,7 +881,7 @@
          </div>
          <div class = "row">
              <?php foreach ($blogs as $blog): ?>
-            <div class = "col-sm-12 col-md-4 col-lg-4">
+            <div class = "col-sm-12 col-md-4 col-lg-4 blog-001">
                <div class = "blog_item">
                   <div class = "blog_item_img">
                      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt = "Tour Booking" title = "Tour Booking" class = "img-fluid"/>
@@ -965,6 +966,7 @@
       </div>
    </div>
 </section>
+
 
 
 <!--====== SECTION: FREE CONSULTANT ==========-->
