@@ -69,23 +69,11 @@ class PackageController extends Controller {
      * Displays homepage.
      * @return mixed
      */
-    public function actionFamily() {
-        return $this->render('family');
-    }
-
     public function actionDetail() {
         return $this->render('detail');
     }
-     public function actionActivity() {
-        return $this->render('activity');
-    }
-       public function actionIndex() {
-        return $this->render('all');
-    }
-     public function actionRequest() {
-        return $this->render('request');
-    }
-     public function actionBook() {
-        return $this->render('book');
-    }
+
+   
+    
+    
 }

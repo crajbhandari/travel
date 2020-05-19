@@ -571,7 +571,7 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have<br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Micky Mouse</h3>
-                                  <a href="">View All</a>
+                                 <!--  <a href="">View All</a> -->
                               </div>
                               <div class = "">
                                 
@@ -590,7 +590,7 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have <br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Tom Mouse</h3>
-                                 <a href="">View All</a>
+                               <!--   <a href="">View All</a> -->
                               </div>
                            </div>
                         </div>
@@ -608,13 +608,17 @@
                               </p>
                               <div class = "testmonial_author">
                                  <h3>- Jerry Mouse</h3>
-                                 <a href="">View All</a>
+                                <!--  <a href="">View All</a> -->
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
+               <div class="testimonial-all" >
+                   <a href="">View All</a>
+               </div>
+               
             </div>
          </div>
       </div>
@@ -891,7 +895,7 @@
                      <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
                      <ul class = "blog-info-link">
                         <li><a href = "#"><i class = "fa fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li>
+                        <!-- <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li> -->
                      </ul>
                   </div>
                </div>
@@ -912,7 +916,7 @@
                      <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
                      <ul class = "blog-info-link">
                         <li><a href = "#"><i class = "fa fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li>
+                       <!--  <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li> -->
                      </ul>
                   </div>
                </div>
@@ -933,7 +937,7 @@
                      <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
                      <ul class = "blog-info-link">
                         <li><a href = "#"><i class = "fa fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li>
+                       <!--  <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li> -->
                      </ul>
                   </div>
                </div>

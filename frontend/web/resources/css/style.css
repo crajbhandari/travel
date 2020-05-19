@@ -2477,11 +2477,11 @@ footer ul li a {
     font-weight: 600;
     margin-top: 50px;
     margin-bottom: 20px;
-    padding-left: 35px;
+    /*padding-left: 35px;*/
     color: #213D44;
     /* text-transform: uppercase;
      */
-    background: url(../images/umbrella.png) no-repeat left center;
+   /* background: url(../images/umbrella.png) no-repeat left center;*/
     background-size: 16px;
 }
 
@@ -2523,7 +2523,8 @@ footer ul li a {
 }
 
 .days h4 span {
-    color: #929596;
+   /* color: #929596;*/
+   color: #f7b10f;
 }
 
 .l-info-pack-days ul {
@@ -2560,7 +2561,7 @@ footer ul li a {
     padding-top: 0px;
 }
 
-.l-info-pack-plac::after {
+/*.l-info-pack-plac::after {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -2569,7 +2570,7 @@ footer ul li a {
     height: 100%;
     content: '';
     background: #CECECE;
-}
+}*/
 
 .tour_right h3 {
     font-size: 14px;
@@ -3427,7 +3428,8 @@ element.style {
 }
 
 .contact-map {
-    margin-bottom: -10px;
+    margin-bottom: 0px;
+    margin-top: -52px;
 }
 
 .contact-map iframe {
@@ -9574,6 +9576,7 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
     right: 0;
     left: 0;
     text-align: center;
+    bottom: -6%;
 }
 
 .testimonial_area {
@@ -9803,9 +9806,20 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 .stay-luxury{
     display: none;
 }
-.testmonial_author a{
+/*.testmonial_author a{
     color: white;
+}*/
+.testimonial-all{
+    text-align: center;
+    text-align: -webkit-center;
+padding-top: 20px;
 }
-
+.testimonial-all a{
+    color: #ffffff;
+    font-size: 15px;
+}
+.testimonial-all a:hover{
+    color: #ffad0c;
+}
 /*new-add-end*/
 
