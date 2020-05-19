@@ -557,12 +557,13 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                </div>
             </div>
             <ul class = "foote_bottom_ul_amrc">
-               <li><a href = "">Home</a></li>
-               <li><a href = "">About</a></li>
-               <li><a href = "">Services</a></li>
-               <li><a href = "">Pricing</a></li>
-               <li><a href = "">Blog</a></li>
-               <li><a href = "">Contact</a></li>
+               <li><a href = "<?=  Yii::$app->request->baseUrl; ?>/site/index">Home</a></li>
+               <li><a href = "<?= Yii::$app->request->baseUrl; ?>/site/about">About</a></li>
+               <li><a href = "<?= Yii::$app->request->baseUrl; ?>/site/">Services</a></li>
+               <li><a href = "<?= Yii::$app->request->baseUrl; ?>/site/">SightSeeing</a></li>
+               <li><a href = "<?= Yii::$app->request->baseUrl; ?>/site/">Events</a></li>
+               <li><a href = "<?= Yii::$app->request->baseUrl; ?>/blog">Blog</a></li>
+               <li><a href = "<?= Yii::$app->request->baseUrl; ?>/site/contact">Contact</a></li>
             </ul>
          </div>
       </div>
