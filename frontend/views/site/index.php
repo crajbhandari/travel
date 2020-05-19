@@ -896,7 +896,7 @@
             </a>
                   </div>
                   <div class = "blog_details">
-                     <a class = "d-inline-block" href = "<?php Yii::$app->request->baseUrl; ?>./blog/post/<?php echo \common\components\Misc::encrypt($blog['id']); ?> ">
+                     <a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encrypt($blog['id']); ?> ">
                         <h3><?= strtoupper($blog['title']);?></h3>
                      </a>
                      <p><?=

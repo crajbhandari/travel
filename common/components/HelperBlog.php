@@ -19,6 +19,10 @@
     use yii\base\Component;
 
     class HelperBlog extends Component {
+        public static function getAllBlogs()
+        {
+       return  Blog::find()->where(['visibility =1'])->orderBy('date',ASC)->all();
+        }
         public static function set($data, $image) {
             if (isset($data['id']) && $data['id'] > 0) {
                 $model = Blog::findOne($data['id']);
