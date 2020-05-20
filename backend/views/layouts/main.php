@@ -222,7 +222,7 @@ AppAsset::register($this);
                            </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a>
                            </li>
-                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities">Cities</a>
+                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities">Destination</a>
                            </li>
                         </ul>
                      </div>
