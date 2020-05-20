@@ -8,7 +8,7 @@ $new = ($editable == FALSE) ? 1 : 0;
         <ul>
             <li><a href="<?php echo Yii::$app->request->baseUrl; ?>/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
             </li>
-            <li class="active-bre"><a href="#"> Cities</a>
+            <li class="active-bre"><a href="#">Destination</a>
             </li>
         </ul>
     </div>
@@ -18,7 +18,7 @@ $new = ($editable == FALSE) ? 1 : 0;
               <div class="box-inn-sp">
                  <div class="inn-title">
                      <?php if ($new): ?>
-                        <h5 class = "card-title">Add New City</h5>
+                        <h5 class = "card-title">Add New Destination</h5>
                      <?php else: ?>
                         <h5 class = "card-title">Edit <?php echo $editable['name']; ?> </h5>
                      <?php endif; ?>
@@ -48,7 +48,7 @@ $new = ($editable == FALSE) ? 1 : 0;
             <div class="col-md-8">
                 <div class="box-inn-sp">
                     <div class="inn-title">
-                        <h4>Cities List</h4>
+                        <h4>Destination List</h4>
                     </div>
                     <div class="tab-inn">
                         <div class="table-responsive table-desi">

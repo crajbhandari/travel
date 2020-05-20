@@ -253,7 +253,7 @@ class PackageController extends Controller {
                                   <p><b>Message : </b><br>$message</p>
                                   </div>
                                  <div class='col s6'> 
-                                  <p><b>City : </b><br>$city</p>
+                                  <p><b>Destination : </b><br>$city</p>
                                   <p><b>Rating : </b><br>$rating</p>
                                   <p><b>Package : </b><br>$package_name</p>
                                  
@@ -294,7 +294,7 @@ class PackageController extends Controller {
                         $result = "
           <p><b>Name : </b><br>$name</p>
       <p><b>Email : </b><br>$email</p>
-     <p><b>City : </b><br>$city</p>
+     <p><b>Destination : </b><br>$city</p>
       <p><b>Sent On : </b><br>$date</p>
       <p><b>Message : </b><br>$message</p>
                        

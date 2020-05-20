@@ -11,12 +11,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
 <script>
    var city = <?php echo($city); ?>;
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
+
 
 <style>
    .modal {
@@ -26,6 +21,8 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
    .modal img {
       width: 100%;
    }
+
+  
 </style>
 
 <div class = "sb2-2">
@@ -91,7 +88,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
             <div class = "row">
                <div class = "input-field col s12">
                   <input id = "city-autocomplete" name = "post[city]" type = "text" class = "autocomplete validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
-                  <label for = "city-autocomplete">City</label>
+                  <label for = "city-autocomplete">Destination</label>
                </div>
             </div>
             <div class = "row" style = "margin-top: 40px;">
@@ -115,11 +112,13 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
             <div class = "row">
                <div class = "input-field col s12">
                    <?php $counter++; ?>
-                  <select id = "<?php echo $counter; ?>" name = "post[site_seen]" required>
-                     <option value = "1" <?= (isset($editable['site_seen']) && $editable['site_seen'] == 1) ? 'selected="selected"' : '' ?>>True</option>
-                     <option value = "0" <?= (isset($editable['site_seen']) && $editable['site_seen'] == 0) ? 'selected="selected"' : '' ?>>False</option>
+                  <label for = "<?php echo $counter; ?>">Select Sight Seeing</label><br><br>
+                  <select id = "<?php echo $counter; ?>" name = "post[sight_seeing]" required>
+                     <option value = "0" <?= (isset($editable['sight_seeing']) && $editable['sight_seeing'] == 0) ? 'selected="selected"' : '' ?>>Inactive</option>
+                     <option value = "1" <?= (isset($editable['sight_seeing']) && $editable['sight_seeing'] == 1) ? 'selected="selected"' : '' ?>>Active</option>
+
                   </select>
-                  <label for = "<?php echo $counter; ?>">Select Site Seen</label>
+
                </div>
             </div>
             <div class = "row">
@@ -163,11 +162,34 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
                         </div>
                      </div>
                      <div class="col-sm-6" > 
-                     <select class="js-example-basic-single" style="width: 100%" name="state">
+                <!--      <select class="js-example-basic-single" style="width: 100%" name="state" >
   <option value="AL">Alabama</option>
     ...
   <option value="WY">Wyoming</option>
-</select>
+</select> -->
+<!--   <select class="js-select2" multiple="multiple" style="width: 100%;">
+        <option value="O1" data-badge="">Option1</option>
+        <option value="O2" data-badge="">Option2</option>
+        <option value="O3" data-badge="">Option3</option>
+        <option value="O4" data-badge="">Option4</option>
+        <option value="O5" data-badge="">Option5</option>
+        <option value="O6" data-badge="">Option6</option>
+        <option value="O7" data-badge="">Option7</option>
+      </select> -->
+ 
+    <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
+      <option value="" disabled selected>Choose your country</option>
+      <option value="1">USA</option>
+      <option value="2">Germany</option>
+      <option value="3">France</option>
+      <option value="4">Poland</option>
+      <option value="5">Japan</option>
+    </select>
+    <label class="mdb-main-label">Label example</label>
+    <button class="btn-save btn btn-primary btn-sm">Save</button>
+    </div>
+  </div>
+
                        
                      </div>
                   </div>
@@ -233,10 +255,14 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
    </div>
 </div>
 
-
+<!-- 
 <script type="text/javascript">
   $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
-</script>
-
+</script> -->
+<!-- <script type="text/javascript">
+  $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+</script> -->
