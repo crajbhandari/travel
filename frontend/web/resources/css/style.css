@@ -9461,7 +9461,8 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
     overflow: hidden;
     width: 100%;
     height: auto;
-    padding-top: 56%;
+    padding-top: 55%;
+    object-fit: cover;
 }
 .blog_item_img img{
     position: absolute;
@@ -9671,7 +9672,7 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 }
 
 /*language*/
-.ht-right .lan-selector .ddcommon .ddTitle .ddTitleText span {
+/*.ht-right .lan-selector .ddcommon .ddTitle .ddTitleText span {
     font-size: 14px;
     color: #252525;
 }
@@ -9738,7 +9739,7 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 
 .ht-right {
     padding-top: 7px;
-}
+}*/
 
 .popular_destination_area .single_destination {
     position: relative;
