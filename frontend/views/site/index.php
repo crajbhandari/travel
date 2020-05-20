@@ -1,4 +1,6 @@
 <?php $this->title = 'Welcome'; ?>
+
+
 <!--HEADER SECTION-->
 <section>
    <div class = "tourz-search">
@@ -571,7 +573,7 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have<br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Micky Mouse</h3>
-                                  <a href="">View All</a>
+                                 <!--  <a href="">View All</a> -->
                               </div>
                               <div class = "">
                                 
@@ -590,7 +592,7 @@
                               <p>"Working in conjunction with humanitarian aid agencies, we have <br> supported programmes to help alleviate human suffering.</p>
                               <div class = "testmonial_author">
                                  <h3>- Tom Mouse</h3>
-                                 <a href="">View All</a>
+                               <!--   <a href="">View All</a> -->
                               </div>
                            </div>
                         </div>
@@ -608,13 +610,17 @@
                               </p>
                               <div class = "testmonial_author">
                                  <h3>- Jerry Mouse</h3>
-                                 <a href="">View All</a>
+                                <!--  <a href="">View All</a> -->
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
+               <div class="testimonial-all" >
+                   <a href="">View All</a>
+               </div>
+               
             </div>
          </div>
       </div>
@@ -874,71 +880,38 @@
             <p>World's leading Hotel Booking website,Over 30,000 Hotel rooms worldwide. Book Hotel rooms and enjoy your holidays with distinctive experience</p>
          </div>
          <div class = "row">
-            <div class = "col-sm-12 col-md-4 col-lg-4">
+             <?php foreach ($blogs as $blog): ?>
+            <div class = "col-sm-12 col-md-4 col-lg-4 blog-001">
                <div class = "blog_item">
                   <div class = "blog_item_img">
-                     <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt = "Tour Booking" title = "Tour Booking" class = "img-fluid"/>
+                     <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt = "Tour Booking" title = "Tour Booking" class = "img-fluid"/>
 
                      <a href = "#" class = "blog_item_date">
-                        <h3>15</h3>
-                        <p>Jan</p>
-                     </a>
+
+                        <?php 
+                      $timestamp=\common\components\Misc::dm($blog['date']);
+                        ?>
+                        <h3><?= $timestamp[0];?></h3>
+                        <p><?= $timestamp[1]; ?></p>
+
+            </a>
                   </div>
                   <div class = "blog_details">
-                     <a class = "d-inline-block" href = "#">
-                        <h3>Google inks pact for new 35-storey office</h3>
+                     <a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encrypt($blog['id']); ?> ">
+                        <h3><?= strtoupper($blog['title']);?></h3>
                      </a>
-                     <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
+                     <p><?=
+              substr($blog['content'],0,95).'...';
+                      ?><p>
                      <ul class = "blog-info-link">
-                        <li><a href = "#"><i class = "fa fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li>
-                     </ul>
+                        <li><i class = "fa fa-user"></i> <?= $blog['category'] ?></li>
+                </ul>
                   </div>
                </div>
             </div>
-            <div class = "col-sm-12 col-md-4 col-lg-4">
-               <div class = "blog_item">
-                  <div class = "blog_item_img">
-                     <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt = "Tour Booking" title = "Tour Booking" class = "img-fluid"/>
-                     <a href = "#" class = "blog_item_date">
-                        <h3>15</h3>
-                        <p>Jan</p>
-                     </a>
-                  </div>
-                  <div class = "blog_details">
-                     <a class = "d-inline-block" href = "#">
-                        <h3>Google inks pact for new 35-storey office</h3>
-                     </a>
-                     <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
-                     <ul class = "blog-info-link">
-                        <li><a href = "#"><i class = "fa fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <div class = "col-sm-12 col-md-4 col-lg-4">
-               <div class = "blog_item">
-                  <div class = "blog_item_img">
-                     <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/t1.png" alt = "Tour Booking" title = "Tour Booking" class = "img-fluid"/>
-                     <a href = "#" class = "blog_item_date">
-                        <h3>15</h3>
-                        <p>Jan</p>
-                     </a>
-                  </div>
-                  <div class = "blog_details">
-                     <a class = "d-inline-block" href = "#">
-                        <h3>Google inks pact for new 35-storey office</h3>
-                     </a>
-                     <p>That dominion stars lights dominion divide years for fourth have don't ...</p>
-                     <ul class = "blog-info-link">
-                        <li><a href = "#"><i class = "fa fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href = "#"><i class = "fa fa-comments"></i> 03 Comments</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
+             <?php endforeach; ?>
          </div>
+
       </div>
    </div>
 </section>
@@ -993,6 +966,7 @@
       </div>
    </div>
 </section>
+
 
 
 <!--====== SECTION: FREE CONSULTANT ==========-->

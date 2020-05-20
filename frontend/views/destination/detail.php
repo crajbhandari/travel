@@ -180,23 +180,23 @@
 					<div class="tour_head1 l-info-pack-days days">
 						<h3>Detailed Day Wise Itinerary</h3>
 						<ul>
-							<li class="l-info-pack-plac"> <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
+							<li class="l-info-pack-plac"> <i class="fa fa-clock-o" aria-hidden="true"></i>
 								<h4><span>Day : 1</span> Arrival and Evening Dhow Cruise</h4>
 								<p>Arrive at the airport and transfer to hotel. Check-in time at the hotel will be at 2:00 PM. In the evening, enjoy a tasty dinner on the Dhow cruise. Later, head back to the hotel for a comfortable overnight stay.</p>
 							</li>
-							<li class="l-info-pack-plac"> <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
+							<li class="l-info-pack-plac"> <i class="fa fa-clock-o" aria-hidden="true"></i>
 								<h4><span>Day : 2</span> City Tour and Evening Free for Leisure</h4>
 								<p>After breakfast, proceed for tour of Dubai city. Visit Jumeirah Mosque, World Trade Centre, Palaces and Dubai Museum. Enjoy your overnight stay at the hotel.In the evening, enjoy a tasty dinner on the Dhow cruise. Later, head back to the hotel for a comfortable overnight stay.</p>
 							</li>
-							<li class="l-info-pack-plac"> <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
+							<li class="l-info-pack-plac"> <i class="fa fa-clock-o" aria-hidden="true"></i>
 								<h4><span>Day : 3</span> Desert Safari with Dinner</h4>
 								<p>Relish a yummy breakfast and later, proceed to explore the city on your own. Enjoy shopping at Mercato Shopping Mall, Dubai Mall and Wafi City. In the evening, enjoy the desert safari experience and belly dance performance. Relish a mouth-watering barbecue dinner and enjoy staying overnight in Dubai.</p>
 							</li>
-							<li class="l-info-pack-plac"> <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
+							<li class="l-info-pack-plac"> <i class="fa fa-clock-o" aria-hidden="true"></i>
 								<h4><span>Day : 4</span> Day at leisure</h4>
 								<p>Savour a satiating breakfast and relax for a while. Day Free for leisure. Overnight stay will be arranged in Dubai. In the evening, enjoy a tasty dinner on the Dhow cruise. Later, head back to the hotel for a comfortable overnight stay.</p>
 							</li>
-							<li class="l-info-pack-plac"> <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
+							<li class="l-info-pack-plac"> <i class="fa fa-clock-o" aria-hidden="true"></i>
 								<h4><span>Day : 5</span> Departure</h4>
 								<p>Fill your tummy with yummy breakfast and relax for a while. Later, check out from the hotel and proceed for your onward journey.In the evening, enjoy a tasty dinner on the Dhow cruise. Later, head back to the hotel for a comfortable overnight stay.</p>
 							</li>
@@ -333,13 +333,12 @@
 							</h4> <a href="booking.html" class="link-btn">Book Now</a> </div>
 					<!--====== TRIP INFORMATION ==========-->
 					<div class="tour_right tour_incl tour-ri-com">
-						<h3><i class="fa fa-heart-o" aria-hidden="true"></i> Travel Amenities</h3>
+						<h3>Trip Information</h3>
 						<ul>
-							<li>Swimming pools</li>
-							<li>Wi-Fi & Computer</li>
-							<li>Kitchen facilities</li>
-							<li>Music & GYM</li>
-							<li>Dining</li>
+							<li>Location : Rio,Brazil</li>
+							<li>Arrival Date: Nov 12, 2017</li>
+							<li>Departure Date: Nov 21, 2017</li>
+							<li>Free Sightseeing & Hotel</li>
 						</ul>
 					</div>
 					<!--====== PACKAGE SHARE ==========-->

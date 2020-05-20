@@ -86,22 +86,19 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
         $page = 'home';
-
         $blog = [];
         if (Yii::$app->params['site-settings']['show_blog']['content'] == 1) {
-            $blog = Blog::find()->where(['=', 'visibility', '1'])->orderBy(['date' => SORT_DESC]);
-            if (Yii::$app->params['site-settings']['blog_count']['content'] > 0) {
-                $blog->limit(Yii::$app->params['site-settings']['blog_count']['content']);
-            }
-            $blog = $blog->all();
+            $blog = Blog::find()->where(['=', 'visibility', '1'])
+                                ->orderBy('RAND()')
+                                ->limit(3)
+                                ->asArray()
+                                -> all();
         }
-
-
         return $this->render('index', [
                 'clients'      => Clients::find()->where(['=', 'on_home', '1'])->all(),
                 'testimonials' => Testimonials::find()->all(),
                 'services'     => Services::find()->all(),
-                'blog'         => $blog,
+                'blogs'         => $blog,
                 'content'      => Sections::find()->where(['=', 'page', $page])->orderBy(['section_order' => SORT_ASC, 'created_on' => SORT_ASC])->all(),
         ]);
     }

@@ -11,7 +11,12 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
 <script>
    var city = <?php echo($city); ?>;
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 
 <style>
    .modal {
@@ -159,6 +164,14 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
                            </ul>
                         </div>
                      </div>
+                     <div class="col-sm-6" > 
+                     <select class="js-example-basic-single" style="width: 100%" name="state">
+  <option value="AL">Alabama</option>
+    ...
+  <option value="WY">Wyoming</option>
+</select>
+                       
+                     </div>
                   </div>
                </div>
             </div>
@@ -221,4 +234,11 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
       <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/embed-google-map.jpg" alt = ""/>
    </div>
 </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
 

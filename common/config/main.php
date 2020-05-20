@@ -22,6 +22,7 @@
                     '<controller:\w+>/<id:\d+>'              => '<controller>/view',
                     '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                     '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
+                    'blog/post/<id:[a-zA-Z0-9-]+>/'      => 'blog/post/',
                 ),
             ],
             'helper'     => [
