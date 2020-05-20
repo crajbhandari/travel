@@ -79,3 +79,13 @@
 .place h3 span {
     font-size: 15px;
 }
+.submit-contact
+{
+    background: linear-gradient(to bottom, #2c9651, #2c9651);
+    color: white;
+}
+.submit-contact:hover
+{
+    background: linear-gradient(to bottom, #2c9651, #2c9651);
+    color: white;
+}

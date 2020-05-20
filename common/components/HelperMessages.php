@@ -16,46 +16,14 @@
 
     class HelperMessages extends Component {
         public static function update($data) {
+            $model = new \common\models\generated\Messages();
+            $model->attributes = $data;
+            if ($model->save()) {
 
-            //       $a = json_decode($message);
-            $msg = [];
-            foreach ($data as $m) {
-                $msg[$m['name']] = $m['value'];
-            }
-            $model = new Messages;
-            $model->attributes = $msg;
-            if (!$model->validate()) {
-                return json_encode($model->getErrors());
-            }
-            if ($model->save() == TRUE) {
-
-                $title = 'Message Received from ' . $msg['name'];
-
-                $msgBody = '<ul style="text-align:left; list-style-type: none; padding:0; margin-0; width:100%">' .
-                    '<li><strong>Name:</strong> ' . $msg['name'] . '</li>' .
-                    '<li><strong>Subject:</strong> ' . $title . '</li>' .
-                    '<li><strong>Email:</strong> ' . $msg['email'] . '</li>' .
-                    '<li><strong>Phone:</strong> ' . $msg['phone'] . '</li>' .
-                    '<li><strong>URL:</strong> ' . $msg['url'] . '</li>' .
-                    '</ul>' .
-                    '<h4>Message</h4>'.
-                    '<p style="padding:30px 0; text-align: justify; text-justify: inter-word; font-family: lato; font-size: 13px;">' . $msg['message'] . '</p>';
-
-                $msg = Email::template($title, $msgBody);
-                if(Email::sendTo(Yii::$app->params['email']['system-email'], Yii::$app->params['system_name'], $title, $msg)){
-                   if($msg['email']!=''){
-                       $title = 'Thank You';
-                       $msgbody = '';
-                       $msg = Email::template($title, $msgBody);
-                       Email::sendTo($msg['email'], Yii::$app->params['system_name'], $title, $msg);
-
-                   }
-
-
+                          return json_encode(True) ;
                 }
-                return TRUE;
-            }
-            return FALSE;
+
+            return json_encode(False) ;
         }
 
         public static function getMessages() {
