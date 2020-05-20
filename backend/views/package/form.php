@@ -177,22 +177,24 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
         <option value="O7" data-badge="">Option7</option>
       </select> -->
  
-    <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
+   <!--  <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
       <option value="" disabled selected>Choose your country</option>
-      <option value="1">USA</option>
-      <option value="2">Germany</option>
-      <option value="3">France</option>
-      <option value="4">Poland</option>
-      <option value="5">Japan</option>
+     <optgroup label="team 1">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+  </optgroup>
+  <optgroup label="team 2">
+    <option value="3">Option 3</option>
+    <option value="4">Option 4</option>
+  </optgroup>
     </select>
     <label class="mdb-main-label">Label example</label>
-    <button class="btn-save btn btn-primary btn-sm">Save</button>
+    <button class="btn-save btn btn-primary btn-sm">Add</button> -->
     </div>
   </div>
 
                        
-                     </div>
-                  </div>
+                    
                </div>
             </div>
             <div class = "row">
