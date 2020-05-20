@@ -116,6 +116,9 @@ class SiteController extends Controller {
 
         ]);
     }
+     public function actionTestimonials() {
+        return $this->render('testimonials');
+    }
 
 
     public function actionFaq() {
