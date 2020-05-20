@@ -9603,7 +9603,8 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 }
 
 .testimonial_area .owl-dots .owl-dot.active {
-    background: #FF4A52;
+   /* background: #FF4A52;*/
+   background: #f6b00f;
 }
 
 .testimonial_area .owl-dots {

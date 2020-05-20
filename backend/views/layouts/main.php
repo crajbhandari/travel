@@ -288,6 +288,21 @@ AppAsset::register($this);
          }
       });
    </script>
+ <!--   <script type="text/javascript">
+    $(".js-select2").select2({
+      closeOnSelect : false,
+      placeholder : "Placeholder",
+    
+      allowClear: true,
+      tags: true 
+    });
+</script> -->
+<!-- <script type="text/javascript">
+ $(document).ready(function() {
+$('.mdb-select').materialSelect();
+});
+</script>
+ -->
    </body>
 
    </html>
