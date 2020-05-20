@@ -667,9 +667,9 @@ a:hover {
     margin-top: 30px;
 }
 .list-img {} .list-img img {
-                 width: 70px;
-                 height: 70px;
-                 border-radius: 50px;
+                 width: auto;
+                 height: 100px;
+                 object-fit: cover;
              }
 .list-enq-name {
     display: block;

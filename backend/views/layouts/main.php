@@ -179,6 +179,8 @@ AppAsset::register($this);
                            </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/">List</a>
                            </li>
+                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/banner">Banner</a>
+                           </li>
                         </ul>
                      </div>
                   </li>

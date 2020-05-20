@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\components\HelperMessages;
 use common\models\Blog;
 use common\models\Clients;
+use common\models\generated\Banners;
 use common\models\LoginForm;
 use common\models\Sections;
 use common\models\Services;
@@ -100,6 +101,7 @@ class SiteController extends Controller {
                 'services'     => Services::find()->all(),
                 'blogs'         => $blog,
                 'content'      => Sections::find()->where(['=', 'page', $page])->orderBy(['section_order' => SORT_ASC, 'created_on' => SORT_ASC])->all(),
+                'banners'      =>Banners::find()->asArray()->all(),
         ]);
     }
 
