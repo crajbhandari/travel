@@ -41,6 +41,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/overrides.css">
 
     <?php $this->head() ?>
+   <script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>

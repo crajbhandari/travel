@@ -36,6 +36,7 @@
                     'testimonials/edit/<id:[a-zA-Z0-9-]+>/' => 'testimonials/',
                     'team/edit/<id:[a-zA-Z0-9-]+>/'         => 'team/',
                     'package/category/<id:[a-zA-Z0-9-]+>/'         => 'package/category/',
+                    'amenities/edit/<id:[a-zA-Z0-9-]+>/'         => 'amenities/',
                     'slider/post/<id:[a-zA-Z0-9-]+>/'       => 'slider/post',
                     'faq/edit/<id:[a-zA-Z0-9-]+>/'       => 'faq/',
                     'package/category-edit/<id:[a-zA-Z0-9-]+>/'       => 'package/category',

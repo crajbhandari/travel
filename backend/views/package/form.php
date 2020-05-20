@@ -88,7 +88,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
             <div class = "row">
                <div class = "input-field col s12">
                   <input id = "city-autocomplete" name = "post[city]" type = "text" class = "autocomplete validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
-                  <label for = "city-autocomplete">City</label>
+                  <label for = "city-autocomplete">Destination</label>
                </div>
             </div>
             <div class = "row" style = "margin-top: 40px;">
@@ -112,11 +112,13 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu
             <div class = "row">
                <div class = "input-field col s12">
                    <?php $counter++; ?>
-                  <select id = "<?php echo $counter; ?>" name = "post[site_seen]" required>
-                     <option value = "1" <?= (isset($editable['site_seen']) && $editable['site_seen'] == 1) ? 'selected="selected"' : '' ?>>True</option>
-                     <option value = "0" <?= (isset($editable['site_seen']) && $editable['site_seen'] == 0) ? 'selected="selected"' : '' ?>>False</option>
+                  <label for = "<?php echo $counter; ?>">Select Sight Seeing</label><br><br>
+                  <select id = "<?php echo $counter; ?>" name = "post[sight_seeing]" required>
+                     <option value = "0" <?= (isset($editable['sight_seeing']) && $editable['sight_seeing'] == 0) ? 'selected="selected"' : '' ?>>Inactive</option>
+                     <option value = "1" <?= (isset($editable['sight_seeing']) && $editable['sight_seeing'] == 1) ? 'selected="selected"' : '' ?>>Active</option>
+
                   </select>
-                  <label for = "<?php echo $counter; ?>">Select Site Seen</label>
+
                </div>
             </div>
             <div class = "row">

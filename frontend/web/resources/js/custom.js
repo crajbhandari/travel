@@ -141,12 +141,6 @@ $(document).ready(function() {
             "City Seight Seeings": 'images/icon/15.png',
 "Mandarin Oriental, Hong Kong, China": 'images/icon/25.png',
             "Trump International Hotel & Tower, New York, United States": 'images/icon/26.png',
-            "First World Hotel": 'images/icon/27.png',
-            "MGM Grand Las Vegas Hotel": 'images/icon/28.png',
-            "CityCenter": 'images/icon/29.png',
-            "Holiday Hotel Inn": 'images/icon/13.png',
-            "Tour and Travel Packages": 'images/icon/14.png',
-            "City Seight Seeings": 'images/icon/15.png'
         },
         limit: 8, // The max amount of results that can be shown at once. Default: Infinity.
         onAutocomplete: function(val) {

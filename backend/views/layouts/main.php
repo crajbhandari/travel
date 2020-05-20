@@ -43,6 +43,7 @@ AppAsset::register($this);
 
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" rel = "stylesheet">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/custom.css" rel = "stylesheet">
+      <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 
 
       <!--   <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/css/overrides.css" rel = "stylesheet">-->
@@ -188,6 +189,8 @@ AppAsset::register($this);
                   </li>
                   <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages/" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'messages' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-envelope-o" aria-hidden = "true"></i> Messages</a>
                   </li>
+                  <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/amenities/" class = "collapsible-header <?php echo (Yii::$app->controller->id == 'amenities' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>"><i class = "fa fa-envelope-o" aria-hidden = "true"></i> Amenities</a>
+                  </li>
 
                    <?php if ((\Yii::$app->user->identity->role == 'admin')) { ?>
                       <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo ($this->title == 'User') ? 'menu-active' : '' ?>"><i class = "fa fa-user" aria-hidden = "true"></i> Users</a>
@@ -219,7 +222,7 @@ AppAsset::register($this);
                            </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a>
                            </li>
-                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities">Cities</a>
+                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities">Destination</a>
                            </li>
                         </ul>
                      </div>
@@ -267,6 +270,8 @@ AppAsset::register($this);
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/select2/dist/js/select2.full.min.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/slider-menu.jquery.js"></script>
+   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
    <?php if (Yii::$app->session->hasFlash('flash')): ?>
       <script>
          notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);

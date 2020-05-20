@@ -79,3 +79,13 @@
 .place h3 span {
     font-size: 15px;
 }
+.send
+{
+    background: linear-gradient(to bottom, #2c9651, #2c9651);
+    color: white;
+}
+.send:hover
+{
+    background: linear-gradient(to bottom, #2c9651, #2c9651);
+    color: white;
+}

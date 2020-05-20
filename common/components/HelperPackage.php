@@ -155,7 +155,7 @@ class HelperPackage extends Component {
         $model->title = $data['title'];
         $model->city = $data['city'];
         $model->visibility = $data['visibility'];
-        $model->site_seen  = $data['site_seen'];
+        $model->sight_seeing  = $data['sight_seeing'];
         $model->itinerary = $data['itinerary'];
         $model->about_tour = $data['about'];
         $model->info = $data['info'];

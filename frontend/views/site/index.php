@@ -1,5 +1,8 @@
-<?php $this->title = 'Welcome'; ?>
+<?php $this->title = 'Welcome'; 
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/message.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.validate.min.js');
 
+?>
 
 <!--HEADER SECTION-->
 <section>
@@ -930,13 +933,13 @@
          </div>
          <div class = "col-md-6 col-sm-6 col-xs-12 form_1">
             <div class = "succ_mess">Thank you for contacting us we will get back to you soon.</div>
-            <form id = "home_form" name = "home_form" action = "mail/send.php">
+            <form id = "home_form" name = "home_form" method="post">
                <ul>
                   <li>
                      <input type = "text" name = "ename" value = "" id = "ename" placeholder = "Name" required>
                   </li>
                   <li>
-                     <input type = "tel" name = "emobile" value = "" id = "emobile" placeholder = "Mobile" required>
+                     <input type = "tel" name = "ephone" value = "" id = "emobile" placeholder = "Mobile" required>
                   </li>
                   <li>
                      <input type = "email" name = "eemail" value = "" id = "eemail" placeholder = "Email id" required>
@@ -948,13 +951,13 @@
                      <input type = "text" name = "ecity" value = "" id = "ecity" placeholder = "City" required>
                   </li>
                   <li>
-                     <input type = "text" name = "ecount" value = "" id = "ecount" placeholder = "Country" required>
+                     <input type = "text" name = "ecountry" value = "" id = "ecountry" placeholder = "Country" required>
                   </li>
                   <li>
-                     <textarea name = "emess" cols = "40" rows = "3" id = "text-comment" placeholder = "Enter your message"></textarea>
+                     <textarea name = "emessage" cols = "40" rows = "3" id = "text-comment" placeholder = "Enter your message" required></textarea>
                   </li>
                   <li>
-                     <input type = "submit" value = "Submit" id = "send_button">
+                     <a class = "btn btn-default btn-block send">Submit</a>
                   </li>
                </ul>
             </form>
@@ -966,47 +969,7 @@
       </div>
    </div>
 </section>
-
-
-
 <!--====== SECTION: FREE CONSULTANT ==========-->
-<!-- <section>
-   <div class = "offer">
-      <div class = "container">
-         <div class = "row">
-            <div class = "col-md-6">
-               <div class = "offer-l"><span class = "ol-1"></span> <span class = "ol-2"><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i><i class = "fa fa-star"></i></span> <span class = "ol-4">Standardized Budget Tour</span> <span class = "ol-3"></span> <span class = "ol-5">$900/-</span>
-                  <ul>
-                     <li class = "wow fadeInUp" data-wow-duration = "0.5s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis1.png" alt = "">
-                        </a><span>Free Car Fair</span>
-                     </li>
-                     <li class = "wow fadeInUp" data-wow-duration = "0.7s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis2.png" alt = ""> </a><span>Breakfast</span>
-                     </li>
-                     <li class = "wow fadeInUp" data-wow-duration = "0.9s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis3.png" alt = ""> </a><span>Lunch</span>
-                     </li>
-                     <li class = "wow fadeInUp" data-wow-duration = "1.1s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis4.png" alt = ""> </a><span>Night Out</span>
-                     </li>
-                     <li class = "wow fadeInUp" data-wow-duration = "1.3s">
-                        <a href = "#!" class = "waves-effect waves-light btn-large offer-btn"><img src = "images/icon/dis5.png" alt = ""> </a><span>Hotel</span>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-            <div class = "col-md-6">
-               <div class = "offer-r">
-                  <div class = "or-1"><span class = "or-11">go</span> <span class = "or-12">Stays</span></div>
-                  <div class = "or-2"><span class = "or-21">Get</span> <span class = "or-22">70%</span> <span class = "or-23">Off</span> <span class = "or-24">use code: RG5481WERQ</span> <span class = "or-25"></span></div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
- -->
 
 
 
