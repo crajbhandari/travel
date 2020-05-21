@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2020 at 12:08 PM
+-- Generation Time: May 21, 2020 at 09:31 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `travel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `amenities`
+--
+
+CREATE TABLE `amenities` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(120) COLLATE utf8_swedish_ci NOT NULL,
+  `display_name` varchar(120) COLLATE utf8_swedish_ci DEFAULT NULL,
+  `icon` varchar(60) COLLATE utf8_swedish_ci DEFAULT NULL,
+  `is_active` tinyint(4) NOT NULL DEFAULT 1,
+  `description` longtext COLLATE utf8_swedish_ci DEFAULT NULL,
+  `created _on` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_on` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Dumping data for table `amenities`
+--
+
+INSERT INTO `amenities` (`id`, `name`, `display_name`, `icon`, `is_active`, `description`, `created _on`, `updated_on`) VALUES
+(23, 'tanya james', 'Rerum atque duis ess', 'fa-adjust', 0, 'Neque ut laudantium', '2020-05-20 11:00:31', '2020-05-20 11:00:31'),
+(24, 'merritt rodriquez', 'Dolor ducimus adipi', 'fa-adjust', 0, 'Delectus officia eu', '2020-05-20 11:00:41', '2020-05-20 11:00:41');
 
 -- --------------------------------------------------------
 
@@ -38,8 +64,7 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `image`, `alt_text`) VALUES
-(5, '15899659891.jpg', 'home'),
-(6, '15899691844.jpg', 'check');
+(5, '15900447099.jpg', 'home');
 
 -- --------------------------------------------------------
 
@@ -63,10 +88,13 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `date`, `title`, `image`, `content`, `author`, `category`, `visibility`) VALUES
-(4, '2020-04-03 17:41:51', 'Mollitia pariatur E', '15875611815.jpg', '<p><span style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem Ipsum</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br></p>', 'Omnis et nobis eos', 'ex odio animi eiusm', 1),
-(9, '2020-04-07 22:06:43', 'asf', '1589873565f.png', '<p><strong style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem Ipsum</strong><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br></p>', 'asdd', 'asdf', 1),
-(13, '2020-05-19 13:01:35', 'Est Nam suscipit inv', '15898725956.jpg', '<p><strong style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem Ipsum</strong><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br></p>', 'Mara Thompson', 'est voluptatem et e', 1),
-(14, '2020-05-19 13:01:58', 'At velit est sit m', '1589872618i.jpg', '<p><strong style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem Ipsum</strong><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br></p>', 'Oscar Harrison', 'et mollitia sapiente', 1);
+(4, '2020-04-03 17:41:51', 'Lorem Ipsum', '15882419734.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Travel', 1),
+(5, '2020-04-03 19:05:14', 'Count of Kingdoms', '15882419735.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Food', 0),
+(6, '2020-04-07 14:30:09', 'Pharaoh of Orcs', '15882419736.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Hotel', 1),
+(7, '2020-04-07 18:58:55', 'Earl of Alliances', '15882419734.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Trekking', 0),
+(9, '2020-04-07 22:06:43', 'Noble of Finance', '15882419735.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Travel', 1),
+(10, '2020-04-08 10:43:10', 'Lady of Borders', '15882419736.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Food', 1),
+(13, '2020-05-09 12:44:33', 'Professor of Transport', '15882419734.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Hotel', 1);
 
 -- --------------------------------------------------------
 
@@ -108,6 +136,9 @@ INSERT INTO `blog_comments` (`id`, `blog_id`, `customer_id`, `is_active`, `is_ve
 CREATE TABLE `city` (
   `id` int(11) NOT NULL,
   `name` varchar(200) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `images` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
   `created_on` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -115,10 +146,16 @@ CREATE TABLE `city` (
 -- Dumping data for table `city`
 --
 
-INSERT INTO `city` (`id`, `name`, `created_on`) VALUES
-(1, 'Europe', '0000-00-00'),
-(2, 'Dubai', '0000-00-00'),
-(3, 'Nepal', '2020-05-06');
+INSERT INTO `city` (`id`, `name`, `description`, `images`, `location`, `created_on`) VALUES
+(2, 'Dubai', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '0000-00-00'),
+(5, 'Et nobis quia volupt', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-15'),
+(6, 'Accusantium omnis na', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-15'),
+(7, 'Dolorem fugit esse', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-15'),
+(8, 'Dolorem maiores erro', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-19'),
+(9, 'Quo excepturi labori', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-20'),
+(11, 'Caryn Coleman', '', NULL, 'Eum libero cumque to', '2020-05-21'),
+(12, 'Jillian Wood', '', '[\"15900324397.jpg\",\"1590032439m.jpg\"]', 'Et fuga Ipsum eu ut', '2020-05-21'),
+(16, 'Vel in veniam eu qu', NULL, NULL, NULL, '2020-05-21');
 
 -- --------------------------------------------------------
 
@@ -248,7 +285,9 @@ INSERT INTO `messages` (`id`, `name`, `email`, `phone`, `message`, `city`, `coun
 (52, 'Check', 'pudydyg@mailinator.net', '+1 (275) 262-1866', 'Quod laborum omnis e', 'Non quos est illo d', 'Dolores quis ea do a', 'Qui aut quia at poss', 0, '2020-05-20 13:26:49'),
 (53, 'Renee Atkinson', 'sahyvaqace@mailinator.net', '+1 (515) 616-1014', 'Sed voluptatem Pari', 'Nulla fugiat cumque ', 'Ad possimus dicta e', 'Illo tenetur et nequ', 1, '2020-05-20 13:27:35'),
 (54, 'Genevieve Randall', 'cesuhewumi@mailinator.net', '+1 (582) 669-9364', 'asdcasdc', 'Officia sequi quod s', 'Et molestiae irure v', 'Rerum repudiandae an', 1, '2020-05-20 13:29:58'),
-(55, 'Joshua Roberts', 'dikuliji@mailinator.net', '+1 (182) 846-9164', 'Repudiandae culpa vo', 'Recusandae Accusant', 'Sunt repellendus Ac', 'Doloremque consequat', 1, '2020-05-20 13:36:20');
+(55, 'Joshua Roberts', 'dikuliji@mailinator.net', '+1 (182) 846-9164', 'Repudiandae culpa vo', 'Recusandae Accusant', 'Sunt repellendus Ac', 'Doloremque consequat', 1, '2020-05-20 13:36:20'),
+(56, 'Bert Simpson', 'fytizyb@mailinator.com', '+1 (821) 989-8654', 'Aut veniam voluptat', 'Blanditiis veritatis', 'Esse illo eum harum ', 'Repudiandae sequi fu', 1, '2020-05-21 17:26:23'),
+(57, 'Britanni Phelps', 'fapunutyno@mailinator.net', '+1 (372) 236-8438', 'Nulla eum deserunt n', 'Iusto maxime in dese', 'Harum repellendus V', 'Non suscipit vero el', 1, '2020-05-21 17:27:12');
 
 -- --------------------------------------------------------
 
@@ -260,6 +299,7 @@ CREATE TABLE `package` (
   `id` int(11) NOT NULL,
   `title` varchar(200) DEFAULT NULL,
   `itinerary` longtext DEFAULT NULL,
+  `about_tour` longtext DEFAULT NULL,
   `info` longtext DEFAULT NULL,
   `budget` varchar(200) DEFAULT NULL,
   `images` longtext DEFAULT NULL,
@@ -270,18 +310,24 @@ CREATE TABLE `package` (
   `duration` varchar(200) NOT NULL,
   `discount` int(11) DEFAULT NULL,
   `iframe` text DEFAULT NULL,
-  `city` varchar(200) DEFAULT NULL
+  `city` varchar(200) DEFAULT NULL,
+  `category` int(11) DEFAULT NULL,
+  `sight_seeing` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `package`
 --
 
-INSERT INTO `package` (`id`, `title`, `itinerary`, `info`, `budget`, `images`, `visibility`, `created_by`, `created_on`, `location`, `duration`, `discount`, `iframe`, `city`) VALUES
-(2, 'Youth Travel Package', '<h3><u><strong>East Taiwan in 3 days</strong></u></h3><h3><u><strong><br></strong></u></h3><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Train Station</span></b><br></p></td><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Itinerary</span></b><br></p></td></tr><tr><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day </span>1</b><br></p></td><td><span style=\"font-size: small\"><span style=\"line-height: 115%\">Taipei - </span><span style=\"line-height: 115%\">Luodong</span></span></td><td><span style=\"line-height: 115%\">Travel from Taipei to Yilan’s National Center for Traditional Arts</span></td></tr><tr><td><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day 2</span></b></td><td><span style=\"line-height: 115%\">Luodon - Hualien</span></td><td><p><span style=\"line-height: 115%\">Enjoy activities & shows at the center</span><br></p></td></tr><tr><td><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day 3<br></span></b></td><td><span style=\"font-size: small\"><span style=\"line-height: 115%\">Hualien  Taroko</span></span></td><td><span style=\"line-height: 115%\">Taroko Gorge Tour</span></td></tr></tbody></table><h3><u><strong><br></strong></u></h3>', '<p><span style=\"font-family: Arial\"><span><strong>Inclusions:</strong><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\"> <br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 5 Days Taiwan Rail Pass Package<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 3 Nights YH (Type B) Accommodation<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 1 Night Accommodation at Forte Dong Shan Villa twin share with breakfast<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- National Center for Traditional Arts: Entrance Fee & Show<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- Taiwanese Traditional Arts Workshop – 1 DIY Course<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 1 Lunch Voucher</span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\"><br>\r\n</span></span></span>as<br></p>', '$180', '[\"15872145125.jpg\",\"1587192250s.jpg\",\"1587001446e.png\",\"1587001433o.png\"]', 1, 1, '2020-04-12', '', '', NULL, NULL, NULL),
-(3, 'Tempora rem adipisci', '', '', 'Odio fugiat debitis ', '[\"15872146995.jpg\",\"15872146996.jpg\",\"1587212833q.jpg\"]', 1, 1, '2020-04-18', '', '', NULL, NULL, NULL),
-(4, 'Eos mollitia corrup', '', '', 'Maxime amet adipisc', '[\"15872795002.jpg\",\"15872795005.jpg\",\"15872795006.jpg\",\"15872167585.jpg\",\"15872167586.jpg\"]', 1, 1, '2020-04-18', '', '', NULL, NULL, NULL),
-(5, 'Rio de Janeiro(Brazil)', '<p><br></p><table class=\"table table-bordered\"><tbody><tr><td><p>Places covered<br></p></td><td>Inclusions</td><td>Exclusions</td><td>Event Date</td></tr><tr><td>Rio De Janeiro ,Brazil</td><td>Accommodation</td><td>Return Airfare & Taxes</td><td>\r\n								Nov 12, 2017</td></tr><tr><td>Iguassu Falls </td><td>\r\n								8 Breakfast, 3 Dinners</td><td>Arrival & Departure transfers</td><td>\r\n								Nov 14, 2017</td></tr><tr><td><p>Peru,Lima <br></p></td><td>\r\n								First-class Travel</td><td><p>travel insurance<br></p></td><td>Nov 16, 2017</td></tr><tr><td>Cusco & Buenos Aires </td><td><p>\r\n								Free Sightseeing<br></p></td><td>Service tax of 4.50%</td><td>\r\n								Nov 18, 2017</td></tr></tbody></table><p><br></p>', '<p><br></p><p>Discover two of South America’s greatest cities, Rio de Janeiro and \r\nBuenos Aires, at a leisurely pace. A major highlight on this journey is a\r\n visit to Iguassu Falls in between your two city stays. It truly is one \r\nof the most spectacular sights on Earth. See the impressive falls from \r\nboth the Brazilian and Argentine sides.</p><p>\r\n						<br></p><p>Brazil’s view takes you through clouds of mist and the \r\nopportunity to see these 275 falls, spanning nearly two miles! \r\nArgentina’s side allows you to walk along the boardwalk network and \r\nembark on a jungle train through the forest for unforgettable views. \r\nHear the deafening roar and admire the brilliant rainbows created by the\r\n clouds of spray, and take in the majesty of this wonder of the world. \r\nFrom vibrant cities to scenic beauty, this vacation to Rio de Janeiro, \r\nIguassu Falls, and Buenos Aires will leave you with vacation memories \r\nyou’ll cherish for life.</p><p><br></p>', '$500', '[\"1588242011g.png\",\"1588242011g.jpg\",\"15882420111.jpg\",\"15882420112.jpg\",\"15882420113.jpg\",\"15882419731.png\",\"15882419732.png\",\"15882419734.png\",\"15882419735.png\",\"15882419736.png\"]', 1, 1, '2020-04-22', 'Rio,Brazil', '8 Nights/ 9 Days', 50, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d805184.6331292129!2d144.49266890254142!3d-37.97123689954809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC!5e0!3m2!1sen!2sau!4v1588250355174!5m2!1sen!2sau\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', NULL);
+INSERT INTO `package` (`id`, `title`, `itinerary`, `about_tour`, `info`, `budget`, `images`, `visibility`, `created_by`, `created_on`, `location`, `duration`, `discount`, `iframe`, `city`, `category`, `sight_seeing`) VALUES
+(2, 'Youth Travel Package', '<h3><u><strong>East Taiwan in 3 days</strong></u></h3><h3><u><strong><br></strong></u></h3><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Train Station</span></b><br></p></td><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Itinerary</span></b><br></p></td></tr><tr><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day </span>1</b><br></p></td><td><span style=\"font-size: small\"><span style=\"line-height: 115%\">Taipei - </span><span style=\"line-height: 115%\">Luodong</span></span></td><td><span style=\"line-height: 115%\">Travel from Taipei to Yilan’s National Center for Traditional Arts</span></td></tr><tr><td><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day 2</span></b></td><td><span style=\"line-height: 115%\">Luodon - Hualien</span></td><td><p><span style=\"line-height: 115%\">Enjoy activities & shows at the center</span><br></p></td></tr><tr><td><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day 3<br></span></b></td><td><span style=\"font-size: small\"><span style=\"line-height: 115%\">Hualien  Taroko</span></span></td><td><span style=\"line-height: 115%\">Taroko Gorge Tour</span></td></tr></tbody></table><h3><u><strong><br></strong></u></h3>', NULL, '<p><span style=\"font-family: Arial\"><span><strong>Inclusions:</strong><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\"> <br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 5 Days Taiwan Rail Pass Package<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 3 Nights YH (Type B) Accommodation<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 1 Night Accommodation at Forte Dong Shan Villa twin share with breakfast<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- National Center for Traditional Arts: Entrance Fee & Show<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- Taiwanese Traditional Arts Workshop – 1 DIY Course<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 1 Lunch Voucher</span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\"><br>\r\n</span></span></span>as<br></p>', '$180', '[]', 1, 1, '2020-04-12', '', '', NULL, NULL, NULL, 1, 0),
+(3, 'Tempora rem adipisci', '', NULL, '', 'Odio fugiat debitis ', '[\"1587212833q.jpg\"]', 1, 1, '2020-04-18', '', '', NULL, NULL, NULL, 2, 0),
+(4, 'Eos mollitia corrup', '', NULL, '', 'Maxime amet adipisc', '[\"15872795002.jpg\",\"15872795005.jpg\",\"15872795006.jpg\",\"15872167585.jpg\",\"15872167586.jpg\"]', 1, 1, '2020-04-18', '', '', NULL, NULL, NULL, 3, 0),
+(5, 'Rio de Janeiro(Brazil)', '<p><br></p><table class=\"table table-bordered\"><tbody><tr><td><p>Places covered<br></p></td><td>Inclusions</td><td>Exclusions</td><td>Event Date</td></tr><tr><td>Rio De Janeiro ,Brazil</td><td>Accommodation</td><td>Return Airfare & Taxes</td><td>\r\n								Nov 12, 2017</td></tr><tr><td>Iguassu Falls </td><td>\r\n								8 Breakfast, 3 Dinners</td><td>Arrival & Departure transfers</td><td>\r\n								Nov 14, 2017</td></tr><tr><td><p>Peru,Lima <br></p></td><td>\r\n								First-class Travel</td><td><p>travel insurance<br></p></td><td>Nov 16, 2017</td></tr><tr><td>Cusco & Buenos Aires </td><td><p>\r\n								Free Sightseeing<br></p></td><td>Service tax of 4.50%</td><td>\r\n								Nov 18, 2017</td></tr></tbody></table><p><br></p>', 'sfgasd', '<p><br></p><p>Discover two of South America’s greatest cities, Rio de Janeiro and \r\nBuenos Aires, at a leisurely pace. A major highlight on this journey is a\r\n visit to Iguassu Falls in between your two city stays. It truly is one \r\nof the most spectacular sights on Earth. See the impressive falls from \r\nboth the Brazilian and Argentine sides.</p><p>\r\n						<br></p><p>Brazil’s view takes you through clouds of mist and the \r\nopportunity to see these 275 falls, spanning nearly two miles! \r\nArgentina’s side allows you to walk along the boardwalk network and \r\nembark on a jungle train through the forest for unforgettable views. \r\nHear the deafening roar and admire the brilliant rainbows created by the\r\n clouds of spray, and take in the majesty of this wonder of the world. \r\nFrom vibrant cities to scenic beauty, this vacation to Rio de Janeiro, \r\nIguassu Falls, and Buenos Aires will leave you with vacation memories \r\nyou’ll cherish for life.</p><p><br></p>', '$500', '[\"1588242011g.png\",\"1588242011g.jpg\",\"15882420111.jpg\",\"15882420112.jpg\",\"15882420113.jpg\",\"15882419731.png\",\"15882419732.png\",\"15882419734.png\",\"15882419735.png\"]', 1, 1, '2020-04-22', 'Rio,Brazil', '8 Nights/ 9 Days', 50, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d805184.6331292129!2d144.49266890254142!3d-37.97123689954809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC!5e0!3m2!1sen!2sau!4v1588250355174!5m2!1sen!2sau\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', NULL, 1, 0),
+(6, 'Ut reprehenderit quo', '', '', '', 'Vitae earum illo nul', NULL, 1, 1, '2020-05-15', 'Ea non expedita prov', 'Temporibus minim et ', 0, 'In non dolor quibusd', 'Accusantium omnis na', NULL, 0),
+(7, 'Consectetur dolor ra', '', '', '', 'Reprehenderit dolore', NULL, 1, 1, '2020-05-15', 'Excepturi accusamus ', 'Cillum et quas quis ', 0, 'In sit incididunt sa', 'Dolorem fugit esse', 7, 0),
+(8, 'Quisquam nulla nostr', '', '', '', 'Voluptate qui eum ve', NULL, 1, 1, '2020-05-19', 'Voluptas voluptas ac', 'Aut consectetur eli', 0, 'Quam ut veritatis mi', 'Dolorem maiores erro', NULL, 0),
+(10, 'Consectetur quisquam', '', '', '', 'Praesentium in repre', '[\"1590041681d.png\",\"1590041681e.png\"]', 1, 1, '2020-05-20', 'Praesentium illo sed', 'Error cupiditate inv', 0, 'Laudantium Nam sint', 'Vel in veniam eu qu', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -300,8 +346,17 @@ CREATE TABLE `package_category` (
 --
 
 INSERT INTO `package_category` (`id`, `name`, `parent`) VALUES
-(1, 'test', 0),
-(2, 'test1', 1);
+(1, 'Family', 0),
+(2, 'Family 1', 1),
+(3, 'Family 2', 1),
+(4, 'Trekking', 0),
+(5, 'Honeymoon', 0),
+(6, 'Trekking 1', 4),
+(7, 'Trekking 2', 4),
+(8, 'Trekking 3', 4),
+(9, 'Group', 0),
+(10, 'Regular', 0),
+(11, 'Weekend', 0);
 
 -- --------------------------------------------------------
 
@@ -318,6 +373,13 @@ CREATE TABLE `package_request` (
   `message` longtext DEFAULT NULL,
   `posted_on` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `package_request`
+--
+
+INSERT INTO `package_request` (`id`, `package_id`, `name`, `email`, `city`, `message`, `posted_on`) VALUES
+(1, 2, 'sfa', 'asf', 'asf', 'asf', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -341,7 +403,11 @@ CREATE TABLE `package_review` (
 --
 
 INSERT INTO `package_review` (`id`, `package_id`, `name`, `email`, `city`, `message`, `rating`, `posted_on`) VALUES
-(1, 2, 'Random', 'example@example.com', 'Europe', 'lorem ipsum', 4, '2020-05-05');
+(1, 2, 'Random', 'example@example.com', 'Europe', 'lorem ipsum', 5, '2020-05-05'),
+(2, 3, 'Random', 'example@example.com', 'Europe', 'lorem ipsum', 2, '2020-05-05'),
+(3, 2, 'Random', 'example@example.com', 'Europe', 'lorem ipsum', 2, '2020-05-05'),
+(4, 2, 'Random', 'example@example.com', 'Europe', 'lorem ipsum', 1, '2020-05-05'),
+(5, 4, 'Random', 'example@example.com', 'Europe', 'lorem ipsum', 5, '2020-05-05');
 
 -- --------------------------------------------------------
 
@@ -447,14 +513,9 @@ CREATE TABLE `session` (
 --
 
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-('fp3lha18c97mlmd8mfru991h3v', 1589972784, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31343a222f74726176656c2f6170706c6574223b5f5f69647c693a313b),
-('r2j6c5k6vsfkjb5v0qabl0acmo', 1589972834, 0x5f5f666c6173687c613a303a7b7d),
-('4holgd84a3mmkqegubcc87v7iu', 1589941775, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31343a222f74726176656c2f6170706c6574223b5f5f69647c693a313b),
-('lp2qh09v3pdgvdpd3mh4j74n84', 1589941733, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31343a222f74726176656c2f6170706c6574223b),
-('m8mfm2oc6s1togi7f3hrk7todi', 1589941716, 0x5f5f666c6173687c613a303a7b7d),
-('ns32a5uolpu0dlg5a14o91uibe', 1589886640, 0x5f5f666c6173687c613a303a7b7d),
-('i9guqpplhvrq02eimep8fgf6d1', 1589885434, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32333a222f74726176656c2f6170706c65742f73657474696e6773223b5f5f69647c693a313b),
-('pt98qblm88tj42gndss00mhvt6', 1589892527, 0x5f5f666c6173687c613a303a7b7d);
+('cru2vmjgr46k7fhbfa9h3f7los', 1590042866, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31343a222f74726176656c2f6170706c6574223b5f5f69647c693a313b),
+('8ln36mbq9d9i93dc1rjltt67n5', 1590049629, 0x5f5f666c6173687c613a303a7b7d),
+('i0iif4v75udp7g6cnookhj0h64', 1590049805, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32373a222f74726176656c2f6170706c65742f7061636b6167652f706f7374223b5f5f69647c693a313b);
 
 -- --------------------------------------------------------
 
@@ -483,8 +544,7 @@ INSERT INTO `settings` (`id`, `slug`, `type`, `caption`, `is_editable`, `content
 (26, 'blog_count', 'text', 'Maximum number of blog posts in the homepage', 1, '6'),
 (27, 'show_slider', 'boolean', 'Show / Hide revolution slider', 1, '1'),
 (28, 'fonts', 'json', 'Fonts that will be used throughout the website', 1, '{\"main\":{\"name\":\"Poppins\",\"size\":\"18\",\"weight\":\"300\",\"type\":\"sherif\"}\r\n}'),
-(29, 'social', 'json', 'Social media Links', 1, '[{\r\n\"facebook\":\"facebook.com/codecater\",\r\n\"google\":\"google.com\",\r\n\"twitter\":\"twitter.com\",\r\n\"linkedin\":\"linkedin.com\",\r\n\"youtube\":\"youtube.com\"\r\n}]'),
-(30, 'home_banner', 'text', 'Image for home page', 1, 'home_banner');
+(29, 'social', 'json', 'Social media Links', 1, '[{\r\n\"facebook\":\"facebook\",\r\n\"google\":\"google\",\r\n\"twitter\":\"twitter\",\r\n\"linkedin\":\"linkedin\",\r\n\"youtube\":\"youtube\"\r\n}]');
 
 -- --------------------------------------------------------
 
@@ -509,8 +569,9 @@ CREATE TABLE `slider` (
 
 INSERT INTO `slider` (`id`, `slide_index`, `image`, `content`, `content_align`, `link`, `link_text`, `created_on`) VALUES
 (1, 1, '1586329451v.png', '<div style=\"line-height: 3;\"><font color=\"#efefef\"><span style=\"font-size: 28px;\">Your 21</span><sup><span style=\"font-size: 28px;\">st</span></sup><span style=\"font-size: 28px;\"> century representation</span></font></div><div style=\"line-height: 3;\"><span style=\"font-size: 28px;\"><font color=\"#efefef\">and communication agency</font></span>\r\n<br class=\"Apple-interchange-newline\"></div>', 'left', 'https://gateway-scandinavia.com/site/about/', 'About Us', '2019-02-18 14:36:28'),
+(2, 2, '15863294311.png', '<h3 style=\"line-height: 3;\"><font color=\"#efefef\"><span style=\"font-size: 28px;\">Harnessing the power of </span><br><span style=\"font-size: 28px;\">research & big data analytics </span><span style=\"font-size: 28px;\">\r\n</span></font><br class=\"Apple-interchange-newline\"></h3>', 'left', 'https://gateway-scandinavia.com/site/team/', 'Our Team', '2019-02-18 14:45:47'),
 (3, 3, '15863247787.png', '<h4 style=\"line-height: 3;\"><font color=\"#fccd09\"><span style=\"font-size: 28px;\">Tailored, perfectly targeted</span><br><span style=\"font-size: 28px;\">and latest solutions</span></font></h4>', 'left', 'https://gateway-scandinavia.com/site/contact/', 'Contact Us', '2019-02-18 14:47:32'),
-(4, 0, '', '<p>set<br></p>', 'right', 'https://www.google.com/', 'etests', NULL),
+(4, 0, '15863250421.png', '<p>set<br></p>', 'right', 'https://www.google.com/', 'etests', NULL),
 (6, 0, '1586397342t.png', '<p>Slider<br></p>', 'right', 'https://app.asana.com/0/1159109502936406/board', 'Slider', '2020-04-09 11:55:42');
 
 -- --------------------------------------------------------
@@ -601,6 +662,12 @@ INSERT INTO `user` (`id`, `incorrect_login`, `name`, `role`, `username`, `image`
 --
 
 --
+-- Indexes for table `amenities`
+--
+ALTER TABLE `amenities`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `banners`
 --
 ALTER TABLE `banners`
@@ -651,7 +718,8 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `package`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_Created_by` (`created_by`);
+  ADD KEY `FK_Created_by` (`created_by`),
+  ADD KEY `FK_category` (`category`);
 
 --
 -- Indexes for table `package_category`
@@ -735,16 +803,22 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `amenities`
+--
+ALTER TABLE `amenities`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `blog_comments`
@@ -756,7 +830,7 @@ ALTER TABLE `blog_comments`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -774,31 +848,31 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `package_category`
 --
 ALTER TABLE `package_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `package_request`
 --
 ALTER TABLE `package_request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `package_review`
 --
 ALTER TABLE `package_review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -822,7 +896,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `slider`
@@ -862,7 +936,8 @@ ALTER TABLE `blog_comments`
 -- Constraints for table `package`
 --
 ALTER TABLE `package`
-  ADD CONSTRAINT `FK_Created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `FK_Created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_category` FOREIGN KEY (`category`) REFERENCES `package_category` (`id`);
 
 --
 -- Constraints for table `sections`

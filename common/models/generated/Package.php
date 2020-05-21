@@ -5,12 +5,11 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "{{%package}}".
+ * This is the model class for table "package".
  *
  * @property int $id
  * @property string $title
  * @property string $itinerary
- * @property string $about_tour
  * @property string $info
  * @property string $budget
  * @property string $images
@@ -22,10 +21,10 @@ use Yii;
  * @property int $discount
  * @property string $iframe
  * @property string $city
- * @property int $category
+ * @property string $category
+ * @property int $sight_seeing
  *
  * @property User $createdBy
- * @property PackageCategory $category0
  */
 class Package extends \yii\db\ActiveRecord
 {
@@ -34,7 +33,7 @@ class Package extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%package}}';
+        return 'package';
     }
 
     /**
@@ -44,12 +43,11 @@ class Package extends \yii\db\ActiveRecord
     {
         return [
             [['itinerary', 'about_tour', 'info', 'images', 'iframe'], 'string'],
-            [['visibility', 'created_by', 'discount', 'category'], 'integer'],
+            [['visibility', 'created_by', 'discount', 'category', 'sight_seeing'], 'integer'],
             [['created_by', 'location', 'duration'], 'required'],
             [['created_on'], 'safe'],
-            [['title', 'budget', 'location', 'duration', 'city'], 'string', 'max' => 200],
+            [['title', 'budget', 'location', 'duration', 'city', 'category'], 'string', 'max' => 200],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['category'], 'exist', 'skipOnError' => true, 'targetClass' => PackageCategory::className(), 'targetAttribute' => ['category' => 'id']],
         ];
     }
 
@@ -62,7 +60,6 @@ class Package extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'itinerary' => 'Itinerary',
-            'about_tour' => 'About Tour',
             'info' => 'Info',
             'budget' => 'Budget',
             'images' => 'Images',
@@ -75,6 +72,7 @@ class Package extends \yii\db\ActiveRecord
             'iframe' => 'Iframe',
             'city' => 'City',
             'category' => 'Category',
+            'sight_seeing' => 'Sight Seeing',
         ];
     }
 
@@ -84,13 +82,5 @@ class Package extends \yii\db\ActiveRecord
     public function getCreatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCategory0()
-    {
-        return $this->hasOne(PackageCategory::className(), ['id' => 'category']);
     }
 }
