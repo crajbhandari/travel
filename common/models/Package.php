@@ -7,9 +7,8 @@
          * @inheritdoc
          */
         public function rules() {
-            return [
+            return  [
                     [['itinerary', 'info', 'images', 'iframe', 'about_tour'], 'string'],
-
             ];
         }
         public function getCategory() {

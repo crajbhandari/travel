@@ -1,9 +1,10 @@
 $(function () {
+   var modal = $('#modal-section-categories');
 
    $('.add-categories').on('click', function () {
-      alert('ok')
-
-      $('#modal-section-categories').modal('open');
+      //   alert('ok');
+      console.log(modal);
+      modal.modal('open');
    });
 
 
