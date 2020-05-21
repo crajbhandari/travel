@@ -189,28 +189,43 @@ class PackageController extends Controller {
         return false;
     }
 
-    public function actionCities($id = '') {
-        $id = Misc::decodeUrl($id);
+    public function actionCities() {
         $page = 'cities';
         $cities = City::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
         return $this->render('cities/index.php', [
                 'cities'   => $cities,
-                'editable' => ($id > 0) ? City::findOne($id) : false,
+
         ]);
     }
 
-    public function actionUpdateCity() {
+    public function actionCityPost($id = '') {
+        $post = [];
+        if ($id != '') {
+            $id = Misc::decodeUrl($id);
+            $post = City::findOne($id);
+        }
+        return $this->render('cities/form', [
+                'editable' => $post,
+        ]);
+    }
+    public function actionStore()
+    {
+        $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
         if (isset($_POST['post'])) {
-            $updated = HelperPackage::setCity($_POST['post']);
+            $updated = HelperPackage::setCity($_POST['post'],$image);
             if ($updated != false) {
-                Misc::setFlash('success', 'City Updated');
+                Misc::setFlash('success', 'City Updated.');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
+            }
+            else {
+                Misc::setFlash('danger', 'City Not Updated.');
                 return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
             }
         }
-        Misc::setFlash('danger', 'City Updated Error');
-        return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
-    }
 
+        return $this->redirect(Yii::$app->request->baseUrl . '/package/cities');
+
+    }
     public function actionReview() {
 
         return $this->render('review/index', ['packages' => HelperPackage::getReviews()]);

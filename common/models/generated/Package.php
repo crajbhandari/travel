@@ -5,7 +5,7 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "{{%package}}".
+ * This is the model class for table "package".
  *
  * @property int $id
  * @property string $title
@@ -21,7 +21,11 @@ use Yii;
  * @property int $discount
  * @property string $iframe
  * @property string $city
+<<<<<<< HEAD
  * @property string $category
+=======
+ * @property int $category
+>>>>>>> 14170b3e5c02fe2461e698226c6f28201ff6e056
  * @property int $sight_seeing
  *
  * @property User $createdBy
@@ -33,7 +37,7 @@ class Package extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%package}}';
+        return 'package';
     }
 
     /**
@@ -42,9 +46,9 @@ class Package extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['itinerary', 'info', 'images', 'iframe'], 'string'],
-            [['visibility', 'created_by', 'discount', 'sight_seeing'], 'integer'],
-            [['created_by', 'location', 'duration', 'category', 'sight_seeing'], 'required'],
+            [['itinerary', 'about_tour', 'info', 'images', 'iframe'], 'string'],
+            [['visibility', 'created_by', 'discount', 'category', 'sight_seeing'], 'integer'],
+            [['created_by', 'location', 'duration'], 'required'],
             [['created_on'], 'safe'],
             [['title', 'budget', 'location', 'duration', 'city', 'category'], 'string', 'max' => 200],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],

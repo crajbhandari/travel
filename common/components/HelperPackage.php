@@ -119,7 +119,7 @@ class HelperPackage extends Component {
         return $r;
     }
 
-    public static function setCity($data) {
+    public static function setCity($data,$image) {
         if (isset($data['id']) && $data['id'] > 0) {
             $model = City::findOne($data['id']);
         }
@@ -127,12 +127,62 @@ class HelperPackage extends Component {
             $model = new City();
         }
         $model->name = $data['name'];
-        if (!$model->save()) {
-            return false;
-        }
-        return $model;
-    }
+        $model->description = $data['description'];
+        $model->location = $data['location'];
+        if (isset($image) && !empty($image['name'][0])) {
+            if ($model->images == '') {
+                $upload = self::uploadFilesArray($image);
+                if ($upload != false) {
+                    $final = json_encode($upload);
+                    $model->images = $final;
+                }
+                else {
+                    if (!($model->save() == false)) {
+                        return $var = [
+                                'id'    => $model->id,
+                                'image' => 'Image Not Uploaded',
+                                'edit'  => 1
+                        ];
+                    }
+                    Misc::setFlash('danger', 'Data not uploaded. Please Try again');
+                    return false;
+                }
+            }
+            else {
+                $upload = self::uploadFilesArray($image);
+                if ($upload != false) {
+                    $prev = json_decode($model->images);
+                    $final = $upload;
+                    array_push($upload, ...$prev);
+                    $final = json_encode($upload);
+                    $model->images = $final;
+                }
+                else {
 
+                    if (!($model->save() == false)) {
+                        Misc::setFlash('success', 'Package Updated.');
+                        return $var = [
+                                'id'    => $model->id,
+                                'image' => 'Image Not Uploaded',
+                                'edit'  => 1
+                        ];
+                    }
+                    Misc::setFlash('danger', 'Data not uploaded. Please Try again');
+                    return false;
+                }
+            }
+        }
+        if (!($model->save() == false)) {
+            Misc::setFlash('success', 'Package Updated.');
+            return $var = [
+                    'id'    => $model->id,
+                    'image' => 1,
+                    'edit'  => 1
+            ];
+        }
+        Misc::setFlash('danger', 'Data not uploaded. Please Try again');
+        return false;
+    }
     public static function set($data, $image, $value) {
 
         if (isset($data['id']) && $data['id'] > 0) {
