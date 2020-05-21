@@ -18,6 +18,7 @@
 
     class HelperUpload extends Component {
         public static function upload($upload, $target_dir = '') {
+
             $target_dir = ($target_dir == '') ? Yii::$app->params['upload_path']['image'] : $target_dir;
             $filename = Misc::timestamp(date('Y-m-d H:i:s')) . substr($upload['name'], -5);
             $target_file = $target_dir . basename($filename);

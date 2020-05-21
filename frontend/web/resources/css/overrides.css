@@ -24,7 +24,6 @@
 
 .tourz-search {
     position: relative;
-    background: url(../images/89.jpg) no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
@@ -78,4 +77,14 @@
 
 .place h3 span {
     font-size: 15px;
+}
+.send
+{
+    background: linear-gradient(to bottom, #2c9651, #2c9651);
+    color: white;
+}
+.send:hover
+{
+    background: linear-gradient(to bottom, #2c9651, #2c9651);
+    color: white;
 }

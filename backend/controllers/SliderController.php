@@ -1,8 +1,10 @@
 <?php
     namespace backend\controllers;
 
+    use common\components\HelperBanner;
     use common\components\HelperSlider;
     use common\components\Misc;
+    use common\models\generated\Banners;
     use common\models\Slider;
     use Yii;
     use yii\filters\AccessControl;
@@ -65,6 +67,30 @@
                 'slider' => $slider,
             ]);
         }
+        public function actionBanner($id='') {
+            $page = 'banners';
+            if($id != '')
+            {
+                $id=Misc::decrypt($id);
+            }
+            $editable = Banners::findone($id);
+            $banner = Banners::find()->orderBy(['id' => SORT_DESC])->all();
+            return $this->render('banner', [
+                    'editable' => $editable,
+                    'banners' => $banner
+            ]);
+        }
+        public function actionSetBanner()
+    {
+        $post=$_POST['post'];
+     $model=HelperBanner::set($post,$_FILES['image']);
+     if($model == true)
+     {
+         return $this->redirect(Yii::$app->request->baseUrl . '/slider/banner/' . Misc::encrypt($model['id']));
+     }
+      die;
+    }
+
 
         public function actionPost($id = '') {
             $post = [];

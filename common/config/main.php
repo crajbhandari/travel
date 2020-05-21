@@ -23,6 +23,7 @@
                     '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                     '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
                     'blog/post/<id:[a-zA-Z0-9-]+>/'      => 'blog/post/',
+                    'slider/banner/<id:[a-zA-Z0-9-]+>/'      => 'slider/banner/',
                 ),
             ],
             'helper'     => [

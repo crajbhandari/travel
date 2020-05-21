@@ -21,7 +21,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
    <meta name = "viewport" content = "width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=no">
     <?php $this->registerCsrfMetaTags() ?>
    <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
-   <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/fav.png">
+   <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/logo.png">
     <?php if (true == false && isset($fonts) && !empty($fonts)) : ?>
        <link href = "<?= 'https://fonts.googleapis.com/css?family=' . $fonts['main']['name'] . ':' . $fonts['main']['weight']; ?>" rel = "stylesheet">
     <?php endif; ?>
@@ -41,6 +41,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/overrides.css">
 
     <?php $this->head() ?>
+   <script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
