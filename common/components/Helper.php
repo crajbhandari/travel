@@ -14,6 +14,8 @@
     namespace common\components;
 
     use common\models\Amenities;
+    use common\models\generated\Package;
+    use common\models\generated\PackageCategory;
     use common\models\Messages;
     use common\models\Pages;
     use common\models\Settings;
@@ -29,9 +31,17 @@
             self::getBlogCount();
             self::getMessageCount();
             self::getMessages();
+            self::getPackages();
             parent::init();
-        }
 
+        }
+        public static function getPackages() {
+            $p = PackageCategory::find()
+                         ->asArray()
+                         ->all();
+
+            \Yii::$app->params['packageCategory'] = $p;
+        }
         public static function getSettings() {
             $s = Settings::find()->asArray()->all();
             $m = [];

@@ -28,7 +28,11 @@ class HelperPackage extends Component {
         $data = Query::queryAll("SELECT DISTINCT `name` FROM `city` ORDER BY `name` ASC ");
         return Misc::exists($data, false);
     }
+public static function getPackage($id) {
+    $model = Package::find()->where('category ='.$id)->asArray()->all();
 
+        return $model;
+}
     public static function getReviews() {
         $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
         return Misc::exists($data, false);
@@ -66,7 +70,11 @@ class HelperPackage extends Component {
         $data = PackageCategory::find()->orderBy(['id' => SORT_DESC])->asArray()->with('parent')->all();
         return Misc::exists($data, false);
     }
+public static function getSingleCategory($id) {
+        $model =PackageCategory::find()->where('id ='.$id)->asArray()->one();
 
+        return $model;
+}
 
     public static function setCategory($data) {
         if ($data['id'] < 1) {

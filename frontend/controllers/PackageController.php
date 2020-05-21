@@ -2,8 +2,11 @@
 
 namespace frontend\controllers;
 
+use common\components\Helper;
+use common\components\HelperPackage;
 use common\components\Misc;
 use common\models\Blog;
+use common\models\generated\Package;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -73,14 +76,23 @@ class PackageController extends Controller {
         return $this->render('family');
     }
 
-    public function actionDetail() {
-        return $this->render('detail');
+    public function actionDetail($id='') {
+
     }
      public function actionActivity() {
         return $this->render('activity');
     }
-       public function actionIndex() {
-        return $this->render('all');
+       public function actionIndex($id='') {
+           if(!empty($id))
+           {
+               $id=Misc::decrypt($id);
+           }
+           $package = HelperPackage::getPackage($id);
+           $cat = HelperPackage::getSingleCategory($id);
+           return $this->render('all',[
+                   'package' =>$package,
+                   'cat' =>$cat
+           ]);
     }
      public function actionRequest() {
         return $this->render('request');
