@@ -6,7 +6,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
 
 <!--HEADER SECTION-->
 <section>
-   <?php foreach ($banners as $banner): if($banner['name']!= '' && $banner['name'] == 'home'):
+   <?php foreach ($banners as $banner): if($banner['alt_text']!= '' && $banner['alt_text'] == 'home'):
    ?>
    <div class = "tourz-search" style="background: url('<?= Yii::$app->request->baseUrl.'/common/assets/images/banners/'.$banner['image']; ?>'); background-size: cover;" >
        <?php
@@ -912,7 +912,8 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
               substr($blog['content'],0,95).'...';
                       ?><p>
                      <ul class = "blog-info-link">
-                        <li><i class = "fa fa-user"></i> <?= $blog['category'] ?></li>
+                        <li><i class = "fa fa-list"></i> <?= $blog['category'] ?></li>
+                        <li><i class = "fa fa-user"></i> <?= $blog['author'] ?></li>
                 </ul>
                   </div>
                </div>

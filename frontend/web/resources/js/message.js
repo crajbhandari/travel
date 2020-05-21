@@ -37,7 +37,7 @@ $(function () {
                       icon: "success",
                       button: "OK!"
                    });
-                   location.reload();
+                   // location.reload();
                 }
              },
              error: function () {

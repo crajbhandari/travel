@@ -28,7 +28,7 @@
             else {
                 $model = new Banners();
             }
-            $model->name  = $data['name'];
+            $model->alt_text  = $data['name'];
             if (isset($image['name']) && $image['name'] != '') {
                 if ($model->image != '') {
                     Misc::delete_file($model->image, 'image');

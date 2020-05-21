@@ -21,11 +21,7 @@ use Yii;
  * @property int $discount
  * @property string $iframe
  * @property string $city
-<<<<<<< HEAD
  * @property string $category
-=======
- * @property int $category
->>>>>>> 14170b3e5c02fe2461e698226c6f28201ff6e056
  * @property int $sight_seeing
  *
  * @property User $createdBy

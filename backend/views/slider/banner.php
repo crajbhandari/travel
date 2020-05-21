@@ -55,7 +55,7 @@ $this->title = 'Slider';
                     <div class = "row">
                         <div class = "input-field col s12">
                             <?php $counter++; ?>
-                            <input id = "list-title <?php echo $counter; ?>" name = "post[name]" type = "text" class = "validate" required value = "<?php echo (isset($editable['name'])) ? $editable['name'] : '' ?>">
+                            <input id = "list-title <?php echo $counter; ?>" name = "post[name]" type = "text" class = "validate" required value = "<?php echo (isset($editable['alt_text'])) ? $editable['alt_text'] : '' ?>">
                             <label for = "list-title <?php echo $counter; ?>">Location</label>
                            <div class="card-caution">
                              <p>Specifies where you want your banner to be set. ex: home, blog</p>
@@ -106,7 +106,7 @@ $this->title = 'Slider';
                                           <?php endif; ?>
                                        </span>
                               </td>
-                              <td>   <?php echo (isset($post['name'])) ? trim($post['name']) : '' ?></td>
+                              <td>   <?php echo (isset($post['alt_text'])) ? trim($post['alt_text']) : '' ?></td>
                               <td>
                                  <a href="<?php echo Yii::$app->request->baseUrl; ?>/slider/banner/<?php echo \common\components\Misc::encrypt($post['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                  <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "banners"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
