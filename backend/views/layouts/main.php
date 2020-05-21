@@ -214,6 +214,8 @@ AppAsset::register($this);
                            </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/post">Add New Package</a>
                            </li>
+                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/city-post">Add Destination</a>
+                           </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a>
                            </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/rating">Package Rating</a>
@@ -224,6 +226,7 @@ AppAsset::register($this);
                            </li>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities">Destination</a>
                            </li>
+
                         </ul>
                      </div>
                   </li>

@@ -75,7 +75,7 @@ class BlogController extends Controller {
             $id = Misc::decodeUrl($id);
             $post = Blog::findOne($id);
         }
-        return $this->render('form', [
+        return $this->render('blog/form', [
                 'editable' => $post,
         ]);
     }
