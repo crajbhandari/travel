@@ -14,9 +14,7 @@ use Yii;
  * @property int $is_active
  * @property string $description
  * @property string $created _on
- * @property int $created_by
  * @property string $updated_on
- * @property int $updated_by
  */
 class Amenities extends \yii\db\ActiveRecord
 {
@@ -35,7 +33,7 @@ class Amenities extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['is_active', 'created_by', 'updated_by'], 'integer'],
+            [['is_active'], 'integer'],
             [['description'], 'string'],
             [['created _on', 'updated_on'], 'safe'],
             [['name', 'display_name'], 'string', 'max' => 120],
@@ -56,9 +54,7 @@ class Amenities extends \yii\db\ActiveRecord
             'is_active' => 'Is Active',
             'description' => 'Description',
             'created _on' => 'Created On',
-            'created_by' => 'Created By',
             'updated_on' => 'Updated On',
-            'updated_by' => 'Updated By',
         ];
     }
 }
