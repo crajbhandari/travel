@@ -279,6 +279,7 @@ AppAsset::register($this);
 
    <?php $this->endBody() ?>
 
+
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/select2/dist/js/select2.full.min.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/slider-menu.jquery.js"></script>

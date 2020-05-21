@@ -10,7 +10,7 @@ $this->title = 'Slider';
             </li>
             <li class = "active-bre">
                 <a href = "#">
-                    <?php echo (isset($editable['id'])) ? ' <i class="mdi mdi-pencil"></i> Edit' : ' <i class="mdi mdi-add"></i> Add New Slider' ?>
+                    <?php echo (isset($editable['id'])) ? ' <i class="mdi mdi-pencil"></i> Edit' : ' <i class="mdi mdi-add"></i> Add New Banner' ?>
                 </a>
             </li>
         </ul>
@@ -55,8 +55,11 @@ $this->title = 'Slider';
                     <div class = "row">
                         <div class = "input-field col s12">
                             <?php $counter++; ?>
-                            <input id = "list-title <?php echo $counter; ?>" name = "post[alt_text]" type = "text" class = "validate" required value = "<?php echo (isset($editable['alt_text'])) ? $editable['alt_text'] : '' ?>">
-                            <label for = "list-title <?php echo $counter; ?>">Alt Text</label>
+                            <input id = "list-title <?php echo $counter; ?>" name = "post[name]" type = "text" class = "validate" required value = "<?php echo (isset($editable['alt_text'])) ? $editable['alt_text'] : '' ?>">
+                            <label for = "list-title <?php echo $counter; ?>">Location</label>
+                           <div class="card-caution">
+                             <p>Specifies where you want your banner to be set. ex: home, blog</p>
+                           </div>
                         </div>
                     </div>
 
@@ -74,7 +77,7 @@ $this->title = 'Slider';
          <div class="col-md-12">
             <div class="box-inn-sp">
                <div class="inn-title">
-                  <h4>Slider List</h4>
+                  <h4>Banner List</h4>
                </div>
                <div class="tab-inn">
                   <div class="table-responsive table-desi">
@@ -84,7 +87,7 @@ $this->title = 'Slider';
                         <tr>
                            <th>S.N</th>
                            <th>Image</th>
-                           <th>alt_txt</th>
+                           <th>Location</th>
                            <th>Actions</th>
                         </tr>
                         </thead>
