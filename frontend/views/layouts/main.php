@@ -247,7 +247,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                      <li><a href = "<?=  Yii::$app->request->baseUrl; ?>/site/index">Home</a>
                      </li>
                      <li class = "about-menu">
-                        <a href = "<?=  Yii::$app->request->baseUrl; ?>/package/" class = "mm-arr">Packages</a>
+                        <a  class = "mm-arr" >Packages</a>
                         <!-- MEGA MENU 1 -->
                         <div class = "mm-pos">
                            <div class = "about-mm m-menu">

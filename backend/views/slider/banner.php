@@ -10,7 +10,7 @@ $this->title = 'Slider';
             </li>
             <li class = "active-bre">
                 <a href = "#">
-                    <?php echo (isset($editable['id'])) ? ' <i class="mdi mdi-pencil"></i> Edit' : ' <i class="mdi mdi-add"></i> Add New Slider' ?>
+                    <?php echo (isset($editable['id'])) ? ' <i class="mdi mdi-pencil"></i> Edit' : ' <i class="mdi mdi-add"></i> Add New Banner' ?>
                 </a>
             </li>
         </ul>
