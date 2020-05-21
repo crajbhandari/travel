@@ -299,17 +299,30 @@ class PackageController extends Controller {
                     $name = $model->name;
                     $email = $model->email;
                     $city = $model->city;
+                    $phone = $model->phone;
+                    $traveller = $model->no_traveller;
+                    $dept_date = $model->departure_date;
+                    $adult_no = $model->adult_no;
+                    $children_no = $model->children_no;
+                    $max_price = $model->max_price;
+                    $min_price = $model->min_price;
                     $message = $model->message;
-
                     $date = $model->posted_on;
 
 
                     if ($model->save() == true) {
 
                         $result = "
-          <p><b>Name : </b><br>$name</p>
+      <p><b>Name : </b><br>$name</p>
       <p><b>Email : </b><br>$email</p>
-     <p><b>Destination : </b><br>$city</p>
+      <p><b>Phone : </b><br>$phone</p>
+      <p><b>No Of Traveller : </b><br>$traveller</p>
+      <p><b>No Of Adult : </b><br>$adult_no</p>
+      <p><b>No Of Children : </b><br>$children_no</p>
+      <p><b>Maximum Price : </b><br>$max_price</p>
+      <p><b>Minimum Price : </b><br>$min_price</p>
+      <p><b>Destination : </b><br>$city</p>
+      <p><b>Departure Date : </b><br>$dept_date</p>
       <p><b>Sent On : </b><br>$date</p>
       <p><b>Message : </b><br>$message</p>
                        
