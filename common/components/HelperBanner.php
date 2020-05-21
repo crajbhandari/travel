@@ -13,7 +13,7 @@
 
     namespace common\components;
 
-    use common\models\generated\Banners;
+    use common\models\Banners;
     use common\models\Slider;
     use common\models\Team;
     use Yii;
@@ -28,7 +28,7 @@
             else {
                 $model = new Banners();
             }
-            $model->alt_text  = $data['alt_text'];
+            $model->alt_text  = $data['name'];
             if (isset($image['name']) && $image['name'] != '') {
                 if ($model->image != '') {
                     Misc::delete_file($model->image, 'image');
@@ -42,7 +42,6 @@
                 }
             }
             if (!($model->save() == FALSE)) {
-
                 return $model;
             }
 

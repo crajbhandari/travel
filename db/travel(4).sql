@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2020 at 07:55 AM
+-- Generation Time: May 21, 2020 at 09:31 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -64,8 +64,7 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `image`, `alt_text`) VALUES
-(5, '15899659891.jpg', 'home'),
-(6, '15899696295.jpg', 'check');
+(5, '15900447099.jpg', 'home');
 
 -- --------------------------------------------------------
 
@@ -89,13 +88,13 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `date`, `title`, `image`, `content`, `author`, `category`, `visibility`) VALUES
-(4, '2020-04-03 17:41:51', 'Mollitia pariatur E', '15875611815.jpg', '', 'Omnis et nobis eos', 'ex odio animi eiusm', 1),
-(5, '2020-04-03 19:05:14', 'Officia explicabo Hw', '1586246190e.jpg', 'Tempore, totam ut re.w', 'Atque magna corrupti', 'sed consequatur iure', 0),
-(6, '2020-04-07 14:30:09', 'Test', '1586234964c.png', 'Test', 'Test', 'test', 1),
-(7, '2020-04-07 18:58:55', 'a', '15862499351.jpg', 'a', 'a', 'a', 0),
-(9, '2020-04-07 22:06:43', 'asf', '15862612033.jpg', '<p>asf<br></p>', 'asdd', 'asdf', 1),
-(10, '2020-04-08 10:43:10', 'Testing', '', '<p><br></p><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and\r\n typesetting industry. Lorem Ipsum has been the industry\'s standard \r\ndummy text ever since the 1500s, when an unknown printer took a galley \r\nof type and scrambled it to make a type specimen book. It has survived \r\nnot only five centuries, but also the leap into electronic typesetting, \r\nremaining essentially unchanged. It was popularised in the 1960s with \r\nthe release of Letraset sheets containing Lorem Ipsum passages, and more\r\n recently with desktop publishing software like Aldus PageMaker \r\nincluding versions of Lorem Ipsum.</p><p><br></p>', 'Lorem', 'lorem', 1),
-(13, '2020-05-09 12:44:33', 'a', '15889922739.jpg', '<p>a<br></p>', 'a', 'a', 1);
+(4, '2020-04-03 17:41:51', 'Lorem Ipsum', '15882419734.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Travel', 1),
+(5, '2020-04-03 19:05:14', 'Count of Kingdoms', '15882419735.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Food', 0),
+(6, '2020-04-07 14:30:09', 'Pharaoh of Orcs', '15882419736.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Hotel', 1),
+(7, '2020-04-07 18:58:55', 'Earl of Alliances', '15882419734.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Trekking', 0),
+(9, '2020-04-07 22:06:43', 'Noble of Finance', '15882419735.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Travel', 1),
+(10, '2020-04-08 10:43:10', 'Lady of Borders', '15882419736.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Food', 1),
+(13, '2020-05-09 12:44:33', 'Professor of Transport', '15882419734.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum', 'Hotel', 1);
 
 -- --------------------------------------------------------
 
@@ -286,7 +285,9 @@ INSERT INTO `messages` (`id`, `name`, `email`, `phone`, `message`, `city`, `coun
 (52, 'Check', 'pudydyg@mailinator.net', '+1 (275) 262-1866', 'Quod laborum omnis e', 'Non quos est illo d', 'Dolores quis ea do a', 'Qui aut quia at poss', 0, '2020-05-20 13:26:49'),
 (53, 'Renee Atkinson', 'sahyvaqace@mailinator.net', '+1 (515) 616-1014', 'Sed voluptatem Pari', 'Nulla fugiat cumque ', 'Ad possimus dicta e', 'Illo tenetur et nequ', 1, '2020-05-20 13:27:35'),
 (54, 'Genevieve Randall', 'cesuhewumi@mailinator.net', '+1 (582) 669-9364', 'asdcasdc', 'Officia sequi quod s', 'Et molestiae irure v', 'Rerum repudiandae an', 1, '2020-05-20 13:29:58'),
-(55, 'Joshua Roberts', 'dikuliji@mailinator.net', '+1 (182) 846-9164', 'Repudiandae culpa vo', 'Recusandae Accusant', 'Sunt repellendus Ac', 'Doloremque consequat', 1, '2020-05-20 13:36:20');
+(55, 'Joshua Roberts', 'dikuliji@mailinator.net', '+1 (182) 846-9164', 'Repudiandae culpa vo', 'Recusandae Accusant', 'Sunt repellendus Ac', 'Doloremque consequat', 1, '2020-05-20 13:36:20'),
+(56, 'Bert Simpson', 'fytizyb@mailinator.com', '+1 (821) 989-8654', 'Aut veniam voluptat', 'Blanditiis veritatis', 'Esse illo eum harum ', 'Repudiandae sequi fu', 1, '2020-05-21 17:26:23'),
+(57, 'Britanni Phelps', 'fapunutyno@mailinator.net', '+1 (372) 236-8438', 'Nulla eum deserunt n', 'Iusto maxime in dese', 'Harum repellendus V', 'Non suscipit vero el', 1, '2020-05-21 17:27:12');
 
 -- --------------------------------------------------------
 
@@ -326,7 +327,7 @@ INSERT INTO `package` (`id`, `title`, `itinerary`, `about_tour`, `info`, `budget
 (6, 'Ut reprehenderit quo', '', '', '', 'Vitae earum illo nul', NULL, 1, 1, '2020-05-15', 'Ea non expedita prov', 'Temporibus minim et ', 0, 'In non dolor quibusd', 'Accusantium omnis na', NULL, 0),
 (7, 'Consectetur dolor ra', '', '', '', 'Reprehenderit dolore', NULL, 1, 1, '2020-05-15', 'Excepturi accusamus ', 'Cillum et quas quis ', 0, 'In sit incididunt sa', 'Dolorem fugit esse', 7, 0),
 (8, 'Quisquam nulla nostr', '', '', '', 'Voluptate qui eum ve', NULL, 1, 1, '2020-05-19', 'Voluptas voluptas ac', 'Aut consectetur eli', 0, 'Quam ut veritatis mi', 'Dolorem maiores erro', NULL, 0),
-(10, 'Consectetur quisquam', '', '', '', 'Praesentium in repre', NULL, 1, 1, '2020-05-20', 'Praesentium illo sed', 'Error cupiditate inv', 0, 'Laudantium Nam sint', 'Vel in veniam eu qu', NULL, 1);
+(10, 'Consectetur quisquam', '', '', '', 'Praesentium in repre', '[\"1590041681d.png\",\"1590041681e.png\"]', 1, 1, '2020-05-20', 'Praesentium illo sed', 'Error cupiditate inv', 0, 'Laudantium Nam sint', 'Vel in veniam eu qu', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -345,14 +346,17 @@ CREATE TABLE `package_category` (
 --
 
 INSERT INTO `package_category` (`id`, `name`, `parent`) VALUES
-(1, 'test', 0),
-(2, 'test1', 1),
-(3, 'New', 1),
+(1, 'Family', 0),
+(2, 'Family 1', 1),
+(3, 'Family 2', 1),
 (4, 'Trekking', 0),
-(5, 'Canoy', 0),
+(5, 'Honeymoon', 0),
 (6, 'Trekking 1', 4),
 (7, 'Trekking 2', 4),
-(8, 'Trekking 3', 4);
+(8, 'Trekking 3', 4),
+(9, 'Group', 0),
+(10, 'Regular', 0),
+(11, 'Weekend', 0);
 
 -- --------------------------------------------------------
 
@@ -509,12 +513,9 @@ CREATE TABLE `session` (
 --
 
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-('f6fobhq2r2h258fpbhlqvrjtu6', 1590034933, 0x5f5f666c6173687c613a303a7b7d),
 ('cru2vmjgr46k7fhbfa9h3f7los', 1590042866, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31343a222f74726176656c2f6170706c6574223b5f5f69647c693a313b),
-('76arn16hdn4du3o7mcj9s9rg9b', 1589975207, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31353a222f74726176656c2f6170706c65742f223b5f5f69647c693a313b),
-('bqo3e0jd9kif7ueu3l25padess', 1589954115, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31353a222f74726176656c2f6170706c65742f223b5f5f69647c693a313b),
-('uf8km3i6rq1lctdl8p1lpnin77', 1589967665, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31353a222f74726176656c2f6170706c65742f223b5f5f69647c693a313b),
-('33n3401shaebo499p95jnda5a0', 1589954747, 0x5f5f666c6173687c613a303a7b7d);
+('8ln36mbq9d9i93dc1rjltt67n5', 1590049629, 0x5f5f666c6173687c613a303a7b7d),
+('i0iif4v75udp7g6cnookhj0h64', 1590049805, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32373a222f74726176656c2f6170706c65742f7061636b6167652f706f7374223b5f5f69647c693a313b);
 
 -- --------------------------------------------------------
 
@@ -811,7 +812,7 @@ ALTER TABLE `amenities`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `blog`
@@ -847,7 +848,7 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `package`
@@ -859,7 +860,7 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `package_category`
 --
 ALTER TABLE `package_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `package_request`

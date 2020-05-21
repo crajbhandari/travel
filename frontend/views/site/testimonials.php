@@ -59,7 +59,9 @@
             <!--====== TESTIMONIALS ======-->
             <div class = "col-md-6">
                <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"><img src = "images/testi_img.png" alt = ""></div>
+                  <div class = "col-md-3 col-sm-3">
+                      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/>
+                 </div>
                   <div class = "col-md-9 col-sm-9">
                      <h4>Best tour package forever</h4>
                      <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
@@ -72,7 +74,7 @@
             <!--====== TESTIMONIALS ======-->
             <div class = "col-md-6">
                <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"><img src = "images/testi_img.png" alt = ""></div>
+                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
                   <div class = "col-md-9 col-sm-9">
                      <h4>Best tour package forever</h4>
                      <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
@@ -85,7 +87,7 @@
             <!--====== TESTIMONIALS ======-->
             <div class = "col-md-6">
                <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"><img src = "images/testi_img.png" alt = ""></div>
+                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
                   <div class = "col-md-9 col-sm-9">
                      <h4>Best tour package forever</h4>
                      <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
@@ -98,7 +100,7 @@
             <!--====== TESTIMONIALS ======-->
             <div class = "col-md-6">
                <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"><img src = "images/testi_img.png" alt = ""></div>
+                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
                   <div class = "col-md-9 col-sm-9">
                      <h4>Best tour package forever</h4>
                      <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
@@ -111,7 +113,7 @@
             <!--====== TESTIMONIALS ======-->
             <div class = "col-md-6">
                <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"><img src = "images/testi_img.png" alt = ""></div>
+                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
                   <div class = "col-md-9 col-sm-9">
                      <h4>Best tour package forever</h4>
                      <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
@@ -124,7 +126,7 @@
             <!--====== TESTIMONIALS ======-->
             <div class = "col-md-6">
                <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"><img src = "images/testi_img.png" alt = ""></div>
+                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
                   <div class = "col-md-9 col-sm-9">
                      <h4>Best tour package forever</h4>
                      <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
@@ -137,7 +139,7 @@
             <!--====== TESTIMONIALS ======-->
             <div class = "col-md-6">
                <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"><img src = "images/testi_img.png" alt = ""></div>
+                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
                   <div class = "col-md-9 col-sm-9">
                      <h4>Best tour package forever</h4>
                      <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
