@@ -9,6 +9,7 @@ return [
         'upload_path'                   => [
                 'image' => $real_path . 'images\uploads' . DIRECTORY_SEPARATOR,
                 'temp'  => $real_path . 'temp' . DIRECTORY_SEPARATOR,
+                'banners' => $real_path . 'images\banners' . DIRECTORY_SEPARATOR,
         ],
         'image_path'                    => [
                 'image'    => $relative_path . 'images/',

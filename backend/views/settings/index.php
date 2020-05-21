@@ -56,6 +56,7 @@ $new = ($editable == false) ? 1 : 0;
                                 <option <?php echo (isset($editable['type']) && $editable['type'] == 'textarea') ? 'selected = "selected"' : '' ?> value="textarea">Textarea</option>
                                 <option <?php echo (isset($editable['type']) && $editable['type'] == 'boolean') ? 'selected = "selected"' : '' ?> value="boolean">Boolean</option>
                                 <option <?php echo (isset($editable['type']) && $editable['type'] == 'json') ? 'selected = "selected"' : '' ?> value="json">JSON</option>
+                                <option <?php echo (isset($editable['type']) && $editable['type'] == 'file') ? 'selected = "selected"' : '' ?> value="file" class="file">File</option>
                              </select>
                              <label for = "list-title <?php echo $counter; ?>">Data Type</label>
                           </div>
@@ -72,6 +73,29 @@ $new = ($editable == false) ? 1 : 0;
                                     <option <?php echo (isset($editable['content']) && $editable['content'] == '0') ? 'selected = "selected"' : '' ?> value="0">False</option>
                                     <option <?php echo (isset($editable['content']) && $editable['content'] == '1') ? 'selected = "selected"' : '' ?> value="1">True</option>
                                  </select>
+                              <?php elseif (isset($editable['type']) && $editable['type'] == 'image'): ?>
+                                 <div class = "input-field col s12">
+                                     <?php $counter++; ?>
+                                    <div class = "custom-file">
+
+                                       <div class = "image-wrapper" <?= (isset($editable['image']) && $editable['image'] != '') ? '' : 'style="display:none;"' ?>>
+                                          <img src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $editable['image'] : '' ?>" class = "custom-file-input-image" id = "file-<?php echo $counter; ?>-image" alt = ""/>
+                                       </div>
+                                        <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
+                                           <div class = "image-actions text-right">
+                                              <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
+                                                 <i class = "mdi mdi-close margin-right-5"></i>
+                                                 Remove Image
+                                              </a>
+                                           </div>
+                                        <?php endif; ?>
+                                       <label class = "custom-file-label" id = "file-<?php echo $counter; ?>-label" for = "file-<?php echo $counter; ?>">
+                                          <i class = "fa fa-file"></i>
+                                          <span>Upload Image</span>
+                                       </label>
+                                       <input accept = "image/x-png,image/jpeg" type = "file" name = "image" class = "custom-file-input" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
+                                    </div>
+                                 </div>
                               <?php else: ?>
                                  <input <?= (isset($editable['is_editable']) && $editable['is_editable'] == 0) ? ' disabled="disabled" ' : '' ?> required="required" id="<?php echo $counter; ?>" name="setting[content]" value="<?php echo(isset($editable['content']) ? $editable['content'] : '') ?>" type="text" class="required">
                               <?php endif; ?>
@@ -147,3 +171,8 @@ $new = ($editable == false) ? 1 : 0;
         </div>
     </div>
 </div>
+<script>
+   $('.file').on("click", function (e) {
+      console.log('check');
+   });
+</script>

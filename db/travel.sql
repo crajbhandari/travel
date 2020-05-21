@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2020 at 06:00 AM
+-- Generation Time: May 21, 2020 at 07:35 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `travel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `amenities`
+--
+
+CREATE TABLE `amenities` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(120) COLLATE utf8_swedish_ci NOT NULL,
+  `display_name` varchar(120) COLLATE utf8_swedish_ci DEFAULT NULL,
+  `icon` varchar(60) COLLATE utf8_swedish_ci DEFAULT NULL,
+  `is_active` tinyint(4) NOT NULL DEFAULT 1,
+  `description` longtext COLLATE utf8_swedish_ci DEFAULT NULL,
+  `created _on` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_on` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Dumping data for table `amenities`
+--
+
+INSERT INTO `amenities` (`id`, `name`, `display_name`, `icon`, `is_active`, `description`, `created _on`, `updated_on`) VALUES
+(23, 'tanya james', 'Rerum atque duis ess', 'fa-adjust', 0, 'Neque ut laudantium', '2020-05-20 11:00:31', '2020-05-20 11:00:31'),
+(24, 'merritt rodriquez', 'Dolor ducimus adipi', 'fa-adjust', 0, 'Delectus officia eu', '2020-05-20 11:00:41', '2020-05-20 11:00:41');
 
 -- --------------------------------------------------------
 
@@ -92,6 +117,9 @@ INSERT INTO `blog_comments` (`id`, `blog_id`, `customer_id`, `is_active`, `is_ve
 CREATE TABLE `city` (
   `id` int(11) NOT NULL,
   `name` varchar(200) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `images` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
   `created_on` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -99,10 +127,16 @@ CREATE TABLE `city` (
 -- Dumping data for table `city`
 --
 
-INSERT INTO `city` (`id`, `name`, `created_on`) VALUES
-(1, 'Europe', '0000-00-00'),
-(2, 'Dubai', '0000-00-00'),
-(3, 'Nepal', '2020-05-06');
+INSERT INTO `city` (`id`, `name`, `description`, `images`, `location`, `created_on`) VALUES
+(2, 'Dubai', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '0000-00-00'),
+(5, 'Et nobis quia volupt', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-15'),
+(6, 'Accusantium omnis na', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-15'),
+(7, 'Dolorem fugit esse', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-15'),
+(8, 'Dolorem maiores erro', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-19'),
+(9, 'Quo excepturi labori', 'Et nobis quia volupt', NULL, 'Et nobis quia volupt', '2020-05-20'),
+(11, 'Caryn Coleman', '', NULL, 'Eum libero cumque to', '2020-05-21'),
+(12, 'Jillian Wood', '', '[\"15900324397.jpg\",\"1590032439m.jpg\"]', 'Et fuga Ipsum eu ut', '2020-05-21'),
+(16, 'Vel in veniam eu qu', NULL, NULL, NULL, '2020-05-21');
 
 -- --------------------------------------------------------
 
@@ -211,7 +245,7 @@ INSERT INTO `messages` (`id`, `name`, `email`, `phone`, `url`, `message`, `is_ne
 (30, 'Test', 'chetan.rajbhandari@gmail.com', NULL, NULL, 'Testing', 0, '2019-04-13 01:34:21'),
 (31, 'Test', 'chetan.rajbhandari@gmail.com', NULL, NULL, 'Testing', 0, '2019-04-13 01:34:21'),
 (32, 'Test', 'chetan.rajbhandari@gmail.com', NULL, NULL, 'Testing', 1, '2019-04-13 01:34:22'),
-(33, 'Test', 'chetan.rajbhandari@gmail.com', NULL, NULL, 'Testing', 1, '2019-04-13 01:34:26');
+(33, 'Test', 'chetan.rajbhandari@gmail.com', NULL, NULL, 'Testing', 0, '2019-04-13 01:34:26');
 
 -- --------------------------------------------------------
 
@@ -235,18 +269,23 @@ CREATE TABLE `package` (
   `discount` int(11) DEFAULT NULL,
   `iframe` text DEFAULT NULL,
   `city` varchar(200) DEFAULT NULL,
-  `category` int(11) DEFAULT NULL
+  `category` int(11) DEFAULT NULL,
+  `sight_seeing` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `package`
 --
 
-INSERT INTO `package` (`id`, `title`, `itinerary`, `about_tour`, `info`, `budget`, `images`, `visibility`, `created_by`, `created_on`, `location`, `duration`, `discount`, `iframe`, `city`, `category`) VALUES
-(2, 'Youth Travel Package', '<h3><u><strong>East Taiwan in 3 days</strong></u></h3><h3><u><strong><br></strong></u></h3><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Train Station</span></b><br></p></td><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Itinerary</span></b><br></p></td></tr><tr><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day </span>1</b><br></p></td><td><span style=\"font-size: small\"><span style=\"line-height: 115%\">Taipei - </span><span style=\"line-height: 115%\">Luodong</span></span></td><td><span style=\"line-height: 115%\">Travel from Taipei to Yilan’s National Center for Traditional Arts</span></td></tr><tr><td><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day 2</span></b></td><td><span style=\"line-height: 115%\">Luodon - Hualien</span></td><td><p><span style=\"line-height: 115%\">Enjoy activities & shows at the center</span><br></p></td></tr><tr><td><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day 3<br></span></b></td><td><span style=\"font-size: small\"><span style=\"line-height: 115%\">Hualien  Taroko</span></span></td><td><span style=\"line-height: 115%\">Taroko Gorge Tour</span></td></tr></tbody></table><h3><u><strong><br></strong></u></h3>', NULL, '<p><span style=\"font-family: Arial\"><span><strong>Inclusions:</strong><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\"> <br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 5 Days Taiwan Rail Pass Package<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 3 Nights YH (Type B) Accommodation<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 1 Night Accommodation at Forte Dong Shan Villa twin share with breakfast<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- National Center for Traditional Arts: Entrance Fee & Show<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- Taiwanese Traditional Arts Workshop – 1 DIY Course<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 1 Lunch Voucher</span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\"><br>\r\n</span></span></span>as<br></p>', '$180', '[\"15872145125.jpg\",\"1587192250s.jpg\",\"1587001446e.png\",\"1587001433o.png\"]', 1, 1, '2020-04-12', '', '', NULL, NULL, NULL, 1),
-(3, 'Tempora rem adipisci', '', NULL, '', 'Odio fugiat debitis ', '[\"15872146995.jpg\",\"15872146996.jpg\",\"1587212833q.jpg\"]', 1, 1, '2020-04-18', '', '', NULL, NULL, NULL, 2),
-(4, 'Eos mollitia corrup', '', NULL, '', 'Maxime amet adipisc', '[\"15872795002.jpg\",\"15872795005.jpg\",\"15872795006.jpg\",\"15872167585.jpg\",\"15872167586.jpg\"]', 1, 1, '2020-04-18', '', '', NULL, NULL, NULL, 3),
-(5, 'Rio de Janeiro(Brazil)', '<p><br></p><table class=\"table table-bordered\"><tbody><tr><td><p>Places covered<br></p></td><td>Inclusions</td><td>Exclusions</td><td>Event Date</td></tr><tr><td>Rio De Janeiro ,Brazil</td><td>Accommodation</td><td>Return Airfare & Taxes</td><td>\r\n								Nov 12, 2017</td></tr><tr><td>Iguassu Falls </td><td>\r\n								8 Breakfast, 3 Dinners</td><td>Arrival & Departure transfers</td><td>\r\n								Nov 14, 2017</td></tr><tr><td><p>Peru,Lima <br></p></td><td>\r\n								First-class Travel</td><td><p>travel insurance<br></p></td><td>Nov 16, 2017</td></tr><tr><td>Cusco & Buenos Aires </td><td><p>\r\n								Free Sightseeing<br></p></td><td>Service tax of 4.50%</td><td>\r\n								Nov 18, 2017</td></tr></tbody></table><p><br></p>', 'sfgasd', '<p><br></p><p>Discover two of South America’s greatest cities, Rio de Janeiro and \r\nBuenos Aires, at a leisurely pace. A major highlight on this journey is a\r\n visit to Iguassu Falls in between your two city stays. It truly is one \r\nof the most spectacular sights on Earth. See the impressive falls from \r\nboth the Brazilian and Argentine sides.</p><p>\r\n						<br></p><p>Brazil’s view takes you through clouds of mist and the \r\nopportunity to see these 275 falls, spanning nearly two miles! \r\nArgentina’s side allows you to walk along the boardwalk network and \r\nembark on a jungle train through the forest for unforgettable views. \r\nHear the deafening roar and admire the brilliant rainbows created by the\r\n clouds of spray, and take in the majesty of this wonder of the world. \r\nFrom vibrant cities to scenic beauty, this vacation to Rio de Janeiro, \r\nIguassu Falls, and Buenos Aires will leave you with vacation memories \r\nyou’ll cherish for life.</p><p><br></p>', '$500', '[\"1588242011g.png\",\"1588242011g.jpg\",\"15882420111.jpg\",\"15882420112.jpg\",\"15882420113.jpg\",\"15882419731.png\",\"15882419732.png\",\"15882419734.png\",\"15882419735.png\"]', 1, 1, '2020-04-22', 'Rio,Brazil', '8 Nights/ 9 Days', 50, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d805184.6331292129!2d144.49266890254142!3d-37.97123689954809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC!5e0!3m2!1sen!2sau!4v1588250355174!5m2!1sen!2sau\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', NULL, 1);
+INSERT INTO `package` (`id`, `title`, `itinerary`, `about_tour`, `info`, `budget`, `images`, `visibility`, `created_by`, `created_on`, `location`, `duration`, `discount`, `iframe`, `city`, `category`, `sight_seeing`) VALUES
+(2, 'Youth Travel Package', '<h3><u><strong>East Taiwan in 3 days</strong></u></h3><h3><u><strong><br></strong></u></h3><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Train Station</span></b><br></p></td><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Itinerary</span></b><br></p></td></tr><tr><td><p><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day </span>1</b><br></p></td><td><span style=\"font-size: small\"><span style=\"line-height: 115%\">Taipei - </span><span style=\"line-height: 115%\">Luodong</span></span></td><td><span style=\"line-height: 115%\">Travel from Taipei to Yilan’s National Center for Traditional Arts</span></td></tr><tr><td><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day 2</span></b></td><td><span style=\"line-height: 115%\">Luodon - Hualien</span></td><td><p><span style=\"line-height: 115%\">Enjoy activities & shows at the center</span><br></p></td></tr><tr><td><b style=\"mso-bidi-font-weight: normal\"><span style=\"line-height: 115%\">Day 3<br></span></b></td><td><span style=\"font-size: small\"><span style=\"line-height: 115%\">Hualien  Taroko</span></span></td><td><span style=\"line-height: 115%\">Taroko Gorge Tour</span></td></tr></tbody></table><h3><u><strong><br></strong></u></h3>', NULL, '<p><span style=\"font-family: Arial\"><span><strong>Inclusions:</strong><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\"> <br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 5 Days Taiwan Rail Pass Package<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 3 Nights YH (Type B) Accommodation<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 1 Night Accommodation at Forte Dong Shan Villa twin share with breakfast<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- National Center for Traditional Arts: Entrance Fee & Show<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- Taiwanese Traditional Arts Workshop – 1 DIY Course<br>\r\n</span></span><span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\">- 1 Lunch Voucher</span><span style=\"line-height: 115%; mso-fareast-font-family: Calibri; mso-bidi-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA\"><br>\r\n</span></span></span>as<br></p>', '$180', '[]', 1, 1, '2020-04-12', '', '', NULL, NULL, NULL, 1, 0),
+(3, 'Tempora rem adipisci', '', NULL, '', 'Odio fugiat debitis ', '[\"1587212833q.jpg\"]', 1, 1, '2020-04-18', '', '', NULL, NULL, NULL, 2, 0),
+(4, 'Eos mollitia corrup', '', NULL, '', 'Maxime amet adipisc', '[\"15872795002.jpg\",\"15872795005.jpg\",\"15872795006.jpg\",\"15872167585.jpg\",\"15872167586.jpg\"]', 1, 1, '2020-04-18', '', '', NULL, NULL, NULL, 3, 0),
+(5, 'Rio de Janeiro(Brazil)', '<p><br></p><table class=\"table table-bordered\"><tbody><tr><td><p>Places covered<br></p></td><td>Inclusions</td><td>Exclusions</td><td>Event Date</td></tr><tr><td>Rio De Janeiro ,Brazil</td><td>Accommodation</td><td>Return Airfare & Taxes</td><td>\r\n								Nov 12, 2017</td></tr><tr><td>Iguassu Falls </td><td>\r\n								8 Breakfast, 3 Dinners</td><td>Arrival & Departure transfers</td><td>\r\n								Nov 14, 2017</td></tr><tr><td><p>Peru,Lima <br></p></td><td>\r\n								First-class Travel</td><td><p>travel insurance<br></p></td><td>Nov 16, 2017</td></tr><tr><td>Cusco & Buenos Aires </td><td><p>\r\n								Free Sightseeing<br></p></td><td>Service tax of 4.50%</td><td>\r\n								Nov 18, 2017</td></tr></tbody></table><p><br></p>', 'sfgasd', '<p><br></p><p>Discover two of South America’s greatest cities, Rio de Janeiro and \r\nBuenos Aires, at a leisurely pace. A major highlight on this journey is a\r\n visit to Iguassu Falls in between your two city stays. It truly is one \r\nof the most spectacular sights on Earth. See the impressive falls from \r\nboth the Brazilian and Argentine sides.</p><p>\r\n						<br></p><p>Brazil’s view takes you through clouds of mist and the \r\nopportunity to see these 275 falls, spanning nearly two miles! \r\nArgentina’s side allows you to walk along the boardwalk network and \r\nembark on a jungle train through the forest for unforgettable views. \r\nHear the deafening roar and admire the brilliant rainbows created by the\r\n clouds of spray, and take in the majesty of this wonder of the world. \r\nFrom vibrant cities to scenic beauty, this vacation to Rio de Janeiro, \r\nIguassu Falls, and Buenos Aires will leave you with vacation memories \r\nyou’ll cherish for life.</p><p><br></p>', '$500', '[\"1588242011g.png\",\"1588242011g.jpg\",\"15882420111.jpg\",\"15882420112.jpg\",\"15882420113.jpg\",\"15882419731.png\",\"15882419732.png\",\"15882419734.png\",\"15882419735.png\"]', 1, 1, '2020-04-22', 'Rio,Brazil', '8 Nights/ 9 Days', 50, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d805184.6331292129!2d144.49266890254142!3d-37.97123689954809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC!5e0!3m2!1sen!2sau!4v1588250355174!5m2!1sen!2sau\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', NULL, 1, 0),
+(6, 'Ut reprehenderit quo', '', '', '', 'Vitae earum illo nul', NULL, 1, 1, '2020-05-15', 'Ea non expedita prov', 'Temporibus minim et ', 0, 'In non dolor quibusd', 'Accusantium omnis na', NULL, 0),
+(7, 'Consectetur dolor ra', '', '', '', 'Reprehenderit dolore', NULL, 1, 1, '2020-05-15', 'Excepturi accusamus ', 'Cillum et quas quis ', 0, 'In sit incididunt sa', 'Dolorem fugit esse', 7, 0),
+(8, 'Quisquam nulla nostr', '', '', '', 'Voluptate qui eum ve', NULL, 1, 1, '2020-05-19', 'Voluptas voluptas ac', 'Aut consectetur eli', 0, 'Quam ut veritatis mi', 'Dolorem maiores erro', NULL, 0),
+(10, 'Consectetur quisquam', '', '', '', 'Praesentium in repre', NULL, 1, 1, '2020-05-20', 'Praesentium illo sed', 'Error cupiditate inv', 0, 'Laudantium Nam sint', 'Vel in veniam eu qu', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -429,17 +468,12 @@ CREATE TABLE `session` (
 --
 
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-('om747rspo0hbhtli73n3kikd0i', 1589429582, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32373a222f74726176656c2f6170706c65742f7061636b6167652f706f7374223b),
-('mf1of6467q06fo87dpu3bf2mu1', 1589518586, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32373a222f74726176656c2f6170706c65742f7061636b6167652f706f7374223b5f5f69647c693a313b),
-('fpippbvgccsc2mesc4bfv9u5rb', 1589356361, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32393a222f74726176656c2f6170706c65742f7061636b6167652f726174696e67223b5f5f69647c693a313b),
-('t1ecnidg50hctgdn9j5gcl6n0i', 1589203532, 0x5f5f666c6173687c613a303a7b7d),
-('49o6g3vormn6t1a2mh5dvmog68', 1587466454, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a33393a222f74726176656c312f6170706c65742f73657474696e67732f656469742f7372546d39756f5346223b),
-('6k5q3k42491tk95hvs7tl6rs9k', 1587528318, 0x5f5f666c6173687c613a303a7b7d),
-('if90qlsrpejk9mg42l5lj2sp8a', 1589196651, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32333a222f74726176656c2f6170706c65742f7061636b6167652f223b5f5f69647c693a313b),
-('bd3p4gkuhp5fgimc1ed4eu118r', 1588735853, 0x5f5f666c6173687c613a303a7b7d),
-('3s61vpuu315pd98apeqegftnh0', 1588736436, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31353a222f74726176656c2f6170706c65742f223b5f5f69647c693a313b),
-('sk23jj7ei26fuanojodmk7li0o', 1588994739, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31353a222f74726176656c2f6170706c65742f223b5f5f69647c693a313b),
-('lqcfvla89rgfk2g1fcvve7qjoc', 1589003478, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a32383a222f74726176656c2f6170706c65742f74657374696d6f6e69616c732f223b);
+('f6fobhq2r2h258fpbhlqvrjtu6', 1590034933, 0x5f5f666c6173687c613a303a7b7d),
+('cru2vmjgr46k7fhbfa9h3f7los', 1590042866, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31343a222f74726176656c2f6170706c6574223b5f5f69647c693a313b),
+('76arn16hdn4du3o7mcj9s9rg9b', 1589975207, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31353a222f74726176656c2f6170706c65742f223b5f5f69647c693a313b),
+('bqo3e0jd9kif7ueu3l25padess', 1589954115, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31353a222f74726176656c2f6170706c65742f223b5f5f69647c693a313b),
+('uf8km3i6rq1lctdl8p1lpnin77', 1589967665, 0x5f5f666c6173687c613a303a7b7d5f5f72657475726e55726c7c733a31353a222f74726176656c2f6170706c65742f223b5f5f69647c693a313b),
+('33n3401shaebo499p95jnda5a0', 1589954747, 0x5f5f666c6173687c613a303a7b7d);
 
 -- --------------------------------------------------------
 
@@ -586,6 +620,12 @@ INSERT INTO `user` (`id`, `incorrect_login`, `name`, `role`, `username`, `image`
 --
 
 --
+-- Indexes for table `amenities`
+--
+ALTER TABLE `amenities`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `blog`
 --
 ALTER TABLE `blog`
@@ -715,6 +755,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `amenities`
+--
+ALTER TABLE `amenities`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
@@ -730,7 +776,7 @@ ALTER TABLE `blog_comments`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -754,7 +800,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `package_category`

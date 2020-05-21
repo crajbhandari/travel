@@ -11,8 +11,10 @@ use Yii;
  * @property string $name
  * @property string $email
  * @property string $phone
- * @property string $url
  * @property string $message
+ * @property string $city
+ * @property string $country
+ * @property string $subject
  * @property int $is_new
  * @property string $created_on
  */
@@ -32,12 +34,12 @@ class Messages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'message'], 'required'],
-            [['message'], 'string'],
+            [['name', 'email', 'message', 'city', 'country', 'subject'], 'required'],
+            [['message', 'city', 'country', 'subject'], 'string'],
             [['is_new'], 'integer'],
             [['created_on'], 'safe'],
             [['name', 'email'], 'string', 'max' => 255],
-            [['phone', 'url'], 'string', 'max' => 128],
+            [['phone'], 'string', 'max' => 128],
         ];
     }
 
@@ -51,8 +53,10 @@ class Messages extends \yii\db\ActiveRecord
             'name' => 'Name',
             'email' => 'Email',
             'phone' => 'Phone',
-            'url' => 'Url',
             'message' => 'Message',
+            'city' => 'City',
+            'country' => 'Country',
+            'subject' => 'Subject',
             'is_new' => 'Is New',
             'created_on' => 'Created On',
         ];

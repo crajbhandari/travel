@@ -41,6 +41,7 @@
                     'faq/edit/<id:[a-zA-Z0-9-]+>/'       => 'faq/',
                     'package/category-edit/<id:[a-zA-Z0-9-]+>/'       => 'package/category',
                     'package/edit-city/<id:[a-zA-Z0-9-]+>/'       => 'package/cities',
+                    'package/city-post/<id:[a-zA-Z0-9-]+>/'       => 'package/city-post',
                     'package/post/<id:[a-zA-Z0-9-]+>/'       => 'package/post',
                     'services/edit/<id:[a-zA-Z0-9-]+>/'     => 'services/',
                     [

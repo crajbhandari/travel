@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\components\HelperMessages;
 use common\models\Blog;
 use common\models\Clients;
+use common\models\generated\Banners;
 use common\models\LoginForm;
 use common\models\Sections;
 use common\models\Services;
@@ -89,7 +90,7 @@ class SiteController extends Controller {
         $blog = [];
         if (Yii::$app->params['site-settings']['show_blog']['content'] == 1) {
             $blog = Blog::find()->where(['=', 'visibility', '1'])
-                                ->orderBy('RAND()')
+                                ->orderBy(['date'=>SORT_DESC])
                                 ->limit(3)
                                 ->asArray()
                                 -> all();
@@ -100,6 +101,7 @@ class SiteController extends Controller {
                 'services'     => Services::find()->all(),
                 'blogs'         => $blog,
                 'content'      => Sections::find()->where(['=', 'page', $page])->orderBy(['section_order' => SORT_ASC, 'created_on' => SORT_ASC])->all(),
+                'banners'      =>Banners::find()->asArray()->all(),
         ]);
     }
 
@@ -115,6 +117,9 @@ class SiteController extends Controller {
                 'page'     => Yii::$app->params['pages'][$page],
 
         ]);
+    }
+     public function actionTestimonials() {
+        return $this->render('testimonials');
     }
 
 
@@ -132,13 +137,14 @@ class SiteController extends Controller {
     }
 
 
-    public function actionSendMessage() {
+    public function actionMessage() {
         $status = false;
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if (Yii::$app->request->isAjax && $_POST['message']) {
-            $status = HelperMessages::update($_POST['message']);
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        if (Yii::$app->request->isAjax && $_POST['contact'] != '') {
+            $status = HelperMessages::update($_POST['contact']);
         }
+
         return $status;
     }
 
