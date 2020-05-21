@@ -40,7 +40,7 @@ $this->title = 'Package';
                                     <td>
                                         <?php echo (isset($post['title'])) ? trim($post['title']) : '' ?>
                                     </td>
-                                   <td><?php echo (isset($post['is_active']) && $post['is_active']==1) ?'Visible' : 'Hidden' ?></td>
+                                   <td><?php echo (isset($post['visibility']) && $post['visibility']==1) ?'Visible' : 'Hidden' ?></td>
                                     <td>
                                         <a href="<?php echo Yii::$app->request->baseUrl; ?>/package/post/<?php echo \common\components\Misc::encodeUrl($post['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Package"><i class="fa fa-trash-o" aria-hidden="true"></i></a>

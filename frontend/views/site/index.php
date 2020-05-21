@@ -6,7 +6,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
 
 <!--HEADER SECTION-->
 <section>
-   <?php foreach ($banners as $banner): if($banner['alt_text']!= '' && $banner['alt_text'] == 'check'):
+   <?php foreach ($banners as $banner): if($banner['name']!= '' && $banner['name'] == 'home'):
    ?>
    <div class = "tourz-search" style="background: url('<?= Yii::$app->request->baseUrl.'/common/assets/images/banners/'.$banner['image']; ?>'); background-size: cover;" >
        <?php
