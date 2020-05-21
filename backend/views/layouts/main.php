@@ -25,8 +25,9 @@ AppAsset::register($this);
       <title><?php echo Yii::$app->params['system_name'] ?> - <?= Html::encode($this->title) ?></title>
       <!--== FAV ICON ==-->
       <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
-      
-       <!-- CATEGORY -->
+
+      <!-- CATEGORY -->
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/css/margins-paddings.css" rel = "stylesheet">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/slider-menu.jquery.css" rel = "stylesheet">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/slider-menu.theme.jquery.css" rel = "stylesheet">
 
@@ -43,7 +44,7 @@ AppAsset::register($this);
 
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" rel = "stylesheet">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/custom.css" rel = "stylesheet">
-      <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+      <link href = "https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel = "stylesheet">
 
 
       <!--   <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/resources/css/overrides.css" rel = "stylesheet">-->
@@ -118,23 +119,20 @@ AppAsset::register($this);
             </a>
 
 
-
-
-
             <!-- Dropdown Structure -->
             <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
                <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Account Setting</a>
 
 
-            <!-- Dropdown Structure -->
-            <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
-               <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Account Setting</a>
+                  <!-- Dropdown Structure -->
+                  <ul id = 'top-menu' class = 'dropdown-content top-menu-sty'>
+                     <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/dashboard" class = "waves-effect"><i class = "fa fa-cogs" aria-hidden = "true"></i>Account Setting</a>
 
-               </li>
-               <li class = "divider"></li>
-               <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/logout" class = "ho-dr-con-last waves-effect"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Logout</a>
-               </li>
-            </ul>
+                     </li>
+                     <li class = "divider"></li>
+                     <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/site/logout" class = "ho-dr-con-last waves-effect"><i class = "fa fa-sign-in" aria-hidden = "true"></i> Logout</a>
+                     </li>
+                  </ul>
          </div>
       </div>
    </div>
@@ -205,9 +203,7 @@ AppAsset::register($this);
                       </li>
                    <?php } ?>
 
-                  <li><a href = "javascript:void(0) <?php if ($this->title == 'Package') {
-                          echo 'active';
-                      } ?>" class = "collapsible-header <?php echo ($this->title == 'Package') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
+                  <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo ($this->title == 'Package') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Tour Packages</a>
                      <div class = "collapsible-body left-sub-menu">
                         <ul>
                            <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/">All Packages</a>
@@ -227,6 +223,17 @@ AppAsset::register($this);
                         </ul>
                      </div>
                   </li>
+
+                  <li><a href = "javascript:void(0)" class = "collapsible-header <?php echo ($this->title == 'content') ? 'menu-active' : '' ?>"><i class = "fa fa-umbrella" aria-hidden = "true"></i> Website Content</a>
+                     <div class = "collapsible-body left-sub-menu">
+                        <ul>
+                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/content/home">Home Page</a></li>
+                           <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/content/about">About Us</a></li>
+                        </ul>
+                     </div>
+                  </li>
+
+
                   <li><a class = "<?php echo (Yii::$app->controller->id == 'settings' && Yii::$app->controller->action->id == 'index') ? 'menu-active' : '' ?>" href = "<?php echo Yii::$app->request->baseUrl; ?>/settings"><i class = "fa fa-gear" aria-hidden = "true"></i> Settings</a>
                   </li>
                </ul>
@@ -270,7 +277,7 @@ AppAsset::register($this);
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/select2/dist/js/select2.full.min.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/slider-menu.jquery.js"></script>
-   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+   <script src = "https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
    <?php if (Yii::$app->session->hasFlash('flash')): ?>
       <script>
@@ -288,21 +295,21 @@ AppAsset::register($this);
          }
       });
    </script>
- <!--   <script type="text/javascript">
-    $(".js-select2").select2({
-      closeOnSelect : false,
-      placeholder : "Placeholder",
-    
-      allowClear: true,
-      tags: true 
-    });
-</script> -->
-<!-- <script type="text/javascript">
- $(document).ready(function() {
-$('.mdb-select').materialSelect();
-});
-</script>
- -->
+   <!--   <script type="text/javascript">
+      $(".js-select2").select2({
+        closeOnSelect : false,
+        placeholder : "Placeholder",
+
+        allowClear: true,
+        tags: true
+      });
+  </script> -->
+   <!-- <script type="text/javascript">
+    $(document).ready(function() {
+   $('.mdb-select').materialSelect();
+   });
+   </script>
+    -->
    </body>
 
    </html>
