@@ -53,7 +53,6 @@
                   <ul>
                      <!--LISTINGS-->
                      <li>
-                        <?php  ?>
                         <a href = "#">
                            <div class = "hot-page2-hom-pre-1 hot-page2-alp-cl-1-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/package/1.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2 hot-page2-alp-cl-1-2">
