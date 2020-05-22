@@ -111,6 +111,7 @@
                      </li>
 
 
+
                   </ol>
                   <!-- Wrapper for slides -->
                   <div class = "carousel-inner carousel-inner1" role = "listbox">
@@ -135,8 +136,8 @@
 
                   </div>
                   <!-- Left and right controls -->
-                  <a class = "left carousel-control" href = "#myCarousel1" role = "button" data-slide = "prev"> <span><i class = "fa fa-angle-left hotel-gal-arr" aria-hidden = "true"></i></span> </a>
-                  <a class = "right carousel-control" href = "#myCarousel1" role = "button" data-slide = "next"> <span><i class = "fa fa-angle-right hotel-gal-arr hotel-gal-arr1" aria-hidden = "true"></i></span> </a>
+                  <a class = "left carousel-control carousel-01" href = "#myCarousel1" role = "button" data-slide = "prev"> <span><i class = "fa fa-angle-left hotel-gal-arr" aria-hidden = "true"></i></span> </a>
+                  <a class = "right carousel-control carousel-01" href = "#myCarousel1" role = "button" data-slide = "next"> <span><i class = "fa fa-angle-right hotel-gal-arr hotel-gal-arr1" aria-hidden = "true"></i></span> </a>
                </div>
             </div>
             <!--====== TOUR LOCATION ==========-->
@@ -255,6 +256,7 @@
                   <div class = "dir-rat-inn dir-rat-review">
                      <div class = "row">
                         <!--  <div class="col-md-3 dir-rat-left"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/4.jpg" alt=""/> 
+
                                         <p>Orange Fab &amp; Weld <span>19th January, 2017</span> </p>
                                     </div> -->
                         <div class = "col-md-12 dir-rat-right">

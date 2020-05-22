@@ -88,10 +88,15 @@
     background: linear-gradient(to bottom, #2c9651, #2c9651);
     color: white;
 }
+
+.carousel-01{
+    bottom: unset ! important;
+}
 .test-img
 {
     height: 100px;
     width: 100px;
     object-fit: cover;
     border-radius: 50%;
+
 }

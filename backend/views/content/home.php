@@ -3,7 +3,37 @@ $this->title = 'Edit Homepage';
 $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/jquery.slimscroll.min.js');
 $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
 ?>
-<div class = "sb2-2 content-editor" data-page = "<?= $page ?>">
+<div class = "container-fluid">
+
+   <!-- start page title -->
+   <div class = "row">
+      <div class = "col-12">
+         <div class = "page-title-box d-flex align-items-center justify-content-between">
+            <h4 class = "mb-0 font-size-18">Dashboard</h4>
+
+            <div class = "page-title-right">
+               <ol class = "breadcrumb m-0">
+                  <li class = "breadcrumb-item"><a href = "javascript: void(0);">Dashboards</a></li>
+                  <li class = "breadcrumb-item active">Dashboard</li>
+               </ol>
+            </div>
+
+         </div>
+      </div>
+   </div>
+   <!-- end page title -->
+
+   <div class = "card">
+      <div class = "card-body">
+
+
+      </div>
+   </div>
+   <!-- end row -->
+</div>
+
+
+<div class = "d-none sb2-2 content-editor" data-page = "<?= $page ?>">
    <div class = "sb2-2-2">
       <ul>
          <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/"><i class = "fa fa-home" aria-hidden = "true"></i> Content</a>
@@ -112,7 +142,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
             </ul>
          </div>
       </div>
-      <div class="text-right">
+      <div class = "text-right">
          <button class = "waves-effect waves-light btn update-category">Update</button>
       </div>
    </div>

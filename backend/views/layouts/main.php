@@ -494,7 +494,6 @@ AppAsset::register($this);
       });
    </script>
 
-
    <!-- This is where page wise JS will show up  -->
 <?php $this->endBody() ?>
 
