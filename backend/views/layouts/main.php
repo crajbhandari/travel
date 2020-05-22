@@ -466,7 +466,7 @@ AppAsset::register($this);
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/metismenu/metisMenu.min.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/simplebar/simplebar.min.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/node-waves/waves.min.js"></script>
-
+<script src="<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/tinymce/tinymce.min.js"></script>
    <!-- App js -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
 
