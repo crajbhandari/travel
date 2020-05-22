@@ -32,6 +32,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/font-awesome.min.css">
    <!--== ALL CSS FILES ==-->
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css">
+   <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/font/flaticon.css">
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/materialize.css">
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.css">
    <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/mob.css">

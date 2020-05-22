@@ -2390,6 +2390,8 @@ footer ul li a {
 
 .posts img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .posts h3 {
@@ -2397,6 +2399,7 @@ footer ul li a {
     padding-bottom: 5px;
     text-transform: capitalize;
     color: #212627;
+    padding-top: 17px;
 }
 
 .posts h5 {
@@ -9862,5 +9865,13 @@ padding-top: 20px;
 .testimonial-all a:hover{
     color: #ffad0c;
 }
+.author_thumb img{
+    border-radius: 50%;
+    height: 100%;
+    width: 100% ! important;
+    border: 3px solid white;
+    object-fit: cover;
+}
+
 /*new-add-end*/
 
