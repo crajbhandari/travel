@@ -247,7 +247,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                      <li><a href = "<?=  Yii::$app->request->baseUrl; ?>/site/index">Home</a>
                      </li>
                      <li class = "about-menu">
-                        <a href = "<?=  Yii::$app->request->baseUrl; ?>/package/" class = "mm-arr">Packages</a>
+                        <a  class = "mm-arr" >Packages</a>
                         <!-- MEGA MENU 1 -->
                         <div class = "mm-pos">
                            <div class = "about-mm m-menu">
@@ -267,24 +267,18 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                                  </div>
                                  <div class = "mm1-com mm1-s3">
                                     <ul>
-                                       <li><a href = "family-package.html">Family Package</a></li>
-                                       <li><a href = "honeymoon-package.html">Honeymoon Package</a></li>
-                                       <li><a href = "group-package.html">Group Package</a></li>
-                                       <li><a href = "weekend-package.html">WeekEnd Package</a></li>
-                                       <li><a href = "regular-package.html">Regular Package</a></li>
-                                       <li><a href = "custom-package.html">Custom Package</a></li>
+                                       <?php
+                                    $package=  \Yii::$app->params['packageCategory'];
+                                       foreach($package as $p):
+
+                                       ?>
+                                       <li><a href = "<?=  Yii::$app->request->baseUrl;?>/package/index/<?=\common\components\Misc::encrypt($p['id'])?>"><?=$p['name'] ?></a></li>
+                                       <?php
+
+                                       endforeach; ?>
                                     </ul>
                                  </div>
-                                 <div class = "mm1-com mm1-s4">
-                                    <ul>
-                                       <li><a href = "family-package.html">Family Package</a></li>
-                                       <li><a href = "honeymoon-package.html">Honeymoon Package</a></li>
-                                       <li><a href = "group-package.html">Group Package</a></li>
-                                       <li><a href = "weekend-package.html">WeekEnd Package</a></li>
-                                       <li><a href = "regular-package.html">Regular Package</a></li>
-                                       <li><a href = "custom-package.html">Custom Package</a></li>
-                                    </ul>
-                                 </div>
+
                               </div>
                            </div>
                         </div>

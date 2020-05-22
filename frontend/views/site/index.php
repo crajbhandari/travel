@@ -570,60 +570,28 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
          <div class = "row">
             <div class = "col-xl-12">
                <div class = "testmonial_active owl-carousel">
+                   <?php if (!empty($testimonials) && count($testimonials) > 0):
+                      foreach ($testimonials as $post) :?>
                   <div class = "single_carousel">
                      <div class = "row justify-content-center">
                         <div class = "">
                            <div class = "single_testmonial text-center">
                               <div class = "author_thumb">
-                                 <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = ""/>
-
+                                 <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= $post['image'] ?>" alt = "<?php echo (isset($post['title'])) ? trim($post['title']) : '' ?>"/>
                               </div>
-                              <p>"Working in conjunction with humanitarian aid agencies, we have<br> supported programmes to help alleviate human suffering.</p>
-                              <div class = "testmonial_author">
-                                 <h3>- Micky Mouse</h3>
-                                 <!--  <a href="">View All</a> -->
-                              </div>
-                              <div class = "">
-                                
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class = "single_carousel">
-                     <div class = "row justify-content-center">
-                        <div class = "">
-                           <div class = "single_testmonial text-center">
-                              <div class = "author_thumb">
-                                 <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = ""/>
-                              </div>
-                              <p>"Working in conjunction with humanitarian aid agencies, we have <br> supported programmes to help alleviate human suffering.</p>
-                              <div class = "testmonial_author">
-                                 <h3>- Tom Mouse</h3>
-                               <!--   <a href="">View All</a> -->
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class = "single_carousel">
-                     <div class = "row justify-content-center">
-                        <div class = "">
-                           <div class = "single_testmonial text-center">
-                              <div class = "author_thumb">
-                                 <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = ""/>
-                              </div>
-                              <p>"Working in conjunction with humanitarian aid agencies, we have
-                                 <br> supported programmes to help alleviate human suffering.
+                              <p><?php echo (isset($post['content'])) ? ucwords(trim($post['content'])) : '' ?>
                               </p>
                               <div class = "testmonial_author">
-                                 <h3>- Jerry Mouse</h3>
+                                 <h3><?php echo (isset($post['position'])) ? ucwords(trim($post['position'])) : '' ?></h3>
                                 <!--  <a href="">View All</a> -->
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
+
+                   <?php endforeach; ?>
+                   <?php endif; ?>
                </div>
                <div class="testimonial-all" >
                    <a href="">View All</a>

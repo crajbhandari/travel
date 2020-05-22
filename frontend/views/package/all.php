@@ -28,11 +28,11 @@
 <section>
    <div class = "rows inner_banner inner_banner_5">
       <div class = "container">
-         <h2><span>Family Package -</span> Top Family Packages In The World</h2>
+         <h2><span><?=$cat['name']; ?> -</span> Top Family Packages In The World</h2>
          <ul>
             <li><a href = "#inner-page-title">Home</a></li>
             <li><i class = "fa fa-angle-right" aria-hidden = "true"></i></li>
-            <li><a href = "#inner-page-title" class = "bread-acti">Family Package</a></li>
+            <li><a href = "#inner-page-title" class = "bread-acti"><?= $cat['name'] ?></a></li>
          </ul>
          <p>Book travel packages and enjoy your holidays with distinctive experience</p>
       </div>

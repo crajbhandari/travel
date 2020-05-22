@@ -24,6 +24,8 @@
                     '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
                     'blog/post/<id:[a-zA-Z0-9-]+>/'      => 'blog/post/',
                     'slider/banner/<id:[a-zA-Z0-9-]+>/'      => 'slider/banner/',
+                    'package/detail/<id:[a-zA-Z0-9-]+>/'      => 'package/detail/',
+                    'package/index/<id:[a-zA-Z0-9-]+>/'      => 'package/index/',
                 ),
             ],
             'helper'     => [
