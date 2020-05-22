@@ -909,7 +909,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
          <div class = "col-md-6 col-sm-6 col-xs-12 form_1">
             <div class = "succ_mess">Thank you for contacting us we will get back to you soon.</div>
             <form id = "home_form" name = "home_form" method="post">
-               <ul>
+               <ul >
                   <li>
                      <input type = "text" name = "ename" value = "" id = "ename" placeholder = "Name" required>
                   </li>
@@ -928,8 +928,8 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
                   <li>
                      <input type = "text" name = "ecountry" value = "" id = "ecountry" placeholder = "Country" required>
                   </li>
-                  <li>
-                     <textarea name = "emessage" cols = "40" rows = "3" id = "text-comment" placeholder = "Enter your message" required></textarea>
+                  <li class="text-01" >
+                     <textarea name = "emessage" cols = "40" rows = "3" id = "text-comment" placeholder = "Enter your message" style="height: 120px; width: 100%;" required></textarea>
                   </li>
                   <li>
                      <a class = "btn btn-default btn-block send">Submit</a>

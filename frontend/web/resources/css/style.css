@@ -1470,7 +1470,7 @@ section.c3 {
 }
 
 .form_1 ul li:nth-child(7) {
-    width: 100%;
+   /* width: 100%;*/
 }
 
 .form_1 ul li input[type="submit"] {
