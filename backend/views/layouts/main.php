@@ -1499,8 +1499,7 @@ AppAsset::register($this);
          notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
       </script>
    <?php endif; ?>
-   <!-- CSRF TOKEN -->
-   <script>
+
    <!-- JAVASCRIPT -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/jquery/jquery.min.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1510,9 +1509,9 @@ AppAsset::register($this);
 
    <!-- apexcharts -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/apexcharts/apexcharts.min.js"></script>
+
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/dashboard.init.js"></script>
-
-
+   <!-- CSRF TOKEN -->
    <script>
       $.ajaxSetup({
          data: {
@@ -1520,8 +1519,6 @@ AppAsset::register($this);
          }
       });
    </script>
-   </script>
-
    <!-- App js -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
