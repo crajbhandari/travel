@@ -6,7 +6,7 @@
  * Last Changes: 03/09/2016
  * Author: RN53 Themes
  * Email:      rn53themes@gmail.com
- * Website:    http://www.rn53themes.net 
+ * Website:    http://www.rn53themes.net
  -----------------------------------------------*/
 
 .materialize-red {
@@ -1621,10 +1621,10 @@
 html {
     font-family: sans-serif;
     /* 1 */
-    
+
     -ms-text-size-adjust: 100%;
     /* 2 */
-    
+
     -webkit-text-size-adjust: 100%;
     /* 2 */
 }
@@ -1670,7 +1670,7 @@ progress,
 video {
     display: inline-block;
     /* 1 */
-    
+
     vertical-align: baseline;
     /* 2 */
 }
@@ -1838,10 +1838,10 @@ select,
 textarea {
     color: inherit;
     /* 1 */
-    
+
     font: inherit;
     /* 2 */
-    
+
     margin: 0;
     /* 3 */
 }
@@ -1877,7 +1877,7 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button;
     /* 2 */
-    
+
     cursor: pointer;
     /* 3 */
 }
@@ -1918,7 +1918,7 @@ input[type="checkbox"],
 input[type="radio"] {
     box-sizing: border-box;
     /* 1 */
-    
+
     padding: 0;
     /* 2 */
 }
@@ -1940,7 +1940,7 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
     -webkit-appearance: textfield;
     /* 1 */
-    
+
     box-sizing: content-box;
     /* 2 */
 }
@@ -1971,7 +1971,7 @@ fieldset {
 legend {
     border: 0;
     /* 1 */
-    
+
     padding: 0;
     /* 2 */
 }
@@ -4926,12 +4926,12 @@ label {
 }
 :-moz-placeholder {
     /* Firefox 18- */
-    
+
     color: #d1d1d1;
 }
 ::-moz-placeholder {
     /* Firefox 19+ */
-    
+
     color: #d1d1d1;
 }
 :-ms-input-placeholder {
@@ -5318,10 +5318,10 @@ textarea {
 textarea.materialize-textarea {
     overflow-y: hidden;
     /* prevents scroll bar flash */
-    
+
     padding: .8rem 0 1.6rem 0;
     /* prevents text jump on Enter keypress */
-    
+
     resize: none;
     min-height: 3rem;
 }
@@ -5331,10 +5331,10 @@ textarea.materialize-textarea {
     word-wrap: break-word;
     overflow-wrap: break-word;
     /* future version of deprecated 'word-wrap' */
-    
+
     padding-top: 1.2rem;
     /* prevents text jump on Enter keypress */
-    
+
     position: absolute;
     top: 0;
 }
@@ -5374,7 +5374,7 @@ textarea.materialize-textarea {
     font-size: 1rem;
     transition: .28s ease;
     /* webkit (konqueror) browsers */
-    
+
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -5497,13 +5497,13 @@ form p:last-child {
     font-size: 1rem;
     -webkit-user-select: none;
     /* webkit (safari, chrome) browsers */
-    
+
     -moz-user-select: none;
     /* mozilla browsers */
-    
+
     -khtml-user-select: none;
     /* webkit (konqueror) browsers */
-    
+
     -ms-user-select: none;
     /* IE10+ */
 }
@@ -5589,7 +5589,7 @@ form p:last-child {
     left: 0;
     position: absolute;
     /* .1s delay is for check animation */
-    
+
     transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
     z-index: 1;
 }
@@ -5790,13 +5790,13 @@ select:disabled {
     cursor: default;
     -webkit-user-select: none;
     /* webkit (safari, chrome) browsers */
-    
+
     -moz-user-select: none;
     /* mozilla browsers */
-    
+
     -ms-user-select: none;
     /* IE10+ */
-    
+
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 .select-wrapper i {
@@ -5950,7 +5950,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 input[type=range] {
     /* fix for FF unable to apply focus style bug  */
-    
+
     border: 1px solid white;
     /*required for proper track sizing in FF*/
 }
@@ -5980,7 +5980,7 @@ input[type=range]::-ms-track {
     border-color: transparent;
     border-width: 6px 0;
     /*remove default tick marks*/
-    
+
     color: transparent;
 }
 input[type=range]::-ms-fill-lower {
@@ -6271,7 +6271,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .preloader-wrapper.active {
     /* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */
-    
+
     -webkit-animation: container-rotate 1568ms linear infinite;
     animation: container-rotate 1568ms linear infinite;
 }
@@ -6325,25 +6325,25 @@ input[type=range]:focus::-ms-fill-upper {
 
 .active .spinner-layer.spinner-blue {
     /* durations: 4 * ARCTIME */
-    
+
     -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
     animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 .active .spinner-layer.spinner-red {
     /* durations: 4 * ARCTIME */
-    
+
     -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
     animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 .active .spinner-layer.spinner-yellow {
     /* durations: 4 * ARCTIME */
-    
+
     -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
     animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 .active .spinner-layer.spinner-green {
     /* durations: 4 * ARCTIME */
-    
+
     -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
     animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
@@ -6353,7 +6353,7 @@ input[type=range]:focus::-ms-fill-upper {
 .active .spinner-layer.spinner-yellow-only,
 .active .spinner-layer.spinner-green-only {
     /* durations: 4 * ARCTIME */
-    
+
     opacity: 1;
     -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
     animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
@@ -6363,37 +6363,37 @@ input[type=range]:focus::-ms-fill-upper {
         -webkit-transform: rotate(135deg);
     }
     /* 0.5 * ARCSIZE */
-    
+
     25% {
         -webkit-transform: rotate(270deg);
     }
     /* 1   * ARCSIZE */
-    
+
     37.5% {
         -webkit-transform: rotate(405deg);
     }
     /* 1.5 * ARCSIZE */
-    
+
     50% {
         -webkit-transform: rotate(540deg);
     }
     /* 2   * ARCSIZE */
-    
+
     62.5% {
         -webkit-transform: rotate(675deg);
     }
     /* 2.5 * ARCSIZE */
-    
+
     75% {
         -webkit-transform: rotate(810deg);
     }
     /* 3   * ARCSIZE */
-    
+
     87.5% {
         -webkit-transform: rotate(945deg);
     }
     /* 3.5 * ARCSIZE */
-    
+
     to {
         -webkit-transform: rotate(1080deg);
     }
@@ -6405,43 +6405,43 @@ input[type=range]:focus::-ms-fill-upper {
         transform: rotate(135deg);
     }
     /* 0.5 * ARCSIZE */
-    
+
     25% {
         -webkit-transform: rotate(270deg);
         transform: rotate(270deg);
     }
     /* 1   * ARCSIZE */
-    
+
     37.5% {
         -webkit-transform: rotate(405deg);
         transform: rotate(405deg);
     }
     /* 1.5 * ARCSIZE */
-    
+
     50% {
         -webkit-transform: rotate(540deg);
         transform: rotate(540deg);
     }
     /* 2   * ARCSIZE */
-    
+
     62.5% {
         -webkit-transform: rotate(675deg);
         transform: rotate(675deg);
     }
     /* 2.5 * ARCSIZE */
-    
+
     75% {
         -webkit-transform: rotate(810deg);
         transform: rotate(810deg);
     }
     /* 3   * ARCSIZE */
-    
+
     87.5% {
         -webkit-transform: rotate(945deg);
         transform: rotate(945deg);
     }
     /* 3.5 * ARCSIZE */
-    
+
     to {
         -webkit-transform: rotate(1080deg);
         transform: rotate(1080deg);
@@ -6621,7 +6621,7 @@ input[type=range]:focus::-ms-fill-upper {
     height: 100%;
     border-width: 3px;
     /* STROKEWIDTH */
-    
+
     border-style: solid;
     border-color: inherit;
     border-bottom-color: transparent !important;
@@ -6647,13 +6647,13 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .active .circle-clipper.left .circle {
     /* duration: ARCTIME */
-    
+
     -webkit-animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
     animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 .active .circle-clipper.right .circle {
     /* duration: ARCTIME */
-    
+
     -webkit-animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
     animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
@@ -6709,7 +6709,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 #spinnerContainer.cooldown {
     /* duration: SHRINK_TIME */
-    
+
     -webkit-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
     animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }

@@ -512,6 +512,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                           <h4><span>Holiday</span> Tour & Travels</h4>
                           <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide.</p>
                       </div> -->
+
                      <div class = "col-md-4 foot-spec foot-com">
                         <h4><span>Address</span> & Contact Info</h4>
                         <p><?php if(isset(Yii::$app->params['site-settings']['address'])){ echo Yii::$app->params['site-settings']['address']['content'];}else{echo '';} ?></p>
