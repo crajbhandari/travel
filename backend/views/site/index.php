@@ -1,7 +1,7 @@
 <?php
 $this->title = Yii::$app->params['system_name'] . " | Welcome " . ucwords(Yii::$app->user->identity->name);
 ?>
-<div class = "sb2-2">
+<div class = "d-none sb2-2">
     <!--== breadcrumbs ==-->
     <div class = "sb2-2-2">
         <ul>
