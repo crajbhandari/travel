@@ -39,6 +39,7 @@ AppAsset::register($this);
 
       <!-- Bootstrap Css -->
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.min.css" id = "bootstrap-style" rel = "stylesheet" type = "text/css"/>
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" id = "bootstrap-style" rel = "stylesheet" type = "text/css"/>
       <!-- Icons Css -->
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/icons.min.css" rel = "stylesheet" type = "text/css"/>
       <!-- App Css-->
@@ -474,7 +475,8 @@ AppAsset::register($this);
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/simplebar/simplebar.min.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/node-waves/waves.min.js"></script>
 
- 
+<script src="<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/tinymce/tinymce.min.js"></script>
+
    <!-- App js -->
     <!-- <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/datatables.init.js"></script> -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
