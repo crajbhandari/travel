@@ -569,9 +569,10 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
       <div class = "container">
          <div class = "row">
             <div class = "col-xl-12">
+                <?php if (!empty($testimonials) && count($testimonials) > 0):?>
                <div class = "testmonial_active owl-carousel">
-                   <?php if (!empty($testimonials) && count($testimonials) > 0):
-                      foreach ($testimonials as $post) :?>
+
+                    <?php  foreach ($testimonials as $post) :?>
                   <div class = "single_carousel">
                      <div class = "row justify-content-center">
                         <div class = "">
@@ -591,12 +592,12 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
                   </div>
 
                    <?php endforeach; ?>
-                   <?php endif; ?>
+
                </div>
                <div class="testimonial-all" >
-                   <a href="">View All</a>
+                   <a href="<?php echo Yii::$app->request->baseUrl .'/site/testimonials/'?>">View All</a>
                </div>
-               
+                <?php endif; ?>
             </div>
          </div>
       </div>

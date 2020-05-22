@@ -57,101 +57,28 @@
          </div>
          <div class = "p_testimonial">
             <!--====== TESTIMONIALS ======-->
+             <?php if (!empty($testimonials) && count($testimonials) > 0):
+             foreach ($testimonials as $post) :?>
             <div class = "col-md-6">
                <div class = "p-tesi">
                   <div class = "col-md-3 col-sm-3">
-                      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/>
+                      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= $post['image'] ?>" alt = "Tour Booking" alt = ""/>
                  </div>
                   <div class = "col-md-9 col-sm-9">
-                     <h4>Best tour package forever</h4>
+                     <h4><?php echo (isset($post['position'])) ? ucwords(trim($post['position'])) : '' ?></h4>
                      <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
-                     <p>Praesent rutrum convallis nisl vitae aliquam. Suspendisse non quam vehicula, tincidunt nibh at, porta orci. Maecenas egestas</p>
-                     <address>Illinois, USA</address>
+                     <p><?php echo (isset($post['content'])) ? ucwords(trim($post['content'])) : '' ?></p>
+                     <address><?php echo (isset($post['info'])) ? ucwords(trim($post['info'])) : '' ?></address>
                   </div>
                </div>
             </div>
             <!--====== TESTIMONIALS ======-->
-            <!--====== TESTIMONIALS ======-->
-            <div class = "col-md-6">
-               <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
-                  <div class = "col-md-9 col-sm-9">
-                     <h4>Best tour package forever</h4>
-                     <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
-                     <p>Suspendisse tortor lacus, sodales nec elementum id, lobortis in arcu. Praesent sit amet purus mi. Praesent rutrum convallis.</p>
-                     <address>Perth, Australia</address>
-                  </div>
-               </div>
-            </div>
-            <!--====== TESTIMONIALS ======-->
-            <!--====== TESTIMONIALS ======-->
-            <div class = "col-md-6">
-               <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
-                  <div class = "col-md-9 col-sm-9">
-                     <h4>Best tour package forever</h4>
-                     <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
-                     <p>Praesent rutrum convallis nisl vitae aliquam. Suspendisse non quam vehicula, tincidunt nibh at, porta orci. Maecenas egestas</p>
-                     <address>Illinois, USA</address>
-                  </div>
-               </div>
-            </div>
-            <!--====== TESTIMONIALS ======-->
-            <!--====== TESTIMONIALS ======-->
-            <div class = "col-md-6">
-               <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
-                  <div class = "col-md-9 col-sm-9">
-                     <h4>Best tour package forever</h4>
-                     <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
-                     <p>Suspendisse tortor lacus, sodales nec elementum id, lobortis in arcu. Praesent sit amet purus mi. Praesent rutrum convallis.</p>
-                     <address>Perth, Australia</address>
-                  </div>
-               </div>
-            </div>
-            <!--====== TESTIMONIALS ======-->
-            <!--====== TESTIMONIALS ======-->
-            <div class = "col-md-6">
-               <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
-                  <div class = "col-md-9 col-sm-9">
-                     <h4>Best tour package forever</h4>
-                     <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
-                     <p>Praesent rutrum convallis nisl vitae aliquam. Suspendisse non quam vehicula, tincidunt nibh at, porta orci. Maecenas egestas</p>
-                     <address>Illinois, USA</address>
-                  </div>
-               </div>
-            </div>
-            <!--====== TESTIMONIALS ======-->
-            <!--====== TESTIMONIALS ======-->
-            <div class = "col-md-6">
-               <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
-                  <div class = "col-md-9 col-sm-9">
-                     <h4>Best tour package forever</h4>
-                     <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
-                     <p>Suspendisse tortor lacus, sodales nec elementum id, lobortis in arcu. Praesent sit amet purus mi. Praesent rutrum convallis.</p>
-                     <address>Perth, Australia</address>
-                  </div>
-               </div>
-            </div>
-            <!--====== TESTIMONIALS ======-->
-            <!--====== TESTIMONIALS ======-->
-            <div class = "col-md-6">
-               <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3"> <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/testi_img.png" alt = "Tour Booking" alt = ""/></div>
-                  <div class = "col-md-9 col-sm-9">
-                     <h4>Best tour package forever</h4>
-                     <div><span class = "tour_star"><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star" aria-hidden = "true"></i><i class = "fa fa-star-half-o" aria-hidden = "true"></i></span></div>
-                     <p>Praesent rutrum convallis nisl vitae aliquam. Suspendisse non quam vehicula, tincidunt nibh at, porta orci. Maecenas egestas</p>
-                     <address>Illinois, USA</address>
-                  </div>
-               </div>
-            </div>
-            <!--====== TESTIMONIALS ======-->
-           
-           
-            
+
+
+
+
+             <?php endforeach; ?>
+             <?php endif; ?>
            
          
          </div>
