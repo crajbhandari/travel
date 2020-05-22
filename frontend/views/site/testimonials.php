@@ -1,3 +1,4 @@
+
 <!-- TOP SEARCH BOX -->
    <div class = "search-top">
       <div class = "container">
@@ -61,8 +62,8 @@
              foreach ($testimonials as $post) :?>
             <div class = "col-md-6">
                <div class = "p-tesi">
-                  <div class = "col-md-3 col-sm-3">
-                      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= $post['image'] ?>" alt = "Tour Booking" alt = ""/>
+                  <div class = "col-md-3 col-sm-3 ">
+                      <img class="test-img" src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= $post['image'] ?>" alt = "Tour Booking" alt = ""/>
                  </div>
                   <div class = "col-md-9 col-sm-9">
                      <h4><?php echo (isset($post['position'])) ? ucwords(trim($post['position'])) : '' ?></h4>
