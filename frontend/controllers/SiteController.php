@@ -119,7 +119,8 @@ class SiteController extends Controller {
         ]);
     }
      public function actionTestimonials() {
-        return $this->render('testimonials');
+
+        return $this->render('testimonials', ['testimonials' => Testimonials::find()->all()]);
     }
 
 

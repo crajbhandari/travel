@@ -150,7 +150,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                   <h4>Other pages:2</h4>
                   <ul>
                      <li><a href = "about.html">About Us</a></li>
-                     <li><a href = "testimonials.html">Testimonials</a></li>
+                     <li><a href = "<?php echo Yii::$app->request->baseUrl .'/site/testimonials/'?>">Testimonials</a></li>
                      <li><a href = "events.html">Events</a></li>
                      <li><a href = "blog.html">Blog</a></li>
                      <li><a href = "tips.html">Tips Before Travel</a></li>
