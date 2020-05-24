@@ -5,11 +5,13 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "{{%package_category}}".
+ * This is the model class for table "package_category".
  *
  * @property int $id
- * @property string $name
  * @property int $parent
+ *
+ * @property Package[] $packages
+ * @property PackageCategoryTranslation[] $packageCategoryTranslations
  */
 class PackageCategory extends \yii\db\ActiveRecord
 {
@@ -18,7 +20,7 @@ class PackageCategory extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%package_category}}';
+        return 'package_category';
     }
 
     /**
@@ -28,7 +30,6 @@ class PackageCategory extends \yii\db\ActiveRecord
     {
         return [
             [['parent'], 'integer'],
-            [['name'], 'string', 'max' => 200],
         ];
     }
 
@@ -39,8 +40,23 @@ class PackageCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
             'parent' => 'Parent',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPackages()
+    {
+        return $this->hasMany(Package::className(), ['category' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPackageCategoryTranslations()
+    {
+        return $this->hasMany(PackageCategoryTranslation::className(), ['package_category_id' => 'id']);
     }
 }

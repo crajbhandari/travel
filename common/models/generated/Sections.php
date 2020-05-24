@@ -22,7 +22,7 @@ use Yii;
  *
  * @property Pages $page0
  */
-class   Sections extends \yii\db\ActiveRecord
+class Sections extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}

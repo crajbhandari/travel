@@ -5,7 +5,7 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "{{%slider}}".
+ * This is the model class for table "slider".
  *
  * @property int $id
  * @property int $slide_index
@@ -23,7 +23,7 @@ class Slider extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%slider}}';
+        return 'slider';
     }
 
     /**

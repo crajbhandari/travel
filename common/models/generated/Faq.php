@@ -5,7 +5,7 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "{{%faq}}".
+ * This is the model class for table "faq".
  *
  * @property int $id
  * @property string $title
@@ -23,7 +23,7 @@ class Faq extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%faq}}';
+        return 'faq';
     }
 
     /**

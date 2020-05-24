@@ -5,12 +5,11 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "{{%banners}}".
+ * This is the model class for table "banners".
  *
  * @property int $id
  * @property string $image
- * @property string $name
- * @property string $created_on
+ * @property string $alt_text
  */
 class Banners extends \yii\db\ActiveRecord
 {
@@ -19,7 +18,7 @@ class Banners extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%banners}}';
+        return 'banners';
     }
 
     /**
@@ -28,10 +27,8 @@ class Banners extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image'], 'required'],
-            [['image'], 'string'],
-            [['created_on'], 'safe'],
-            [['name'], 'string', 'max' => 200],
+            [['image', 'alt_text'], 'required'],
+            [['image', 'alt_text'], 'string'],
         ];
     }
 
@@ -43,8 +40,7 @@ class Banners extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'image' => 'Image',
-            'name' => 'Name',
-            'created_on' => 'Created On',
+            'alt_text' => 'Alt Text',
         ];
     }
 }

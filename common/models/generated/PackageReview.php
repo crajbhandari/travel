@@ -5,7 +5,7 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "{{%package_review}}".
+ * This is the model class for table "package_review".
  *
  * @property int $id
  * @property int $package_id
@@ -23,7 +23,7 @@ class PackageReview extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%package_review}}';
+        return 'package_review';
     }
 
     /**

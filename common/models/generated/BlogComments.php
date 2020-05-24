@@ -5,7 +5,7 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "{{%blog_comments}}".
+ * This is the model class for table "blog_comments".
  *
  * @property int $id
  * @property int $blog_id
@@ -31,7 +31,7 @@ class BlogComments extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%blog_comments}}';
+        return 'blog_comments';
     }
 
     /**
