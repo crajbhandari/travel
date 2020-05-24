@@ -1,3 +1,15 @@
 body{
     background-color: #eaeaea;
 }
+.lan
+{
+    background-color: rgb(92, 112, 230);
+    padding: 2px 2px 2px 2px;
+    border-radius: 5px;
+    color: white;
+    margin-right: 2px;
+}
+.lan:hover
+{
+
+}

@@ -3,9 +3,11 @@
 namespace backend\controllers;
 
 use common\components\HelperBlog;
+use common\components\HelperLanguage;
 use common\components\Misc;
 use common\models\Blog;
 use common\models\BlogComments;
+use common\models\generated\BlogTranslation;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -62,23 +64,49 @@ class BlogController extends Controller {
      */
     public function actionIndex() {
         $page = 'blog';
-        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->all();
+        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->with('translation')->asArray()->all();
+       $englishBlog = HelperBlog::getEnglishBlog();
         return $this->render('index', [
                 'blog' => $blog,
                 'page' => Yii::$app->params['pages'][$page],
+                'englishBlog' =>$englishBlog,
         ]);
     }
 
     public function actionPost($id = '') {
         $post = [];
+        $post2 = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
-            $post = Blog::findOne($id);
+            $post = HelperBlog::getSingleBlog($id);
+            $post2 = HelperBlog::getSingleBlog2($id);
         }
+
         return $this->render('form', [
                 'editable' => $post,
+                'editable2' =>$post2,
+                'language' => HelperLanguage::getAllLanguage(),
         ]);
     }
+    public function actionPost2($id = '') {
+
+        $post = [];
+        $post2 = [];
+        if ($id != '') {
+            $id = Misc::decrypt($id);
+           $explode = explode('0',$id);
+           $ln_code=$explode[0];
+           $id=$explode[1];
+            $post = HelperBlog::geSingleBlogTranslation($id,$ln_code);
+            $post1 = HelperBlog::getSingleBlog($post['blog_id']);
+        }
+        return $this->render('form', [
+                'editable' => $post1,
+                'editable2' =>$post,
+                'language' => HelperLanguage::getAllLanguage(),
+        ]);
+    }
+
 
     public function actionComment() {
         $page = 'blog';
@@ -111,6 +139,7 @@ class BlogController extends Controller {
                 return $this->redirect(Yii::$app->request->baseUrl . '/blog/post/' . Misc::encodeUrl($updated['id']));
             }
         }
+
         return $this->redirect(Yii::$app->request->baseUrl . '/blog/');
     }
 

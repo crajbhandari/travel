@@ -10,7 +10,6 @@ use Yii;
  * @property int $id
  * @property string $date
  * @property string $image
- * @property string $category
  * @property int $visibility
  *
  * @property BlogComments[] $blogComments
@@ -34,7 +33,7 @@ class Blog extends \yii\db\ActiveRecord
         return [
             [['date'], 'safe'],
             [['visibility'], 'integer'],
-            [['image', 'category'], 'string', 'max' => 128],
+            [['image'], 'string', 'max' => 128],
         ];
     }
 
@@ -47,7 +46,6 @@ class Blog extends \yii\db\ActiveRecord
             'id' => 'ID',
             'date' => 'Date',
             'image' => 'Image',
-            'category' => 'Category',
             'visibility' => 'Visibility',
         ];
     }

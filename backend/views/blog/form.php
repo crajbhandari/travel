@@ -8,10 +8,12 @@ $this->title = Yii::$app->params['system_name'] . ' | Sections';
 
       <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
       <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
-    <div class="row">
+      <input type = "hidden" name = "post[bt_id]" value = "<?php echo (isset($editable2['id'])) ? $editable2['id'] : '' ?>"/>
+
+      <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <?php echo (isset($editable['title'])) ? ' <h4 class="mb-0 font-size-18">Edit - ' . $editable['title'] . '</h4> ' : ' <h4 class="mb-0 font-size-18"> Add New Post</h4>' ?>
+                <?php echo (isset($editable2['title'])) ? ' <h4 class="mb-0 font-size-18">Edit - ' . $editable2['title'] . '</h4> ' : ' <h4 class="mb-0 font-size-18"> Add New Post</h4>' ?>
             </div>
         </div>
     </div>
@@ -23,13 +25,18 @@ $this->title = Yii::$app->params['system_name'] . ' | Sections';
                         <div class="form-group">
                             <?php $counter++; ?>
                             <label for = "<?php echo $counter; ?>">Title</label>
-                            <input id = "<?php echo $counter; ?>" name = "post[title]" type = "text" class = "form-control required" value = "<?php echo (isset($editable['title'])) ? $editable['title'] : '' ?>">
+                            <input id = "<?php echo $counter; ?>" name = "post[title]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['title'])) ? $editable2['title'] : '' ?>">
                         </div>
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>">Author</label>
-                          <input id = "<?php echo $counter; ?>" name = "post[author]" type = "text" class = "form-control required" value = "<?php echo (isset($editable['author'])) ? $editable['author'] : '' ?>">
+                          <input id = "<?php echo $counter; ?>" name = "post[author]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['author'])) ? $editable2['author'] : '' ?>">
                        </div>
+                   <div class="form-group">
+                       <?php $counter++; ?>
+                      <label for = "<?php echo $counter; ?>">Category</label>
+                      <input id = "<?php echo $counter; ?>" name = "post[category]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['category'])) ? $editable2['category'] : '' ?>">
+                   </div>
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>" >Visibility</label>
@@ -38,10 +45,21 @@ $this->title = Yii::$app->params['system_name'] . ' | Sections';
                              <option value = "0" <?= (isset($editable['visibility']) && $editable['visibility'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
                           </select>
                        </div>
+                   <?php if(isset($editable2['language_code']) && $editable2['language_code'] != ''): ?>
+                   <div class="form-group">
+                       <?php $counter++; ?>
+                      <label for = "<?php echo $counter; ?>" >Language</label>
+                      <select id = "<?php echo $counter; ?>" class="js-example-basic-multiple form-control required" name="post[language]" multiple="multiple">
+                        <?php foreach ($language as $l): ?>
+                         <option value = "<?= $l['name'] ?>" <?= (isset($editable2['language_code']) && $editable2['language_code'] == $l['code']) ? 'selected="selected"' : '' ?>><?= $l['name']; ?></option>
+                      <?php endforeach; ?>
+                      </select>
+                   </div>
+                   <?php endif; ?>
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>">Description</label>
-                             <textarea id="elm1" name = "post[content]"><?php echo (isset($editable['content'])) ? $editable['content'] : '' ?></textarea>
+                             <textarea id="elm1" name = "post[content]"><?php echo (isset($editable2['content'])) ? $editable2['content'] : '' ?></textarea>
                        </div>
                      <div class="form-group">
                          <?php $counter++; ?>
