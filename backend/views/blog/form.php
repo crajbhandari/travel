@@ -50,14 +50,14 @@ $this->title = Yii::$app->params['system_name'] . ' | Sections';
                            <div class = "image-wrapper" <?= (isset($editable['image']) && $editable['image'] != '') ? '' : 'style="display:none;"' ?>>
                               <img src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $editable['image'] : '' ?>" class = "custom-file-input-image" id = "file-<?php echo $counter; ?>-image" alt = ""/>
                            </div>
-<!--                            --><?php //if (isset($editable['image']) && $editable['image'] != ''): ?>
-<!--                               <div class = "image-actions text-right">-->
-<!--                                  <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "--><?php //echo \common\components\Misc::encodeUrl($editable['id']) ?><!--">-->
-<!--                                     <i class = "mdi mdi-close margin-right-5"></i>-->
-<!--                                     Remove Image-->
-<!--                                  </a>-->
-<!--                               </div>-->
-<!--                            --><?php //endif; ?>
+                            <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
+                               <div class = "image-actions text-right">
+                                  <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
+                                     <i class = "mdi mdi-close margin-right-5"></i>
+                                     Remove Image
+                                  </a>
+                               </div>
+                            <?php endif; ?>
                            <label class = "custom-file-label" id = "file-<?php echo $counter; ?>-label" for = "file-<?php echo $counter; ?>">
                               <i class = "fa fa-file"></i>
                               <span>Upload Image</span>
