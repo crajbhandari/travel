@@ -257,7 +257,7 @@ AppAsset::register($this);
                      <span>Blog</span>
                   </a>
                   <ul class = "sub-menu" aria-expanded = "false">
-                     <li><a href = "layouts-horizontal.html">Add New</a></li>
+                     <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/post">Add New</a></li>
                      <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/">List</a></li>
                      <li><a href = "layouts-compact-sidebar.html">Review Comments</a></li>
                   </ul>

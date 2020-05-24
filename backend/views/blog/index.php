@@ -45,9 +45,9 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                            <td><?php echo $sn; ?></td>
                            <td>
                                        <span class="list-img">
-                                          <?php if ($post['image'] != ''): ?>
+                                          <?php if ($post['image'] != ''){ ?>
                                              <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/<?= $post['image'] ?>" alt = "<?php echo (isset($post['title'])) ? trim($post['title']) : '' ?>">
-                                          <?php endif; ?>
+                                          <?php }else{ echo 'No Image'; }?>
                                        </span>
                            </td>
                            <td>
