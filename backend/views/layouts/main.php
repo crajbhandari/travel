@@ -30,7 +30,7 @@ AppAsset::register($this);
 
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
       <!-- Sweet Alert-->
-      <link href="<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/sweetalert/sweetalert.css" rel = "stylesheet" type = "text/css"/>
 
       <!-- CATEGORY -->
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/css/margins-paddings.css" rel = "stylesheet">
@@ -123,104 +123,15 @@ AppAsset::register($this);
                </div>
 
 
-               <div class = "dropdown d-inline-block">
-                  <button type = "button" class = "btn header-item noti-icon waves-effect" id = "page-header-notifications-dropdown"
-                          data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false">
-                     <i class = "bx bx-message bx-tada"></i>
-                     <span class = "badge badge-danger badge-pill">
-      <?php
-      if (Yii::$app->params['count_messages']['count_unseen'] > 0) {
-          echo Yii::$app->params['count_messages']['count_unseen'];
-      } ?>
-   </span>
-                  </button>
-                  <div class = "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
-                       aria-labelledby = "page-header-notifications-dropdown">
-                     <div class = "p-3">
-                        <div class = "row align-items-center">
-                           <div class = "col">
-                              <h6 class = "m-0"> Notifications </h6>
-                           </div>
-                           <div class = "col-auto">
-                              <a href = "#!" class = "small"> View All</a>
-                           </div>
-                        </div>
-                     </div>
-                     <div data-simplebar style = "max-height: 230px;">
-                        <a href = "#" class = "text-reset notification-item">
-                           <div class = "media">
-                              <div class = "avatar-xs mr-3">
-                                                <span class = "avatar-title bg-primary rounded-circle font-size-16">
-                                                    <i class = "bx bx-cart"></i>
-                                                </span>
-                              </div>
-                              <div class = "media-body">
-                                 <h6 class = "mt-0 mb-1">Your order is placed</h6>
-                                 <div class = "font-size-12 text-muted">
-                                    <p class = "mb-1">If several languages coalesce the grammar</p>
-                                    <p class = "mb-0"><i class = "mdi mdi-clock-outline"></i> 3 min ago</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </a>
-                        <a href = "#" class = "text-reset notification-item">
-                           <div class = "media">
-                              <img src = "<?= Yii::$app->request->baseUrl; ?>/resources/images/users/avatar-3.jpg"
-                                   class = "mr-3 rounded-circle avatar-xs" alt = "user-pic">
-                              <div class = "media-body">
-                                 <h6 class = "mt-0 mb-1">James Lemire</h6>
-                                 <div class = "font-size-12 text-muted">
-                                    <p class = "mb-1">It will seem like simplified English.</p>
-                                    <p class = "mb-0"><i class = "mdi mdi-clock-outline"></i> 1 hours ago</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </a>
-                        <a href = "#" class = "text-reset notification-item">
-                           <div class = "media">
-                              <div class = "avatar-xs mr-3">
-                                                <span class = "avatar-title bg-success rounded-circle font-size-16">
-                                                    <i class = "bx bx-badge-check"></i>
-                                                </span>
-                              </div>
-                              <div class = "media-body">
-                                 <h6 class = "mt-0 mb-1">Your item is shipped</h6>
-                                 <div class = "font-size-12 text-muted">
-                                    <p class = "mb-1">If several languages coalesce the grammar</p>
-                                    <p class = "mb-0"><i class = "mdi mdi-clock-outline"></i> 3 min ago</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </a>
 
-                        <a href = "#" class = "text-reset notification-item">
-                           <div class = "media">
-                              <img src = "<?= Yii::$app->request->baseUrl; ?>/resources/images/users/avatar-4.jpg"
-                                   class = "mr-3 rounded-circle avatar-xs" alt = "user-pic">
-                              <div class = "media-body">
-                                 <h6 class = "mt-0 mb-1">Salena Layfield</h6>
-                                 <div class = "font-size-12 text-muted">
-                                    <p class = "mb-1">As a skeptical Cambridge friend of mine occidental.</p>
-                                    <p class = "mb-0"><i class = "mdi mdi-clock-outline"></i> 1 hours ago</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </a>
-                     </div>
-                     <div class = "p-2 border-top">
-                        <a class = "btn btn-sm btn-link font-size-14 btn-block text-center" href = "javascript:void(0)">
-                           <i class = "mdi mdi-arrow-right-circle mr-1"></i> View More..
-                        </a>
-                     </div>
-                  </div>
-               </div>
 
                <div class = "dropdown d-inline-block">
                   <button type = "button" class = "btn header-item waves-effect" id = "page-header-user-dropdown"
                           data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false">
                      <img class = "rounded-circle header-profile-user" src = "<?php if (Yii::$app->user->identity->image != '') {
                          echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/<?php echo ucwords(Yii::$app->user->identity->image);
-                     } else {
+                     }
+                     else {
                          echo Yii::$app->request->baseUrl; ?>/../common/assets/images/user.png<?php ;
                      } ?>"
                           alt = "Header Avatar">
@@ -281,7 +192,7 @@ AppAsset::register($this);
                   </li>
 
                   <li>
-                     <a href = "calendar.html" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/testimonials" class = " waves-effect">
                         <i class = "bx bx-calendar"></i>
                         <span>Testimonial</span>
                      </a>
@@ -480,11 +391,12 @@ AppAsset::register($this);
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/simplebar/simplebar.min.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/node-waves/waves.min.js"></script>
 
-   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/tinymce/tinymce.min.js"></script>
+
+   <script src="<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/tinymce/tinymce.min.js"></script>
 
    <!-- App js -->
 
-
+  
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
 
 
@@ -500,37 +412,42 @@ AppAsset::register($this);
       });
    </script>
 
-   <!-- Buttons examples -->
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+     <!-- Buttons examples -->
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-
-
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/jszip/jszip.min.js"></script>
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/pdfmake/build/pdfmake.min.js"></script>
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/pdfmake/build/vfs_fonts.js"></script>
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+      
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
 
 
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-
-
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/datatables.init.js"></script>
-
-   <!-- Responsive examples -->
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-   <!-- Sweet Alerts js -->
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/jszip/jszip.min.js"></script>
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/pdfmake/build/pdfmake.min.js"></script>
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/pdfmake/build/vfs_fonts.js"></script>
+       
+      
+     
+     
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script> 
+         
+        
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/datatables.init.js"></script>
+        
+        <!-- Responsive examples -->
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+       <!-- Sweet Alerts js -->
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/sweetalert/sweetalert.min.js"></script>
 
    <!-- Sweet alert init js-->
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/pages/sweet-alerts.init.js"></script>
 
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
+
+  
    <?php if (Yii::$app->session->hasFlash('flash')): ?>
       <script>
          notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
