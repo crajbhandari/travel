@@ -107,4 +107,53 @@ $(document).ready(function () {
 
       });
    }
+   if ($('.delete-item').length) {
+      $('.delete-item').on("click", function () {
+         var id = $(this).data("id");
+         var table = $(this).data("tab");
+         var type = $(this).data('type') || 'Item';
+         var row = $(this).parents('tr');
+         swal({
+                  title: "Delete this " + type + " ?",
+                  text: "Are you sure, you want delete this " + type,
+                  type: "warning",
+                  showCancelButton: true,
+                  confirmButtonClass: "btn-danger",
+                  confirmButtonText: "Yes, delete it",
+                  cancelButtonText: "Cancel",
+                  closeOnConfirm: true,
+                  closeOnCancel: true
+               },
+               function (isConfirm) {
+                  if (isConfirm) {
+                     $.ajax({
+                        url: baseUrl + "/site/delete-item",
+                        type: 'post',
+                        data: {
+                           id: id,
+                           table: table,
+                        },
+                        success: function (data) {
+
+                           if (data == true) {
+                              notify('success', table + ' Deleted.');
+                              swal({
+                                 title: table+" Deleted!",
+                                 icon: "success",
+                              });
+                              location.reload();
+                              // row.remove();
+                           } else {
+                              notify('danger', type + ' not Deleted.');
+                           }
+                        },
+                        error: function () {
+                           notify('danger', 'Server Error. ' + type + ' not Deleted. Please try again.');
+                        }
+                     });
+                  }
+               });
+
+      });
+   }
 });
