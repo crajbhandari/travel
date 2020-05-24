@@ -18,16 +18,24 @@
     <meta charset = "utf-8">
     <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <!-- Favicon icon -->
-    <link rel = "apple-touch-icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
-    <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
-    <!-- Bootstrap Core CSS -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/bootstrap/css/bootstrap.min.css" rel = "stylesheet">
 
-    <!-- Custom CSS -->
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" rel = "stylesheet">
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/custom.css" rel = "stylesheet">
-    <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/materialize.css" rel = "stylesheet">
+
+    <!-- App favicon -->
+      <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/favicon.ico">
+
+  
+      <!-- Bootstrap Css -->
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.min.css" id = "bootstrap-style" rel = "stylesheet" type = "text/css"/>
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" id = "bootstrap-style" rel = "stylesheet" type = "text/css"/>
+      <!-- Icons Css -->
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/icons.min.css" rel = "stylesheet" type = "text/css"/>
+      <!-- App Css-->
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/app.min.css" id = "app-style" rel = "stylesheet" type = "text/css"/>
+       <link rel = "stylesheet" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css">
+
+
+
+
     <!-- You can change the theme colors from here -->
 <!--    <link href = "--><?php //echo Yii::$app->request->baseUrl; ?><!--/assets/css/login.css" rel = "stylesheet">-->
 
@@ -35,6 +43,7 @@
        .blog-login {
           background: url(<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/bg.jpg) no-repeat;
           background-size: cover;
+          height: 100vh;
        }
         p.help-block-error {
             margin-top: 10px;
@@ -42,6 +51,12 @@
             text-align: center;
             color: #ef6155;
         }
+        .login-backend img{
+            width: 100%;
+    height: 100%;
+    object-fit: contain;
+        }
+
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
@@ -51,6 +66,8 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/plugins/jquery/jquery.min.js"></script>
+    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
+
 
     <script>
         var baseUrl = "<?php echo Yii::$app->request->baseUrl; ?>";
@@ -67,11 +84,11 @@
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    <div class = "preloader">
+   <!--  <div class = "preloader">
         <svg class = "circular" viewBox = "25 25 50 50">
             <circle class = "path" cx = "50" cy = "50" r = "20" fill = "none" stroke-width = "2" stroke-miterlimit = "10"/>
         </svg>
-    </div>
+    </div> -->
 
     <!-- Page -->
     <?= $content ?>
