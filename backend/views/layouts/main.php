@@ -453,6 +453,10 @@ AppAsset::register($this);
 
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/vendor/notify/bootstrap-notify.min.js"></script>
 
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/pages/form-wizard.init.js"></script>
   
    <?php if (Yii::$app->session->hasFlash('flash')): ?>
       <script>

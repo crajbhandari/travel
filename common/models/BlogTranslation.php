@@ -2,7 +2,7 @@
 
     namespace common\models;
 
-    class Blog extends \common\models\generated\Blog {
+    class BlogTranslation extends \common\models\generated\BlogTranslation {
         /**
          * @inheritdoc
          */
@@ -11,5 +11,9 @@
                 [['author', 'title', 'content'], 'filter', 'filter' => 'trim'],
                 [['category'], 'filter', 'filter' => 'strtolower'],
             ];
+        }
+        public function getInfo()
+        {
+            return $this->hasOne(Blog::className(), ['id' => 'blog_id']);
         }
     }

@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="card-body pt-0">
-                               
+
                                 <div class="p-2">
                                     <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => FALSE]); ?>
                                         <div class="form-group">

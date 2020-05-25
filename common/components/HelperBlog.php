@@ -48,9 +48,10 @@ class HelperBlog extends Component {
             }
         }
         if (!($model->save() == false)) {
-            if (HelperBlog::setBLogTranslation($data, $model->id) == true) {
+            $blog_translation_part = HelperBlog::setBLogTranslation($data, $model->id);
+            if ( isset($blog_translation_part) && $blog_translation_part!=false) {
                 Misc::setFlash('success', 'Blog Post Updated.');
-                return $model;
+                return $blog_translation_part;
             }
             Misc::setFlash('danger', 'Data not uploaded. Something Wrong in blog-translation part');
             return false;
@@ -64,7 +65,7 @@ class HelperBlog extends Component {
     }
 
     public static function setBlogTranslation($data, $id) {
-        if (isset($data['bt_id']) && $data['bt_id'] > 0) {
+        if (isset($data['bt_id']) && !empty($data['bt_id'])) {
             $model = BlogTranslation::findOne($data['bt_id']);
             if($model->language_code != $data['language']) {
                 $model = new BlogTranslation();
@@ -74,7 +75,6 @@ class HelperBlog extends Component {
         else {
             $model = new BlogTranslation();
         }
-
         //check language
         $ln_code = HelperBlog::checkLanguage($data);
         $model->blog_id = $id;
@@ -82,7 +82,9 @@ class HelperBlog extends Component {
         $model->attributes = $data;
         if ($model->save()) {
 
-            return true;
+            return $model;
+        }else{
+            print_r($model->getErrors());
         }
 
         return false;
@@ -144,8 +146,8 @@ class HelperBlog extends Component {
     public static function getSingleBlog2($id) {
       return  $model = BlogTranslation::find()->where('blog_id =' . $id)->asArray()->one();
     }
-    public static function geSingleBlogTranslation($id,$ln) {
-        return  $model = BlogTranslation::find()->where('id =' . $id)->andwhere(['language_code' => $ln])->asArray()->one();
+    public static function getSingleBlogTranslation($id,$ln) {
+        return  $model = BlogTranslation::find()->where('blog_id =' . $id)->andwhere(['language_code' => $ln])->asArray()->one();
 
     }
 }

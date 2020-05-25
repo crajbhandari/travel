@@ -1,6 +1,7 @@
 <?php
 $this->title = Yii::$app->params['system_name'] . ' | Sections';
 //$this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
+use common\components\HelperLanguage as hl;
 ?>
 <div class="container-fluid">
     <!-- start page title -->
@@ -45,17 +46,26 @@ $this->title = Yii::$app->params['system_name'] . ' | Sections';
                              <option value = "0" <?= (isset($editable['visibility']) && $editable['visibility'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
                           </select>
                        </div>
-                   <?php if(isset($editable2['language_code']) && $editable2['language_code'] != ''): ?>
-                   <div class="form-group">
-                       <?php $counter++; ?>
+                   <?php if(isset($editable2['language_code']) && $editable2['language_code'] != ''){ ?>
+                      <div class="form-group">
+                          <?php $counter++; ?>
+                         <label for = "<?php echo $counter; ?>" >Language</label>
+                         <input type = "hidden" name="post[language]" value="<?= $editable2['language_code'] ?>">
+                         <select disabled id = "<?php echo $counter; ?>" class="js-example-basic-multiple form-control required" name="post[language]" multiple="multiple">
+                           <?php foreach ($all_language as $l): ?>
+                            <option value = "<?= $l['name'] ?>" <?= (isset($editable2['language_code']) && $editable2['language_code'] == $l['code']) ? 'selected="selected"' : '' ?>><?= $l['name']; ?></option>
+                         <?php endforeach; ?>
+                         </select>
+                      </div>
+                   <?php } elseif(!empty($language)){ $counter++; ?>
                       <label for = "<?php echo $counter; ?>" >Language</label>
-                      <select id = "<?php echo $counter; ?>" class="js-example-basic-multiple form-control required" name="post[language]" multiple="multiple">
-                        <?php foreach ($language as $l): ?>
-                         <option value = "<?= $l['name'] ?>" <?= (isset($editable2['language_code']) && $editable2['language_code'] == $l['code']) ? 'selected="selected"' : '' ?>><?= $l['name']; ?></option>
-                      <?php endforeach; ?>
+                      <input type = "hidden" name="post[language]" value="<?= $language ?>">
+                      <select disabled id = "<?php echo $counter; ?>" class="js-example-basic-multiple form-control required" name="post[language]" multiple="multiple">
+
+                             <option value = "<?= $language; ?>" selected><?php echo hl::getSingleLanguageName($language); ?></option>
+
                       </select>
-                   </div>
-                   <?php endif; ?>
+                   <?php } ?>
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>">Description</label>

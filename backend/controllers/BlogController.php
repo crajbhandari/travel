@@ -7,7 +7,8 @@ use common\components\HelperLanguage;
 use common\components\Misc;
 use common\models\Blog;
 use common\models\BlogComments;
-use common\models\generated\BlogTranslation;
+use common\models\BlogTranslation;
+use common\models\Language;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -63,47 +64,51 @@ class BlogController extends Controller {
      * @return string
      */
     public function actionIndex() {
+        $blog =BlogTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
         $page = 'blog';
-        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->with('translation')->asArray()->all();
-       $englishBlog = HelperBlog::getEnglishBlog();
+//        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->with('translation')->asArray()->all();
+        $language = Language::find()->asArray()->all();
+//       $englishBlog = HelperBlog::getEnglishBlog();
         return $this->render('index', [
+                'language' =>$language,
                 'blog' => $blog,
                 'page' => Yii::$app->params['pages'][$page],
-                'englishBlog' =>$englishBlog,
         ]);
     }
 
+//    public function actionPost($id = '') {
+//        $post = [];
+//        $post2 = [];
+//        if ($id != '') {
+//            $id = Misc::decodeUrl($id);
+//            $post = HelperBlog::getSingleBlog($id);
+//            $post2 = HelperBlog::getSingleBlog2($id);
+//        }
+//
+//        return $this->render('form', [
+//                'editable' => $post,
+//                'editable2' =>$post2,
+//                'language' => HelperLanguage::getAllLanguage(),
+//        ]);
+//    }
     public function actionPost($id = '') {
-        $post = [];
-        $post2 = [];
-        if ($id != '') {
-            $id = Misc::decodeUrl($id);
-            $post = HelperBlog::getSingleBlog($id);
-            $post2 = HelperBlog::getSingleBlog2($id);
-        }
-
-        return $this->render('form', [
-                'editable' => $post,
-                'editable2' =>$post2,
-                'language' => HelperLanguage::getAllLanguage(),
-        ]);
-    }
-    public function actionPost2($id = '') {
 
         $post = [];
         $post2 = [];
+        $ln_code ='';
         if ($id != '') {
             $id = Misc::decrypt($id);
-           $explode = explode('0',$id);
+           $explode = explode('-',$id);
            $ln_code=$explode[0];
            $id=$explode[1];
-            $post = HelperBlog::geSingleBlogTranslation($id,$ln_code);
-            $post1 = HelperBlog::getSingleBlog($post['blog_id']);
+            $post = HelperBlog::getSingleBlogTranslation($id,$ln_code);
+            $post2 = HelperBlog::getSingleBlog($id);
         }
         return $this->render('form', [
-                'editable' => $post1,
+                'editable' => $post2,
                 'editable2' =>$post,
-                'language' => HelperLanguage::getAllLanguage(),
+                'all_language' => HelperLanguage::getAllLanguage(),
+                'language' =>$ln_code
         ]);
     }
 
@@ -136,10 +141,9 @@ class BlogController extends Controller {
         if (isset($_POST['post'])) {
             $updated = HelperBlog::set($_POST['post'], $image);
             if ($updated != false) {
-                return $this->redirect(Yii::$app->request->baseUrl . '/blog/post/' . Misc::encodeUrl($updated['id']));
+                return $this->redirect(Yii::$app->request->baseUrl . '/blog/post/' . Misc::encrypt($updated['language_code'].'-'.$updated['blog_id']));
             }
         }
-
         return $this->redirect(Yii::$app->request->baseUrl . '/blog/');
     }
 

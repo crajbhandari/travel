@@ -48,7 +48,7 @@
             return $model;
         }
         public static function getSingleLanguage($data) {
-            $model = Language::find()->where(['name' => $data])->asArray()->one();
+            $model = Language::find()->where(['code' => $data])->asArray()->one();
             return  $model['code'];
         }
         public static function getSingleLanguageName($data) {
