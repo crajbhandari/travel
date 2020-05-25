@@ -13,6 +13,7 @@ use Yii;
  * @property string $title
  * @property string $content
  * @property string $author
+ * @property string $category
  *
  * @property Blog $blog
  * @property Language $languageCode
@@ -33,10 +34,10 @@ class BlogTranslation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['blog_id', 'language_code', 'title', 'content', 'author'], 'required'],
+            [['blog_id', 'language_code', 'title', 'content', 'author', 'category'], 'required'],
             [['blog_id'], 'integer'],
             [['title', 'content'], 'string'],
-            [['language_code'], 'string', 'max' => 200],
+            [['language_code', 'category'], 'string', 'max' => 200],
             [['author'], 'string', 'max' => 128],
             [['blog_id'], 'exist', 'skipOnError' => true, 'targetClass' => Blog::className(), 'targetAttribute' => ['blog_id' => 'id']],
             [['language_code'], 'exist', 'skipOnError' => true, 'targetClass' => Language::className(), 'targetAttribute' => ['language_code' => 'code']],
@@ -55,6 +56,7 @@ class BlogTranslation extends \yii\db\ActiveRecord
             'title' => 'Title',
             'content' => 'Content',
             'author' => 'Author',
+            'category' => 'Category',
         ];
     }
 

@@ -50,7 +50,7 @@ AppAsset::register($this);
        <?php $this->head() ?>
 
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/overrides.css" rel = "stylesheet">
-
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
       <!--    <script src = "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
       <!--    <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
       <script>
@@ -411,6 +411,12 @@ AppAsset::register($this);
          }
       });
    </script>
+   <script>
+      $(document).ready(function() {
+         console.log('check');
+         $('.js-example-basic-multiple').select2();
+      });
+   </script>
 
 
      <!-- Buttons examples -->
@@ -457,7 +463,7 @@ AppAsset::register($this);
    <?php $this->endBody() ?>
 
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
-
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
    </body>
    </html>
 
