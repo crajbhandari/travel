@@ -26,17 +26,17 @@ use common\components\HelperLanguage as hl;
                         <div class="form-group">
                             <?php $counter++; ?>
                             <label for = "<?php echo $counter; ?>">Title</label>
-                            <input id = "<?php echo $counter; ?>" name = "post[title]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['title'])) ? $editable2['title'] : '' ?>">
+                            <input required id = "<?php echo $counter; ?>" name = "post[title]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['title'])) ? $editable2['title'] : '' ?>">
                         </div>
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>">Author</label>
-                          <input id = "<?php echo $counter; ?>" name = "post[author]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['author'])) ? $editable2['author'] : '' ?>">
+                          <input required id = "<?php echo $counter; ?>" name = "post[author]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['author'])) ? $editable2['author'] : '' ?>">
                        </div>
                    <div class="form-group">
                        <?php $counter++; ?>
                       <label for = "<?php echo $counter; ?>">Category</label>
-                      <input id = "<?php echo $counter; ?>" name = "post[category]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['category'])) ? $editable2['category'] : '' ?>">
+                      <input required id = "<?php echo $counter; ?>" name = "post[category]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['category'])) ? $editable2['category'] : '' ?>">
                    </div>
                        <div class="form-group">
                            <?php $counter++; ?>
@@ -69,7 +69,7 @@ use common\components\HelperLanguage as hl;
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>">Description</label>
-                             <textarea id="elm1" name = "post[content]"><?php echo (isset($editable2['content'])) ? $editable2['content'] : '' ?></textarea>
+                             <textarea required id="elm1" name = "post[content]"><?php echo (isset($editable2['content'])) ? $editable2['content'] : '' ?></textarea>
                        </div>
                      <div class="form-group">
                          <?php $counter++; ?>
