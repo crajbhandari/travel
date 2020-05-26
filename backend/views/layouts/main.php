@@ -223,8 +223,8 @@ AppAsset::register($this);
                         <span>Users</span>
                      </a>
                      <ul class = "sub-menu" aria-expanded = "false">
-                        <li><a href = "layouts-horizontal.html">All Users</a></li>
-                        <li><a href = "layouts-light-sidebar.html">Add New user</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users">All Users</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users/add-administrator">Add New user</a></li>
                      </ul>
                   </li>
                   <li>
