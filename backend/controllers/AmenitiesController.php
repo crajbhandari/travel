@@ -71,6 +71,7 @@ class AmenitiesController extends Controller {
      */
     public function actionIndex($id = '') {
         $id = Misc::decodeUrl($id);
+
         return $this->render('index', [
                 'all'           => Amenities::find()->orderBy(['id' => SORT_DESC])->all(),
                 'editable'      => Amenities::findOne($id),
@@ -82,6 +83,7 @@ class AmenitiesController extends Controller {
 
         if (isset($_POST['amenities'])) {
             $updated = HelperAmenities::set($_POST['amenities']);
+
             if ($updated != FALSE) {
                 Misc::setFlash('success', 'Amenities Updated.');
                 return $this->redirect(Yii::$app->request->baseUrl . '/amenities/edit/'. Misc::encodeUrl($updated['id']));

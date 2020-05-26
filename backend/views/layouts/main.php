@@ -185,9 +185,9 @@ AppAsset::register($this);
                         <span>Slider</span>
                      </a>
                      <ul class = "sub-menu" aria-expanded = "false">
-                        <li><a href = "layouts-horizontal.html">Add New</a></li>
-                        <li><a href = "layouts-light-sidebar.html">List</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Banner</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/post">Add New</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider">List</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/banner">Banner</a></li>
                      </ul>
                   </li>
 
@@ -211,7 +211,7 @@ AppAsset::register($this);
                      </a>
                   </li>
                   <li>
-                     <a href = "calendar.html" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/amenities" class = " waves-effect">
                         <i class = "bx bx-calendar"></i>
                         <span>Amenities</span>
                      </a>
