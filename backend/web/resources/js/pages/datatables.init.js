@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
    $("#datatable-buttons, .datatable-buttons").DataTable({
       lengthChange: !1,
       buttons: ["copy", "excel", "pdf", "colvis"]

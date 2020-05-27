@@ -194,7 +194,7 @@ AppAsset::register($this);
                   </li>
 
                   <li>
-                     <a href = "calendar.html" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq" class = " waves-effect">
                         <i class = "bx bx-windows"></i>
                         <span>FAQ</span>
                      </a>
@@ -240,7 +240,7 @@ AppAsset::register($this);
                   </li>
 
                   <li>
-                     <a href = "calendar.html" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/users" class = " waves-effect">
                         <i class = "bx bx-cog"></i>
                         <span>Settings</span>
                      </a>
@@ -409,7 +409,7 @@ AppAsset::register($this);
    </script>
    <script>
       $(document).ready(function() {
-         console.log('check');
+
          $('.js-example-basic-multiple').select2();
       });
    </script>

@@ -46,7 +46,7 @@ use common\components\HelperLanguage as hl;
                              <option value = "0" <?= (isset($editable['visibility']) && $editable['visibility'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
                           </select>
                        </div>
-                   <?php if(isset($editable2['language_code']) && $editable2['language_code'] != ''){ ?>
+                   <?php if(isset($editable2['language_code']) && $editable2['language_code'] != ''): ?>
                       <div class="form-group">
                           <?php $counter++; ?>
                          <label for = "<?php echo $counter; ?>" >Language</label>
@@ -57,7 +57,7 @@ use common\components\HelperLanguage as hl;
                          <?php endforeach; ?>
                          </select>
                       </div>
-                   <?php } elseif(!empty($language)){ $counter++; ?>
+                   <?php elseif(!empty($language)): $counter++; ?>
                       <label for = "<?php echo $counter; ?>" >Language</label>
                       <input type = "hidden" name="post[language]" value="<?= $language ?>">
                       <select disabled id = "<?php echo $counter; ?>" class="js-example-basic-multiple form-control required" name="post[language]" multiple="multiple">
@@ -65,11 +65,13 @@ use common\components\HelperLanguage as hl;
                              <option value = "<?= $language; ?>" selected><?php echo hl::getSingleLanguageName($language); ?></option>
 
                       </select>
-                   <?php } ?>
+                   <?php endif; ?>
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>">Description</label>
+
                              <textarea class="description" id="elm1" name = "post[content]"><?php echo (isset($editable2['content'])) ? $editable2['content'] : '' ?></textarea>
+
                        </div>
                      <div class="form-group">
                          <?php $counter++; ?>
@@ -94,7 +96,9 @@ use common\components\HelperLanguage as hl;
                         </div>
                      </div>
 
+
                   <button class="btn btn-primary" id="save" type="submit">Save</button>
+
                 </div>
             </div>
 
