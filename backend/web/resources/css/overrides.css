@@ -61,6 +61,13 @@ body{
 {
 
 }
+.tb-res-01{
+    width: 100%;
+    overflow-x: none;
+    display: block;
+}
+@media (min-width: 1340px) {
+
 
 input[switch] + label {
     font-size: 1em;
@@ -102,3 +109,11 @@ input[switch]:checked + label:after {
     left: 50px;
     background-color: #EFF2F7
 }
+
+   .tb-res-01{
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+}
+
