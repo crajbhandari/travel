@@ -22,6 +22,7 @@
             if (isset($data['id']) && $data['id'] > 0) {
                 $model = Faq::findOne($data['id']);
                 $model->updated_by= \Yii::$app->user->identity->id;
+                $model->updated_at =date('Y-m-d H:i:s');
             }
             else {
                 $model = new Faq();
