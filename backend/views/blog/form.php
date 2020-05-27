@@ -69,7 +69,7 @@ use common\components\HelperLanguage as hl;
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>">Description</label>
-                             <textarea id="elm1" name = "post[content]"><?php echo (isset($editable2['content'])) ? $editable2['content'] : '' ?></textarea>
+                             <textarea class="description" id="elm1" name = "post[content]"><?php echo (isset($editable2['content'])) ? $editable2['content'] : '' ?></textarea>
                        </div>
                      <div class="form-group">
                          <?php $counter++; ?>
@@ -94,7 +94,7 @@ use common\components\HelperLanguage as hl;
                         </div>
                      </div>
 
-                  <button class="btn btn-primary" type="submit">Save</button>
+                  <button class="btn btn-primary" id="save" type="submit">Save</button>
                 </div>
             </div>
 
