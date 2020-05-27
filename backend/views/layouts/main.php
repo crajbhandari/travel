@@ -74,7 +74,7 @@ AppAsset::register($this);
             <div class = "d-flex">
                <!-- LOGO -->
                <div class = "navbar-brand-box">
-                  <a href = "index.html" class = "logo logo-dark">
+                  <a href = "<?php echo Yii::$app->request->baseUrl; ?>" class = "logo logo-dark">
                                 <span class = "logo-sm">
                                     <img src = "<?= Yii::$app->request->baseUrl; ?>/resources/images/logo.svg" alt = "" height = "22">
                                 </span>
@@ -83,7 +83,7 @@ AppAsset::register($this);
                                 </span>
                   </a>
 
-                  <a href = "index.html" class = "logo logo-light">
+                  <a href = "<?php echo Yii::$app->request->baseUrl; ?>" class = "logo logo-light">
                                 <span class = "logo-sm">
                                     <img src = "<?= Yii::$app->request->baseUrl; ?>/resources/images/logo-light.svg" alt = "" height = "22">
                                 </span>
