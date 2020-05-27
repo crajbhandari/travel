@@ -180,15 +180,10 @@ AppAsset::register($this);
                   </li>
 
                   <li>
-                     <a href = "javascript: void(0);" class = "has-arrow waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/banner" class = "waves-effect">
                         <i class = "bx bx-layout"></i>
-                        <span>Slider</span>
+                        <span>Banner</span>
                      </a>
-                     <ul class = "sub-menu" aria-expanded = "false">
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/post">Add New</a></li>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider">List</a></li>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/banner">Banner</a></li>
-                     </ul>
                   </li>
 
                   <li>
@@ -224,7 +219,7 @@ AppAsset::register($this);
                      </a>
                      <ul class = "sub-menu" aria-expanded = "false">
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users">All Users</a></li>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users/add-administrator">Add New user</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users/edit">Add New user</a></li>
                      </ul>
                   </li>
                   <li>

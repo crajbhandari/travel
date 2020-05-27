@@ -47,14 +47,19 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                             $count++; ?>
                             <tr>
                                 <td><?php echo $sn; ?></td>
-                                <td> <span class="lan">
+                                <td>
                                     <?php if ($post['is_new']> 0) : ?>
+                                   <span class=" badge badge-primary">
                                        Seen
+                                      </span>
                                         <!--                                      <a href="javascript:void(0);" class="label --><?//= ($a['is_active'] === 1) ? 'label-success' : 'label-danger' ?><!-- label-success --><?//= ($is_authorized) ? 'toggle-status' : 'disabled' ?><!-- " --><?//= ($is_authorized) ? 'data-a="' . Misc::encrypt($a['id']) . '" data-b="' . Misc::encrypt(Misc::getClass($a)) . '"' : '' ?><!--><?//= ($a['is_active'] === 1) ? 'Active' : 'Inactive' ?><!--</a>-->
                                     <?php else: ?>
-                                         New
+                                    <span class=" badge badge-success">
+                                        New
+                                    </span>
+
                                     <?php endif; ?>
-                                        </span>
+
                                 </td>
                                 <td><?php echo (isset($post['name'])) ? ucwords(trim($post['name'])) : '' ?></td>
                                 <td><?php echo (isset($post['email'])) ? $post['email'] : '' ?></td>
@@ -62,9 +67,9 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                                     <?= \common\components\Misc::datetime($post->created_on) ?>
                                 </td>
                                 <td>
-                                   <a class = "show-message" href = "#modal1" data-id = "<?php echo $post['id'] ?>"><i class = "fa fa-eye" aria-hidden = "true"></i></a>
-
-                                   <!--                                <a href="javascript:void(0);" class="mr-3 text-primary" data-placement="top" title="" data-original-title="View" data-toggle="modal" data-target=".exampleModal"><i class="mdi mdi-eye font-size-18"></i></a>-->
+                                   <a class = "show-message" href = "#modal1" data-toggle="modal" data-target="#myModal" data-id = "<?php echo $post['id']  ?>"><i class = "fa fa-eye" aria-hidden = "true"></i></a>
+<!--                                   <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">Standard</button>-->
+                                      <!--                                <a href="javascript:void(0);" class="mr-3 text-primary" data-placement="top" title="" data-original-title="View" data-toggle="modal" data-target=".exampleModal"><i class="mdi mdi-eye font-size-18"></i></a>-->
                                     <a href = "javascript:void(0);" class = "delete-item text-danger" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Messages"><i class = "mdi mdi-close font-size-18"></i></a>
                                 </td>
                             </tr>
@@ -81,11 +86,23 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
     </div> <!-- end row -->
 
 </div>
-<div id = "modal1" class = "modal">
-   <div class = "modal-content">
-      <h4>Message From</h4>
-   </div>
-   <div class = "para-content">
-   </div>
-</div>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title mt-0" id="myModalLabel">Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <h5>View</h5>
 
+
+            <p></p>
+
+         </div>
+
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
