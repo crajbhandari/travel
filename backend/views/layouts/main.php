@@ -205,7 +205,7 @@ AppAsset::register($this);
                      </a>
                   </li>
                   <li>
-                     <a href = "calendar.html" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages" class = " waves-effect">
                         <i class = "bx bx-message"></i>
                         <span>Messages</span>
                      </a>
