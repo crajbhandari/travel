@@ -403,6 +403,7 @@ AppAsset::register($this);
    <!-- <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-advanced.init.js"></script>  -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-editor.init.js"></script>
 
+   <script src="<?= Yii::$app->request->baseUrl; ?>/resources/libs/summernote/summernote-bs4.min.js"></script>
    <!-- CSRF TOKEN -->
    <script>
       $.ajaxSetup({
