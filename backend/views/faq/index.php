@@ -98,8 +98,8 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                                      ?>
                                  </td>
                                  <td>
-                                    <a href = "<?=  Yii::$app->request->baseUrl; ?>/faq/post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['faq_id']); ?>" ><i class="mdi mdi-pencil font-size-18"></i></a>
-                                    <a href = "javascript:void(0);" class = "delete-item text-danger" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "FaqTranslation"><i class = "mdi mdi-close font-size-18"></i></a>
+                                    <a class="btn btn-primary btn-sm" href = "<?=  Yii::$app->request->baseUrl; ?>/faq/post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['faq_id']); ?>" >Edit</a>
+                                    <a href = "javascript:void(0);" class = "delete-item btn btn-danger btn-sm" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "FaqTranslation">Delete</a>
                                  </td>
                               </tr>
                                <?php $sn++;

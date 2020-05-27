@@ -110,8 +110,8 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                                      ?>
                                  </td>
                                  <td>
-                                    <a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['blog_id']); ?>" ><i class="mdi mdi-pencil font-size-18"></i></a>
-                                    <a href = "javascript:void(0);" class = "delete-blog text-danger" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "BlogTranslation"><i class = "mdi mdi-close font-size-18"></i></a>
+                                    <a class="btn btn-primary btn-sm " href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['blog_id']); ?>" >Edit</a>
+                                    <a  href = "javascript:void(0);" class = "delete-blog btn btn-danger btn-sm" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "BlogTranslation">Delete</a>
                                  </td>
                               </tr>
                                <?php $sn++;
