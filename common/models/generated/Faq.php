@@ -8,13 +8,13 @@ use Yii;
  * This is the model class for table "faq".
  *
  * @property int $id
- * @property string $title
- * @property string $content
  * @property int $is_active
  * @property string $created_at
  * @property int $created_by
  * @property string $updated_at
  * @property int $updated_by
+ *
+ * @property FaqTranslation[] $faqTranslations
  */
 class Faq extends \yii\db\ActiveRecord
 {
@@ -32,11 +32,9 @@ class Faq extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content', 'is_active', 'created_by', 'updated_by'], 'required'],
-            [['content'], 'string'],
+            [['is_active', 'created_by', 'updated_by'], 'required'],
             [['is_active', 'created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['title'], 'string', 'max' => 200],
         ];
     }
 
@@ -47,13 +45,19 @@ class Faq extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'content' => 'Content',
             'is_active' => 'Is Active',
             'created_at' => 'Created At',
             'created_by' => 'Created By',
             'updated_at' => 'Updated At',
             'updated_by' => 'Updated By',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFaqTranslations()
+    {
+        return $this->hasMany(FaqTranslation::className(), ['faq_id' => 'id']);
     }
 }
