@@ -206,3 +206,41 @@ $(document).ready(function () {
       });
    }
 });
+$(function () {
+   $('.show-message').on("click", function () {
+
+      $('.modal').modal();
+      var cid = $(this).data("id");
+      var modal = $('.modal-message');
+      $.ajax({
+         url: baseUrl + "/messages/read-message",
+         type: 'post',
+         data: {
+            id: cid
+         },
+         success: function (data) {
+
+            if (data === '') {
+               typeAlert('Error', 'Sorry, Could not open Message', 'error');
+            } else {
+               var a = JSON.parse(data);
+               //message seen or new
+               if ($('[data-for="new"]')) {
+                  $('[data-id="id' + a['id'] + '"]').html('<span data-for="seen" class="label label-danger">Seen</span>');
+                  $('.message-noti').html($('.message-noti').text() - 1);
+               } else {
+                  $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="label label-danger">New</span>');
+               }
+               $('.para-content').html(a['result'])
+               // modal.find('.modal-dialog').html(a['result']);
+               // modal.modal('show');
+               // $('.refresh').removeClass('hidden')
+            }
+         },
+         error: function () {
+            typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
+         }
+      });
+
+   });
+});
