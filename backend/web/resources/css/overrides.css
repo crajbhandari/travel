@@ -61,4 +61,16 @@ body{
 {
 
 }
+.tb-res-01{
+    width: 100%;
+    overflow-x: none;
+    display: block;
+}
+@media (min-width: 1340px) {
 
+   .tb-res-01{
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+}
