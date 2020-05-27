@@ -22,7 +22,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
             <div class = "page-title-box d-flex align-items-center justify-content-between">
                 <h4 class = "mb-0 font-size-18">Users List</h4>
                 <div class="text-right">
-                    <a href="<?php echo Yii::$app->request->baseUrl; ?>/users" class="btn btn-success" style="color: #ffffff">Add New Users</a>
+                    <a href="<?php echo Yii::$app->request->baseUrl; ?>/users/add" class="btn btn-success" style="color: #ffffff">Add New Users</a>
                 </div>
             </div>
             <div class = "card">
@@ -34,7 +34,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                         <?php if (!empty($users) && count($users) > 0): ?>
                         <tr>
                            <th>S.N</th>
-                           <th>Image</th>
+                           <th width="10%">Image</th>
                            <th>Name</th>
                            <th>Role</th>
                            <th>Status</th>
