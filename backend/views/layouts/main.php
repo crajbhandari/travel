@@ -413,7 +413,7 @@ AppAsset::register($this);
    </script>
    <script>
       $(document).ready(function() {
-         console.log('check');
+
          $('.js-example-basic-multiple').select2();
       });
    </script>
