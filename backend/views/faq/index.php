@@ -69,9 +69,9 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                                  <td><?php echo $sn; ?></td>
                                  <td> <?php echo(isset($post['title']) && !empty($post['title']) ? trim($post['title']) : ''); ?></td>
                                  <td>
-                                    <input type="checkbox" id="switch3" class="status" switch="bool" data-id = "<?php echo \common\components\Misc::encodeUrl($post['faq_id']); ?>" data-tab = "Faq"
+                                    <input type="checkbox" id="switch3<?= $post['id']?>" class="status" switch="bool" data-id = "<?php echo \common\components\Misc::encodeUrl($post['faq_id']); ?>" data-tab = "Faq"
                                             <?php echo(isset($post['info']['is_active']) && ($post['info']['is_active'] == 1) ? 'checked' : ''); ?>>
-                                    <label for="switch3" data-on-label="Visible"
+                                    <label for="switch3<?= $post['id']?>" data-on-label="Visible"
                                            data-off-label="Hidden"></label>
                                  </td>
 
