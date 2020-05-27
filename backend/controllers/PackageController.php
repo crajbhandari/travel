@@ -9,6 +9,7 @@ use common\models\City;
 use common\models\generated\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
+use common\models\generated\PackageTranslation;
 use common\models\Package;
 use phpDocumentor\Reflection\Types\Null_;
 use Yii;
@@ -241,7 +242,7 @@ class PackageController extends Controller {
         return $this->render('request/index', ['packages' => HelperPackage::getRequest()]);
     }
 
-    public function actionReadPackage() {
+    public function actionReadReview() {
         //        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if (\Yii::$app->request->isAjax && $_POST['id']) {
             $id = $_POST['id'];
@@ -249,7 +250,8 @@ class PackageController extends Controller {
                 $model = PackageReview::findOne($id);
 
                 if ($model) {
-                    $package = Package::findOne($model->package_id);
+                    $package = PackageTranslation::find()->where('package_id='.$model->package_id)->asArray()->one();
+
                     $package_name = $package['title'];
                     $name = $model->name;
                     $email = $model->email;
@@ -258,9 +260,9 @@ class PackageController extends Controller {
                     $rating = $model->rating;
                     $date = $model->posted_on;
 
-                    if ($model->save() == true) {
 
                         $result = "
+<div class='row'>
                             <div class='col s6'>
                                   <p><b>Sent On : </b><br>$date</p>
                                       <p><b>Name : </b><br>$name</p>
@@ -268,19 +270,18 @@ class PackageController extends Controller {
                                   <p><b>Message : </b><br>$message</p>
                                   </div>
                                  <div class='col s6'> 
-                                  <p><b>Destination : </b><br>$city</p>
-                                  <p><b>Rating : </b><br>$rating</p>
                                   <p><b>Package : </b><br>$package_name</p>
+                                  <p><b>City : </b><br>$city</p>
+                                  <p><b>Rating : </b><br>$rating</p>
                                  
                                   </div>
-                       
+                       </div>
                         ";
                         return json_encode($data = [
                                 'result' => $result,
                                 'id'     => $model->id
                         ]);
                     }
-                }
             }
 
         }
