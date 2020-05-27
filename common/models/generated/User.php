@@ -12,6 +12,7 @@ use Yii;
  * @property string $name
  * @property string $role
  * @property string $username
+ * @property string $image
  * @property string $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
@@ -21,6 +22,8 @@ use Yii;
  * @property int $status
  * @property string $created_at
  * @property string $updated_at
+ *
+ * @property Package[] $packages
  */
 class User extends \yii\db\ActiveRecord
 {
@@ -43,7 +46,7 @@ class User extends \yii\db\ActiveRecord
             [['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 150],
             [['role'], 'string', 'max' => 16],
-            [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
+            [['username', 'image', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['email_verification'], 'string', 'max' => 64],
             [['username'], 'unique'],
@@ -62,6 +65,7 @@ class User extends \yii\db\ActiveRecord
             'name' => 'Name',
             'role' => 'Role',
             'username' => 'Username',
+            'image' => 'Image',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
@@ -72,5 +76,13 @@ class User extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPackages()
+    {
+        return $this->hasMany(Package::className(), ['created_by' => 'id']);
     }
 }

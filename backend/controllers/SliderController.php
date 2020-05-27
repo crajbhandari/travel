@@ -74,7 +74,9 @@ class SliderController extends Controller {
         if ($id != '') {
             $id = Misc::decrypt($id);
         }
+
         $editable = Banners::find()->where(['id'=>$id])->asArray()->one();
+
         $banner = Banners::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
         return $this->render('banner', [
                 'editable' => $editable,

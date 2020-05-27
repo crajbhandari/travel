@@ -31,7 +31,7 @@ class Testimonials extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'content', 'created_on'], 'required'],
+            [['name', 'content'], 'required'],
             [['info', 'content'], 'string'],
             [['created_on'], 'safe'],
             [['image'], 'string', 'max' => 64],

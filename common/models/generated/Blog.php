@@ -9,12 +9,11 @@ use Yii;
  *
  * @property int $id
  * @property string $date
- * @property string $title
  * @property string $image
- * @property string $content
- * @property string $author
- * @property string $category
  * @property int $visibility
+ *
+ * @property BlogComments[] $blogComments
+ * @property BlogTranslation[] $blogTranslations
  */
 class Blog extends \yii\db\ActiveRecord
 {
@@ -33,10 +32,8 @@ class Blog extends \yii\db\ActiveRecord
     {
         return [
             [['date'], 'safe'],
-            [['title', 'content'], 'required'],
-            [['title', 'content'], 'string'],
             [['visibility'], 'integer'],
-            [['image', 'author', 'category'], 'string', 'max' => 128],
+            [['image'], 'string', 'max' => 128],
         ];
     }
 
@@ -48,12 +45,24 @@ class Blog extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'date' => 'Date',
-            'title' => 'Title',
             'image' => 'Image',
-            'content' => 'Content',
-            'author' => 'Author',
-            'category' => 'Category',
             'visibility' => 'Visibility',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBlogComments()
+    {
+        return $this->hasMany(BlogComments::className(), ['blog_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBlogTranslations()
+    {
+        return $this->hasMany(BlogTranslation::className(), ['blog_id' => 'id']);
     }
 }

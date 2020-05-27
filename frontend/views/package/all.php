@@ -392,12 +392,12 @@
                            <div class = "trav-ami">
                               <h4>Detail and Includes</h4>
                               <ul>
-                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a14.png" alt = ""/> --><i class="flaticon-binoculars"></i> <span>Sightseeing</span></li>
-                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a15.png" alt = ""/> --><i class="flaticon-hotel"></i> <span>Hotel</span></li>
-                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a16.png" alt = ""/> --><i class="flaticon-bus"></i> <span>Transfer</span></li>
-                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a17.png" alt = ""/> --><i class="flaticon-language"></i> <span>Luggage</span></li>
-                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a18.png" alt = ""/> --><i class="flaticon-sun"></i> <span>Duration 8N/9D</span></li>
-                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a19.png" alt = ""/>  --><i class="flaticon-place"></i><span>Location : Rio,Brazil</span></li>
+                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a14.png" alt = ""/> --><i class="flaticon-binoculars"></i><br> <span>Sightseeing</span></li>
+                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a15.png" alt = ""/> --><i class="flaticon-hotel"></i><br> <span>Hotel</span></li>
+                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a16.png" alt = ""/> --><i class="flaticon-bus"></i><br> <span>Transfer</span></li>
+                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a17.png" alt = ""/> --><i class="flaticon-language"></i><br> <span>Luggage</span></li>
+                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a18.png" alt = ""/> --><i class="flaticon-sun"></i><br> <span>Duration 8N/9D</span></li>
+                                 <li><!-- <img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/a19.png" alt = ""/>  --><i class="flaticon-place"></i><br> <span>Location : Rio,Brazil</span></li>
                                <!--   <li><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/icon/dbl4.png" alt = ""/> <span>Stay Plan</span></li> -->
                               </ul>
                            </div>
