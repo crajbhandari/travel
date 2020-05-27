@@ -18,6 +18,7 @@
 
     class HelperAmenities extends Component {
         public static function set($data) {
+
             if (isset($data['id']) && $data['id'] > 0) {
                 $model = Amenities::findOne($data['id']);
             }
@@ -27,7 +28,7 @@
             $model->name = $data['name'];
             $model->display_name = $data['display_name'];
             $model->icon = $data['icon'];
-            $model->description  = $data['info'];
+            $model->description  = $data['description'];
             $model->is_active  = $data['is_active'];
 
 

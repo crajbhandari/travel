@@ -185,9 +185,9 @@ AppAsset::register($this);
                         <span>Slider</span>
                      </a>
                      <ul class = "sub-menu" aria-expanded = "false">
-                        <li><a href = "layouts-horizontal.html">Add New</a></li>
-                        <li><a href = "layouts-light-sidebar.html">List</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Banner</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/post">Add New</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider">List</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/slider/banner">Banner</a></li>
                      </ul>
                   </li>
 
@@ -205,13 +205,13 @@ AppAsset::register($this);
                      </a>
                   </li>
                   <li>
-                     <a href = "calendar.html" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages" class = " waves-effect">
                         <i class = "bx bx-message"></i>
                         <span>Messages</span>
                      </a>
                   </li>
                   <li>
-                     <a href = "calendar.html" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/amenities" class = " waves-effect">
                         <i class = "bx bx-calendar"></i>
                         <span>Amenities</span>
                      </a>
@@ -223,8 +223,8 @@ AppAsset::register($this);
                         <span>Users</span>
                      </a>
                      <ul class = "sub-menu" aria-expanded = "false">
-                        <li><a href = "layouts-horizontal.html">All Users</a></li>
-                        <li><a href = "layouts-light-sidebar.html">Add New user</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users">All Users</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/users/add-administrator">Add New user</a></li>
                      </ul>
                   </li>
                   <li>
@@ -403,6 +403,7 @@ AppAsset::register($this);
    <!-- <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-advanced.init.js"></script>  -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-editor.init.js"></script>
 
+   <script src="<?= Yii::$app->request->baseUrl; ?>/resources/libs/summernote/summernote-bs4.min.js"></script>
    <!-- CSRF TOKEN -->
    <script>
       $.ajaxSetup({
