@@ -273,3 +273,34 @@ $(document).ready(function () {
       });
    });
 });
+$(function () {
+   $('.status').on("click", function () {
+      var id = $(this).data("id");
+      var table = $(this).data("tab");
+      var type = $(this).data('type') || 'Status';
+      $.ajax({
+         url: baseUrl + "/site/status-change",
+         type: 'post',
+         data: {
+            id: id,
+            table: table,
+         },
+         success: function (data) {
+
+            if (data == true) {
+               notify('success', type + ' Changed Successfully.');
+            location.reload();
+
+               // row.remove();
+            } else {
+               notify('danger', type + ' not Changed.');
+               location.reload();
+            }
+         },
+         error: function () {
+            notify('danger', 'Server Error. ' + type + ' not Changed. Please try again.');
+            location.reload();
+         }
+      });
+   });
+});

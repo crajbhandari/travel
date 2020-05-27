@@ -190,4 +190,27 @@ class SiteController extends Controller {
         }
         return false;
     }
+    public function actionStatusChange()
+    {
+
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        if ($_POST['id'] != '' && Misc::decodeUrl($_POST['id']) > 0 && $_POST['table'] != '') {
+            $model_name = 'common\models\\' . $_POST['table'];
+            $id = Misc::decodeUrl($_POST['id']);
+            $model = $model_name::findOne($id);
+
+            if ($model->is_active == 0) {
+
+                    $model->is_active= 1;
+
+                }
+            else{  $model->is_active=0;}
+                if ($model->save() == true) {
+
+                    return true;
+                }
+            }
+
+        return false;
+    }
 }
