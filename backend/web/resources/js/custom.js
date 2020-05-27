@@ -260,15 +260,17 @@ $(function () {
 
             if (data == true) {
                notify('success', type + ' Changed Successfully.');
-
+            location.reload();
 
                // row.remove();
             } else {
                notify('danger', type + ' not Changed.');
+               location.reload();
             }
          },
          error: function () {
             notify('danger', 'Server Error. ' + type + ' not Changed. Please try again.');
+            location.reload();
          }
       });
    });
