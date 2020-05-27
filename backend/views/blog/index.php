@@ -38,7 +38,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
               }
           } ?>
       </ul>
-      <div class = "tb-res-01 tab-content twitter-bs-wizard-tab-content">
+      <div class = " tab-content twitter-bs-wizard-tab-content">
           <?php
           if (isset($language) && !empty($language)) {
              $table_count = 1;
@@ -47,7 +47,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                  <div class = "tab-pane" id = "<?php echo $l['code'] ?>">
 
 
-                    <table class = "datatable table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table class = "tb-res-01 datatable table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
 
 
                        <thead>
