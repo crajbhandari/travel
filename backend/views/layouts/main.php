@@ -74,7 +74,7 @@ AppAsset::register($this);
             <div class = "d-flex">
                <!-- LOGO -->
                <div class = "navbar-brand-box">
-                  <a href = "index.html" class = "logo logo-dark">
+                  <a href = "<?php echo Yii::$app->request->baseUrl; ?>" class = "logo logo-dark">
                                 <span class = "logo-sm">
                                     <img src = "<?= Yii::$app->request->baseUrl; ?>/resources/images/logo.svg" alt = "" height = "22">
                                 </span>
@@ -83,7 +83,7 @@ AppAsset::register($this);
                                 </span>
                   </a>
 
-                  <a href = "index.html" class = "logo logo-light">
+                  <a href = "<?php echo Yii::$app->request->baseUrl; ?>" class = "logo logo-light">
                                 <span class = "logo-sm">
                                     <img src = "<?= Yii::$app->request->baseUrl; ?>/resources/images/logo-light.svg" alt = "" height = "22">
                                 </span>
@@ -194,10 +194,14 @@ AppAsset::register($this);
                   </li>
 
                   <li>
-                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq" class = " waves-effect">
-                        <i class = "bx bx-windows"></i>
+                     <a href = "javascript: void(0);" class = "has-arrow waves-effect">
+                        <i class = "bx bx-question-mark"></i>
                         <span>FAQ</span>
                      </a>
+                     <ul class = "sub-menu" aria-expanded = "false">
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq/post">Add New</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq/">List</a></li>
+                     </ul>
                   </li>
                   <li>
                      <a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages" class = " waves-effect">
@@ -231,8 +235,8 @@ AppAsset::register($this);
                         <li><a href = "layouts-horizontal.html">All Packages</a></li>
                         <li><a href = "layouts-light-sidebar.html">Add New Package</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Add Destination</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Package Review</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Package Rating</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/rating">Package Rating</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Package Category</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Package Request</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Destination</a></li>
@@ -409,7 +413,7 @@ AppAsset::register($this);
    </script>
    <script>
       $(document).ready(function() {
-         console.log('check');
+
          $('.js-example-basic-multiple').select2();
       });
    </script>

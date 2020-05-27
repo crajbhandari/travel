@@ -1,9 +1,14 @@
 <?php
     namespace backend\controllers;
 
+    use common\components\HelperBlog;
     use common\components\HelperFaq;
+    use common\components\HelperLanguage;
     use common\components\Misc;
+    use common\models\BlogTranslation;
     use common\models\Faq;
+    use common\models\FaqTranslation;
+    use common\models\Language;
     use Yii;
     use yii\filters\AccessControl;
     use yii\filters\VerbFilter;
@@ -55,24 +60,46 @@
          * Displays homepage.
          * @return string
          */
-        public function actionIndex($id = '') {
-            $id = Misc::decodeUrl($id);
+        public function actionIndex() {
+            $faq =FaqTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
+            $page = 'Faq';
+            //        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->with('translation')->asArray()->all();
+            $language = Language::find()->asArray()->all();
+            //       $englishBlog = HelperBlog::getEnglishBlog();
             return $this->render('index', [
-                'faq' => Faq::find()->all(),
-                'editable'     => ($id > 0) ? Faq::findOne($id) : FALSE,
+                    'language' =>$language,
+                    'faq' => $faq,
+                    'page' => Yii::$app->params['pages'][$page],
             ]);
         }
 
-
+        public function actionPost($id = '') {
+            $post = [];
+            $post2 = [];
+            $ln_code ='';
+            if ($id != '') {
+                $id = Misc::decrypt($id);
+                $explode = explode('-',$id);
+                $ln_code=$explode[0];
+                $id=$explode[1];
+                $post = HelperFaq::getSingleFaqTranslation($id,$ln_code);
+                $post2 = HelperFaq::getSingleFaq($id);
+            }
+            return $this->render('form', [
+                    'editable' => $post2,
+                    'editable2' =>$post,
+                    'all_language' => HelperLanguage::getAllLanguage(),
+                    'language' =>$ln_code
+            ]);
+        }
         public function actionUpdate() {
-            if (isset($_POST['faq'])) {
-                $updated = HelperFaq::set($_POST['faq']);
-                if ($updated != FALSE) {
-                    Misc::setFlash('success', 'Faq Updated.');
-                       return $this->redirect(Yii::$app->request->baseUrl . '/faq/edit/'. Misc::encodeUrl($updated['id']));
+            $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
+            if (isset($_POST['post'])) {
+                $updated = HelperFaq::set($_POST['post'], $image);
+                if ($updated != false) {
+                    return $this->redirect(Yii::$app->request->baseUrl . '/faq/post/' . Misc::encrypt($updated['language_code'].'-'.$updated['faq_id']));
                 }
             }
-
             return $this->redirect(Yii::$app->request->baseUrl . '/faq/');
         }
     }

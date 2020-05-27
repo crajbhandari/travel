@@ -27,7 +27,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                 <div class = "card-body">
 
 
-                    <table id = "datatable-buttons" class = "table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table class = "datatable table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <?php if (!empty($messages) && count($messages) > 0): ?>
                         <tr>
@@ -47,14 +47,14 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                             $count++; ?>
                             <tr>
                                 <td><?php echo $sn; ?></td>
-                                <td>
+                                <td class = "status" data-id = "<?php echo 'id' . $post['id'] ?>">
                                     <?php if ($post['is_new']> 0) : ?>
-                                   <span class=" badge badge-primary">
+                                   <span data-for = "new"  class=" badge badge-primary">
                                        Seen
                                       </span>
                                         <!--                                      <a href="javascript:void(0);" class="label --><?//= ($a['is_active'] === 1) ? 'label-success' : 'label-danger' ?><!-- label-success --><?//= ($is_authorized) ? 'toggle-status' : 'disabled' ?><!-- " --><?//= ($is_authorized) ? 'data-a="' . Misc::encrypt($a['id']) . '" data-b="' . Misc::encrypt(Misc::getClass($a)) . '"' : '' ?><!--><?//= ($a['is_active'] === 1) ? 'Active' : 'Inactive' ?><!--</a>-->
                                     <?php else: ?>
-                                    <span class=" badge badge-success">
+                                    <span data-for = "seen" class=" badge badge-success">
                                         New
                                     </span>
 
@@ -67,11 +67,11 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                                     <?= \common\components\Misc::datetime($post->created_on) ?>
                                 </td>
                                 <td>
-                                   <a href = "javascript:void(0);" class = "btn btn-primary btn-sm show-message">
+                                   <a href = "javascript:void(0);" data-toggle="modal" data-target="#myModal" data-id = "<?php echo $post['id'] ?>" class = "btn btn-primary btn-sm show-message">
                                       View
                                    </a><!--                                   <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">Standard</button>-->
                                       <!--                                <a href="javascript:void(0);" class="mr-3 text-primary" data-placement="top" title="" data-original-title="View" data-toggle="modal" data-target=".exampleModal"><i class="mdi mdi-eye font-size-18"></i></a>-->
-                                    <a href = "javascript:void(0);" class = "delete-item text-danger" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Messages"><i class = "mdi mdi-close font-size-18"></i></a>
+                                    <a href = "javascript:void(0);" class = "delete-item btn btn-danger btn-sm" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Messages">Delete</a>
                                 </td>
                             </tr>
                             <?php $sn++; ?>
@@ -86,4 +86,22 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
         </div> <!-- end col -->
     </div> <!-- end row -->
 
+</div>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title mt-0" id="myModalLabel">Package Review</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
 </div>

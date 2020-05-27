@@ -5,7 +5,7 @@ use common\components\HelperLanguage as hl;
 ?>
 <div class="container-fluid">
     <!-- start page title -->
-   <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/blog/update/">
+   <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/faq/update/">
 
       <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
       <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
@@ -14,7 +14,7 @@ use common\components\HelperLanguage as hl;
       <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <?php echo (isset($editable2['title'])) ? ' <h4 class="mb-0 font-size-18">Edit - ' . $editable2['title'] . '</h4> ' : ' <h4 class="mb-0 font-size-18"> Add New Post</h4>' ?>
+                <?php echo (isset($editable2['title'])) ? ' <h4 class="mb-0 font-size-18">Edit - ' . $editable2['title'] . '</h4> ' : ' <h4 class="mb-0 font-size-18"> Add New FAQ</h4>' ?>
             </div>
         </div>
     </div>
@@ -28,22 +28,13 @@ use common\components\HelperLanguage as hl;
                             <label for = "<?php echo $counter; ?>">Title</label>
                             <input required id = "<?php echo $counter; ?>" name = "post[title]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['title'])) ? $editable2['title'] : '' ?>">
                         </div>
-                       <div class="form-group">
-                           <?php $counter++; ?>
-                          <label for = "<?php echo $counter; ?>">Author</label>
-                          <input required id = "<?php echo $counter; ?>" name = "post[author]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['author'])) ? $editable2['author'] : '' ?>">
-                       </div>
-                   <div class="form-group">
-                       <?php $counter++; ?>
-                      <label for = "<?php echo $counter; ?>">Category</label>
-                      <input required id = "<?php echo $counter; ?>" name = "post[category]" type = "text" class = "form-control required" value = "<?php echo (isset($editable2['category'])) ? $editable2['category'] : '' ?>">
-                   </div>
+
                        <div class="form-group">
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>" >Visibility</label>
-                          <select id = "<?php echo $counter; ?>" name = "post[visibility]" class = "form-control required">
-                             <option value = "1" <?= (isset($editable['visibility']) && $editable['visibility'] == 1) ? 'selected="selected"' : '' ?>>Visible</option>
-                             <option value = "0" <?= (isset($editable['visibility']) && $editable['visibility'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
+                          <select id = "<?php echo $counter; ?>" name = "post[is_active]" class = "form-control required">
+                             <option value = "1" <?= (isset($editable['is_active']) && $editable['is_active'] == 1) ? 'selected="selected"' : '' ?>>Visible</option>
+                             <option value = "0" <?= (isset($editable['is_active']) && $editable['is_active'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
                           </select>
                        </div>
                    <?php if(isset($editable2['language_code']) && $editable2['language_code'] != ''): ?>
@@ -73,28 +64,28 @@ use common\components\HelperLanguage as hl;
                              <textarea class="description" id="elm1" name = "post[content]"><?php echo (isset($editable2['content'])) ? $editable2['content'] : '' ?></textarea>
 
                        </div>
-                     <div class="form-group">
-                         <?php $counter++; ?>
-                        <label>Image</label>
-                        <div class="custom-file">
-                           <div class = "image-wrapper" <?= (isset($editable['image']) && $editable['image'] != '') ? '' : 'style="display:none;"' ?>>
-                              <img src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $editable['image'] : '' ?>" class = "custom-file-input-image" id = "file-<?php echo $counter; ?>-image" alt = ""/>
-                           </div>
-                            <?php if (isset($editable['image']) && $editable['image'] != ''): ?>
-                               <div class = "image-actions text-right">
-                                  <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "<?php echo \common\components\Misc::encodeUrl($editable['id']) ?>">
-                                     <i class = "mdi mdi-close margin-right-5"></i>
-                                     Remove Image
-                                  </a>
-                               </div>
-                            <?php endif; ?>
-                           <label class = "custom-file-label" id = "file-<?php echo $counter; ?>-label" for = "file-<?php echo $counter; ?>">
-                              <i class = "fa fa-file"></i>
-                              <span>Upload Image</span>
-                           </label>
-                           <input accept = "image/x-png,image/jpeg" type = "file" name = "image" class = "custom-file-input" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
-                        </div>
-                     </div>
+<!--                     <div class="form-group">-->
+<!--                         --><?php //$counter++; ?>
+<!--                        <label>Image</label>-->
+<!--                        <div class="custom-file">-->
+<!--                           <div class = "image-wrapper" --><?//= (isset($editable['image']) && $editable['image'] != '') ? '' : 'style="display:none;"' ?><!--
+<!--                              <img src = "--><?php //echo (isset($editable['image']) && $editable['image'] != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $editable['image'] : '' ?><!--" class = "custom-file-input-image" id = "file---><?php //echo $counter; ?><!---image" alt = ""/>-->
+<!--                           </div>-->
+<!--                            --><?php //if (isset($editable['image']) && $editable['image'] != ''): ?>
+<!--                               <div class = "image-actions text-right">-->
+<!--                                  <a href = "javascript:void();" class = "remove-image" data-tab = "blog" data-id = "--><?php //echo \common\components\Misc::encodeUrl($editable['id']) ?><!--">-->
+<!--                                     <i class = "mdi mdi-close margin-right-5"></i>-->
+<!--                                     Remove Image-->
+<!--                                  </a>-->
+<!--                               </div>-->
+<!--                            --><?php //endif; ?>
+<!--                           <label class = "custom-file-label" id = "file---><?php //echo $counter; ?><!---label" for = "file---><?php //echo $counter; ?><!--">-->
+<!--                              <i class = "fa fa-file"></i>-->
+<!--                              <span>Upload Image</span>-->
+<!--                           </label>-->
+<!--                           <input accept = "image/x-png,image/jpeg" type = "file" name = "image" class = "custom-file-input" id = "file---><?php //echo $counter; ?><!--" onchange = "readURL(this);" aria-describedby = "file---><?php //echo $counter; ?><!--" src = "--><?php //echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?><!--">-->
+<!--                        </div>-->
+<!--                     </div>-->
 
 
                   <button class="btn btn-primary" id="save" type="submit">Save</button>

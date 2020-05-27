@@ -205,42 +205,102 @@ $(document).ready(function () {
 
       });
    }
+   $(function () {
+      $('.show-review').on("click", function () {
+
+         // $('.modal').modal();
+         var cid = $(this).data("id");
+
+         $.ajax({
+            url: baseUrl + "/package/read-review",
+            type: 'post',
+            data: {
+               id: cid
+            },
+            success: function (data) {
+               console.log(data);
+
+               if (data === '') {
+                  $('.modal-body').html('No Data to Fetch')
+               } else {
+                  var a = JSON.parse(data);
+                  $('.modal-body').html(a['result']);
+               }
+            },
+            error: function () {
+               $('.modal-body').html('Sorry, Server error. Please try again late')
+               // notify('Error', 'Sorry, Server error. Please try again later ', 'error');
+            }
+         });
+      });
+   });
+   $(function () {
+      $('.show-message').on("click", function () {
+
+         // $('.modal').modal();
+         var cid = $(this).data("id");
+         var modal = $('.modal-message');
+         $.ajax({
+            url: baseUrl + "/messages/read-message",
+            type: 'post',
+            data: {
+               id: cid
+            },
+            success: function (data) {
+
+               if (data === '') {
+                  $('.modal-body').html('No Data to Fetch')
+               } else {
+                  var a = JSON.parse(data);
+                  //message seen or new
+                  if ($('[data-for="new"]')) {
+                     $('[data-id="id' + a['id'] + '"]').html('<span data-for="seen" class="badge badge-primary">Seen</span>');
+
+                  } else {
+                     $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="badge badge-success">New</span>');
+                  }
+                  $('.modal-body').html(a['result']);
+                  // modal.find('.modal-dialog').html(a['result']);
+                  // modal.modal('show');
+                  // $('.refresh').removeClass('hidden')
+               }
+            },
+            error: function () {
+               $('.modal-body').html('Sorry, Server error. Please try again late')
+            }
+         });
+
+      });
+   });
 });
 $(function () {
-   $('.show-message').on("click", function () {
-
-      $('.modal').modal();
-      var cid = $(this).data("id");
-      var modal = $('.modal-message');
+   $('.status').on("click", function () {
+      var id = $(this).data("id");
+      var table = $(this).data("tab");
+      var type = $(this).data('type') || 'Status';
       $.ajax({
-         url: baseUrl + "/messages/read-message",
+         url: baseUrl + "/site/status-change",
          type: 'post',
          data: {
-            id: cid
+            id: id,
+            table: table,
          },
          success: function (data) {
 
-            if (data === '') {
-               typeAlert('Error', 'Sorry, Could not open Message', 'error');
+            if (data == true) {
+               notify('success', type + ' Changed Successfully.');
+            location.reload();
+
+               // row.remove();
             } else {
-               var a = JSON.parse(data);
-               //message seen or new
-               if ($('[data-for="new"]')) {
-                  $('[data-id="id' + a['id'] + '"]').html('<span data-for="seen" class="label label-danger">Seen</span>');
-                  $('.message-noti').html($('.message-noti').text() - 1);
-               } else {
-                  $('[data-id="id' + a['id'] + '"]').html('<span data-for="new" class="label label-danger">New</span>');
-               }
-               $('.para-content').html(a['result'])
-               // modal.find('.modal-dialog').html(a['result']);
-               // modal.modal('show');
-               // $('.refresh').removeClass('hidden')
+               notify('danger', type + ' not Changed.');
+               location.reload();
             }
          },
          error: function () {
-            typeAlert('Error', 'Sorry, Server error. Please try again later ', 'error');
+            notify('danger', 'Server Error. ' + type + ' not Changed. Please try again.');
+            location.reload();
          }
       });
-
    });
 });

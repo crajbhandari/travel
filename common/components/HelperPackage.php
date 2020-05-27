@@ -15,6 +15,7 @@ namespace common\components;
 
 use common\components\HelperUpload as Upload;
 use common\models\City;
+use common\models\generated\PackageTranslation;
 use common\models\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
@@ -39,12 +40,13 @@ public static function getPackage($id) {
     }
 
     public static function getRatings() {
-        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
+        $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
         $rating = [];
         $i = 0;
         foreach ($data as $d) {
             $package_id = $d['package_id'];
-            $package_name = Package::findOne($package_id);
+            $package_name = PackageTranslation::find()->where('package_id='.$package_id)->asArray()->one();
+
             if (array_key_exists($package_id, $rating)) {
                 $rating[$package_id]['count']++;
                 $rating[$package_id]['rating'] += $d['rating'];

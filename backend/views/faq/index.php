@@ -1,112 +1,124 @@
 <?php
+
+use common\components\HelperFaq;
+
 $this->title = 'Faq';
-$new = ($editable == FALSE) ? 1 : 0;
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css');
 ?>
+<script>
+   var langugae = <?php echo count($language); ?>;
+</script>
+<div class = "container-fluid">
 
-<div class="sb2-2">
-    <div class="sb2-2-2">
-        <ul>
-            <li><a href="<?php echo Yii::$app->request->baseUrl; ?>/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-            </li>
-            <li class="active-bre"><a href="#"> Faq</a>
-            </li>
-        </ul>
-    </div>
-    <div class="sb2-2-3">
-        <div class="row">
-           <div class="col-md-4">
-              <div class="box-inn-sp">
-                 <div class="inn-title">
-                     <?php if ($new): ?>
-                        <h5 class = "card-title">Add New Faq</h5>
-                     <?php else: ?>
-                        <h5 class = "card-title">Edit <?php echo $editable['title']; ?> </h5>
-                     <?php endif; ?>
-                 </div>
-                 <div class = "bor1">
-                    <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/faq/update/">
-                       <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
-                       <input type = "hidden" name = "faq[id]" value = "<?php echo(isset($editable['id']) ? $editable['id'] : 0) ?>">
-                        <?php $counter = 0; ?>
-                       <div class = "row">
-                          <div class = "input-field col s12">
-                              <?php $counter++; ?>
-                             <input id = "list-title <?php echo $counter; ?>" name = "faq[title]" type = "text" class = "validate" required value = "<?php echo (isset($editable['title'])) ? $editable['title'] : '' ?>">
-                             <label for = "list-title <?php echo $counter; ?>">Title</label>
-                          </div>
-                       </div>
-                       <div class = "row">
-                          <div class = "input-field col s12">
-                              <?php $counter++; ?>
-                             <label for = "textarea1 <?php echo $counter; ?>">Content</label>
-                             <textarea class="materialize-textarea" id = "textarea1 <?php echo $counter; ?>" name = "faq[content]"><?php echo (isset($editable['content'])) ? $editable['content'] : '' ?></textarea>
-                          </div>
-                       </div>
-                       <div class = "row">
-                          <div class = "input-field col s12">
-                              <?php $counter++; ?>
-                             <select id = "<?php echo $counter; ?>" name = "faq[is_active]" required>
-                                <option value = "1" <?= (isset($editable['is_active']) && $editable['is_active'] == 1) ? 'selected="selected"' : '' ?>>Active</option>
-                                <option value = "0" <?= (isset($editable['is_active']) && $editable['is_active'] == 0) ? 'selected="selected"' : '' ?>>Inactive</option>
-                             </select>
-                             <label for = "<?php echo $counter; ?>">Active</label>
-                          </div>
-                       </div>
+   <!-- start page title -->
+   <div class = "row">
+      <div class = "col-12">
+         <div class = "page-title-box d-flex align-items-center justify-content-between">
+            <h4 class = "mb-0 font-size-18">FAQ</h4>
+         </div>
+      </div>
+   </div>
+   <div id = "basic-pills-wizard" class = "twitter-bs-wizard">
+      <ul class = "twitter-bs-wizard-nav">
+          <?php
+          if (isset($language) && !empty($language)) {
+              $span_count = 1;
+              foreach ($language as $l) {
+                  ?>
+                 <li class = "nav-item">
+                    <a href = "#<?php echo $l['code']; ?>" class = "nav-link" data-toggle = "tab">
+                       <span class = "step-number mr-2"><?php echo '0' . $span_count; ?></span>
+                        <?php echo $l['name']; ?>
+                    </a>
+                 </li>
 
-                       <div class = "row">
-                          <div class = "input-field col s12">
-                             <button type = "submit" class = "waves-effect waves-light btn-large">Save</button>
-                          </div>
-                       </div>
-                    </form>
+                  <?php $span_count++;
+              }
+          } ?>
+      </ul>
+      <div class = "tab-content twitter-bs-wizard-tab-content">
+          <?php
+          if (isset($language) && !empty($language)) {
+              $table_count = 1;
+              foreach ($language as $l) {
+                  ?>
+                 <div class = "tab-pane" id = "<?php echo $l['code'] ?>">
+
+                    <table class = "datatable table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
+
+                       <thead>
+                       <?php if (!empty($faq) && count($faq) > 0): ?>
+                       <tr>
+                          <th>S.N</th>
+                          <th>Title</th>
+                          <th>Visibility</th>
+                          <th>Language</th>
+                          <th>Actions</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <?php
+                       $sn = 1;
+                       $count = 0;
+                       foreach ($faq as $post) :
+                           if ($post['language_code'] == $l['code']) {
+                               $count++; ?>
+                              <tr>
+                                 <td><?php echo $sn; ?></td>
+                                 <td> <?php echo(isset($post['title']) && !empty($post['title']) ? trim($post['title']) : ''); ?></td>
+                                 <td>
+                                    <input type="checkbox" id="switch3<?= $post['id']?>" class="status" switch="bool" data-id = "<?php echo \common\components\Misc::encodeUrl($post['faq_id']); ?>" data-tab = "Faq"
+                                            <?php echo(isset($post['info']['is_active']) && ($post['info']['is_active'] == 1) ? 'checked' : ''); ?>>
+                                    <label for="switch3<?= $post['id']?>" data-on-label="Visible"
+                                           data-off-label="Hidden"></label>
+                                 </td>
+
+                                 <td>
+                                     <?php
+                                     foreach ($language as $lan) {
+                                         if ($lan['code'] != $post['language_code']) {
+                                             ?>
+
+                                            <a href = "<?= Yii::$app->request->baseUrl; ?>/faq/post/<?= \common\components\Misc::encrypt($lan['code'] . '-' . $post['faq_id']); ?>">
+
+                                           <span class = "lan">
+                                              <?php if (!empty(HelperFaq::getSingleFaqTranslation($post['faq_id'], $lan['code']))) { ?>
+                                                 <i class = "fa fa-check"></i>&nbsp
+                                              <?php } else { ?>
+                                                 <i class = "mdi mdi-close-thick"></i>&nbsp
+                                              <?php } ?>
+                                               <?php echo \common\components\HelperLanguage::getSingleLanguageName($lan['code']) . '&nbsp;'; ?>
+                                    </span>
+                                            </a>
+                                             <?php
+                                         }
+                                     }
+                                     ?>
+                                 </td>
+                                 <td>
+                                    <a class="btn btn-primary btn-sm" href = "<?=  Yii::$app->request->baseUrl; ?>/faq/post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['faq_id']); ?>" >Edit</a>
+                                    <a href = "javascript:void(0);" class = "delete-item btn btn-danger btn-sm" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "FaqTranslation">Delete</a>
+                                 </td>
+                              </tr>
+                               <?php $sn++;
+                           } ?>
+                       <?php endforeach; ?>
+                       </tbody>
+                        <?php else: ?>
+                           <h3>Sorry, No Posts Found</h3>
+                        <?php endif; ?>
+                    </table>
                  </div>
-              </div>
-           </div>
-            <div class="col-md-8">
-                <div class="box-inn-sp">
-                    <div class="inn-title">
-                        <h4>faq List</h4>
-                    </div>
-                    <div class="tab-inn">
-                        <div class="table-responsive table-desi">
-                            <table class="table table-hover">
-                                <thead>
-                                <?php if (!empty($faq) && count($faq) > 0): ?>
-                                <tr>
-                                    <th>S.N</th>
-                                    <th>Title</th>
-                                    <th>Date</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-                                $sn =1;
-                                $count = 0;
-                                foreach ($faq as $post) :
-                                    $count++; ?>
-                                    <tr>
-                                        <td><?php echo $sn; ?></td>
-                                        <td>
-                                            <?php echo (isset($post['title'])) ? trim($post['title']) : '' ?>
-                                        </td>
-                                        <td><?php echo (isset($post['created_at'])) ? ucwords(trim($post['created_at'])) : '' ?></td>
-                                        <td>
-                                            <a href="<?php echo Yii::$app->request->baseUrl; ?>/faq/edit/<?php echo \common\components\Misc::encodeUrl($post['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                            <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "Faq"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                    <?php $sn++; ?>
-                                <?php  endforeach; ?>
-                                </tbody>
-                                <?php else: ?>
-                                    <h3>Sorry, No Posts Found</h3>
-                                <?php endif; ?>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                  <?php $table_count++; }
+          } ?>
+         <ul class = "pager wizard twitter-bs-wizard-pager-link">
+            <li class = "previous"><a href = "#">Previous</a></li>
+            <li class = "next"><a href = "#">Next</a></li>
+         </ul>
+      </div>
+   </div>
+
 </div>
+
