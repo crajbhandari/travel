@@ -238,13 +238,13 @@ AppAsset::register($this);
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a></li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/rating">Package Rating</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Package Category</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Package Request</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Destination</a></li>
                      </ul>
                   </li>
 
                   <li>
-                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/users" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/settings" class = " waves-effect">
                         <i class = "bx bx-cog"></i>
                         <span>Settings</span>
                      </a>
