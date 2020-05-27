@@ -45,7 +45,9 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
               foreach ($language as $l) {
                   ?>
                  <div class = "tab-pane" id = "<?php echo $l['code'] ?>">
-                    <table id = "datatable-buttonsz" class = "table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
+
+                    <table class = "datatable table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
+
                        <thead>
                        <?php if (!empty($blog) && count($blog) > 0): ?>
                        <tr>

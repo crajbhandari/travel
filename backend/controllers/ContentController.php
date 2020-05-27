@@ -2,10 +2,12 @@
 
 namespace backend\controllers;
 
+use Codeception\Lib\Generator\Helper;
 use common\components\HelperBlog;
 use common\components\Misc;
 use common\models\Blog;
 use common\models\BlogComments;
+use common\models\PackageCategory;
 use common\models\Sections;
 use Yii;
 use yii\filters\AccessControl;
@@ -71,7 +73,35 @@ class ContentController extends Controller {
     }
 
     public function actionFetchCategories() {
-        return;
+        $categories = [];
+        if (Yii::$app->request->isAjax && Yii::$app->request->post('type')) {
+            if (Yii::$app->request->post('type') === 'package') {
+                $list = PackageCategory::find()->asArray()->orderBy('parent')->all();
+            }
+            $categories = Misc::buildTree($list);
+        }
+
+        return json_encode($categories);
+        /* return json_encode([
+                                    'national'             => [
+                                            'details'  => ['id'=>2, 'title' => 'national'],
+                                            'children' => [
+                                                    '0' => [
+                                                            'details'  => ['id'=>5, 'title' => 'national'],
+                                                            'children' => [
+                                                                    '0' => [
+                                                                            'details'  => ['id', 'title' => 'national'],
+                                                                            'children' => [
+
+                                                                            ]
+                                                                    ],
+                                                            ]
+                                                    ],
+                                            ]
+                                    ],
+
+
+                            ]);*/
     }
 
     public function actionUpdate() {
