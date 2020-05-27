@@ -7,6 +7,9 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
 $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css');
 $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css');
 ?>
+<script>
+   var langugae = <?php echo count($language); ?>;
+</script>
 <div class = "container-fluid">
 
    <!-- start page title -->
@@ -38,10 +41,11 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
       <div class = "tab-content twitter-bs-wizard-tab-content">
           <?php
           if (isset($language) && !empty($language)) {
+             $table_count = 1;
               foreach ($language as $l) {
                   ?>
                  <div class = "tab-pane" id = "<?php echo $l['code'] ?>">
-                    <table id = "datatable-buttons" class = "table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table class = "datatable table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
                        <thead>
                        <?php if (!empty($blog) && count($blog) > 0): ?>
                        <tr>
@@ -115,7 +119,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                         <?php endif; ?>
                     </table>
                  </div>
-              <?php }
+              <?php $table_count++; }
           } ?>
          <ul class = "pager wizard twitter-bs-wizard-pager-link">
             <li class = "previous"><a href = "#">Previous</a></li>
