@@ -11,4 +11,8 @@
 
             ];
         }
+        public function getInfo()
+        {
+            return $this->hasOne(Faq::className(), ['id' => 'faq_id']);
+        }
     }

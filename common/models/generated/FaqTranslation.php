@@ -32,7 +32,7 @@ class FaqTranslation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['faq_id', 'language_code', 'title', 'content'], 'required'],
+            [['faq_id', 'language_code', 'title'], 'required'],
             [['faq_id'], 'integer'],
             [['content'], 'string'],
             [['language_code', 'title'], 'string', 'max' => 200],

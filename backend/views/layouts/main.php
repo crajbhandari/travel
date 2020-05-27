@@ -194,10 +194,14 @@ AppAsset::register($this);
                   </li>
 
                   <li>
-                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq" class = " waves-effect">
-                        <i class = "bx bx-windows"></i>
+                     <a href = "javascript: void(0);" class = "has-arrow waves-effect">
+                        <i class = "bx bx-question-mark"></i>
                         <span>FAQ</span>
                      </a>
+                     <ul class = "sub-menu" aria-expanded = "false">
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq/post">Add New</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/faq/">List</a></li>
+                     </ul>
                   </li>
                   <li>
                      <a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages" class = " waves-effect">

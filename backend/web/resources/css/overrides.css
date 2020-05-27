@@ -62,3 +62,43 @@ body{
 
 }
 
+input[switch] + label {
+    font-size: 1em;
+    line-height: 1;
+    width: 74px;
+    height: 24px;
+    background-color: #CED4DA;
+    background-image: none;
+    border-radius: 2rem;
+    padding: .16667rem;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    font-weight: 500;
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out
+}
+input[switch] + label:before {
+    color: #343A40;
+    content: attr(data-off-label);
+    display: block;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 21px;
+    position: absolute;
+    right: 1px;
+    margin: 3px;
+    top: -2px;
+    text-align: center;
+    min-width: 1.66667rem;
+    overflow: hidden;
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out
+}
+
+input[switch]:checked + label:after {
+    left: 50px;
+    background-color: #EFF2F7
+}
