@@ -1,7 +1,5 @@
 <?php
-echo '<pre>';
-print_r(count($language));
-echo '</pre>';
+
 use common\components\HelperBlog;
 
 $this->title = 'Blog';

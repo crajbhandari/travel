@@ -1,6 +1,4 @@
 <?php
-
-
 $this->title = Yii::$app->params['system_name'] . ' | Sections';
 
 //$this->registerJsFile(Yii::$app->request->baseUrl . '/assets/');
@@ -68,18 +66,17 @@ use common\components\HelperLanguage as hl;
                              <?php endforeach;
                          else:?>
                             <option value = "0"> Select Parent</option>
+                         <?php if(!empty($language)): ?>
                              <?php foreach ($parents as $parent): ?>
                                <option value = "<?= $parent['city_id']; ?>"
-                                       <? if (!empty($language) && $language == $parent['language_code']):
-                                           echo '';
-                                       elseif (empty($language)):{
-                                           echo '';
-                                       }
-                                       else:
+                                       <?php if (!empty($language) && $language != $parent['language_code']):
                                            echo 'disabled';
+                                       else:
+                                           echo '';
                                        endif; ?>>
                                    <?= $parent['name']; ?></option>
                              <?php endforeach;
+                             endif;
                          endif; ?>
                      </select>
                   </div>
