@@ -304,3 +304,37 @@ $(function () {
       });
    });
 });
+
+$(function () {
+   $('.show-request').on("click", function () {
+
+      // $('.modal').modal();
+      var cid = $(this).data("id");
+
+      $.ajax({
+         url: baseUrl + "/package/request-package",
+         type: 'post',
+         data: {
+            id: cid
+         },
+         success: function (data) {
+
+            if (data === '') {
+               $('.modal-body').html('No Data to Fetch')
+            } else {
+               var a = JSON.parse(data);
+               //message seen or new
+
+               $('.modal-body').html(a['result']);
+               // modal.find('.modal-dialog').html(a['result']);
+               // modal.modal('show');
+               // $('.refresh').removeClass('hidden')
+            }
+         },
+         error: function () {
+            $('.modal-body').html('Sorry, Server error. Please try again late')
+         }
+      });
+
+   });
+});

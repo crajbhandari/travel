@@ -44,7 +44,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                         <td><?php echo (isset($post['email'])) ? $post['email'] : '' ?></td>
 
                         <td>
-                           <a data-toggle="modal" data-target="#myModal" data-id = "<?php echo $post['id'] ?>" href = "javascript:void(0);" class = "btn btn-primary btn-sm show-review">
+                           <a href = "javascript:void(0);" data-toggle="modal" data-target="#myModal" data-id = "<?php echo $post['id'] ?>" class = "btn btn-primary btn-sm show-request">
                               View
                            </a>
                         </td>
@@ -66,7 +66,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title mt-0" id="myModalLabel">Package Request</h5>
+            <h5 class="modal-title mt-0" id="myModalLabel">Messages</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>

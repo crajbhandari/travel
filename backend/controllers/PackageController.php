@@ -243,7 +243,7 @@ class PackageController extends Controller {
     }
 
     public function actionReadReview() {
-        //        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+//                \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if (\Yii::$app->request->isAjax && $_POST['id']) {
             $id = $_POST['id'];
             if ($id > 0) {
@@ -291,7 +291,9 @@ class PackageController extends Controller {
     public function actionRequestPackage() {
         //        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if (\Yii::$app->request->isAjax && $_POST['id']) {
+
             $id = $_POST['id'];
+
             if ($id > 0) {
                 $model = PackageRequest::findOne($id);
 
@@ -314,18 +316,18 @@ class PackageController extends Controller {
                     if ($model->save() == true) {
 
                         $result = "
-      <p><b>Name : </b><br>$name</p>
-      <p><b>Email : </b><br>$email</p>
-      <p><b>Phone : </b><br>$phone</p>
-      <p><b>No Of Traveller : </b><br>$traveller</p>
-      <p><b>No Of Adult : </b><br>$adult_no</p>
-      <p><b>No Of Children : </b><br>$children_no</p>
-      <p><b>Maximum Price : </b><br>$max_price</p>
-      <p><b>Minimum Price : </b><br>$min_price</p>
-      <p><b>Destination : </b><br>$city</p>
-      <p><b>Departure Date : </b><br>$dept_date</p>
-      <p><b>Sent On : </b><br>$date</p>
-      <p><b>Message : </b><br>$message</p>
+      <p><b>Name : </b>$name</p>
+      <p><b>Email : </b>$email</p>
+      <p><b>Phone : </b>$phone</p>
+      <p><b>No Of Traveller : </b>$traveller</p>
+      <p><b>No Of Adult : </b>$adult_no</p>
+      <p><b>No Of Children : </b>$children_no</p>
+      <p><b>Maximum Price : </b>$max_price</p>
+      <p><b>Minimum Price : </b>$min_price</p>
+      <p><b>Destination : </b>$city</p>
+      <p><b>Departure Date : </b>$dept_date</p>
+      <p><b>Sent On : </b>$date</p>
+      <p><b>Message : </b>$message</p>
                        
                         ";
                         return json_encode($data = [
