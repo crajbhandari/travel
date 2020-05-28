@@ -11,8 +11,6 @@ use Yii;
  * @property int $parent
  * @property string $images
  * @property string $created_on
- *
- * @property CityTranslation[] $cityTranslations
  */
 class City extends \yii\db\ActiveRecord
 {
@@ -47,13 +45,5 @@ class City extends \yii\db\ActiveRecord
             'images' => 'Images',
             'created_on' => 'Created On',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCityTranslations()
-    {
-        return $this->hasMany(CityTranslation::className(), ['city_id' => 'id']);
     }
 }

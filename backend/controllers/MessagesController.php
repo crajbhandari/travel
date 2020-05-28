@@ -72,7 +72,7 @@
                 if ($id > 0) {
                     $model = Messages::findOne($id);
                     if ($model) {
-                        $model->is_new = 0;
+                        $model->is_new = 1;
                         $name = $model->name;
                         $email = $model->email;
                         $phone = $model->phone;

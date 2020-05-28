@@ -34,3 +34,38 @@
 .text-right {
     text-align: right !important;
 }
+/*  star rating  */
+.star-rating {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.back-stars {
+    padding: 0 5px;
+    display: flex;
+    color: #989494;
+    position: relative;
+}
+
+.front-stars {
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    color: green;
+
+}
+/*.front-stars:hover {*/
+/*     color: green;*/
+/* }*/
+.rating_count{
+    background: green;
+    color: #fff;
+    padding: 5px 15px 5px 15px;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 5px;
+}
