@@ -9,7 +9,6 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
       <div class = "col-12">
          <div class = "page-title-box d-flex align-items-center justify-content-between">
             <h4 class = "mb-0 font-size-18">Edit Homepage</h4>
-
             <div class = "page-title-right">
                <ol class = "breadcrumb m-0">
                   <li class = "breadcrumb-item"><a href = "<?php echo Yii::$app->request->baseUrl; ?>/"><i class = "fa fa-home" aria-hidden = "true"></i> Home</a></li>
@@ -27,7 +26,6 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
           <?php $counter = 0; ?>
          <div class = "content-section-wrapper">
             <div class = "content-section">
-
                <div class = "row">
                   <div class = "col-12 col-sm-6 col-md-8">
                      <div class = "form-group">

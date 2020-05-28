@@ -50,7 +50,7 @@ AppAsset::register($this);
        <?php $this->head() ?>
 
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/overrides.css" rel = "stylesheet">
-      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+      <link href = "https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel = "stylesheet"/>
       <!--    <script src = "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
       <!--    <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
       <script>
@@ -123,8 +123,6 @@ AppAsset::register($this);
                </div>
 
 
-
-
                <div class = "dropdown d-inline-block">
                   <button type = "button" class = "btn header-item waves-effect" id = "page-header-user-dropdown"
                           data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false">
@@ -163,7 +161,7 @@ AppAsset::register($this);
                   <li>
                      <a href = "<?php echo Yii::$app->request->baseUrl; ?>/" class = "waves-effect">
                         <i class = "bx bx-home-circle"></i>
-                        <span>Dashboards</span>
+                        <span>Dashboard</span>
                      </a>
                   </li>
 
@@ -215,7 +213,16 @@ AppAsset::register($this);
                         <span>Amenities</span>
                      </a>
                   </li>
-
+                  <li>
+                     <a href = "javascript: void(0);" class = "has-arrow waves-effect">
+                        <i class = "bx bx-book-content"></i>
+                        <span>Content</span>
+                     </a>
+                     <ul class = "sub-menu" aria-expanded = "false">
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/content/home">Homepage</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/content/page/about">About Us</a></li>
+                     </ul>
+                  </li>
                   <li>
                      <a href = "javascript: void(0);" class = "has-arrow waves-effect">
                         <i class = "bx bx-user"></i>
@@ -391,18 +398,18 @@ AppAsset::register($this);
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/node-waves/waves.min.js"></script>
 
 
-   <script src="<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/tinymce/tinymce.min.js"></script>
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/tinymce/tinymce.min.js"></script>
 
    <!-- App js -->
 
-  
+
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
 
 
    <!-- <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-advanced.init.js"></script>  -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-editor.init.js"></script>
 
-   <script src="<?= Yii::$app->request->baseUrl; ?>/resources/libs/summernote/summernote-bs4.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/summernote/summernote-bs4.min.js"></script>
    <!-- CSRF TOKEN -->
    <script>
       $.ajaxSetup({
@@ -411,41 +418,43 @@ AppAsset::register($this);
          }
       });
    </script>
+   <?php if (Yii::$app->session->hasFlash('flash')): ?>
+      <script>
+         notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
+      </script>
+   <?php endif; ?>
    <script>
-      $(document).ready(function() {
-
+      $(document).ready(function () {
          $('.js-example-basic-multiple').select2();
       });
    </script>
 
 
-     <!-- Buttons examples -->
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+   <!-- Buttons examples -->
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-      
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
 
 
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/jszip/jszip.min.js"></script>
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/pdfmake/build/pdfmake.min.js"></script>
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/pdfmake/build/vfs_fonts.js"></script>
-       
-      
-     
-     
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script> 
-         
-        
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/datatables.init.js"></script>
-        
-        <!-- Responsive examples -->
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-      <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-       <!-- Sweet Alerts js -->
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/jszip/jszip.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/pdfmake/build/pdfmake.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/pdfmake/build/vfs_fonts.js"></script>
+
+
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/datatables.init.js"></script>
+
+   <!-- Responsive examples -->
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+   <!-- Sweet Alerts js -->
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/sweetalert/sweetalert.min.js"></script>
 
    <!-- Sweet alert init js-->
@@ -457,17 +466,15 @@ AppAsset::register($this);
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
 
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/pages/form-wizard.init.js"></script>
-  
-   <?php if (Yii::$app->session->hasFlash('flash')): ?>
-      <script>
-         notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
-      </script>
-   <?php endif; ?>
+
+   <!--  Additional JS Files Go Here-->
+   <script src = "https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+
    <!-- This is where page wise JS will show up  -->
    <?php $this->endBody() ?>
 
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
    </body>
    </html>
 

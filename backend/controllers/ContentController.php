@@ -104,7 +104,8 @@ class ContentController extends Controller {
                             ]);*/
     }
 
-    public function actionUpdate() {
+    public function actionPage($page) {
+        $this->render('page');
         return;
     }
 

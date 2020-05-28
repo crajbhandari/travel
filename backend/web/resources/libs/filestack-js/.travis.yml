@@ -1,0 +1,14 @@
+language: node_js
+git:
+  submodules: false
+  depth: 1
+
+before_install:
+- npm i -g npm@latest
+
+after_success:
+- npm run test:codecov
+
+env:
+  global:
+  - secure: mIxTbk9QmMvSJ2BJL3rD/TBJppH4JIaMatoBBLsQzJYPtPzhvoEdgsPySh2jf3DAx7IUiQGbQEGsEyLfARanwZIkh5DggHWdMvYsP0ypCiNR7KV7BHCPfQd9v4OW7WF/KQCXzN3TIH+07KvF2swaNuEhKwnI+joVWMMgmEsCWQlTFiEbnieb2xxTMNrzl1WsrtANC9aQTeWVsNcW8xtDA/aQYefaQykOjHPJyyWaiLeBZ9Te0nMD7SeCSQUVywLT77saQJfsnHiCIKvv4lk+rvi6hQypAjBSznFwBa+Zkgk6y5DjT0SDhYXUVY3Kb8AJDFhgIwRlz74/ST9lGuEGnOjHZcQfqarbhcgbg8/HrsPP+spZwa4h0eRPNHfSDmrxTFDZXYDkULeLFPheMkvKKSqq0O+QdMmaL7hPuNWmEQINQg+quxHTjj/ldolL9Vb5db2zMu/jAYGmPDqQOk3GCilUcT4Eh64NmwEShfPY3VMuO/Weg37MJaFNX2efcKxCRWthpwEApqg/4GSk2Qeev7TY/mKkxNFXiXjMwjrXpobEtbQf4Kdy/vpyNE1YtxGiXBsSMMheMeDcVG2ryxaMNcKEyB2uncKqMH3jCU2lDJ/xoJfLmx2+FgxlrTtISl424lshQitWPU9co+FzBnXfyyZILxjsJZSzzZXe3ppWqAg=
