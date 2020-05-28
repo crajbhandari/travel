@@ -236,7 +236,6 @@ AppAsset::register($this);
                         <li><a href = "layouts-light-sidebar.html">Add New Package</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Add Destination</a></li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a></li>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/rating">Package Rating</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Package Category</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Package Request</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Destination</a></li>

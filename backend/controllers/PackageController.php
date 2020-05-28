@@ -229,7 +229,10 @@ class PackageController extends Controller {
     }
     public function actionReview() {
 
-        return $this->render('review/index', ['packages' => HelperPackage::getReviews()]);
+        return $this->render('review/index', [
+                'packages' => HelperPackage::getReviews(),
+                'ratings' => HelperPackage::getRatings()
+        ]);
     }
 
     public function actionRating() {
