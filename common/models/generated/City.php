@@ -8,10 +8,9 @@ use Yii;
  * This is the model class for table "city".
  *
  * @property int $id
+ * @property int $parent
  * @property string $images
  * @property string $created_on
- *
- * @property CityTranslation[] $cityTranslations
  */
 class City extends \yii\db\ActiveRecord
 {
@@ -29,6 +28,7 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['parent'], 'integer'],
             [['created_on'], 'safe'],
             [['images'], 'string', 'max' => 255],
         ];
@@ -41,16 +41,9 @@ class City extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'parent' => 'Parent',
             'images' => 'Images',
             'created_on' => 'Created On',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCityTranslations()
-    {
-        return $this->hasMany(CityTranslation::className(), ['city_id' => 'id']);
     }
 }
