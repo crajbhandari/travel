@@ -115,5 +115,12 @@ input[switch]:checked + label:after {
     overflow-x: auto;
     display: block;
 }
+
+.dis:hover
+{
+    cursor: not-allowed;
+}
+
+
 }
 

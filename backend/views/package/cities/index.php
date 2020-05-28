@@ -1,66 +1,136 @@
 <?php
-$this->title = 'Package';
+
+use common\components\HelperBlog;
+
+$this->title = 'Blog';
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css');
 ?>
-<div class="sb2-2">
-   <div class="sb2-2-2">
-      <ul>
-         <li><a href="<?php echo Yii::$app->request->baseUrl; ?>/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-         </li>
-         <li class="active-bre"><a href="#"> Destination</a>
-         </li>
-      </ul>
-   </div>
-   <div class="sb2-2-3">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="box-inn-sp">
-               <div class="inn-title">
-                  <h4>Destination List</h4>
-               </div>
-               <div class="tab-inn">
-                  <div class="table-responsive table-desi">
-                     <table class="table table-hover">
-                        <thead>
-                        <?php if (!empty($cities) && count($cities) > 0): ?>
-                        <tr>
-                           <th>S.N</th>
-                           <th>Title</th>
-                           <th>Description</th>
-                           <th>Location</th>
+<script>
+   var langugae = <?php echo count($language); ?>;
+</script>
+<div class = "container-fluid">
 
-                           <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $sn =1;
-                        $count = 0;
-                        foreach ($cities as $post) :
-                            $count++; ?>
-                           <tr>
-                              <td><?php echo $sn; ?></td>
-                              <td>
-                                  <?php echo (isset($post['name'])) ? trim($post['name']) : '' ?>
-                              </td>
-                              <td> <?php echo (isset($post['description'])) ? trim($post['description']) : '' ?></td>
-                              <td> <?php echo (isset($post['location'])) ? trim($post['location']) : '' ?></td>
-
-                              <td>
-                                 <a href="<?php echo Yii::$app->request->baseUrl; ?>/package/city-post/<?php echo \common\components\Misc::encodeUrl($post['id']); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                 <a class="delete-item" href="javascript:void(0);" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "City"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                              </td>
-                           </tr>
-                            <?php $sn++; ?>
-                        <?php  endforeach; ?>
-                        </tbody>
-                         <?php else: ?>
-                            <h3>Sorry, No Posts Found</h3>
-                         <?php endif; ?>
-                     </table>
-                  </div>
-               </div>
-            </div>
+   <!-- start page title -->
+   <div class = "row">
+      <div class = "col-12">
+         <div class = "page-title-box d-flex align-items-center justify-content-between">
+            <h4 class = "mb-0 font-size-18">Cities</h4>
          </div>
       </div>
    </div>
+   <div id = "basic-pills-wizard" class = "twitter-bs-wizard">
+      <ul class = "twitter-bs-wizard-nav">
+          <?php
+          if (isset($language) && !empty($language)) {
+              $span_count = 1;
+              foreach ($language as $l) {
+                  ?>
+                 <li class = "nav-item">
+                    <a href = "#<?php echo $l['code']; ?>" class = "nav-link" data-toggle = "tab">
+                       <span class = "step-number mr-2"><?php echo '0' . $span_count; ?></span>
+                        <?php echo $l['name']; ?>
+                    </a>
+                 </li>
+
+                  <?php $span_count++;
+              }
+          } ?>
+      </ul>
+      <div class = "tb-res-01 tab-content twitter-bs-wizard-tab-content">
+          <?php
+          if (isset($language) && !empty($language)) {
+              $table_count = 1;
+              foreach ($language as $l) {
+                  ?>
+                 <div class = "tab-pane" id = "<?php echo $l['code'] ?>">
+
+
+                    <table class = "datatable table table-striped table-bordered dt-responsive nowrap" style = "border-collapse: collapse; border-spacing: 0; width: 100%;">
+
+
+                       <thead>
+                       <?php if (!empty($cities) && count($cities) > 0): ?>
+                       <tr>
+                          <th>S.N</th>
+                          <th width = "30%">Image</th>
+                          <th>City Name</th>
+                          <th>Parent City</th>
+                          <th>Discription</th>
+                          <th>Location</th>
+                          <th>Language</th>
+                          <th>Actions</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <?php
+                       $sn = 1;
+                       $count = 0;
+                       foreach ($cities as $post) :
+
+                           if ($post['language_code'] == $l['code']) {
+                               $count++; ?>
+                              <tr>
+                                 <td><?php echo $sn; ?></td>
+                                 <td>
+                                       <span class = "list-img">
+                                          <?php if ($post['info']['images'] != '') { ?>
+                                             <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/uploads/<?= $post['info']['images'] ?>" alt = "<?php echo (isset($post['name'])) ? trim($post['name']) : '' ?>">
+                                          <?php }
+                                          else {
+                                              echo 'No Image';
+                                          } ?>
+                                       </span>
+                                 </td>
+                                 <td> <?php echo(isset($post['name']) && !empty($post['name']) ? trim($post['name']) : ''); ?></td>
+                                 <td> <?php echo(isset($post['info']['parent']) && !empty($post['info']['parent']) ? trim(\common\components\HelperCities::getParentName($post['info']['parent'],$l['code'])) : ''); ?></td>
+                                 <td> <?php echo(isset($post['description']) && !empty($post['description']) ? trim($post['description']) : ''); ?></td>
+                                 <td> <?php echo(isset($post['location']) && !empty($post['location']) ? ucwords(trim($post['location'])) : ''); ?></td>
+
+                                 <td>
+                                     <?php
+                                     foreach ($language as $lan) {
+                                         if ($lan['code'] != $post['language_code']) {
+                                             ?>
+
+                                            <a href = "<?= Yii::$app->request->baseUrl; ?>/package/city-post/<?= \common\components\Misc::encrypt($lan['code'] . '-' . $post['city_id']); ?>">
+
+                                           <span class = "lan">
+                                              <?php if (!empty(\common\components\HelperCities::getSingleCityTranslation($post['city_id'], $lan['code']))) { ?>
+                                                 <i class = "fa fa-check"></i>&nbsp
+                                              <?php } else { ?>
+                                                 <i class = "mdi mdi-close-thick"></i>&nbsp
+                                              <?php } ?>
+                                               <?php echo \common\components\HelperLanguage::getSingleLanguageName($lan['code']) . '&nbsp;'; ?>
+                                    </span>
+                                            </a>
+                                             <?php
+                                         }
+                                     }
+                                     ?>
+                                 </td>
+                                 <td>
+                                    <a href = "<?=  Yii::$app->request->baseUrl; ?>/package/city-post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['city_id']); ?>" ><i class="mdi mdi-pencil font-size-18"></i></a>
+                                    <a href = "javascript:void(0);" class = "delete-item text-danger" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "CityTranslation"><i class = "mdi mdi-close font-size-18"></i></a>
+                                 </td>
+                              </tr>
+                               <?php $sn++;
+                           } ?>
+                       <?php endforeach; ?>
+                       </tbody>
+                        <?php else: ?>
+                           <h3>Sorry, No Posts Found</h3>
+                        <?php endif; ?>
+                    </table>
+                 </div>
+                  <?php $table_count++; }
+          } ?>
+         <ul class = "pager wizard twitter-bs-wizard-pager-link">
+            <li class = "previous"><a href = "#">Previous</a></li>
+            <li class = "next"><a href = "#">Next</a></li>
+         </ul>
+      </div>
+   </div>
+
 </div>
