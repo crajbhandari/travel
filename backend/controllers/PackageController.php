@@ -3,13 +3,22 @@
 namespace backend\controllers;
 
 use common\components\Helper;
+use common\components\HelperBlog;
+use common\components\HelperCities;
+use common\components\HelperLanguage;
 use common\components\HelperPackage;
 use common\components\Misc;
+use common\models\BlogTranslation;
 use common\models\City;
+use common\models\generated\CityTranslation;
 use common\models\generated\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
+
+use common\models\Language;
+
 use common\models\generated\PackageTranslation;
+
 use common\models\Package;
 use phpDocumentor\Reflection\Types\Null_;
 use Yii;
@@ -191,39 +200,51 @@ class PackageController extends Controller {
     }
 
     public function actionCities() {
-        $page = 'cities';
-        $cities = City::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
-        return $this->render('cities/index.php', [
-                'cities'   => $cities,
+        $cities =\common\models\CityTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
+
+        //        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->with('translation')->asArray()->all();
+        $language = Language::find()->asArray()->all();
+
+        //       $englishBlog = HelperBlog::getEnglishBlog();
+        return $this->render('cities\index', [
+                'language' =>$language,
+                'cities' => $cities,
+
 
         ]);
     }
 
     public function actionCityPost($id = '') {
         $post = [];
+        $post2 = [];
+        $ln_code ='';
         if ($id != '') {
-            $id = Misc::decodeUrl($id);
-            $post = City::findOne($id);
+            $id = Misc::decrypt($id);
+            $explode = explode('-',$id);
+            $ln_code=$explode[0];
+            $id=$explode[1];
+            $post = HelperCities::getSingleCityTranslation($id,$ln_code);
+            $post2 = HelperCities::getSingleCity($id);
         }
+        $parent_city = \common\models\CityTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
         return $this->render('cities/form', [
-                'editable' => $post,
+                'editable' => $post2,
+                'editable2' =>$post,
+                'all' => HelperLanguage::getAllLanguage(),
+                'language' =>$ln_code,
+                'parents' =>$parent_city
         ]);
     }
     public function actionStore()
     {
+
         $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
         if (isset($_POST['post'])) {
-            $updated = HelperPackage::setCity($_POST['post'],$image);
+            $updated = HelperCities::set($_POST['post'], $image);
             if ($updated != false) {
-                Misc::setFlash('success', 'City Updated.');
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
-            }
-            else {
-                Misc::setFlash('danger', 'City Not Updated.');
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/cities/');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/city-post/' . Misc::encrypt($updated['language_code'].'-'.$updated['city_id']));
             }
         }
-
         return $this->redirect(Yii::$app->request->baseUrl . '/package/cities');
 
     }
@@ -246,7 +267,7 @@ class PackageController extends Controller {
     }
 
     public function actionReadReview() {
-        //        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+//                \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if (\Yii::$app->request->isAjax && $_POST['id']) {
             $id = $_POST['id'];
             if ($id > 0) {
@@ -294,7 +315,9 @@ class PackageController extends Controller {
     public function actionRequestPackage() {
         //        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if (\Yii::$app->request->isAjax && $_POST['id']) {
+
             $id = $_POST['id'];
+
             if ($id > 0) {
                 $model = PackageRequest::findOne($id);
 
@@ -317,18 +340,18 @@ class PackageController extends Controller {
                     if ($model->save() == true) {
 
                         $result = "
-      <p><b>Name : </b><br>$name</p>
-      <p><b>Email : </b><br>$email</p>
-      <p><b>Phone : </b><br>$phone</p>
-      <p><b>No Of Traveller : </b><br>$traveller</p>
-      <p><b>No Of Adult : </b><br>$adult_no</p>
-      <p><b>No Of Children : </b><br>$children_no</p>
-      <p><b>Maximum Price : </b><br>$max_price</p>
-      <p><b>Minimum Price : </b><br>$min_price</p>
-      <p><b>Destination : </b><br>$city</p>
-      <p><b>Departure Date : </b><br>$dept_date</p>
-      <p><b>Sent On : </b><br>$date</p>
-      <p><b>Message : </b><br>$message</p>
+      <p><b>Name : </b>$name</p>
+      <p><b>Email : </b>$email</p>
+      <p><b>Phone : </b>$phone</p>
+      <p><b>No Of Traveller : </b>$traveller</p>
+      <p><b>No Of Adult : </b>$adult_no</p>
+      <p><b>No Of Children : </b>$children_no</p>
+      <p><b>Maximum Price : </b>$max_price</p>
+      <p><b>Minimum Price : </b>$min_price</p>
+      <p><b>Destination : </b>$city</p>
+      <p><b>Departure Date : </b>$dept_date</p>
+      <p><b>Sent On : </b>$date</p>
+      <p><b>Message : </b>$message</p>
                        
                         ";
                         return json_encode($data = [

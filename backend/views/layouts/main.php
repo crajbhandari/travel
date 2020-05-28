@@ -204,6 +204,16 @@ AppAsset::register($this);
                      </ul>
                   </li>
                   <li>
+                     <a href = "javascript: void(0);" class = "has-arrow waves-effect">
+                        <i class = "fas fa-city"></i>
+                        <span>Cities</span>
+                     </a>
+                     <ul class = "sub-menu" aria-expanded = "false">
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/city-post">Add New</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/cities/">List</a></li>
+                     </ul>
+                  </li>
+                  <li>
                      <a href = "<?php echo Yii::$app->request->baseUrl; ?>/messages" class = " waves-effect">
                         <i class = "bx bx-message"></i>
                         <span>Messages</span>
@@ -237,13 +247,13 @@ AppAsset::register($this);
                         <li><a href = "layouts-compact-sidebar.html">Add Destination</a></li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Package Category</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Package Request</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a></li>
                         <li><a href = "layouts-compact-sidebar.html">Destination</a></li>
                      </ul>
                   </li>
 
                   <li>
-                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/users" class = " waves-effect">
+                     <a href = "<?php echo Yii::$app->request->baseUrl; ?>/settings" class = " waves-effect">
                         <i class = "bx bx-cog"></i>
                         <span>Settings</span>
                      </a>
