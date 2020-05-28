@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "city".
  *
  * @property int $id
+ * @property int $parent
  * @property string $images
  * @property string $created_on
  *
@@ -29,6 +30,7 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['parent'], 'integer'],
             [['created_on'], 'safe'],
             [['images'], 'string', 'max' => 255],
         ];
@@ -41,6 +43,7 @@ class City extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'parent' => 'Parent',
             'images' => 'Images',
             'created_on' => 'Created On',
         ];

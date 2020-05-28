@@ -7,8 +7,11 @@
          * @inheritdoc
          */
         public function rules() {
-            return [
+            return array_merge(Parent::rules(), [
+                    [['parent'], 'integer'],
+                    [['created_on'], 'safe'],
+                    [['images'], 'string', 'max' => 255],
 
-            ];
+            ]);
         }
     }

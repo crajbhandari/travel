@@ -33,7 +33,10 @@ class HelperBlog extends Component {
         else {
             $model = new Blog();
         }
-
+echo '<pre>';
+print_r($model);
+echo '</pre>';
+die;
         $model->visibility = $data['visibility'];
         if (isset($image['name']) && $image['name'] != '') {
             if ($model->image != '') {
