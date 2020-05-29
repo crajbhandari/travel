@@ -273,7 +273,7 @@ $fonts = (Yii::$app->params['site-settings']['fonts']['content'] != '') ? json_d
                                        foreach($package as $p):
 
                                        ?>
-                                       <li><a href = "<?=  Yii::$app->request->baseUrl;?>/package/index/<?=\common\components\Misc::encrypt($p['id'])?>"><?=$p['name'] ?></a></li>
+<!--                                       <li><a href = "--><?//=  Yii::$app->request->baseUrl;?><!--/package/index/--><?//=\common\components\Misc::encrypt($p['id'])?><!--">--><?//=$p['name'] ?><!--</a></li>-->
                                        <?php
 
                                        endforeach; ?>

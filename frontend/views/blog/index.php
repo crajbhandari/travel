@@ -1,4 +1,5 @@
 <?php $this->title = 'Welcome'; ?>
+
 <!--====== BANNER ==========-->
 	<section>
 		<div class="rows inner_banner inner_banner_1">
@@ -29,16 +30,20 @@
 				</div>
 				<!--===== POSTS ======-->
 				<div class="rows">
-                <?php foreach ($blogs as $blog): ?>
+                <?php foreach ($blogs as $blog):
+                    if($blog['info']['visibility'] == 1):
+                    ?>
 					<div class="posts">
-						<div class="col-md-6 col-sm-6 col-xs-12">  <img src ="<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt=""/>  </div>
+						<div class="col-md-6 col-sm-6 col-xs-12">  <img src ="<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['info']['image']) & $blog['info']['image']!= '' ? $blog['info']['image'] : 'no-image.png' )?>" alt=""/>  </div>
 						<div class="col-md-6 col-sm-6 col-xs-12">
                      <h3><?= strtoupper($blog['title']);?></h3>
-							<h5><span class="post_author">Author: <?= strtoupper($blog['author']);?></span><span class="post_date">Date: <?= \common\components\Misc::DdmY($blog['date']); ?></span><span class="post_city">Category: <?= $blog['category'] ?></span></h5>
+							<h5><span class="post_author">Author: <?= strtoupper($blog['author']);?></span><span class="post_date">Date: <?= \common\components\Misc::DdmY($blog['info']['date']); ?></span><span class="post_city">Category: <?= $blog['category'] ?></span></h5>
                      <p><?= $blog['content']; ?></p>
-                     <a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encrypt($blog['id']); ?>" class="link-btn">Read more</a> </div>
+                     <a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encrypt($blog['blog_id']); ?>" class="link-btn">Read more</a> </div>
 					</div>
-					<?php endforeach; ?>
+					<?php endif;
+					endforeach;
+					?>
 				</div>
 				<!--===== POST END ======-->
 			</div>

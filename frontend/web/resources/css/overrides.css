@@ -103,3 +103,10 @@
 .text-01{
     width: 100% ! important;
 }
+.no-blog
+{
+    text-align: center;
+    padding: 20px;
+    color:red;
+
+}
