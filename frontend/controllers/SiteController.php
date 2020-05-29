@@ -6,6 +6,7 @@ use common\components\HelperMessages;
 use common\models\Blog;
 use common\models\Clients;
 use common\models\generated\Banners;
+use common\models\generated\BlogTranslation;
 use common\models\LoginForm;
 use common\models\Sections;
 use common\models\Services;
@@ -87,19 +88,20 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
         $page = 'home';
+        $session['language'] = 'EN';
+        $ln = $session['language'];
         $blog = [];
-        if (Yii::$app->params['site-settings']['show_blog']['content'] == 1) {
-            $blog = Blog::find()->where(['=', 'visibility', '1'])
-                                ->orderBy(['date'=>SORT_DESC])
-                                ->limit(3)
-                                ->asArray()
-                                -> all();
+        if(Yii::$app->params['site-settings']['show_blog']['content'] == 1) {
+            $blog = \common\models\BlogTranslation::find()->where(['language_code' => $session['language']])->orderBy(['id' => SORT_DESC])->limit(3)->asArray()->with('info')->all();
         }
+
+
         return $this->render('index', [
                 'clients'      => Clients::find()->where(['=', 'on_home', '1'])->all(),
                 'testimonials' => Testimonials::find()->all(),
                 'services'     => Services::find()->all(),
                 'blogs'         => $blog,
+                'language'      =>$session['language'],
                 'content'      => Sections::find()->where(['=', 'page', $page])->orderBy(['section_order' => SORT_ASC, 'created_on' => SORT_ASC])->all(),
                 'banners'      =>Banners::find()->asArray()->all(),
         ]);

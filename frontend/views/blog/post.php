@@ -33,10 +33,10 @@
 				<!--===== POSTS ======-->
 				<div class="">
 					<div class="posts">
-						<div class="">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt=""/>  </div>
+						<div class="">  <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['info']['image']) & $blog['info']['image']!= '' ? $blog['info']['image'] : 'no-image.png' )?>" alt=""/>  </div>
 						<div class="">
 							<h3><?= strtoupper($blog['title']);?></h3>
-							<h5><span class="post_author">Author: <?= strtoupper($blog['author']);?></span><span class="post_date">Date: <?= \common\components\Misc::DdmY($blog['date']); ?></span><span class="post_city">Category: <?= $blog['category'] ?></span></h5>
+							<h5><span class="post_author">Author: <?= strtoupper($blog['author']);?></span><span class="post_date">Date: <?= \common\components\Misc::DdmY($blog['info']['date']); ?></span><span class="post_city">Category: <?= $blog['category'] ?></span></h5>
 							<div class="post-btn">
                         <?php
                         $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";

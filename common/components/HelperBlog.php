@@ -151,6 +151,8 @@ die;
     }
     public static function getSingleBlogTranslation($id,$ln) {
         return  $model = BlogTranslation::find()->where('blog_id =' . $id)->andwhere(['language_code' => $ln])->asArray()->one();
-
+    }
+    public static function getSingleBlogTranslation2($id,$ln) {
+        return  $model = \common\models\BlogTranslation::find()->where('blog_id =' . $id)->andwhere(['language_code' => $ln])->with('info')->asArray()->one();
     }
 }
