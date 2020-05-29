@@ -15,6 +15,7 @@ namespace common\components;
 
 use common\components\HelperUpload as Upload;
 use common\models\City;
+use common\models\CityTranslation;
 use common\models\generated\PackageTranslation;
 use common\models\PackageCategory;
 use common\models\generated\PackageRequest;
@@ -38,7 +39,11 @@ public static function getPackage($id) {
         $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
         return Misc::exists($data, false);
     }
-
+    public static function getEnglishName($id)
+    {
+        $result = CityTranslation::find()->select('name')->where('city_id='.$id)->andWhere('language_code="EN"')->asArray()->one();
+        return $result;
+    }
     public static function getRatings() {
         $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
         $rating = [];

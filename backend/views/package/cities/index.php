@@ -1,15 +1,15 @@
 <?php
 
 use common\components\HelperBlog;
+use common\components\HelperCities;
+
 
 $this->title = 'Blog';
 $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css');
 $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css');
 $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css');
 ?>
-<script>
-   var langugae = <?php echo count($language); ?>;
-</script>
+
 <div class = "container-fluid">
 
    <!-- start page title -->
@@ -57,8 +57,6 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                           <th width = "30%">Image</th>
                           <th>City Name</th>
                           <th>Parent City</th>
-                          <th>Discription</th>
-                          <th>Location</th>
                           <th>Language</th>
                           <th>Actions</th>
                        </tr>
@@ -84,9 +82,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                                        </span>
                                  </td>
                                  <td> <?php echo(isset($post['name']) && !empty($post['name']) ? trim($post['name']) : ''); ?></td>
-                                 <td> <?php echo(isset($post['info']['parent']) && !empty($post['info']['parent']) ? trim(\common\components\HelperCities::getParentName($post['info']['parent'],$l['code'])) : ''); ?></td>
-                                 <td> <?php echo(isset($post['description']) && !empty($post['description']) ? trim($post['description']) : ''); ?></td>
-                                 <td> <?php echo(isset($post['location']) && !empty($post['location']) ? ucwords(trim($post['location'])) : ''); ?></td>
+                                 <td> <?php echo(isset($post['info']['parent']) && !empty($post['info']['parent']) ? trim(HelperCities::getParentName($post['info']['parent'],$l['code'])) : 'No Parent'); ?></td>
 
                                  <td>
                                      <?php
@@ -111,8 +107,8 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                                      ?>
                                  </td>
                                  <td>
-                                    <a href = "<?=  Yii::$app->request->baseUrl; ?>/package/city-post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['city_id']); ?>" ><i class="mdi mdi-pencil font-size-18"></i></a>
-                                    <a href = "javascript:void(0);" class = "delete-item text-danger" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "CityTranslation"><i class = "mdi mdi-close font-size-18"></i></a>
+                                    <a class="btn btn-primary btn-sm" href = "<?=  Yii::$app->request->baseUrl; ?>/package/city-post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['city_id']); ?>" >Edit</a>
+                                    <a href = "javascript:void(0);" class = "delete-item btn btn-danger btn-sm" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "CityTranslation">Delete</a>
                                  </td>
                               </tr>
                                <?php $sn++;
