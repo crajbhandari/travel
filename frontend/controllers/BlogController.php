@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\components\HelperBlog;
 use common\components\Misc;
 use common\models\Blog;
+use common\models\BlogTranslation;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -73,7 +74,12 @@ class BlogController extends Controller {
      */
     public function actionIndex() {
         $page = 'blog';
-        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->all();
+        $session['language'] = 'FR';
+        $ln = $session['language'];
+        $blog = [];
+            if(Yii::$app->params['site-settings']['show_blog']['content'] == 1) {
+                $blog = \common\models\BlogTranslation::find()->where(['language_code' => $session['language']])->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
+        }
         return $this->render('index', [
                 'blogs' => $blog,
                 'page' => Yii::$app->params['pages'][$page],
@@ -82,7 +88,12 @@ class BlogController extends Controller {
 
     public function actionPost($id = '') {
         if($id != '') {
-          $blog = HelperBlog::getSingleBlog(Misc::decrypt($id));
+            $id=Misc::decrypt($id);
+            $session['language'] = 'FR';
+            $ln = $session['language'];
+            $blog = [];
+                $blog= HelperBlog::getSingleBlogTranslation2($id,$ln);
+
         }
         return $this->render('post',[
                 'blog' => $blog,

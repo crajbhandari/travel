@@ -64,6 +64,7 @@ class BlogController extends Controller {
      * @return string
      */
     public function actionIndex() {
+
         $blog =BlogTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
         $page = 'blog';
 //        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->with('translation')->asArray()->all();

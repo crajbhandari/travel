@@ -1,4 +1,4 @@
-<?php $this->title = 'Welcome'; 
+<?php $this->title = 'Welcome';
 $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/message.js');
 $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.validate.min.js');
 
@@ -794,7 +794,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
                            <div class = "hot-page2-hom-pre-1"><img src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/reviewer/1.jpg" alt = ""/></div>
                            <div class = "hot-page2-hom-pre-2">
                               <h5>Christopher</h5> <span>No of Reviews: 620, City: illunois</span></div>
-                           <div class = "hot-page2-hom-pre-3"><i class = "fa fa-hand-o-right" aria-hidden = "true"></i></div>
+                           <div class = "hot-page2-hom-pre-3"><i class = "fa fa-hand-o-right" bloaria-hidden = "true"></i></div>
                         </a>
                      </li>
                      <!--LISTINGS-->
@@ -857,37 +857,47 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/common/assets/js/jquery.va
             <p>World's leading Hotel Booking website,Over 30,000 Hotel rooms worldwide. Book Hotel rooms and enjoy your holidays with distinctive experience</p>
          </div>
          <div class = "row">
-             <?php foreach ($blogs as $blog): ?>
-            <div class = "col-sm-12 col-md-4 col-lg-4 blog-001">
-               <div class = "blog_item">
-                  <div class = "blog_item_img">
-                     <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['image']) & $blog['image']!= '' ? $blog['image'] : 'no-image.png' )?>" alt = "Tour Booking" title = "Tour Booking" class = "img-fluid"/>
+             <?php
+             if(!empty($blogs)):
+                foreach ($blogs as $blog):
 
-                     <a href = "#" class = "blog_item_date">
+                ?>
+               <div class = "col-sm-12 col-md-4 col-lg-4 blog-001">
+                  <div class = "blog_item">
+                     <div class = "blog_item_img">
+                        <img src = "<?php echo Yii::$app->request->baseUrl; ?>/common/assets/images/uploads/<?= (isset($blog['info']['image']) & $blog['info']['image']!= '' ?$blog['info']['image'] : 'no-image.png' )?>" alt = "Tour Booking" title = "Tour Booking" class = "img-fluid"/>
 
-                        <?php 
-                      $timestamp=\common\components\Misc::dm($blog['date']);
-                        ?>
-                        <h3><?= $timestamp[0];?></h3>
-                        <p><?= $timestamp[1]; ?></p>
+                        <a href = "#" class = "blog_item_date">
 
-            </a>
-                  </div>
-                  <div class = "blog_details">
-                     <a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encrypt($blog['id']); ?> ">
-                        <h3><?= strtoupper($blog['title']);?></h3>
-                     </a>
-                     <p><?=
-              substr($blog['content'],0,95).'...';
-                      ?><p>
-                     <ul class = "blog-info-link">
-                        <li><i class = "fa fa-list"></i> <?= $blog['category'] ?></li>
-                        <li><i class = "fa fa-user"></i> <?= $blog['author'] ?></li>
-                </ul>
+                            <?php
+                            $timestamp=\common\components\Misc::dm($blog['info']['date']);
+                            ?>
+                           <h3><?= $timestamp[0];?></h3>
+                           <p><?= $timestamp[1]; ?></p>
+
+                        </a>
+                     </div>
+                     <div class = "blog_details">
+                        <a href = "<?=  Yii::$app->request->baseUrl; ?>/blog/post/<?php echo \common\components\Misc::encrypt($blog['info']['id']); ?> ">
+                           <h3><?= strtoupper($blog['title']);?></h3>
+
+                        </a>
+                        <p><?=
+                         substr($blog['content'],0,50).'...';
+                         ?><p>
+                        <ul class = "blog-info-link">
+                           <li><i class = "fa fa-list"></i> <?= $blog['category'] ?></li>
+                           <li><i class = "fa fa-user"></i> <?= $blog['author'] ?></li>
+                        </ul>
+                     </div>
                   </div>
                </div>
-            </div>
-             <?php endforeach; ?>
+         <?php
+         endforeach;
+         else:
+             ?>
+            <h3 class="no-blog">Sorry, No blogs at the moment.</h3>
+         <?php endif; ?>
          </div>
 
       </div>
