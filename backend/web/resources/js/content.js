@@ -4,34 +4,32 @@ $(document).ready(function () {
 
    function addCategory() {
       $('.add-categories').on('click', function () {
-         var type = $(this).data('type');
+         var type = $(this).parents('.content-section').data('type');
          var page = $('.content-editor').data('page');
          var contents = $('.content-section-wrapper');
          var content = $('.content-section');
+         var url = baseUrl + '/content/fetch-categories/' + type;
+         console.log(url);
          $.ajax({
-            url: baseUrl + 'content/fetch-categories',
-            type: 'post',
-            data: {
-               type: type
-            },
+            url: baseUrl + 'content/fetch-categories/' + type,
             success: function (data) {
-               if (data === 'true') {
-                  console.log(data);
-                  return true;
-               } else {
-                  notify('Sorry, Please try again.', 'danger');
-                  return false;
-               }
+               var da = JSON.parse(data);
+               console.log(da);
+               /*    if (data === 'true') {
+                      console.log(data);
+                      return true;
+                   } else {
+                      notify('Sorry, Please try again.', 'danger');
+                      return false;
+                   }*/
             },
             error: function () {
                notify('Sorry, Server Error.', 'danger');
                return false;
             }
          });
-
          modal.modal("show");
-         console.log(modal);
-         modal.modal('open');
+
       });
    }
 

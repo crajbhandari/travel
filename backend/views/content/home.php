@@ -1,6 +1,6 @@
 <?php
 $this->title = 'Edit Homepage';
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/lib/listjs/list.min.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/libs/listjs/list.min.js');
 $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
 ?>
 <div class = "container-fluid">
@@ -25,7 +25,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
       <div class = "card-body">
           <?php $counter = 0; ?>
          <div class = "content-section-wrapper">
-            <div class = "content-section">
+            <div class = "content-section" data-type="package">
                <div class = "row">
                   <div class = "col-12 col-sm-6 col-md-8">
                      <div class = "form-group">

@@ -29,6 +29,7 @@ return [
                     //     'baseUrl' => $baseUrl,
                     'rules' => [
                             'content/page/<page:[a-zA-Z0-9-]+>/' => 'content/page',
+                            'content/fetch-categories/<type:[a-zA-Z0-9-]+>/' => 'content/fetch-categories',
                             'settings/edit/<id:[a-zA-Z0-9-]+>/'         => 'settings/',
                             'clients/edit/<id:[a-zA-Z0-9-]+>/'          => 'clients/',
                             'users/edit/<id:[a-zA-Z0-9-]+>/'            => 'users/edit/',

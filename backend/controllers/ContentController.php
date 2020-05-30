@@ -72,41 +72,12 @@ class ContentController extends Controller {
         ]);
     }
 
-    public function actionFetchCategories() {
-        $categories = [];
-        if (Yii::$app->request->isAjax && Yii::$app->request->post('type')) {
-            if (Yii::$app->request->post('type') === 'package') {
-                $list = PackageCategory::find()->asArray()->orderBy('parent')->all();
-            }
-            $categories = Misc::buildTree($list);
-        }
-
-        return json_encode($categories);
-        /* return json_encode([
-                                    'national'             => [
-                                            'details'  => ['id'=>2, 'title' => 'national'],
-                                            'children' => [
-                                                    '0' => [
-                                                            'details'  => ['id'=>5, 'title' => 'national'],
-                                                            'children' => [
-                                                                    '0' => [
-                                                                            'details'  => ['id', 'title' => 'national'],
-                                                                            'children' => [
-
-                                                                            ]
-                                                                    ],
-                                                            ]
-                                                    ],
-                                            ]
-                                    ],
-
-
-                            ]);*/
+    public function actionFetchCategories($type) {
+        return json_encode(Misc::fetchCategories($type), true);
     }
 
     public function actionPage($page) {
-        $this->render('page');
-        return;
+        return    $this->render('page');
     }
 
 

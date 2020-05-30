@@ -14,6 +14,7 @@
 namespace common\components;
 
 use common\components\Query as Query;
+use common\models\PackageCategory;
 use Yii;
 use yii\base\Component;
 use yii\helpers\ArrayHelper;
@@ -33,10 +34,19 @@ class Misc extends Component {
             }
         }
 
-        echo '<ul>';
+        /*echo '<ul>';
         self::printTree($tree);
-        echo '</ul>';
-        return $tree;
+        echo '</ul>';*/
+        return self::json_encode($tree);
+    }
+
+    public static function fetchCategories($type) {
+        $categories = [];
+        if ($type === 'package') {
+            $list = PackageCategory::find()->asArray()->orderBy('parent')->all();
+        }
+        $categories = Misc::buildTree($list);
+        return $categories;
     }
 
     public static function printTree($data) {

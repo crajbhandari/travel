@@ -1,10 +1,12 @@
 <?php
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/lib/grapejs/dist/grapes.min.css');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/lib/grapejs-web/dist/grapesjs-preset-webpage.min.css');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/grapesjs/dist/css/grapes.min.css');
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/grapesjs-web/dist/grapesjs-preset-webpage.min.css');
+
+
 //$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/lib/editor-js/dist/editor.js');
 //$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/lib/');
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/lib/grapejs/dist/grapes.min.js');
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/lib/grapejs-web/dist/grapesjs-preset-webpage.min.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/libs/grapesjs/dist/grapes.min.js');
+$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/libs/grapesjs-web/dist/grapesjs-preset-webpage.min.js');
 $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/grape-init.js');
 ?>
 <style>
