@@ -113,6 +113,9 @@ class HelperCities extends Component {
                 $model->language_code = $a;
                 $model->name = $n;
                 $model->location = $data['location'];
+                if (!$model->save()) {
+                    return false;
+                }
              }
         }
 

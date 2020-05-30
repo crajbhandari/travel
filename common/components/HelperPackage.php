@@ -16,6 +16,7 @@ namespace common\components;
 use common\components\HelperUpload as Upload;
 use common\models\City;
 use common\models\CityTranslation;
+use common\models\PackageCategoryTranslation;
 use common\models\generated\PackageTranslation;
 use common\models\PackageCategory;
 use common\models\generated\PackageRequest;
@@ -26,15 +27,10 @@ use phpDocumentor\Reflection\Types\Null_;
 use yii\base\Component;
 
 class HelperPackage extends Component {
-    public static function getCities() {
-        $data = Query::queryAll("SELECT DISTINCT `name` FROM `city` ORDER BY `name` ASC ");
-        return Misc::exists($data, false);
-    }
-public static function getPackage($id) {
-    $model = Package::find()->where('category ='.$id)->asArray()->all();
-
+    public static function getPackage($id) {
+        $model = Package::find()->where('category ='.$id)->asArray()->all();
         return $model;
-}
+    }
     public static function getReviews() {
         $data = PackageReview::find()->orderBy(['id' => SORT_DESC])->all();
         return Misc::exists($data, false);
@@ -73,32 +69,77 @@ public static function getPackage($id) {
         return Misc::exists($data, false);
     }
 
-    public static function getCategory() {
-        $data = PackageCategory::find()->orderBy(['id' => SORT_DESC])->asArray()->with('parent')->all();
-        return Misc::exists($data, false);
+    public static function getEnglishCategory($id)
+    {
+        $result = PackageCategoryTranslation::find()->select('name')->where('package_category_id='.$id)->andWhere('language_code="EN"')->asArray()->one();
+        return $result;
     }
-public static function getSingleCategory($id) {
-        $model =PackageCategory::find()->where('id ='.$id)->asArray()->one();
+    public static function getSingleCategory($id) {
+        return $model = PackageCategory::find()->where('id =' . $id)->asArray()->one();
+    }
+    public static function getSingleCategoryTranslation($id, $ln) {
+        return $model = PackageCategoryTranslation::find()->where('package_category_id =' . $id)->andwhere(['language_code' => $ln])->with('info')->asArray()->one();
+    }
+    public static function getParentName($id, $ln) {
+        $model = PackageCategoryTranslation::find()->where('package_category_id =' . $id)->andWhere(['language_code' => $ln])->asArray()->one();
 
-        return $model;
-}
-
-    public static function setCategory($data) {
-        if ($data['id'] < 1) {
-            $model = new PackageCategory();
-        }
-        else {
-            $model = PackageCategory::findOne($data['id']);
-        }
-        $model->name = $data['name'];
-        $model->parent = $data['parent'];
-        if (!$model->save()) {
+        if ($model == '') {
             return false;
         }
-        return $model;
-
+        else {
+            return $model['name'];
+        }
     }
+    public static function setCategory($data) {
+        if (isset($data['id']) && $data['id'] > 0) {
+            $model = PackageCategory::findOne($data['id']);
+        }
+        else {
+            $model = new PackageCategory();
+        }
 
+        $model->parent = $data['parent'];
+        if (!($model->save() == false)) {
+            $category_translation = HelperPackage::setCategoryTranslation($data, $model->id);
+            if (isset($category_translation) && $category_translation != false) {
+                Misc::setFlash('success', 'Category Updated.');
+                return $category_translation;
+            }
+
+            Misc::setFlash('danger', 'Data not uploaded. Something Wrong in Category-translation part');
+            return false;
+        }
+        Misc::setFlash('danger', 'Data not uploaded. Please Try again');
+        return false;
+    }
+    public static function setCategoryTranslation($data, $id) {
+
+        if (isset($data['bt_id']) && !empty($data['bt_id'])) {
+            $model = PackageCategoryTranslation::findOne($data['bt_id']);
+
+            $model->package_category_id = $id;
+            $model->language_code = $data['language'];
+            $model->name = $data['name'];
+            if (!$model->save()) {
+                return false;
+            }
+            return $model;
+        }
+
+        else {
+            foreach ($data['name'] as $a => $n) {
+                $model = new PackageCategoryTranslation();
+                $model->package_category_id = $id;
+                $model->language_code = $a;
+                $model->name = $n;
+                if (!$model->save()) {
+                    return false;
+                }
+            }
+        }
+
+        return false;
+    }
 
     public static function makeJsonList($a, $column) {
         $list = [];

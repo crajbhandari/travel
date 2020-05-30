@@ -42,6 +42,7 @@
                     'package/category-edit/<id:[a-zA-Z0-9-]+>/'       => 'package/category',
                     'package/edit-city/<id:[a-zA-Z0-9-]+>/'       => 'package/cities',
                     'package/city-post/<id:[a-zA-Z0-9-]+>/'       => 'package/city-post',
+                    'package/category-post/<id:[a-zA-Z0-9-]+>/'       => 'package/category-post',
                     'package/post/<id:[a-zA-Z0-9-]+>/'       => 'package/post',
                     'services/edit/<id:[a-zA-Z0-9-]+>/'     => 'services/',
                     [

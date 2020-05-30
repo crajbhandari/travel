@@ -11,14 +11,11 @@ use common\components\Misc;
 use common\models\BlogTranslation;
 use common\models\City;
 use common\models\generated\CityTranslation;
-use common\models\generated\PackageCategory;
+use common\models\generated\PackageCategoryTranslation;
+use common\models\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
-
 use common\models\Language;
-
-use common\models\generated\PackageTranslation;
-
 use common\models\Package;
 use phpDocumentor\Reflection\Types\Null_;
 use Yii;
@@ -147,28 +144,50 @@ class PackageController extends Controller {
         return $this->redirect(Yii::$app->request->baseUrl . '/package/');
     }
 
-    public function actionCategory($id = '') {
-        $id = Misc::decodeUrl($id);
+    public function actionCategory() {
+        $categories = \common\models\PackageCategoryTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
+        $language = Language::find()->asArray()->all();
 
-        return $this->render('category/index.php', [
-                'categories' => HelperPackage::getCategory(),
-                'editable'   => ($id > 0) ? PackageCategory::findOne($id) : false,
+        return $this->render('category\index', [
+                'language' => $language,
+                'categories'   => $categories,
+        ]);
+    }
+    public function actionCategoryPost($id = '') {
+        $post = [];
+        $post2 = [];
+        $ln_code = '';
+        if ($id != '') {
+            $id = Misc::decrypt($id);
+            $explode = explode('-', $id);
+            $ln_code = $explode[0];
+            $id = $explode[1];
+            $post = HelperPackage::getSingleCategoryTranslation($id, $ln_code);
+            $post2 = HelperPackage::getSingleCategory($id);
+        }
+        $categories = PackageCategory::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
+
+        foreach ($categories as $c => $b) {
+            $name = HelperPackage::getEnglishCategory($b['id']);
+            $categories[$c]['name'] = $name['name'];
+        }
+
+        return $this->render('category/form', [
+                'editable'  => $post2,
+                'editable2' => $post,
+                'all'       => HelperLanguage::getAllLanguage(),
+                'language'  => $ln_code,
+                'categories'    => $categories
         ]);
     }
 
     public function actionCategoryUpdate() {
-        if (isset($_POST['category'])) {
-            $updated = HelperPackage::setCategory($_POST['category']);
+        if (isset($_POST['post'])) {
+            $updated = HelperPackage::setCategory($_POST['post']);
             if ($updated != false) {
-                Misc::setFlash('success', 'Category Updated.');
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/category/');
-            }
-            else {
-                Misc::setFlash('danger', 'Category Not Updated.');
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/category/');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/category-post/' . Misc::encrypt($updated['language_code'] . '-' . $updated['package_category_id']));
             }
         }
-
         return $this->redirect(Yii::$app->request->baseUrl . '/package/category');
     }
 
@@ -201,16 +220,10 @@ class PackageController extends Controller {
 
     public function actionCities() {
         $cities = \common\models\CityTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
-
-        //        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->with('translation')->asArray()->all();
         $language = Language::find()->asArray()->all();
-
-        //       $englishBlog = HelperBlog::getEnglishBlog();
         return $this->render('cities\index', [
                 'language' => $language,
                 'cities'   => $cities,
-
-
         ]);
     }
 

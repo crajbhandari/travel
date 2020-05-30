@@ -59,4 +59,8 @@ class PackageCategory extends \yii\db\ActiveRecord
     {
         return $this->hasMany(PackageCategoryTranslation::className(), ['package_category_id' => 'id']);
     }
+    public function getInfo()
+    {
+        return $this->hasOne(PackageCategory::className(), ['id' => 'package_category_id']);
+    }
 }
