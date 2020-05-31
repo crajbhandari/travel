@@ -136,13 +136,11 @@ $(document).ready(function () {
                         success: function (data) {
 
                            if (data == true) {
-                              notify('success', 'Blog  Deleted.');
                               swal({
-                                 title: table+" Deleted!",
+                                 title: "Blog Deleted!",
                                  icon: "success",
                               });
                               location.reload();
-                              // row.remove();
                            } else {
                               notify('danger', type + ' not Deleted.');
                            }

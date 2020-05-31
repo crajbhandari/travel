@@ -42,8 +42,8 @@ use common\components\HelperLanguage as hl;
                            <?php $counter++; ?>
                           <label for = "<?php echo $counter; ?>" >Visibility</label>
                           <select id = "<?php echo $counter; ?>" name = "post[visibility]" class = "form-control required">
-                             <option value = "1" <?= (isset($editable['visibility']) && $editable['visibility'] == 1) ? 'selected="selected"' : '' ?>>Visible</option>
-                             <option value = "0" <?= (isset($editable['visibility']) && $editable['visibility'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
+                             <option value = "1" <?= (isset($editable['is_active']) && $editable['is_active'] == 1) ? 'selected="selected"' : '' ?>>Visible</option>
+                             <option value = "0" <?= (isset($editable['is_active']) && $editable['is_active'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
                           </select>
                        </div>
                    <?php if(isset($editable2['language_code']) && $editable2['language_code'] != ''): ?>

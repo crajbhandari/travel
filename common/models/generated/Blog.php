@@ -5,14 +5,13 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "blog".
+ * This is the model class for table "{{%blog}}".
  *
  * @property int $id
  * @property string $date
  * @property string $image
- * @property int $visibility
+ * @property int $is_active
  *
- * @property BlogComments[] $blogComments
  * @property BlogTranslation[] $blogTranslations
  */
 class Blog extends \yii\db\ActiveRecord
@@ -22,7 +21,7 @@ class Blog extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'blog';
+        return '{{%blog}}';
     }
 
     /**
@@ -32,7 +31,7 @@ class Blog extends \yii\db\ActiveRecord
     {
         return [
             [['date'], 'safe'],
-            [['visibility'], 'integer'],
+            [['is_active'], 'integer'],
             [['image'], 'string', 'max' => 128],
         ];
     }
@@ -46,16 +45,8 @@ class Blog extends \yii\db\ActiveRecord
             'id' => 'ID',
             'date' => 'Date',
             'image' => 'Image',
-            'visibility' => 'Visibility',
+            'is_active' => 'Is Active',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBlogComments()
-    {
-        return $this->hasMany(BlogComments::className(), ['blog_id' => 'id']);
     }
 
     /**

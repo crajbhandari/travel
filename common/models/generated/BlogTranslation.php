@@ -5,7 +5,7 @@ namespace common\models\generated;
 use Yii;
 
 /**
- * This is the model class for table "blog_translation".
+ * This is the model class for table "{{%blog_translation}}".
  *
  * @property int $id
  * @property int $blog_id
@@ -25,7 +25,7 @@ class BlogTranslation extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'blog_translation';
+        return '{{%blog_translation}}';
     }
 
     /**
@@ -34,7 +34,7 @@ class BlogTranslation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['blog_id', 'language_code', 'title', 'content', 'author', 'category'], 'required'],
+            [['blog_id', 'language_code', 'title', 'author', 'category'], 'required'],
             [['blog_id'], 'integer'],
             [['title', 'content'], 'string'],
             [['language_code', 'category'], 'string', 'max' => 200],

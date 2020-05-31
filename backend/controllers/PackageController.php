@@ -11,14 +11,11 @@ use common\components\Misc;
 use common\models\BlogTranslation;
 use common\models\City;
 use common\models\generated\CityTranslation;
-use common\models\generated\PackageCategory;
+use common\models\generated\PackageCategoryTranslation;
+use common\models\PackageCategory;
 use common\models\generated\PackageRequest;
 use common\models\generated\PackageReview;
-
 use common\models\Language;
-
-use common\models\generated\PackageTranslation;
-
 use common\models\Package;
 use phpDocumentor\Reflection\Types\Null_;
 use Yii;
@@ -94,7 +91,7 @@ class PackageController extends Controller {
             $cities[$city['name']] = null;
         }
         $post = [];
-        $category = array();
+        $category = [];
         if ($id != '') {
             $id = Misc::decodeUrl($id);
             $post = Package::find()
@@ -102,20 +99,20 @@ class PackageController extends Controller {
                            ->asArray()
                            ->with('category')
                            ->one();
-            
-            if($post['category']!='') {
+
+            if ($post['category'] != '') {
                 $parent_id = $post['category']['parent'];
-                if($post['category']['parent']>0) {
-                    $parent = PackageCategory::find()->where(['id'=>$parent_id])->asArray()->one();
+                if ($post['category']['parent'] > 0) {
+                    $parent = PackageCategory::find()->where(['id' => $parent_id])->asArray()->one();
                     $category = [
-                            'child' => $post['category']['name'],
-                            'parent' =>$parent['name']
+                            'child'  => $post['category']['name'],
+                            'parent' => $parent['name']
                     ];
                 }
-                else{
+                else {
                     $category = [
-                            'child' => $post['category']['name'],
-                            'parent' =>''
+                            'child'  => $post['category']['name'],
+                            'parent' => ''
                     ];
                 }
             }
@@ -123,10 +120,10 @@ class PackageController extends Controller {
 
         //        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
-                'category' => $category,
+                'category'      => $category,
                 'category_list' => $c,
-                'city'     => json_encode($cities),
-                'editable' => $post,
+                'city'          => json_encode($cities),
+                'editable'      => $post,
         ]);
     }
 
@@ -147,28 +144,50 @@ class PackageController extends Controller {
         return $this->redirect(Yii::$app->request->baseUrl . '/package/');
     }
 
-    public function actionCategory($id = '') {
-        $id = Misc::decodeUrl($id);
+    public function actionCategory() {
+        $categories = \common\models\PackageCategoryTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
+        $language = Language::find()->asArray()->all();
 
-        return $this->render('category/index.php', [
-                'categories' => HelperPackage::getCategory(),
-                'editable'   => ($id > 0) ? PackageCategory::findOne($id) : false,
+        return $this->render('category\index', [
+                'language' => $language,
+                'categories'   => $categories,
+        ]);
+    }
+    public function actionCategoryPost($id = '') {
+        $post = [];
+        $post2 = [];
+        $ln_code = '';
+        if ($id != '') {
+            $id = Misc::decrypt($id);
+            $explode = explode('-', $id);
+            $ln_code = $explode[0];
+            $id = $explode[1];
+            $post = HelperPackage::getSingleCategoryTranslation($id, $ln_code);
+            $post2 = HelperPackage::getSingleCategory($id);
+        }
+        $categories = PackageCategory::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
+
+        foreach ($categories as $c => $b) {
+            $name = HelperPackage::getEnglishCategory($b['id']);
+            $categories[$c]['name'] = $name['name'];
+        }
+
+        return $this->render('category/form', [
+                'editable'  => $post2,
+                'editable2' => $post,
+                'all'       => HelperLanguage::getAllLanguage(),
+                'language'  => $ln_code,
+                'categories'    => $categories
         ]);
     }
 
     public function actionCategoryUpdate() {
-        if (isset($_POST['category'])) {
-            $updated = HelperPackage::setCategory($_POST['category']);
+        if (isset($_POST['post'])) {
+            $updated = HelperPackage::setCategory($_POST['post']);
             if ($updated != false) {
-                Misc::setFlash('success', 'Category Updated.');
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/category/');
-            }
-            else {
-                Misc::setFlash('danger', 'Category Not Updated.');
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/category/');
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/category-post/' . Misc::encrypt($updated['language_code'] . '-' . $updated['package_category_id']));
             }
         }
-
         return $this->redirect(Yii::$app->request->baseUrl . '/package/category');
     }
 
@@ -200,57 +219,61 @@ class PackageController extends Controller {
     }
 
     public function actionCities() {
-        $cities =\common\models\CityTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
-
-        //        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->with('translation')->asArray()->all();
+        $cities = \common\models\CityTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
         $language = Language::find()->asArray()->all();
-
-        //       $englishBlog = HelperBlog::getEnglishBlog();
         return $this->render('cities\index', [
-                'language' =>$language,
-                'cities' => $cities,
-
-
+                'language' => $language,
+                'cities'   => $cities,
         ]);
     }
 
     public function actionCityPost($id = '') {
         $post = [];
         $post2 = [];
-        $ln_code ='';
+        $ln_code = '';
         if ($id != '') {
             $id = Misc::decrypt($id);
-            $explode = explode('-',$id);
-            $ln_code=$explode[0];
-            $id=$explode[1];
-            $post = HelperCities::getSingleCityTranslation($id,$ln_code);
+            $explode = explode('-', $id);
+            $ln_code = $explode[0];
+            $id = $explode[1];
+            $post = HelperCities::getSingleCityTranslation($id, $ln_code);
             $post2 = HelperCities::getSingleCity($id);
         }
-        $parent_city = \common\models\CityTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
+        //        $cities = \common\models\CityTranslation::find()->orderBy(['id' => SORT_DESC])->asArray()->with('info')->all();
+        $cities = City::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
+        foreach ($cities as $c => $b) {
+            $name = HelperPackage::getEnglishName($b['id']);
+            //            array_push($cities[$c],$name);
+            $cities[$c]['name'] = $name['name'];
+            //            array_merge($cities[$c],HelperPackage::getEnglishName($b['id']));
+        }
+
         return $this->render('cities/form', [
-                'editable' => $post2,
-                'editable2' =>$post,
-                'all' => HelperLanguage::getAllLanguage(),
-                'language' =>$ln_code,
-                'parents' =>$parent_city
+                'editable'  => $post2,
+                'editable2' => $post,
+                'all'       => HelperLanguage::getAllLanguage(),
+                'language'  => $ln_code,
+                'cities'    => $cities
         ]);
     }
-    public function actionStore()
-    {
 
+    public function actionStore() {
         $image = (isset($_FILES['image'])) ? $_FILES['image'] : [];
         if (isset($_POST['post'])) {
             $updated = HelperCities::set($_POST['post'], $image);
             if ($updated != false) {
-                return $this->redirect(Yii::$app->request->baseUrl . '/package/city-post/' . Misc::encrypt($updated['language_code'].'-'.$updated['city_id']));
+                return $this->redirect(Yii::$app->request->baseUrl . '/package/city-post/' . Misc::encrypt($updated['language_code'] . '-' . $updated['city_id']));
             }
         }
         return $this->redirect(Yii::$app->request->baseUrl . '/package/cities');
-
     }
+
     public function actionReview() {
 
-        return $this->render('review/index', ['packages' => HelperPackage::getReviews()]);
+        return $this->render('review/index', [
+                'packages' => HelperPackage::getReviews(),
+                'ratings'  => HelperPackage::getRatings()
+        ]);
     }
 
     public function actionRating() {
@@ -264,14 +287,14 @@ class PackageController extends Controller {
     }
 
     public function actionReadReview() {
-//                \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        //                \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if (\Yii::$app->request->isAjax && $_POST['id']) {
             $id = $_POST['id'];
             if ($id > 0) {
                 $model = PackageReview::findOne($id);
 
                 if ($model) {
-                    $package = PackageTranslation::find()->where('package_id='.$model->package_id)->asArray()->one();
+                    $package = PackageTranslation::find()->where('package_id=' . $model->package_id)->asArray()->one();
 
                     $package_name = $package['title'];
                     $name = $model->name;
@@ -282,7 +305,7 @@ class PackageController extends Controller {
                     $date = $model->posted_on;
 
 
-                        $result = "
+                    $result = "
 <div class='row'>
                             <div class='col s6'>
                                   <p><b>Sent On : </b><br>$date</p>
@@ -298,11 +321,11 @@ class PackageController extends Controller {
                                   </div>
                        </div>
                         ";
-                        return json_encode($data = [
-                                'result' => $result,
-                                'id'     => $model->id
-                        ]);
-                    }
+                    return json_encode($data = [
+                            'result' => $result,
+                            'id'     => $model->id
+                    ]);
+                }
             }
 
         }

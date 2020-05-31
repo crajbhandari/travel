@@ -17,40 +17,47 @@ use common\models\Blog;
 use common\models\BlogComments;
 use common\models\CityTranslation;
 use common\models\generated\BlogTranslation;
-use common\models\generated\City;
+use common\models\City;
 use common\models\Sections;
 use phpDocumentor\Reflection\Types\Self_;
 use yii\base\Component;
 
 class HelperCities extends Component {
-public static function getParentName($id,$ln) {
-    $model= CityTranslation::find()->where('city_id =' . $id)->andWhere(['language_code'=>$ln])->asArray()->one();
-if($model == '')
-{
-    return False;
-} else {return $model['name'];}
-}
+    public static function getParentName($id, $ln) {
+        $model = CityTranslation::find()->where('city_id =' . $id)->andWhere(['language_code' => $ln])->asArray()->one();
+
+        if ($model == '') {
+            return false;
+        }
+        else {
+            return $model['name'];
+        }
+    }
+
     public static function getAllCity() {
-        return   $model = City::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
+        return $model = City::find()->orderBy(['id' => SORT_DESC])->asArray()->all();
     }
+
     public static function getSingleCity($id) {
-        return   $model = City::find()->where('id =' . $id)->asArray()->one();
+        return $model = City::find()->where('id =' . $id)->asArray()->one();
     }
+
     public static function getSingleCity2($id) {
-        return  $model = CityTranslation::find()->where('city_id =' . $id)->asArray()->one();
+        return $model = CityTranslation::find()->where('city_id =' . $id)->asArray()->one();
     }
-    public static function getSingleCityTranslation($id,$ln) {
 
-        return  $model = CityTranslation::find()->where('city_id =' . $id)->andwhere(['language_code' => $ln])->with('info')->asArray()->one();
+    public static function getSingleCityTranslation($id, $ln) {
+
+        return $model = CityTranslation::find()->where('city_id =' . $id)->andwhere(['language_code' => $ln])->with('info')->asArray()->one();
 
     }
+
     public static function set($data, $image) {
-
         if (isset($data['id']) && $data['id'] > 0) {
             $model = City::findOne($data['id']);
         }
         else {
-            $model = new \common\models\City();
+            $model = new City();
         }
 
         $model->parent = $data['parent'];
@@ -68,8 +75,8 @@ if($model == '')
         }
         if (!($model->save() == false)) {
             $city_translation_part = HelperCities::setCityTranslation($data, $model->id);
-            if ( isset($city_translation_part) && $city_translation_part!=false) {
-                Misc::setFlash('success', 'Blog Post Updated.');
+            if (isset($city_translation_part) && $city_translation_part != false) {
+                Misc::setFlash('success', 'City Updated.');
                 return $city_translation_part;
             }
 
@@ -86,27 +93,30 @@ if($model == '')
 
     public static function setCityTranslation($data, $id) {
 
+
         if (isset($data['bt_id']) && !empty($data['bt_id'])) {
             $model = CityTranslation::findOne($data['bt_id']);
-            if($model->language_code != $data['language']) {
-                $model = new CityTranslation();
+
+            $model->city_id = $id;
+            $model->language_code = $data['language'];
+            $model->attributes = $data;
+            if (!$model->save()) {
+                return false;
             }
+            return $model;
         }
 
         else {
-            $model = new CityTranslation();
-        }
-        //check language
-        $ln_code = HelperCities::checkLanguage($data);
-        $model->city_id = $id;
-        $model->language_code = $ln_code;
-        $model->attributes = $data;
-
-        if ($model->save()) {
-
-            return $model;
-        }else{
-            print_r($model->getErrors());
+            foreach ($data['name'] as $a => $n) {
+                $model = new CityTranslation();
+                $model->city_id = $id;
+                $model->language_code = $a;
+                $model->name = $n;
+                $model->location = $data['location'];
+                if (!$model->save()) {
+                    return false;
+                }
+             }
         }
 
         return false;

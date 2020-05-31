@@ -25,7 +25,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
       <div class = "card-body">
           <?php $counter = 0; ?>
          <div class = "content-section-wrapper">
-            <div class = "content-section" data-type="package">
+            <div class = "content-section" data-type = "package">
                <div class = "row">
                   <div class = "col-12 col-sm-6 col-md-8">
                      <div class = "form-group">
@@ -74,51 +74,47 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
          <div class = "modal-body">
             <div class = "search-form">
                <div class = "form-group">
-                   <?php $counter++; ?>
-                  <label for = "<?php echo $counter; ?>" class = "control-label">Search</label>
-                  <input type = "text" id = "<?php echo $counter; ?>" value = "" name = "" class = "form-control required">
+                  <input type = "text" id = "search-list" value = "" name = "" class = "form-control search-categories required">
                </div>
             </div>
             <div class = "category-list">
                 <?php $c = 1 ?>
-               <ul>
+               <ul class = "searchable-list">
                   <li>
                      <div class = "c-title">
                         <input type = "checkbox" class = "filled-in" id = "c-<?= $c ?>" checked = "checked"/>
-                        <label for = "c-<?= $c++ ?>"> Filled in </label>
+                        <label class = "keyword" for = "c-<?= $c++ ?>"> Parent 0 </label>
                      </div>
                      <div class = "c-children">
                         <ul>
                            <li>
                               <input type = "checkbox" class = "filled-in" id = "c-<?= $c ?>" checked = "checked"/>
-                              <label for = "c-<?= $c++ ?>"> <span>Filled in</span>
+                              <label class = "keyword" for = "c-<?= $c++ ?>"> <span>Child 1</span>
                               </label>
                            </li>
                            <li>
                               <input type = "checkbox" class = "filled-in" id = "c-<?= $c ?>" checked = "checked"/>
-                              <label for = "c-<?= $c++ ?>"> <span>Filled in</span>
+                              <label class = "keyword" for = "c-<?= $c++ ?>"> <span>child 2</span>
                               </label>
                            </li>
                         </ul>
                      </div>
-
-
                   </li>
                   <li>
                      <div class = "c-title">
                         <input type = "checkbox" class = "filled-in" id = "c-<?= $c ?>" checked = "checked"/>
-                        <label for = "c-<?= $c++ ?>"> Filled in </label>
+                        <label class = "keyword" for = "c-<?= $c++ ?>"> Filled in </label>
                      </div>
                      <div class = "c-children">
                         <ul>
                            <li>
                               <input type = "checkbox" class = "filled-in" id = "c-<?= $c ?>" checked = "checked"/>
-                              <label for = "c-<?= $c++ ?>"> <span>Filled in</span>
+                              <label class = "keyword" for = "c-<?= $c++ ?>"> <span>Filled in</span>
                               </label>
                            </li>
                            <li>
                               <input type = "checkbox" class = "filled-in" id = "c-<?= $c ?>" checked = "checked"/>
-                              <label for = "c-<?= $c++ ?>"> <span>Filled in</span>
+                              <label class = "keyword" for = "c-<?= $c++ ?>"> <span>Filled in</span>
                               </label>
                            </li>
                         </ul>
@@ -128,8 +124,6 @@ $this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/content.js');
                   </li>
                </ul>
             </div>
-
-
          </div>
          <div class = "modal-footer">
             <button type = "button" class = "btn btn-secondary" data-dismiss = "modal">Close</button>

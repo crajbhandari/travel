@@ -74,7 +74,7 @@ trait ActiveRelationTrait
         if (is_object($this->via)) {
             $this->via = clone $this->via;
         } elseif (is_array($this->via)) {
-            $this->via = [$this->via[0], clone $this->via[1]];
+            $this->via = [$this->via[0], clone $this->via[1], $this->via[2]];
         }
     }
 
@@ -105,7 +105,8 @@ trait ActiveRelationTrait
     public function via($relationName, callable $callable = null)
     {
         $relation = $this->primaryModel->getRelation($relationName);
-        $this->via = [$relationName, $relation];
+        $callableUsed = $callable !== null;
+        $this->via = [$relationName, $relation, $callableUsed];
         if ($callable !== null) {
             call_user_func($callable, $relation);
         }
@@ -241,7 +242,7 @@ trait ActiveRelationTrait
                 $viaQuery->asArray($this->asArray);
             }
             $viaQuery->primaryModel = null;
-            $viaModels = $viaQuery->populateRelation($viaName, $primaryModels);
+            $viaModels = array_filter($viaQuery->populateRelation($viaName, $primaryModels));
             $this->filterByModels($viaModels);
         } else {
             $this->filterByModels($primaryModels);

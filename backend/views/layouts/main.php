@@ -173,7 +173,6 @@ AppAsset::register($this);
                      <ul class = "sub-menu" aria-expanded = "false">
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/post">Add New</a></li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/blog/">List</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Review Comments</a></li>
                      </ul>
                   </li>
 
@@ -251,12 +250,10 @@ AppAsset::register($this);
                      <ul class = "sub-menu" aria-expanded = "false">
                         <li><a href = "layouts-horizontal.html">All Packages</a></li>
                         <li><a href = "layouts-light-sidebar.html">Add New Package</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Add Destination</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/category">Package Category</a></li>
+                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/category-post">Add Package Category</a></li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/review">Package Review</a></li>
-                        <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/rating">Package Rating</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Package Category</a></li>
                         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/package/request">Package Request</a></li>
-                        <li><a href = "layouts-compact-sidebar.html">Destination</a></li>
                      </ul>
                   </li>
 

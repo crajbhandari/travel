@@ -200,15 +200,15 @@ class SiteController extends Controller {
             $model = $model_name::findOne($id);
 
             if ($model->is_active == 0) {
-
                     $model->is_active= 1;
-                    $model->updated_at= date('Y-m-d H:i:s');
+//                    $model->updated_at= date('Y-m-d H:i:s');
 
                 }
-            else{  $model->is_active=0;
-                $model->updated_at= date('Y-m-d H:i:s');}
+            else{
+                $model->is_active=0;
+//                $model->updated_at= date('Y-m-d H:i:s');
+                }
                 if ($model->save() == true) {
-
                     return true;
                 }
             }

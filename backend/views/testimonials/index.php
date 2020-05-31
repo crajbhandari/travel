@@ -24,7 +24,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
          <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/testimonials/update/">
 
             <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
-            <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
+            <input type = "hidden" name = "testimonial[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
             <div class = "card">
                <div class = "card-body">
                    <?php $counter = 0; ?>

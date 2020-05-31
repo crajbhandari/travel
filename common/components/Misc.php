@@ -37,7 +37,7 @@ class Misc extends Component {
         /*echo '<ul>';
         self::printTree($tree);
         echo '</ul>';*/
-        return self::json_encode($tree);
+        return $tree;
     }
 
     public static function fetchCategories($type) {

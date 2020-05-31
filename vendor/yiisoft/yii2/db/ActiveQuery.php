@@ -170,16 +170,20 @@ class ActiveQuery extends Query implements ActiveQueryInterface
             } elseif (is_array($this->via)) {
                 // via relation
                 /* @var $viaQuery ActiveQuery */
-                list($viaName, $viaQuery) = $this->via;
+                list($viaName, $viaQuery, $viaCallableUsed) = $this->via;
                 if ($viaQuery->multiple) {
-                    if ($this->primaryModel->isRelationPopulated($viaName)) {
+                    if ($viaCallableUsed) {
+                        $viaModels = $viaQuery->all();
+                    } elseif ($this->primaryModel->isRelationPopulated($viaName)) {
                         $viaModels = $this->primaryModel->$viaName;
                     } else {
                         $viaModels = $viaQuery->all();
                         $this->primaryModel->populateRelation($viaName, $viaModels);
                     }
                 } else {
-                    if ($this->primaryModel->isRelationPopulated($viaName)) {
+                    if ($viaCallableUsed) {
+                        $model = $viaQuery->one();
+                    } elseif ($this->primaryModel->isRelationPopulated($viaName)) {
                         $model = $this->primaryModel->$viaName;
                     } else {
                         $model = $viaQuery->one();
@@ -481,6 +485,16 @@ class ActiveQuery extends Query implements ActiveQueryInterface
             $uniqueJoins[serialize($j)] = $j;
         }
         $this->join = array_values($uniqueJoins);
+
+        // https://github.com/yiisoft/yii2/issues/16092
+        $uniqueJoinsByTableName = [];
+        foreach ($this->join as $config) {
+            $tableName = serialize($config[1]);
+            if (!array_key_exists($tableName, $uniqueJoinsByTableName)) {
+                $uniqueJoinsByTableName[$tableName] = $config;
+            }
+        }
+        $this->join = array_values($uniqueJoinsByTableName);
 
         if (!empty($join)) {
             // append explicit join to joinWith()

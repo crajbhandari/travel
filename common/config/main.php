@@ -39,12 +39,6 @@
                 'class' => 'yii\caching\FileCache',
             ],
 
-            'errorHandler' => [
-                'errorAction' => 'site/error',
-            ],
-            'request'      => array(
-                'enableCsrfValidation' => TRUE,
-            ),
             'session'      => [
                 'timeout' => 60 * 60,
                 'class'   => 'yii\web\DbSession',

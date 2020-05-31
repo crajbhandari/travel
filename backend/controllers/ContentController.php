@@ -52,12 +52,24 @@ class ContentController extends Controller {
      * {@inheritdoc}
      */
     public function actions() {
-        return [
+        return array_merge(parent::actions(), [
                 'error' => [
                         'class'  => 'yii\web\ErrorAction',
                         'layout' => 'error',
                 ],
-        ];
+                'get' => [
+                        'class' => \thecodeholic\yii2grapesjs\actions\GetAction::class,
+                        // If includeFields is presented `excludeFields` are not considered
+                        // 'includeFields' => ['css', 'html'],
+                        // Exclude assets column from returned fields of the Content model
+                        'excludeFields' => ['assets']
+                ],
+                'save' => \thecodeholic\yii2grapesjs\actions\SaveAction::class,
+                'upload' => \thecodeholic\yii2grapesjs\actions\UploadAction::class
+        ]);
+
+
+
     }
 
     /**
@@ -73,7 +85,9 @@ class ContentController extends Controller {
     }
 
     public function actionFetchCategories($type) {
-        return json_encode(Misc::fetchCategories($type), true);
+       echo '<pre>';
+        print_r(Misc::fetchCategories($type));
+   //     return json_encode(Misc::fetchCategories($type), true);
     }
 
     public function actionPage($page) {

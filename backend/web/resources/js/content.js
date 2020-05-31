@@ -28,6 +28,12 @@ $(document).ready(function () {
                return false;
             }
          });
+
+         var options = {
+            valueNames: [ 'name', 'born' ]
+         };
+
+         var userList = new List('users', options);
          modal.modal("show");
 
       });
