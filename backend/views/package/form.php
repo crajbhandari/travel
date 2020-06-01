@@ -116,14 +116,34 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/dropzone/m
                                   <form>
                                      <div class = "row">
                                         <div class = "col-lg-6">
-                                           <div class = "form-group">
+                                           <!-- <div class = "form-group">
                                               <label for = "basicpill-firstname-input">Destination</label>
                                               <select class="select2 form-control required" name = "" id = "">
                                                  <option value = "">Option 1</option>
                                                  <option value = "">Option 2</option>
                                                  <option value = "">Option 3</option>
                                               </select>
-                                           </div>
+                                           </div> -->
+                                           <div class="form-group">
+                                                        <label class="control-label"> Select</label>
+                                                        <select class="form-control select2" style="width: 100%;">
+                                                            <option>Select</option>
+                                                            <optgroup label="Alaskan/Hawaiian Time Zone">
+                                                                <option value="AK">Alaska</option>
+                                                                <option value="HI">Hawaii</option>
+                                                            </optgroup>
+                                                            <optgroup label="Pacific Time Zone">
+                                                                <option value="CA">California</option>
+                                                                <option value="NV">Nevada</option>
+                                                                <option value="OR">Oregon</option>
+                                                                <option value="WA">Washington</option>
+                                                            </optgroup>
+                                                          
+                                                 
+                                                 
+                                                        </select>
+                                                        
+                                                    </div>
                                         </div>
                                         <div class = "col-lg-6">
                                            <div class = "form-group">
