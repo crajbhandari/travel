@@ -108,7 +108,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/datatables
                                  </td>
                                  <td>
                                     <a class="btn btn-primary btn-sm" href = "<?=  Yii::$app->request->baseUrl; ?>/package/city-post/<?= \common\components\Misc::encrypt($l['code'] . '-' . $post['city_id']); ?>" >Edit</a>
-                                    <a href = "javascript:void(0);" class = "delete-item btn btn-danger btn-sm" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "CityTranslation">Delete</a>
+<!--                                    <a href = "javascript:void(0);" class = "delete-item btn btn-danger btn-sm" data-id = "<?php echo \common\components\Misc::encodeUrl($post['id']); ?>" data-tab = "CityTranslation">Delete</a>-->
                                  </td>
                               </tr>
                                <?php $sn++;

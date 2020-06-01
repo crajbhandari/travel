@@ -401,7 +401,13 @@ AppAsset::register($this);
    <script src="<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/tinymce/tinymce.min.js"></script>
 
    <!-- App js -->
-
+   <script type="text/javascript">
+      tinymce.init({
+         selector: '.form-group',
+         inline: true,
+         menubar: true,
+      });
+   </script>
   
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
 
@@ -462,7 +468,7 @@ AppAsset::register($this);
 
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/dropzone/min/dropzone.min.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/pages/form-wizard.init.js"></script>
   
    <?php if (Yii::$app->session->hasFlash('flash')): ?>
