@@ -1,270 +1,164 @@
 <?php
 $this->title = 'Package';
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/plugins.min.js');
-$this->registerJsFile(Yii::$app->request->baseUrl . '/resources/js/autocomplete.js');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu.jquery.css');
-$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/css/slider-menu.theme.jquery.css');
-
+$this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/dropzone/min/dropzone.min.css');
 
 ?>
+<div class = "container-fluid">
 
-<script>
-   var city = <?php echo($city); ?>;
-</script>
-
-
-<style>
-   .modal {
-      width: 70%;
-   }
-
-   .modal img {
-      width: 100%;
-   }
-
-  
-</style>
-
-<div class = "sb2-2">
-   <div class = "sb2-2-2">
-      <ul>
-         <li><a href = "<?php echo Yii::$app->request->baseUrl; ?>/"><i class = "fa fa-home" aria-hidden = "true"></i> Home</a>
-         </li>
-         <li class = "active-bre">
-            <a href = "#">
-                <?php echo (isset($editable['title'])) ? ' <i class="mdi mdi-pencil"></i> ' . $editable['title'] . '' : ' <i class="mdi mdi-add"></i> Add New Package' ?>
-            </a>
-         </li>
-      </ul>
-   </div>
-   <div class = "sb2-2-add-blog sb2-2-1">
-      <div class = "box-inn-sp">
-         <div class = "inn-title">
-            <h4>
-                <?php echo (isset($editable['title'])) ? ' <i class="mdi mdi-pencil"></i> Edit - ' . $editable['title'] . '' : ' <i class="mdi mdi-add"></i> Add New Package' ?>
-            </h4>
-         </div>
-
-         <div class = "bor"
-          >
-         <form enctype = "multipart/form-data" method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/package/update/">
-            <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
-            <input type = "hidden" name = "post[id]" value = "<?php echo (isset($editable['id'])) ? $editable['id'] : '' ?>"/>
-             <?php $counter = 0; ?>
-            <div class = "row" id = "dynamic_field">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <input id = "list-title <?php echo $counter; ?>" name = "post[title]" type = "text" class = "validate" required value = "<?php echo (isset($editable['title'])) ? $editable['title'] : '' ?>">
-                  <label for = "list-title <?php echo $counter; ?>">Title</label>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <input id = "list-title <?php echo $counter; ?>" name = "post[location]" type = "text" class = "validate" required value = "<?php echo (isset($editable['location'])) ? $editable['location'] : '' ?>">
-                  <label for = "list-title <?php echo $counter; ?>">Location</label>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <input id = "list-title <?php echo $counter; ?>" name = "post[duration]" type = "text" class = "validate" required value = "<?php echo (isset($editable['duration'])) ? $editable['duration'] : '' ?>">
-                  <label for = "list-title <?php echo $counter; ?>">Duration</label>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <input id = "list-title <?php echo $counter; ?>" name = "post[discount]" type = "text" class = "validate" required value = "<?php echo (isset($editable['discount'])) ? $editable['discount'] : '' ?>">
-                  <label for = "list-title <?php echo $counter; ?>">Discount</label>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                  <input id = "list-title <?php echo $counter; ?>" name = "post[budget]" type = "text" class = "validate" required value = "<?php echo (isset($editable['budget'])) ? $editable['budget'] : '' ?>">
-                  <label for = "list-title <?php echo $counter; ?>">Budget</label>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                  <input id = "city-autocomplete" name = "post[city]" type = "text" class = "autocomplete validate" required value = "<?php echo (isset($editable['city'])) ? $editable['city'] : '' ?>">
-                  <label for = "city-autocomplete">Destination</label>
-               </div>
-            </div>
-            <div class = "row" style = "margin-top: 40px;">
-               <div class = "input-field col s10">
-                  <textarea name = "post[iframe]" class = "materialize-textarea" id = "textarea1"><?php echo (isset($editable['iframe'])) ? $editable['iframe'] : '' ?></textarea>
-                  <label for = "list-title <?php echo $counter; ?>">Map Location (Copy Paste iframe from google maps)</label>
-               </div>
-               <div class = "input-field col s2">
-                  <a class = "waves-effect waves-light btn modal-trigger" href = "#modal1">Help</a></div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <select id = "<?php echo $counter; ?>" name = "post[visibility]" required>
-                     <option value = "1" <?= (isset($editable['visibility']) && $editable['visibility'] == 1) ? 'selected="selected"' : '' ?>>Visible</option>
-                     <option value = "0" <?= (isset($editable['visibility']) && $editable['visibility'] == 0) ? 'selected="selected"' : '' ?>>Hidden</option>
-                  </select>
-                  <label for = "<?php echo $counter; ?>">Select Visibility</label>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <label for = "<?php echo $counter; ?>">Select Sight Seeing</label><br><br>
-                  <select id = "<?php echo $counter; ?>" name = "post[sight_seeing]" required>
-                     <option value = "0" <?= (isset($editable['sight_seeing']) && $editable['sight_seeing'] == 0) ? 'selected="selected"' : '' ?>>Inactive</option>
-                     <option value = "1" <?= (isset($editable['sight_seeing']) && $editable['sight_seeing'] == 1) ? 'selected="selected"' : '' ?>>Active</option>
-
-                  </select>
-
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <label for = "textarea1 <?php echo $counter; ?>">About The Tour</label>
-                  <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[about]"><?php echo (isset($editable['about_tour'])) ? $editable['about_tour'] : '' ?></textarea>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <label for = "textarea1 <?php echo $counter; ?>">Itinerary</label>
-                  <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[itinerary]"><?php echo (isset($editable['itinerary'])) ? $editable['itinerary'] : '' ?></textarea>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                   <?php $counter++; ?>
-                  <label for = "textarea1 <?php echo $counter; ?>">Description</label>
-                  <textarea id = "textarea1 <?php echo $counter; ?>" class = "summernote" name = "post[info]"><?php echo (isset($editable['info'])) ? $editable['info'] : '' ?></textarea>
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "input-field col s12">
-                  <?php if(isset($category) && !empty($category)) :?>
-                     <p>Selected Category is :: <?php if($category['parent']!='') { echo $category['parent'].'  >  ';} echo $category['child'] ?></p>
-                  <?php endif; ?>
-                  <div class = "row category-wrapper">
-                     <div class = "category-select col-sm-6">
-                        <input type = "hidden" name = "post[pre_category_id]" value = "<?php echo (isset($editable['category'])) ? $editable['category']['id'] : '' ?>" class = "hidden">
-                        <input type = "hidden" name = "post[category_id]" value = "" class = "selected_cat">
-
-                        <div class = "category-select-scroll">
-                           <ul id = "cat-03">
-                              <li style = "float: none;">
-                                 <a class = "has-child" href = "javascript:void(0);">Select a Category</a>
-                                  <?php echo \common\components\HelperPackage::buildCategoryList(0, $category_list) ?>
-                              </li>
-                           </ul>
+    <div class = "row">
+        <div class = "col-lg-12">
+            <div class = "card">
+                <div class = "card-body">
+                    <form method = "post" action = "<?php echo Yii::$app->request->baseUrl; ?>/" enctype = "multipart/form-data">
+                        <input type = "hidden" name = "<?php echo Yii::$app->request->csrfParam; ?>" value = "<?php echo Yii::$app->request->csrfToken; ?>"/>
+                        <?php $counter = 0; ?>
+                        <div class = "row">
+                            <div class = "col-md-6">
+                                <h4 class = "card-title mb-4">Basic pills Wizard</h4>
+                            </div>
+                            <div class = "col-md-6 text-right">
+                                <button type = "submit" class = "btn btn-primary w-xs waves-effect waves-light">Save</button>
+                            </div>
                         </div>
-                     </div>
-                     <div class="col-sm-6" > 
-                <!--      <select class="js-example-basic-single" style="width: 100%" name="state" >
-  <option value="AL">Alabama</option>
-    ...
-  <option value="WY">Wyoming</option>
-</select> -->
-<!--   <select class="js-select2" multiple="multiple" style="width: 100%;">
-        <option value="O1" data-badge="">Option1</option>
-        <option value="O2" data-badge="">Option2</option>
-        <option value="O3" data-badge="">Option3</option>
-        <option value="O4" data-badge="">Option4</option>
-        <option value="O5" data-badge="">Option5</option>
-        <option value="O6" data-badge="">Option6</option>
-        <option value="O7" data-badge="">Option7</option>
-      </select> -->
- 
-   <!--  <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
-      <option value="" disabled selected>Choose your country</option>
-     <optgroup label="team 1">
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-  </optgroup>
-  <optgroup label="team 2">
-    <option value="3">Option 3</option>
-    <option value="4">Option 4</option>
-  </optgroup>
-    </select>
-    <label class="mdb-main-label">Label example</label>
-    <button class="btn-save btn btn-primary btn-sm">Add</button> -->
-    </div>
-  </div>
 
-                       
-                    
-               </div>
-            </div>
-            <div class = "row">
-               <div class = "row">
-                  <div class = "input-field col s12">
-                      <?php $counter++; ?>
-                     <div class = "input-field col s12">
-                        <span id = "img-count">Choose Files</span>
-                     </div>
-                     <div class = "custom-file">
-                        <label class = "custom-file-label" id = "" for = "file-<?php echo $counter; ?>">
-                           <i class = "fa fa-file"></i>
-                           <span id = "hello"></span>
-                        </label>
-                        <input accept = "image/x-png,image/jpeg" multiple type = "file" name = "image[]" class = "custom-file-input pkg-imgs" id = "file-<?php echo $counter; ?>" onchange = "readURL(this);" aria-describedby = "file-<?php echo $counter; ?>" src = "<?php echo (isset($editable['image']) && $editable['image'] != '') ? $editable['image'] : '' ?>">
-                     </div>
-                     <div class = "images">
-                         <?php
-                         $sn = 0;
-                         if (isset($editable['images']) && !empty($editable['images'])) {
-                             $images = json_decode($editable['images']);
-                             foreach ($images as $i => $image) {
-                                 ?>
-                                <div class = "card col s4">
-                                   <img class = "card-img-top" src = "<?php echo (isset($image) && $image != '') ? Yii::$app->request->baseUrl . '/../common/assets/images/uploads/' . $image : '' ?>" alt = "Card image cap">
-                                   <div class = "card-body">
-                                      <a href = "javascript:void();" class = "btn btn-danger remove-image-package" data-tab = "Package" data-for = "<?php echo $editable['id'] ?>" data-id = "<?php echo $sn; ?>">Delete</a>
-                                   </div>
+                        <div id = "basic-pills-wizard" class = "twitter-bs-wizard">
+                            <ul class = "twitter-bs-wizard-nav">
+                                <li class = "nav-item">
+                                    <a href = "#seller-details" class = "nav-link" data-toggle = "tab">
+                                        <span class = "step-number mr-2">01</span>
+                                        General Details
+                                    </a>
+                                </li>
+                               <li class = "nav-item">
+                                  <a href = "#descriptions" class = "nav-link" data-toggle = "tab">
+                                     <span class = "step-number mr-2">02</span>
+                                     Descriptions
+                                  </a>
+                               </li>
+                                <li class = "nav-item">
+                                    <a href = "#company-document" class = "nav-link" data-toggle = "tab">
+                                        <span class = "step-number mr-2">03</span>
+                                        <span>Images</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class = "tab-content twitter-bs-wizard-tab-content">
+                                <div class = "tab-pane" id = "seller-details">
+                                    <form>
+                                        <div class = "row">
+                                            <div class = "col-lg-6">
+                                                <div class = "form-group">
+                                                    <label for = "basicpill-firstname-input">Title</label>
+                                                    <input type = "text" name="post[title]" class = "form-control" id = "basicpill-firstname-input">
+                                                </div>
+                                            </div>
+                                            <div class = "col-lg-6">
+                                                <div class = "form-group">
+                                                    <label for = "basicpill-lastname-input">Location</label>
+                                                    <input type = "text" class = "form-control" name="post[location]" id = "basicpill-lastname-input">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class = "row">
+                                            <div class = "col-lg-6">
+                                                <div class = "form-group">
+                                                    <label for = "basicpill-phoneno-input">Duration</label>
+                                                    <input type = "text" name="post[duration]" class = "form-control" id = "basicpill-phoneno-input">
+                                                </div>
+                                            </div>
+                                            <div class = "col-lg-6">
+                                                <div class = "form-group">
+                                                    <label for = "basicpill-email-input">Discount</label>
+                                                    <input type = "email" name="post[discount]" class = "form-control" id = "basicpill-email-input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                       <div class = "row">
+                                          <div class = "col-lg-6">
+                                             <div class = "form-group">
+                                                <label for = "basicpill-phoneno-input">Budget</label>
+                                                <input type = "text" name="post[budget]" class = "form-control" id = "basicpill-phoneno-input">
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </form>
                                 </div>
-                                 <?php $sn++;
-                             }
-                         } ?>
-                     </div>
-                  </div>
-               </div>
-            </div>
+                               <div class = "tab-pane" id = "descriptions">
+                                  <div class = "row">
+                                     <div class = "col-lg-12">
+                                        <div class = "form-group">
+                                           <label for = "">Description</label>
+                                           <textarea class = "description" id = "elm1" name = "post[description]"></textarea>
+                                        </div>
+                                        <div class = "col-lg-12">
+                                           <div class = "form-group">
+                                              <label for = "">About the Tour</label>
+                                              <textarea class = "description" id = "elm1" name = "post[about_tour]"></textarea>
+                                           </div>
+                                        </div>
+                                        <div class = "col-lg-12">
+                                           <div class = "form-group">
+                                              <label for = "">Itinerary</label>
+                                              <textarea class = "description" id = "elm1" name = "post[itinerary]"></textarea>
+                                           </div>
+                                        </div>
+                                     </div>
+                                  </div>
+                               </div>
 
-            <div class = "row">
-               <div class = "input-field col s12">
-                  <button type = "submit" class = "waves-effect waves-light btn-large">Save</button>
-               </div>
+                               <div class = "tab-pane" id = "company-document">
+                                    <div>
+                                        <form action = "#" class = "dropzone">
+                                            <div class = "fallback">
+                                                <input name = "file" type = "file" multiple = "multiple">
+                                            </div>
+                                            <div class = "dz-message needsclick">
+                                                <div class = "mb-3">
+                                                    <i class = "display-4 text-muted bx bxs-cloud-upload"></i>
+                                                </div>
+                                                <h4>Drop files here or click to upload.</h4>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class = "row">
+                                        <div class = "col-md-6 col-xl-3" style = "margin-top: 20px;">
+                                            <div class = "card" style = "background-color: #EDF0FD">
+                                                <img class = "card-img-top img-fluid" src = "assets/images/small/img-2.jpg" alt = "Card image cap">
+                                                <div class = "card-body" style = "text-align: center">
+                                                    <a href = "#" class = "btn btn-danger waves-effect waves-light">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class = "col-md-6 col-xl-3" style = "margin-top: 20px;">
+                                            <div class = "card" style = "background-color: #EDF0FD">
+                                                <img class = "card-img-top img-fluid" src = "assets/images/small/img-3.jpg" alt = "Card image cap">
+                                                <div class = "card-body" style = "text-align: center">
+                                                    <a href = "#" class = "btn btn-danger waves-effect waves-light">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class = "col-md-6 col-xl-3" style = "margin-top: 20px;">
+                                            <div class = "card" style = "background-color: #EDF0FD">
+                                                <img class = "card-img-top img-fluid" src = "assets/images/small/img-4.jpg" alt = "Card image cap">
+                                                <div class = "card-body" style = "text-align: center">
+                                                    <a href = "#" class = "btn btn-danger waves-effect waves-light">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="pager wizard twitter-bs-wizard-pager-link">
+                                    <li class="previous"><a href="#">Previous</a></li>
+                                    <li class="next"><a href="#">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-         </form>
-      </div>
-   </div>
-</div>
-</div>
-<!-- Modal Structure -->
-<div id = "modal1" class = "modal">
-   <div class = "modal-content">
-      <h4>How to Embed a Google Map In Your Web Page</h4>
-   </div>
-   <div class = "para-content">
-      <p>You can embed a simple map, a set of driving directions, a local search, or maps created by other users. Here's how:</p>
-      <p>1. Once you have your Google Map created, ensure that the map you'd like to embed appears in the current map display.</p>
-      <p>2. Click "Share" at the right of the page.</p>
-      <p>3. In the box that pops up, click "Embed"</p>
-      <p>4. Copy the entire HTML 'iframe' code string and paste it into the HTML code of your web page.</p>
-      <img src = "<?php echo Yii::$app->request->baseUrl; ?>/../common/assets/images/embed-google-map.jpg" alt = ""/>
-   </div>
+        </div>
+    </div>
+
 </div>
 
-<!-- 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-</script> -->
-<!-- <script type="text/javascript">
-  $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
-</script> -->

@@ -84,46 +84,46 @@ class PackageController extends Controller {
     }
 
     public function actionPost($id = '') {
-        $c = HelperPackage::getCategories();
-        $a = HelperPackage::getCities();
-        $cities = [];
-        foreach ($a as $city) {
-            $cities[$city['name']] = null;
-        }
-        $post = [];
-        $category = [];
-        if ($id != '') {
-            $id = Misc::decodeUrl($id);
-            $post = Package::find()
-                           ->where(['id' => $id])
-                           ->asArray()
-                           ->with('category')
-                           ->one();
-
-            if ($post['category'] != '') {
-                $parent_id = $post['category']['parent'];
-                if ($post['category']['parent'] > 0) {
-                    $parent = PackageCategory::find()->where(['id' => $parent_id])->asArray()->one();
-                    $category = [
-                            'child'  => $post['category']['name'],
-                            'parent' => $parent['name']
-                    ];
-                }
-                else {
-                    $category = [
-                            'child'  => $post['category']['name'],
-                            'parent' => ''
-                    ];
-                }
-            }
-        }
+//        $c = HelperPackage::getCategories();
+//        $a = HelperPackage::getCities();
+//        $cities = [];
+//        foreach ($a as $city) {
+//            $cities[$city['name']] = null;
+//        }
+//        $post = [];
+//        $category = [];
+//        if ($id != '') {
+//            $id = Misc::decodeUrl($id);
+//            $post = Package::find()
+//                           ->where(['id' => $id])
+//                           ->asArray()
+//                           ->with('category')
+//                           ->one();
+//
+//            if ($post['category'] != '') {
+//                $parent_id = $post['category']['parent'];
+//                if ($post['category']['parent'] > 0) {
+//                    $parent = PackageCategory::find()->where(['id' => $parent_id])->asArray()->one();
+//                    $category = [
+//                            'child'  => $post['category']['name'],
+//                            'parent' => $parent['name']
+//                    ];
+//                }
+//                else {
+//                    $category = [
+//                            'child'  => $post['category']['name'],
+//                            'parent' => ''
+//                    ];
+//                }
+//            }
+//        }
 
         //        HelperPackage::makeJsonList(HelperPackage::getCities(), 'name')
         return $this->render('form', [
-                'category'      => $category,
-                'category_list' => $c,
-                'city'          => json_encode($cities),
-                'editable'      => $post,
+//                'category'      => $category,
+//                'category_list' => $c,
+//                'city'          => json_encode($cities),
+//                'editable'      => $post,
         ]);
     }
 

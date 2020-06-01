@@ -409,6 +409,20 @@ AppAsset::register($this);
 
    <!-- App js -->
 
+   <script type = "text/javascript">
+/*
+      This cannot be done here.
+            This will initialize tinymice on all .form-group elements which is a standard bootstrap class
+            This has to go into app.js or a different JS file depending if has been implemented in more than one file
+*/
+
+      /*tinymce.init({
+         selector: '.form-group',
+         inline: true,
+         menubar: true,
+      });*/
+   </script>
+
 
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
 
@@ -471,7 +485,7 @@ AppAsset::register($this);
 
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-
+   <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/dropzone/min/dropzone.min.js"></script>
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/js/pages/form-wizard.init.js"></script>
 
    <!--  Additional JS Files Go Here-->
