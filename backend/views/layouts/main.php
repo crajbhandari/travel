@@ -45,6 +45,7 @@ AppAsset::register($this);
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/icons.min.css" rel = "stylesheet" type = "text/css"/>
       <!-- App Css-->
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/app.min.css" id = "app-style" rel = "stylesheet" type = "text/css"/>
+      <link href="<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 
       <!-- This is where page wise CSS will show up  -->
        <?php $this->head() ?>
@@ -414,11 +415,13 @@ AppAsset::register($this);
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
 
 
-   <!-- <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-advanced.init.js"></script>  -->
+    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-advanced.init.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-editor.init.js"></script>
 
    <script src="<?= Yii::$app->request->baseUrl; ?>/resources/libs/summernote/summernote-bs4.min.js"></script>
    <!-- CSRF TOKEN -->
+
+   <script src="<?= Yii::$app->request->baseUrl; ?>/resources/libs/select2/js/select2.min.js"></script>
    <script>
       $.ajaxSetup({
          data: {

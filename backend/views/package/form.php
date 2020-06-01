@@ -35,9 +35,15 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/dropzone/m
                                      Descriptions
                                   </a>
                                </li>
+                               <li class = "nav-item">
+                                  <a href = "#selection" class = "nav-link" data-toggle = "tab">
+                                     <span class = "step-number mr-2">03</span>
+                                     Selections
+                                  </a>
+                               </li>
                                 <li class = "nav-item">
                                     <a href = "#company-document" class = "nav-link" data-toggle = "tab">
-                                        <span class = "step-number mr-2">03</span>
+                                        <span class = "step-number mr-2">04</span>
                                         <span>Images</span>
                                     </a>
                                 </li>
@@ -105,6 +111,43 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/dropzone/m
                                         </div>
                                      </div>
                                   </div>
+                               </div>
+                               <div class = "tab-pane" id = "selection">
+                                  <form>
+                                     <div class = "row">
+                                        <div class = "col-lg-6">
+                                           <div class = "form-group">
+                                              <label for = "basicpill-firstname-input">Destination</label>
+                                              <select class="select2 form-control required" name = "" id = "">
+                                                 <option value = "">Option 1</option>
+                                                 <option value = "">Option 2</option>
+                                                 <option value = "">Option 3</option>
+                                              </select>
+                                           </div>
+                                        </div>
+                                        <div class = "col-lg-6">
+                                           <div class = "form-group">
+                                              <label for = "basicpill-lastname-input">Location</label>
+                                              <input type = "text" class = "form-control" name="post[location]" id = "basicpill-lastname-input">
+                                           </div>
+                                        </div>
+                                     </div>
+
+                                     <div class = "row">
+                                        <div class = "col-lg-6">
+                                           <div class = "form-group">
+                                              <label for = "basicpill-phoneno-input">Duration</label>
+                                              <input type = "text" name="post[duration]" class = "form-control" id = "basicpill-phoneno-input">
+                                           </div>
+                                        </div>
+                                        <div class = "col-lg-6">
+                                           <div class = "form-group">
+                                              <label for = "basicpill-email-input">Discount</label>
+                                              <input type = "email" name="post[discount]" class = "form-control" id = "basicpill-email-input">
+                                           </div>
+                                        </div>
+                                     </div>
+                                  </form>
                                </div>
 
                                <div class = "tab-pane" id = "company-document">
