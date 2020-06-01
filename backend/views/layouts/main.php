@@ -401,13 +401,15 @@ AppAsset::register($this);
    <script src="<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/tinymce/tinymce.min.js"></script>
 
    <!-- App js -->
-   <script type="text/javascript">
+  <!--  <script type="text/javascript">
       tinymce.init({
-         selector: '.form-group',
+         selector: 'group2',
          inline: true,
          menubar: true,
       });
-   </script>
+   </script> -->
+  
+     
   
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
 

@@ -91,16 +91,16 @@ $this->registerCssFile(Yii::$app->request->baseUrl . '/resources/libs/dropzone/m
                                            <label for = "">Description</label>
                                            <textarea class = "description" id = "elm1" name = "post[description]"></textarea>
                                         </div>
-                                        <div class = "col-lg-12">
+                                        <div class = "">
                                            <div class = "form-group">
                                               <label for = "">About the Tour</label>
-                                              <textarea class = "description" id = "elm1" name = "post[about_tour]"></textarea>
+                                              <textarea class = "description1" id = "elm2" name = "post[about_tour]"></textarea>
                                            </div>
                                         </div>
-                                        <div class = "col-lg-12">
+                                        <div class = "">
                                            <div class = "form-group">
                                               <label for = "">Itinerary</label>
-                                              <textarea class = "description" id = "elm1" name = "post[itinerary]"></textarea>
+                                              <textarea class = "description" id = "elm3" name = "post[itinerary]"></textarea>
                                            </div>
                                         </div>
                                      </div>
