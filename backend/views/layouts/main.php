@@ -24,6 +24,8 @@ AppAsset::register($this);
       <!--== FAV ICON ==-->
       <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl ?>/../common/assets/images/uploads/fav.png">
 
+      <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/select2/css/select2.min.css" rel = "stylesheet" type = "text/css"/>
+
       <!-- DataTables -->
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
@@ -38,6 +40,7 @@ AppAsset::register($this);
       <!-- App favicon -->
       <link rel = "shortcut icon" href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/images/favicon.ico">
 
+
       <!-- Bootstrap Css -->
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/bootstrap.min.css" id = "bootstrap-style" rel = "stylesheet" type = "text/css"/>
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/style.css" id = "bootstrap-style" rel = "stylesheet" type = "text/css"/>
@@ -46,11 +49,15 @@ AppAsset::register($this);
       <!-- App Css-->
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/app.min.css" id = "app-style" rel = "stylesheet" type = "text/css"/>
 
+      <link href = "https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel = "stylesheet"/>
+
       <!-- This is where page wise CSS will show up  -->
        <?php $this->head() ?>
 
       <link href = "<?php echo Yii::$app->request->baseUrl; ?>/resources/css/overrides.css" rel = "stylesheet">
-      <link href = "https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel = "stylesheet"/>
+
+      <!--   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> -->
+
       <!--    <script src = "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
       <!--    <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
       <script>
@@ -410,28 +417,35 @@ AppAsset::register($this);
    <!-- App js -->
 
    <script type = "text/javascript">
-/*
-      This cannot be done here.
-            This will initialize tinymice on all .form-group elements which is a standard bootstrap class
-            This has to go into app.js or a different JS file depending if has been implemented in more than one file
-*/
+      /*
+            This cannot be done here.
+                  This will initialize tinymice on all .form-group elements which is a standard bootstrap class
+                  This has to go into app.js or a different JS file depending if has been implemented in more than one file
+      */
 
       /*tinymce.init({
          selector: '.form-group',
          inline: true,
          menubar: true,
+
       });*/
    </script>
 
 
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/select2/js/select2.min.js"></script>
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-advanced.init.js"></script>
+
+
+   >>>>>>> 52b00075b705cde36754e7de3fd79ad1470776e2
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/app.js"></script>
 
 
-   <!-- <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-advanced.init.js"></script>  -->
+   <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-advanced.init.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/pages/form-editor.init.js"></script>
 
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/summernote/summernote-bs4.min.js"></script>
    <!-- CSRF TOKEN -->
+
    <script>
       $.ajaxSetup({
          data: {
@@ -439,19 +453,20 @@ AppAsset::register($this);
          }
       });
    </script>
+
    <?php if (Yii::$app->session->hasFlash('flash')): ?>
       <script>
          notifyFlash(<?= Yii::$app->session->getFlash('flash'); ?>);
       </script>
    <?php endif; ?>
+
+   <!--   Put this in app.js -->
    <script>
       $(document).ready(function () {
          $('.js-example-basic-multiple').select2();
       });
    </script>
 
-
-   <!-- Buttons examples -->
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net/js/jquery.dataTables.min.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 
@@ -476,6 +491,7 @@ AppAsset::register($this);
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
    <!-- Sweet Alerts js -->
+
    <script src = "<?php echo Yii::$app->request->baseUrl; ?>/resources/libs/sweetalert/sweetalert.min.js"></script>
 
    <!-- Sweet alert init js-->
@@ -496,6 +512,7 @@ AppAsset::register($this);
    <?php $this->endBody() ?>
 
    <script src = "<?= Yii::$app->request->baseUrl; ?>/resources/js/custom.js"></script>
+
    </body>
    </html>
 
